@@ -1,0 +1,16 @@
+{
+    "autoload": {
+	    "psr-4": {
+	        "api\\": "api/",
+            "webpage\\": "webpage/",
+            "database\\": "database/",
+            "router\\": "router/",
+            "models\\": "models/"
+	    }
+	},
+    "require": {
+        "vlucas/phpdotenv": "^5.3",
+        "illuminate/database": "^8.51",
+        "bramus/router": "~1.5"
+    }
+}
