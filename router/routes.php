@@ -10,11 +10,28 @@ $router = new \Bramus\Router\Router();
 
 // API ROUTES
 
-$router->get('/api/users', function () {
+//index
+$router->get('/server/users', function () {//TODO itt miert nem lehet api/users hasznalni?
     UserApiController::index();
-    $t = 1;
-
 });
+
+//show
+$router->get('/server/users/{id}', function ($id) {
+    UserApiController::show($id);
+});
+
+//store
+$router->post('/server/users', function () {
+    UserApiController::store();
+});
+
+
+
+
+
+
+
+
 
 
 //WEBPAGE ROUTES
