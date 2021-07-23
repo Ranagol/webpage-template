@@ -25,6 +25,16 @@ $router->post('/server/users', function () {
     UserApiController::store();
 });
 
+//update
+$router->put('/server/users', function () {
+    UserApiController::update();
+});
+
+//delete
+$router->delete('/server/users/{id}', function ($id) {
+    UserApiController::delete($id);
+});
+
 
 
 

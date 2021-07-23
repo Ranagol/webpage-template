@@ -36,20 +36,44 @@ class UserApiController extends ApiController
      */
     public static function store()
     {
-        $rawJsonData = file_get_contents('php://input');
-        $rawJsonData = str_replace([PHP_EOL, ",}"], ["", "}"], $rawJsonData);
-        $request = json_decode($rawJsonData, false);
-        User::insert([
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
+        $request = self::getDataFromRequest();
+        $user = new User();
+        self::setUserValuesInDb($user, $request);
         $savedUserId = User::orderBy('id', 'desc')->first()->id;
         self::createResponse($savedUserId);
     }
 
-    
+    public static function update()
+    {
+        $request = self::getDataFromRequest();
+        $user = User::find($request->id);
+        self::setUserValuesInDb($user, $request);
+        self::createResponse('id ' . $request->id . ' was deleted.');
+    }
+
+    public static function delete($id)
+    {
+        User::destroy($id);
+        self::createResponse('id ' . $id . ' was deleted.');
+    }
+
+    private static function setUserValuesInDb(User $user, Object $request)
+    {
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+    }
+
+    private static function getDataFromRequest()
+    {
+        $rawJsonData = file_get_contents('php://input');
+        $rawJsonData = str_replace([PHP_EOL, ",}"], ["", "}"], $rawJsonData);
+        $request = json_decode($rawJsonData, false);
+
+        return $request;
+    }
 
     private static function createResponse($data)
     {
