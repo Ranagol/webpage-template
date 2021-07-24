@@ -3,29 +3,22 @@
 namespace app\apiControllers;
 
 use app\models\User;
+use System\JsonRequest;
 use app\apiControllers\ApiController;
+use System\JsonResponse;
 
 class UserApiController extends ApiController
 {
-    /**
-     * When we want to create a json response in our vanilla api, we
-     * must do two things.
-     * 1. the needed data has to be transformed into json, with json_encode
-     * 2. we must tell php the handle our response as a json. We do this by setting the header like
-     * header("Content-Type: application/json");
-     *
-     * @return void
-     */
-    public static function index()
+    public function index()
     {
         $users = User::all();
-        self::createResponse($users);
+        JsonResponse::send($users);
     }
 
-    public static function show($id)
+    public function show($id)
     {
         $user = User::find($id);
-        self::createResponse($user);
+        JsonResponse::send($user);
     }
 
     /**
@@ -34,55 +27,27 @@ class UserApiController extends ApiController
      *
      * @return void
      */
-    public static function store()
+    public function store(JsonRequest $request)
     {
-        $request = self::getDataFromRequest();
-        $user = new User();
-        self::setUserValuesInDb($user, $request);
+        $arrayRequestData = $request->getAllRequestData();
+        User::create($arrayRequestData);
         $savedUserId = User::orderBy('id', 'desc')->first()->id;
-        self::createResponse($savedUserId);
+        JsonResponse::send($savedUserId);
     }
 
-    public static function update()
+    public function update(JsonRequest $request)
     {
-        $request = self::getDataFromRequest();
-        $user = User::find($request->id);
-        self::setUserValuesInDb($user, $request);
-        self::createResponse('id ' . $request->id . ' was updated.');
+        $id = $request->get('id');
+        $user = User::find($id);
+        $data = $request->getAllRequestData();
+        unset ($data['id']);//because we don't want to update the user id...
+        $user->update($data);
+        JsonResponse::send('id ' . $id . ' was updated.');
     }
 
-    public static function delete($id)
+    public function delete($id)
     {
         User::destroy($id);
-        self::createResponse('id ' . $id . ' was deleted.');
-    }
-
-    private static function setUserValuesInDb(User $user, Object $request)
-    {
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-    }
-
-    private static function getDataFromRequest()
-    {
-        $rawJsonData = file_get_contents('php://input');
-        $rawJsonData = str_replace([PHP_EOL, ",}"], ["", "}"], $rawJsonData);
-        $request = json_decode($rawJsonData, false);
-
-        return $request;
-    }
-
-    private static function createResponse($data)
-    {
-        $response['status_code_header'] = 'HTTP/1.1 200 OK';
-        $response['body'] = json_encode($data);
-
-        header("Content-Type: application/json");
-        if ($response['body']) {
-            echo $response['body'];//TODO hogy kell helyesen response-ot csinalni itt?
-        }
+        JsonResponse::send('id ' . $id . ' was deleted.');
     }
 }

@@ -3,6 +3,7 @@
 use app\WebControllers\PageController;
 use app\apiControllers\UserApiController;
 use app\WebControllers\UserWebController;
+use System\JsonRequest;
 
 // Require composer autoloader
 // require __DIR__ . '/vendor/autoload.php';
@@ -24,15 +25,34 @@ $router->get('/server/users/{id}', function ($id) {
 
 //store
 $router->post('/server/users', function () {
-    UserApiController::store();
+    UserApiController::store(new JsonRequest());
 });
 
-//update
+
+/**
+ * update
+ * 
+ * We are sending the request data (from the request body) 
+ * to the controller with the 
+ * the 'new JsonRequest() line. Reminder: JsonRequest has acces to 
+ * request data. JsonRequest  is used like this only for store and update,
+ * since only for these two we have the data in the request body, all other
+ * request have their data in the url.
+ */
 $router->put('/server/users', function () {
-    UserApiController::update();
+    UserApiController::update(new JsonRequest());
 });
 
-//delete
+/**
+ * delete 
+ * 
+ * We are sending the request data (from the request body) 
+ * to the controller with the 
+ * the 'new JsonRequest() line. Reminder: JsonRequest has acces to 
+ * request data. JsonRequest  is used like this only for store and update,
+ * since only for these two we have the data in the request body, all other
+ * request have their data in the url.
+ */
 $router->delete('/server/users/{id}', function ($id) {
     UserApiController::delete($id);
 });
@@ -56,19 +76,38 @@ $router->get('/contact', function () {
     PageController::contact();
 });
 
+//************************** */
+
 //show all users
 $router->get('/users', function () {
     UserWebController::index();
 });
 
-//show individual users 
+
+/**
+ * go to the create user page
+ * Now, for some misterious reason, the users/create route must be before
+ * 'show' /users/{id} route.
+ * Otherwise, the show page will be activated instead of the create page.
+ */
+$router->get('/users/create', function () {
+    UserWebController::create();
+});
+
+
+/**
+ * show individual users 
+ *  * Now, for some misterious reason, the users/create route must be before
+ * 'show' /users/{id} route.
+ * Otherwise, the show page will be activated instead of the create page.
+ */
 $router->get('/users/{id}', function ($id) {
     UserWebController::show($id);
 });
 
-//create user 
+//save user 
 $router->post('/users', function () {
-    UserWebController::store();
+    UserWebController::store(new Request());
 });
 
 //update user

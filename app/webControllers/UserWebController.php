@@ -1,6 +1,6 @@
 <?php
 
-namespace app\WebControllers;
+namespace App\WebControllers;
 
 use app\models\User;
 use app\WebControllers\WebController;
@@ -21,9 +21,13 @@ class UserWebController extends WebController
         return view('show', compact('user'));
     }
 
-    public static function store()
+    public static function create()
     {
         return view('create');
+    }   
+
+    public static function store(Request $request)
+    {
     }   
 
     public static function update()
@@ -45,5 +49,5 @@ class UserWebController extends WebController
         User::destroy($id);
 
         return redirect('users');//this is a route, not a file
-    }   
+    }
 }
