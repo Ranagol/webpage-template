@@ -2,6 +2,7 @@
 
 use app\WebControllers\PageController;
 use app\apiControllers\UserApiController;
+use app\WebControllers\UserWebController;
 
 // Require composer autoloader
 // require __DIR__ . '/vendor/autoload.php';
@@ -73,6 +74,17 @@ $router->post('/users', function () {
 //update user
 $router->patch('/users/{id}', function ($id) {
     UserWebController::update($id);
+});
+
+/**
+ * delete user
+ * 
+ * Most browser do not support DELETE as method parameter for <form ...>
+ * Source: https://stackoverflow.com/questions/33785415/deleting-a-file-on-server-by-delete-form-method
+ * So instead of DELETE method, we use POST method
+ */
+$router->post('/users/{id}', function ($id) {
+    UserWebController::delete($id);
 });
 
 
