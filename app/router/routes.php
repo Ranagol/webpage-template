@@ -1,6 +1,6 @@
 <?php
 
-use api\controllers\UserApiController;
+use app\apiControllers\UserApiController;
 
 // Require composer autoloader
 // require __DIR__ . '/vendor/autoload.php';

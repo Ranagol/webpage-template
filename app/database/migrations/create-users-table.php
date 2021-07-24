@@ -1,9 +1,7 @@
 <?php  
 require './../../vendor/autoload.php';
 
-
 use Dotenv\Dotenv;
-
 
 //dotenv setup
 $dotenv = Dotenv::createImmutable(__DIR__);//Create a new immutable dotenv instance with default repository

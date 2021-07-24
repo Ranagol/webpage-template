@@ -1,11 +1,7 @@
 {
     "autoload": {
 	    "psr-4": {
-	        "api\\": "api/",
-            "webpage\\": "webpage/",
-            "database\\": "database/",
-            "router\\": "router/",
-            "models\\": "models/"
+	        "app\\": "app/"
 	    }
 	},
     "require": {

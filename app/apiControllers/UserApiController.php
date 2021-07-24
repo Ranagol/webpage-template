@@ -1,9 +1,9 @@
 <?php
 
-namespace api\controllers;
+namespace app\apiControllers;
 
-use models\User;
-use api\controllers\ApiController;
+use app\models\User;
+use app\apiControllers\ApiController;
 
 class UserApiController extends ApiController
 {
@@ -48,7 +48,7 @@ class UserApiController extends ApiController
         $request = self::getDataFromRequest();
         $user = User::find($request->id);
         self::setUserValuesInDb($user, $request);
-        self::createResponse('id ' . $request->id . ' was deleted.');
+        self::createResponse('id ' . $request->id . ' was updated.');
     }
 
     public static function delete($id)
