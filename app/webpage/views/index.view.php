@@ -1,6 +1,6 @@
 <?php require 'app/webpage/views/partials/header.php';?>
 
-<h1>Home page</h1>
-<p>This is our home page.</p>
+<h1>List of all users</h1>
+
 
 <?php require 'app/webpage/views/partials/footer.php';?>

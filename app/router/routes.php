@@ -1,5 +1,6 @@
 <?php
 
+use app\WebControllers\PageController;
 use app\apiControllers\UserApiController;
 
 // Require composer autoloader
@@ -8,7 +9,7 @@ use app\apiControllers\UserApiController;
 // Create Router instance
 $router = new \Bramus\Router\Router();
 
-// API ROUTES
+// API ROUTES********************************************************************************
 
 //index
 $router->get('/server/users', function () {//TODO itt miert nem lehet api/users hasznalni?
@@ -37,22 +38,56 @@ $router->delete('/server/users/{id}', function ($id) {
 
 
 
+//WEBPAGE ROUTES***********************************************************************
 
-
-
-
-
-
-
-//WEBPAGE ROUTES
-
-
+//home page
 $router->get('/', function () {
-    echo 'Homepage';
+    PageController::home();
 }); 
 
+//about page
+$router->get('/about', function () {
+    PageController::about();
+});
 
-// Custom 404 Handler
+//contact page 
+$router->get('/contact', function () {
+    PageController::contact();
+});
+
+//show all users
+$router->get('/users', function () {
+    UserWebController::index();
+});
+
+//show individual users 
+$router->get('/users/{id}', function ($id) {
+    UserWebController::show($id);
+});
+
+//create user 
+$router->post('/users', function () {
+    UserWebController::store();
+});
+
+//update user
+$router->patch('/users/{id}', function ($id) {
+    UserWebController::update($id);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Custom 404 Handler*********************************************************************
 $router->set404(function () {
     header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
     echo '404, route not found!';

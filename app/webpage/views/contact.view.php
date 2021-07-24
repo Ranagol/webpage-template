@@ -1,5 +1,3 @@
-<?php require('partials/head.php'); ?>
-
+<?php require 'app/webpage/views/partials/header.php';?>
 	<h1>Contact us</h1>
-
-<?php require('partials/footer.php'); ?>
+	<?php require 'app/webpage/views/partials/footer.php';?>
