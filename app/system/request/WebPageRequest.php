@@ -1,6 +1,8 @@
 <?php
 
-namespace app\System;
+namespace app\System\request;
+
+use app\system\request\AbstractRequest;
 
 /**
  * This class gets the request data sent from the webpage (and not api).

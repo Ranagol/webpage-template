@@ -14,17 +14,33 @@ $router = new \Bramus\Router\Router();
 
 // API ROUTES********************************************************************************
 
-//index
+/**
+ * INDEX
+ */
 $router->get('/server/users', function () {//TODO itt miert nem lehet api/users hasznalni?
     UserApiController::index();
 });
 
-//show
+/**
+ * SHOW
+ * There are two ways how a controller can get request data.
+ * 1. From the url, with the help of the bramus router, just what is happening here in the show.
+ * 2. From the ApiRequest class, in the store(), below.
+ */
 $router->get('/server/users/{id}', function ($id) {
     UserApiController::show($id);
 });
 
-//store
+/**
+ * STORE()
+ * 
+ * Question: how will the controller access the data from a post request?
+ * When the bramus router receives a post api request to /servers/users,
+ * it activates the controller, and as an argumenet sends the controller a 
+ * newly created ApiRequest object. During creation, the ApiRequest object 
+ * automatically gets the request data, and this data will be stored in the 
+ * ApiRequest object. Which is passed as an argument to the controller.
+ */
 $router->post('/server/users', function () {
     UserApiController::store(new ApiRequest());
 });
@@ -42,7 +58,6 @@ $router->post('/server/users', function () {
  */
 $router->put('/server/users', function () {
     UserApiController::update(new ApiRequest());
-    $r = 4;
 });
 
 /**
@@ -88,6 +103,7 @@ $router->get('/users', function () {
 
 /**
  * go to the create user page
+ * 
  * Now, for some misterious reason, the users/create route must be before
  * 'show' /users/{id} route.
  * Otherwise, the show page will be activated instead of the create page.
@@ -97,11 +113,9 @@ $router->get('/users/create', function () {
     UserWebController::create();
 });
 
-
-
-
 /**
- * show individual users 
+ * show individual users
+ *  
  *  * Now, for some misterious reason, the users/create route must be before
  * 'show' /users/{id} route.
  * Otherwise, the show page will be activated instead of the create page.
@@ -119,6 +133,7 @@ $router->post('/users', function () {
 
 /**
  * UPDATE user
+ * 
  * There is no PUT in php. And in bramus router either. So we 
  * fake put here with post method.
  */
@@ -133,7 +148,8 @@ $router->post('/users/{id}', function ($id) {
  * Source: https://stackoverflow.com/questions/33785415/deleting-a-file-on-server-by-delete-form-method
  * So instead of DELETE method, we use POST method
  */
-$router->post('/users/{id}', function ($id) {
+$router->post('/user/delete/{id}', function ($id) {
+    echo 'delete route activated';
     UserWebController::delete($id);
 });
 

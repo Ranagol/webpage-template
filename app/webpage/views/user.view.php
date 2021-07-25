@@ -66,7 +66,7 @@ Otherwise said we use post for creating user and for updating user too. -->
       $buttonText = $desiredView === 'create' ? 'Create user' : 'Update user';
     ?>
 
-    <button type="Create user" class="btn btn-primary"><?= $buttonText ?></button>
+    <button type="submit" class="btn btn-primary"><?= $buttonText ?></button>
 </form>
 
 <?php require 'app/webpage/views/partials/footer.php';?>

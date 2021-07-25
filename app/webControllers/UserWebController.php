@@ -4,7 +4,8 @@ namespace App\WebControllers;
 
 use app\models\User;
 use app\WebControllers\WebController;
-use app\system\request\WebPageRequest;
+use Illuminate\Support\Facades\Request;
+use app\system\request\RequestInterface;
 
 class UserWebController extends WebController
 {
@@ -35,7 +36,7 @@ class UserWebController extends WebController
         return view('user', compact('desiredView'));
     }   
 
-    public static function store(Request $request)
+    public static function store(RequestInterface $request)
     {
         $requestDataArray = $request->getAllRequestData();
         User::create($requestDataArray);
@@ -43,9 +44,9 @@ class UserWebController extends WebController
         redirect('users');
     }   
 
-    public static function update($id, Request $request)
+    public static function update($id, RequestInterface $request)
     {
-        echo 'update activated';
+        echo 'update controller activated';
         $user = User::find($id);
         $data = $request->getAllRequestData();
         $user->update($data);
@@ -63,6 +64,7 @@ class UserWebController extends WebController
      */
     public static function delete($id)
     {
+        echo 'delete controller activated';
         User::destroy($id);
 
         return redirect('users');//this is a route, not a file

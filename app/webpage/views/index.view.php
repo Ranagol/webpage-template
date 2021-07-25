@@ -27,8 +27,8 @@
  * Source: https://stackoverflow.com/questions/33785415/deleting-a-file-on-server-by-delete-form-method
  * So instead of DELETE method, we use POST method
                  -->
-                <form method='POST' action='/users/<?= $user->id; ?>'>
-                    <button class='btn btn-outline-danger btn-small'>Delete</button>
+                <form method='POST' action='/user/delete/<?= $user->id; ?>'>
+                    <button type='submit' class='btn btn-outline-danger btn-small'>Delete</button>
                 </form>
             </td>
         </tr>

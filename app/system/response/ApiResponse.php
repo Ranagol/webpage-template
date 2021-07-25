@@ -2,7 +2,9 @@
 
 namespace app\system\response;
 
-class ApiResponse
+use app\system\response\ResponseInterface;
+
+class ApiResponse implements ResponseInterface
 {
 	/**
 	 * Notice that this is a constant!
