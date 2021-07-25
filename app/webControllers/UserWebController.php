@@ -4,6 +4,7 @@ namespace App\WebControllers;
 
 use app\models\User;
 use app\WebControllers\WebController;
+use app\System\Request;
 
 class UserWebController extends WebController
 {
@@ -21,6 +22,11 @@ class UserWebController extends WebController
         return view('show', compact('user'));
     }
 
+    /**
+     * Only returns the form for creating, it does not actually creates a user. 
+     *
+     * @return void
+     */
     public static function create()
     {
         return view('create');
@@ -28,11 +34,20 @@ class UserWebController extends WebController
 
     public static function store(Request $request)
     {
+        $requestDataArray = $request->getAllRequestData();
+        User::create($requestDataArray);
+        $savedUserId = User::orderBy('id', 'desc')->first()->id;
+        redirect('users');
     }   
 
     public static function update()
     {
-        return view('update');
+        $id = $request->get('id');
+        $user = User::find($id);
+        $data = $request->getAllRequestData();
+        unset ($data['id']);//because we don't want to update the user id...
+        $user->update($data);
+        redirect('users');
     }   
 
     /**

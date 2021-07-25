@@ -1,8 +1,8 @@
 <?php
 
-namespace System;
+namespace app\System;
 
-use System\AbstractRequest;
+use app\System\AbstractRequest;
 
 class JsonRequest extends AbstractRequest
 {

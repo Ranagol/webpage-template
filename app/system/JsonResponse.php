@@ -1,6 +1,6 @@
 <?php
 
-namespace System;
+namespace app\System;
 
 class JsonResponse
 {

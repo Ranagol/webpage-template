@@ -3,16 +3,16 @@
 <h1>Show page</h1>
 
 <p>User id:
-    <?= $user->id; ?> 
+    <?= $user->id; ?>
 </p>
 
 <p>User name:
-    <?= $user->firstname; ?> 
+    <?= $user->firstname; ?>
     <?= $user->lastname; ?>
-</p>    
+</p>
 
 <p>User email:
-    <?= $user->email; ?> 
-</p>    
+    <?= $user->email; ?>
+</p>
 
 <?php require 'app/webpage/views/partials/footer.php';?>

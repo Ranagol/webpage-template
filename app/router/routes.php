@@ -3,7 +3,8 @@
 use app\WebControllers\PageController;
 use app\apiControllers\UserApiController;
 use app\WebControllers\UserWebController;
-use System\JsonRequest;
+use app\System\JsonRequest;
+use app\System\Request;
 
 // Require composer autoloader
 // require __DIR__ . '/vendor/autoload.php';
@@ -89,6 +90,7 @@ $router->get('/users', function () {
  * Now, for some misterious reason, the users/create route must be before
  * 'show' /users/{id} route.
  * Otherwise, the show page will be activated instead of the create page.
+ * DO NOT CHANGE THE ORDER OF THE CREATE AND SHOW!
  */
 $router->get('/users/create', function () {
     UserWebController::create();
@@ -100,6 +102,7 @@ $router->get('/users/create', function () {
  *  * Now, for some misterious reason, the users/create route must be before
  * 'show' /users/{id} route.
  * Otherwise, the show page will be activated instead of the create page.
+ *  * DO NOT CHANGE THE ORDER OF THE CREATE AND SHOW!
  */
 $router->get('/users/{id}', function ($id) {
     UserWebController::show($id);
@@ -107,6 +110,7 @@ $router->get('/users/{id}', function ($id) {
 
 //save user 
 $router->post('/users', function () {
+    var_dump('store activated');
     UserWebController::store(new Request());
 });
 
