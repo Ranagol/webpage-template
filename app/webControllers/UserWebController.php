@@ -18,8 +18,9 @@ class UserWebController extends WebController
     public static function show($id)
     {
         $user = User::find($id);
+        $desiredView = 'show';
 
-        return view('show', compact('user'));
+        return view('user', compact('user', 'desiredView'));
     }
 
     /**
@@ -29,7 +30,9 @@ class UserWebController extends WebController
      */
     public static function create()
     {
-        return view('create');
+        $desiredView = 'create';
+
+        return view('user', 'desiredView');
     }   
 
     public static function store(Request $request)
@@ -40,7 +43,7 @@ class UserWebController extends WebController
         redirect('users');
     }   
 
-    public static function update()
+    public static function update()//**************ITT HAGYTAM ABBA */
     {
         $id = $request->get('id');
         $user = User::find($id);
