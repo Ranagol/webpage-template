@@ -1,8 +1,8 @@
 <?php
 
-namespace app\System;
+namespace app\system\response;
 
-class JsonResponse
+class ApiResponse
 {
 	/**
 	 * Notice that this is a constant!
@@ -68,7 +68,7 @@ class JsonResponse
         $response['status_code_header'] = $serverProtocol . ' ' . $statusCode;
         $response['body'] = json_encode($data);
 
-        header("Content-Type: application/json");
+        header('Content-Type: application/json');
         if ($response['body']) {
             echo $response['body'];
         }

@@ -3,8 +3,8 @@
 use app\WebControllers\PageController;
 use app\apiControllers\UserApiController;
 use app\WebControllers\UserWebController;
-use app\System\JsonRequest;
-use app\System\Request;
+use app\system\request\ApiRequest;
+use app\system\request\WebPageRequest;
 
 // Require composer autoloader
 // require __DIR__ . '/vendor/autoload.php';
@@ -26,7 +26,7 @@ $router->get('/server/users/{id}', function ($id) {
 
 //store
 $router->post('/server/users', function () {
-    UserApiController::store(new JsonRequest());
+    UserApiController::store(new ApiRequest());
 });
 
 
@@ -35,13 +35,14 @@ $router->post('/server/users', function () {
  * 
  * We are sending the request data (from the request body) 
  * to the controller with the 
- * the 'new JsonRequest() line. Reminder: JsonRequest has acces to 
- * request data. JsonRequest  is used like this only for store and update,
+ * the 'new ApiRequest() line. Reminder: ApiRequest has acces to 
+ * request data. ApiRequest  is used like this only for store and update,
  * since only for these two we have the data in the request body, all other
  * request have their data in the url.
  */
 $router->put('/server/users', function () {
-    UserApiController::update(new JsonRequest());
+    UserApiController::update(new ApiRequest());
+    $r = 4;
 });
 
 /**
@@ -49,8 +50,8 @@ $router->put('/server/users', function () {
  * 
  * We are sending the request data (from the request body) 
  * to the controller with the 
- * the 'new JsonRequest() line. Reminder: JsonRequest has acces to 
- * request data. JsonRequest  is used like this only for store and update,
+ * the 'new ApiRequest() line. Reminder: ApiRequest has acces to 
+ * request data. ApiRequest  is used like this only for store and update,
  * since only for these two we have the data in the request body, all other
  * request have their data in the url.
  */
@@ -97,6 +98,8 @@ $router->get('/users/create', function () {
 });
 
 
+
+
 /**
  * show individual users 
  *  * Now, for some misterious reason, the users/create route must be before
@@ -111,12 +114,16 @@ $router->get('/users/{id}', function ($id) {
 //save user 
 $router->post('/users', function () {
     var_dump('store activated');
-    UserWebController::store(new Request());
+    UserWebController::store(new WebPageRequest());
 });
 
-//update user
-$router->patch('/users/{id}', function ($id) {
-    UserWebController::update($id);
+/**
+ * UPDATE user
+ * There is no PUT in php. And in bramus router either. So we 
+ * fake put here with post method.
+ */
+$router->post('/users/{id}', function ($id) {
+    UserWebController::update($id, new WebPageRequest());
 });
 
 /**

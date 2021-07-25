@@ -7,7 +7,6 @@
 				<a class="nav-item nav-link" href="/contact">Contact</a>
 				<a class="nav-item nav-link" href="/users">Users</a>
 				<a class="nav-item nav-link" href="/users/create">Create user</a>
-				<a class="nav-item nav-link" href="/users/update">Update user</a>
 			</div>
 		</div>
 	</nav>

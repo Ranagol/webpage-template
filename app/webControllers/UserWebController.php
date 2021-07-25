@@ -4,7 +4,7 @@ namespace App\WebControllers;
 
 use app\models\User;
 use app\WebControllers\WebController;
-use app\System\Request;
+use app\system\request\WebPageRequest;
 
 class UserWebController extends WebController
 {
@@ -32,7 +32,7 @@ class UserWebController extends WebController
     {
         $desiredView = 'create';
 
-        return view('user', 'desiredView');
+        return view('user', compact('desiredView'));
     }   
 
     public static function store(Request $request)
@@ -43,12 +43,11 @@ class UserWebController extends WebController
         redirect('users');
     }   
 
-    public static function update()//**************ITT HAGYTAM ABBA */
+    public static function update($id, Request $request)
     {
-        $id = $request->get('id');
+        echo 'update activated';
         $user = User::find($id);
         $data = $request->getAllRequestData();
-        unset ($data['id']);//because we don't want to update the user id...
         $user->update($data);
         redirect('users');
     }   

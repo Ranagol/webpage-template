@@ -1,8 +1,10 @@
 <?php
 
-namespace app\System;
+namespace app\system\request;
 
-abstract class AbstractRequest
+use app\system\request\RequestInterface;
+
+abstract class AbstractRequest implements RequestInterface
 {
     /**
      * We store all request data here

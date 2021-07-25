@@ -1,10 +1,10 @@
 <?php
 
-namespace app\System;
+namespace app\system\request;
 
-use app\System\AbstractRequest;
+use app\system\request\AbstractRequest;
 
-class JsonRequest extends AbstractRequest
+class ApiRequest extends AbstractRequest
 {
     /**
      * When working with api request, there are two ways of getting the data from the
@@ -14,8 +14,8 @@ class JsonRequest extends AbstractRequest
      * This 2. is being done in this function.
      * And this is how to receive JSON POST with PHP: 
      * https://www.geeksforgeeks.org/how-to-receive-json-post-with-php/
-     * So. The request arrives. When we create a JsonRequest object, we 
-     * store the request data in the the JsonRequest object. This object will be 
+     * So. The request arrives. When we create a ApiRequest object, we 
+     * store the request data in the the ApiRequest object. This object will be 
      * used in the controller.
      * Also, check the parent class, because this class by itself is incomplete for 
      * understanding.
