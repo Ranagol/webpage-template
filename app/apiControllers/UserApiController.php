@@ -3,9 +3,9 @@
 namespace app\apiControllers;
 
 use app\models\User;
-use System\JsonRequest;
+use app\System\JsonRequest;
 use app\apiControllers\ApiController;
-use System\JsonResponse;
+use app\System\JsonResponse;
 
 class UserApiController extends ApiController
 {
