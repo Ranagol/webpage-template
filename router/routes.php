@@ -5,6 +5,7 @@ use System\request\WebPageRequest;
 use App\controllers\webControllers\PageController;
 use App\controllers\apiControllers\UserApiController;
 use App\controllers\webControllers\UserWebController;
+use App\controllers\authControllers\RegisterController;
 
 // Require composer autoloader
 // require __DIR__ . '/vendor/autoload.php';
@@ -92,6 +93,20 @@ $router->get('/about', function () {
 $router->get('/contact', function () {
     PageController::contact();
 });
+
+//register page loading
+$router->get('/register', function () {
+    RegisterController::loadRegisterPage();
+});
+
+//registering
+$router->post('/register', function () {
+    RegisterController::register(new WebPageRequest());
+});
+
+
+
+
 
 //************************** */
 

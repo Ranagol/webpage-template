@@ -7,6 +7,8 @@
 				<a class="nav-item nav-link" href="/contact">Contact</a>
 				<a class="nav-item nav-link" href="/users">Users</a>
 				<a class="nav-item nav-link" href="/users/create">Create user</a>
+				<a class="nav-item nav-link" href="/register">Register</a>
+				<a class="nav-item nav-link" href="/login">Login</a>
 			</div>
 		</div>
 	</nav>
