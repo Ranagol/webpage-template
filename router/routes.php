@@ -3,6 +3,7 @@
 use System\request\ApiRequest;
 use System\request\WebPageRequest;
 use App\controllers\webControllers\PageController;
+use App\controllers\authControllers\LoginController;
 use App\controllers\apiControllers\UserApiController;
 use App\controllers\webControllers\UserWebController;
 use App\controllers\authControllers\RegisterController;
@@ -102,6 +103,22 @@ $router->get('/register', function () {
 //registering
 $router->post('/register', function () {
     RegisterController::register(new WebPageRequest());
+});
+
+//login page loading
+$router->get('/login', function () {
+    LoginController::loadLoginPage();
+});
+
+//logging in
+$router->post('/login', function () {
+    var_dump('login post form activated');
+    LoginController::login(new WebPageRequest());
+});
+
+//logout
+$router->get('/logout', function () {
+    LoginController::logout();
 });
 
 

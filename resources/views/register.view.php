@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 500px; padding: 20px; }
-    </style>
-</head>
+<?php require 'partials/header.php'; ?>
 
-
-
-<body>
     <div class="wrapper">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
@@ -102,5 +89,5 @@
             <p>Already have an account? <a href="/login">Login here</a>.</p>
         </form>
     </div>    
-</body>
-</html>
+
+<?php require 'partials/footer.php'; ?>

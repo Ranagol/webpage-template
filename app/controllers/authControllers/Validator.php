@@ -8,7 +8,27 @@ class Validator
 {
     public static $errors = [];
 
-    public static function validate(RequestInterface $request)
+    public static function validateLoginData(RequestInterface $request)
+    {
+        $request = $request->getAllRequestData();
+
+        $email = $request['email'];
+        self::validateEmail($email);
+
+        $password = $request['password'];
+        self::validatePassword($password);
+
+        $numberOfArrayKeys = count(self::$errors);
+
+        if ($numberOfArrayKeys > 0) {
+
+            return self::$errors;
+        }
+
+        return false;
+    }
+
+    public static function validateRegisterData(RequestInterface $request)
     {
         $request = $request->getAllRequestData();
 
@@ -86,7 +106,7 @@ class Validator
         $emailError = null;
 
         if(empty($email)){
-            $lastNameError = "Please enter an email.";
+            $emailError = "Please enter an email.";
         } elseif(strlen($email) <=2 ){
             $emailError = "Email must be longer than 2 characters.";
         }
@@ -94,6 +114,7 @@ class Validator
         if($emailError !== null){
             self::$errors['emailError'] = $emailError;
         }
+        $t = 5;
     }
 
     private static function validatePassword($password)

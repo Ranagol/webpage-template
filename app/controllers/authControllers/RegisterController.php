@@ -15,7 +15,7 @@ class RegisterController
 
     public static function register(RequestInterface $request)
     {
-        $errors = Validator::validate($request);
+        $errors = Validator::validateRegisterData($request);
         $request = $request->getAllRequestData();
         $username = $request['username'];
         $firstname = $request['firstname'];
