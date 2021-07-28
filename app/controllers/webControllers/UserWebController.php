@@ -1,11 +1,10 @@
 <?php
 
-namespace App\WebControllers;
+namespace App\controllers\webControllers;
 
-use app\models\User;
-use app\WebControllers\WebController;
-use Illuminate\Support\Facades\Request;
-use app\system\request\RequestInterface;
+use App\models\User;
+use System\request\RequestInterface;
+use App\controllers\WebControllers\WebController;
 
 class UserWebController extends WebController
 {

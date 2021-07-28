@@ -1,4 +1,4 @@
-<?php require 'app/webpage/views/partials/header.php';?>
+<?php require 'partials/header.php';?>
 
 <h1>Users</h1>
 
@@ -35,4 +35,4 @@
     <?php endforeach;?>
 </table>
 
-<?php require 'app/webpage/views/partials/footer.php';?>
+<?php require 'partials/footer.php';?>

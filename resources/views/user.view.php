@@ -8,7 +8,7 @@ if ($desiredView === 'create') {
 
 ?>
 
-<?php require 'app/webpage/views/partials/header.php';?>
+<?php require 'partials/header.php';?>
 
 <h1><?= $pageTitle ?></h1>
 
@@ -69,4 +69,4 @@ Otherwise said we use post for creating user and for updating user too. -->
     <button type="submit" class="btn btn-primary"><?= $buttonText ?></button>
 </form>
 
-<?php require 'app/webpage/views/partials/footer.php';?>
+<?php require 'partials/footer.php';?>

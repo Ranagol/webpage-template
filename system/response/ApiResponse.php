@@ -1,8 +1,6 @@
 <?php
 
-namespace app\system\response;
-
-use app\system\response\ResponseInterface;
+namespace System\response;
 
 class ApiResponse implements ResponseInterface
 {

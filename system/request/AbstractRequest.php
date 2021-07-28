@@ -1,8 +1,8 @@
 <?php
 
-namespace app\system\request;
+namespace System\request;
 
-use app\system\request\RequestInterface;
+use System\request\AbstractRequest;
 
 abstract class AbstractRequest implements RequestInterface
 {

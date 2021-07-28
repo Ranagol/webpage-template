@@ -1,11 +1,13 @@
 <?php
 
-namespace app\apiControllers;
+namespace App\controllers\apiControllers;
 
-use app\models\User;
-use app\system\request\RequestInterface;
-use app\apiControllers\ApiController;
-use app\system\response\ApiResponse;
+use App\models\User;
+use System\response\ApiResponse;
+use System\request\RequestInterface;
+use App\controllers\apiControllers\ApiController;
+
+
 
 class UserApiController extends ApiController
 {

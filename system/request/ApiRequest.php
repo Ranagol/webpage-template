@@ -1,8 +1,8 @@
 <?php
 
-namespace app\system\request;
+namespace System\request;
 
-use app\system\request\AbstractRequest;
+use System\request\AbstractRequest;
 
 class ApiRequest extends AbstractRequest
 {

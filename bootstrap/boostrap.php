@@ -3,14 +3,16 @@
 use Dotenv\Dotenv;
 
 //dotenv setup
-$dotenv = Dotenv::createImmutable(__DIR__);//Create a new immutable dotenv instance with default repository
-$dotenv->load();//loads all .env variables into the $_ENV superglobal, from where they will be available to us
+//Create a new immutable dotenv instance with default repository, it's path must point to the app root dir
+$dotenv = Dotenv::createImmutable(__DIR__  . '/../');
+//loads all .env variables into the $_ENV superglobal, from where they will be available to us
+$dotenv->load();
 
 //Eloquent setup 
-require 'app/database/database.php';
+require __DIR__ . '/../database/database.php';
 
 //router setup
-require 'app/router/routes.php';
+require __DIR__ . '/../router/routes.php';
 
 /**
  * This function will be used for returning views in the PageController.
@@ -34,7 +36,7 @@ require 'app/router/routes.php';
 function view(String $name, Array $data = [])
 {
     extract($data);
-    return require "app/webpage/views/{$name}.view.php";
+    return require __DIR__ . "/../resources/views/{$name}.view.php";
 }
 
 /**

@@ -1,10 +1,10 @@
 <?php
 
-use app\WebControllers\PageController;
-use app\apiControllers\UserApiController;
-use app\WebControllers\UserWebController;
-use app\system\request\ApiRequest;
-use app\system\request\WebPageRequest;
+use System\request\ApiRequest;
+use System\request\WebPageRequest;
+use App\controllers\webControllers\PageController;
+use App\controllers\apiControllers\UserApiController;
+use App\controllers\webControllers\UserWebController;
 
 // Require composer autoloader
 // require __DIR__ . '/vendor/autoload.php';

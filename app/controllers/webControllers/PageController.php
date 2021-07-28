@@ -1,8 +1,8 @@
 <?php
 
-namespace App\WebControllers;
+namespace App\controllers\webControllers;
 
-use app\WebControllers\WebController;
+use App\controllers\webControllers\WebController;
 
 class PageController extends WebController
 {
@@ -21,13 +21,11 @@ class PageController extends WebController
     {
         $data = 'Some random data about the about page :) ';
 
-        return view('about', compact('data'));//TODO minek ide compact(), mikor a view rogton csinal extract(). Ez nem presipanje iz supljeg u prazno? Meg, hogy kerul a data a controllerbol a weboldalra?
+        return view('about', compact('data'));
     }
 
     public static function contact()
     {
         return view('contact');// this is equal to: require 'views/contact.view.php';
     }
-
-    
 }
