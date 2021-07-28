@@ -4,5 +4,5 @@ namespace System\response;
 
 interface ResponseInterface
 {
-    public function send();
+    public static function send($data, int $code = 200);
 }

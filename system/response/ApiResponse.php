@@ -2,6 +2,7 @@
 
 namespace System\response;
 
+
 class ApiResponse implements ResponseInterface
 {
 	/**
