@@ -1,5 +1,7 @@
 <?php require 'partials/header.php'; ?>
 
+    <!-- We must start session on every page, where we want to use the $_SESSION superglobal, othewise it won't work. -->
+
     <div class="wrapper">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>

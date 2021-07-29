@@ -1,8 +1,15 @@
+<!-- We must start session on every page, where we want to use the $_SESSION superglobal, othewise it won't work. -->
+<?php
 
+if(!isset($_SESSION)){ 
+    session_start(); 
+}
+
+?>
 
 <div class='container'>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="/home">Andor's page</a>
+		<a class="navbar-brand" href="/">Andor's page</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -31,6 +38,12 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-item nav-link" href="/logout">Logout</a>
+				</li>
+				<li class="nav-item">
+					<div class="nav-item nav-link" >
+						<!-- <?php var_dump($_SESSION); ?> -->
+						<?= isset($_SESSION['username']) ? 'Hi, ' . $_SESSION['username'] : 'You are not logged in.' ?>
+					</div>
 				</li>
 			</ul>
 		</div>

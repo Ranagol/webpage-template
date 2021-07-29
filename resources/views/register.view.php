@@ -1,4 +1,5 @@
 <?php require 'partials/header.php'; ?>
+<?php session_start(); ?>
 
     <div class="wrapper">
         <h2>Sign Up</h2>

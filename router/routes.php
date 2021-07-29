@@ -8,11 +8,49 @@ use App\controllers\apiControllers\UserApiController;
 use App\controllers\webControllers\UserWebController;
 use App\controllers\authControllers\RegisterController;
 
-// Require composer autoloader
-// require __DIR__ . '/vendor/autoload.php';
+if(!isset($_SESSION)){ 
+    session_start(); 
+}
+
 
 // Create Router instance
 $router = new \Bramus\Router\Router();
+
+
+
+/**
+ * This is a middleware, that will check every GET route, and will be activated
+ * before every GET route.
+ * If the user is not logged in, he can visit only the login, logout and register pages.
+ * if the user is logged in, allow him every access.
+ * In every other case, redirect user to the login page.
+ */
+$router->before('GET', '/.*', function() {
+    $t = 4;
+    // echo 'User wants to go here: ' . $_SERVER['REQUEST_URI'] . '<br>';
+
+    //if the user is logged in...
+    if (isset($_SESSION['username'])) {
+        // echo 'user is logged in';
+    } else {
+        //...or if the user is not logged in, he can visit login, register, logout
+        // echo 'user is NOT logged in';
+        if ($_SERVER['REQUEST_URI'] === '/login' 
+            || $_SERVER['REQUEST_URI'] === '/register'
+            || $_SERVER['REQUEST_URI'] === '/logout') {
+            } elseif ($_SERVER['REQUEST_URI'] === '/'
+                || $_SERVER['REQUEST_URI'] === '/about'
+                || $_SERVER['REQUEST_URI'] === '/contact'
+                || $_SERVER['REQUEST_URI'] === '/users'
+                || $_SERVER['REQUEST_URI'] === '/users/create'
+            ) {
+                //not logged in user can't visit /, about, contact... pages, and will be redirected to login page
+                echo 'user is not logged in and wants to see the wepages, should be redirected to login';
+                redirect('login');
+            }
+    }
+});
+
 
 // API ROUTES********************************************************************************
 
@@ -80,6 +118,10 @@ $router->delete('/server/users/{id}', function ($id) {
 
 //WEBPAGE ROUTES***********************************************************************
 
+
+
+$t = 5;
+
 //home page
 $router->get('/', function () {
     PageController::home();
@@ -118,6 +160,7 @@ $router->post('/login', function () {
 
 //logout
 $router->get('/logout', function () {
+    var_dump('logout route activated');
     LoginController::logout();
 });
 

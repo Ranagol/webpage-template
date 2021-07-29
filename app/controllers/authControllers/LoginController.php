@@ -18,36 +18,29 @@ class LoginController
         self::isUserAlreadyLoggedIn();
 
         //login data validation
-        var_dump('login data validation started');
         $errors = Validator::validateLoginData($request);
         $request2 = $request->getAllRequestData();
         $email = $request2['email'];
         $password = $request2['password'];
-        var_dump('login data validation finished');
-        $t = 5;
         
         if ($errors !== false) {
             return view('login', compact('errors', 'email', 'password'));
         } 
 
         //authentication
-        var_dump('authentication started');
 
         $requestData1 = $request->getAllRequestData();
         $email = $requestData1['email'];
         $password = $requestData1['password'];
         $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
-        // var_dump($user);
         if ($user === null) {
-            var_dump('wrong user credentials...');
             $isAuthenticated = false;
+
             return view('login', compact('isAuthenticated'));
         }
-        $t = 4;
         $emailFromDb = $user->email;
         $passwordFromDb = $user->password;
 
-        var_dump('authentication finished');
 
         if ($email === $emailFromDb && $password === $passwordFromDb) {
             session_start();
@@ -55,15 +48,19 @@ class LoginController
             $_SESSION["id"] = $user->id;
             $_SESSION["username"] = $user->username; 
 
-            return redirect('/home');
+            return redirect('users');
         } else {
             $isAuthenticated = false;
+
             return view('login', compact('isAuthenticated'));
         }
     }
 
     public static function logout()
     {
+        // Initialize the session
+        session_start();
+        
         // Unset all of the session variables
         $_SESSION = [];
 
@@ -127,7 +124,7 @@ class LoginController
     {
         // Check if the user is already logged in, if yes then redirect him to home page
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-            redirect('/home');
+            redirect('/');
         }
     }
 }

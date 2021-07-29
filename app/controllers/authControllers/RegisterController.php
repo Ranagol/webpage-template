@@ -23,6 +23,7 @@ class RegisterController
         $email = $request['email'];
         $password = $request['password'];
 
+        //in case of validation errors here we return all input field values to be displayed again for the user, so he could correct them without typing everything from the beginning
         if ($errors) {
             return view('register', compact(
                 'errors', 
@@ -35,7 +36,13 @@ class RegisterController
         }
 
         User::create($request);
-        $savedUserId = User::orderBy('id', 'desc')->first()->id;
+
+        //automatic login, after a succesfull registratin
+        $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
+        session_start();
+            $_SESSION["loggedin"] = true;
+            $_SESSION["id"] = $user->id;
+            $_SESSION["username"] = $user->username; 
         
         return view('home');
     }
