@@ -3,6 +3,7 @@
 use System\request\ApiRequest;
 use System\request\WebPageRequest;
 use App\controllers\webControllers\PageController;
+use App\controllers\fileControllers\FileController;
 use App\controllers\authControllers\LoginController;
 use App\controllers\apiControllers\UserApiController;
 use App\controllers\webControllers\UserWebController;
@@ -43,6 +44,7 @@ $router->before('GET', '/.*', function() {
                 || $_SERVER['REQUEST_URI'] === '/contact'
                 || $_SERVER['REQUEST_URI'] === '/users'
                 || $_SERVER['REQUEST_URI'] === '/users/create'
+                || $_SERVER['REQUEST_URI'] === '/upload'
             ) {
                 //not logged in user can't visit /, about, contact... pages, and will be redirected to login page
                 echo 'user is not logged in and wants to see the wepages, should be redirected to login';
@@ -224,9 +226,20 @@ $router->post('/users/{id}', function ($id) {
  * So instead of DELETE method, we use POST method
  */
 $router->post('/user/delete/{id}', function ($id) {
-    echo 'delete route activated';
     UserWebController::delete($id);
 });
+
+
+//UPLOAD - DOWNLOAD STORY***********************************************************
+
+$router->get('/upload', function () {
+    FileController::displayUploadPage();
+});
+
+$router->post('/upload', function () {
+    FileController::store();
+});
+
 
 
 

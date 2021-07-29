@@ -6,10 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-  protected $guarded = [];//we do not guard here the table. Simply it is not guarded.
+    protected $guarded = [];
 
-//   public function subjects () {//The department has a lot of subjectS...
-//     return $this->hasMany(Subject::class);
-//   }
+    public static function getCurrentUser()
+    {
+        if (isset($_SESSION)) {
+            $userId = $_SESSION['id'];
+            $user = User::findOrFail($userId);
 
+            return $user;
+        } 
+        echo 'There is no logged in user.';
+
+        return false;
+    }
 }
