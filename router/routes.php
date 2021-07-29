@@ -2,6 +2,7 @@
 
 use System\request\ApiRequest;
 use System\request\WebPageRequest;
+use System\request\FileUploadRequest;
 use App\controllers\webControllers\PageController;
 use App\controllers\fileControllers\FileController;
 use App\controllers\authControllers\LoginController;
@@ -237,7 +238,7 @@ $router->get('/upload', function () {
 });
 
 $router->post('/upload', function () {
-    FileController::store();
+    FileController::store(new FileUploadRequest);
 });
 
 
