@@ -11,6 +11,13 @@ if(!isset($_SESSION)){
     $user = User::getCurrentUser();
 ?>
 
+<!-- warning message if something is wrong with the upload -->
+<div 
+    class="alert alert-warning <?= isset($errorMessage) && (!empty($errorMessage)) ? '' : 'd-none' ?> "
+>
+    <?= $errorMessage ?>
+</div>
+
 <!-- This form will be displayed only if the user is logged in -->
 <form 
     action="upload" 
