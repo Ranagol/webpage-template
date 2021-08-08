@@ -8,6 +8,13 @@ class User extends Model
 {
     protected $guarded = [];
 
+    /**
+     * Returns the current logged in user.
+     * The session supergolbal contains the logged in user's id, so if a 
+     * user is logged in, we can get his id from the session superglobal.
+     *
+     * @return void
+     */
     public static function getCurrentUser()
     {
         if (isset($_SESSION)) {
