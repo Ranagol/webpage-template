@@ -2,6 +2,7 @@
 
 namespace App\controllers\fileControllers;
 
+use App\Models\File;
 use System\request\RequestInterface;
 
 class FileController

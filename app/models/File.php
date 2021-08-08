@@ -15,10 +15,10 @@ class File extends Model
     private $uploadData;
 
     private $allowedFileFormats = [
-        "jpg" => "image/jpg", 
-        "jpeg" => "image/jpeg", 
-        "gif" => "image/gif", 
-        "png" => "image/png"
+        'image/jpg', 
+        'image/jpeg', 
+        'image/gif', 
+        'image/png'
     ];
 
     private $fileName;
@@ -80,12 +80,15 @@ class File extends Model
         }
 
         $email = $user->email;
-        if (!file_exists('/storage/upload/' . $email)) {
-            mkdir('/storage/upload/' . $email, 0777, true);
+        if (!file_exists('storage/upload/' . $email)) {
+            $test = mkdir(__DIR__ . '/../../storage/upload/' . $email);
         }
 
-        move_uploaded_file($_FILES["photo"]["tmp_name"], '/storage/upload/' . $email . '/' . $this->getFileName());
-        
+        move_uploaded_file(
+            $_FILES["photo"]["tmp_name"], 
+            __DIR__ . '/../../storage/upload/' . $email . '/' . $this->getFileName()
+        );
+        $t = 4;
     }
 
     private function validateFileSize()
@@ -95,9 +98,14 @@ class File extends Model
         }
     }
 
+    /**
+     * Checks if the uploaded file type (example: jpg) is in the $allowedFileFormats[].
+     *
+     * @return void
+     */
     private function validateFileType()
     {
-        if(!array_key_exists($this->getFileType(), $this->getAllowedFileFormats())) {
+        if(!in_array($this->getFileType(), $this->getAllowedFileFormats())) {
             $this->setErrorMessage('Error: Please select a valid file format.');
         }
     }
@@ -216,5 +224,15 @@ class File extends Model
     public function getAllowedFileFormats()
     {
         return $this->allowedFileFormats;
+    }
+
+    /**
+     * Get the maximum allowed size for the uploaded file.
+     *
+     * @return  [type]
+     */ 
+    public function getMaxFileSize()
+    {
+        return $this->maxFileSize;
     }
 }
