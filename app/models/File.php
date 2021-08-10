@@ -88,18 +88,14 @@ class File extends Model
         }
 
         //place the uploaded file into the new dir
-        $report = move_uploaded_file(
-            $_FILES["photo"]["tmp_name"], 
-            // __DIR__ . '/../../storage/upload/' . $email . '/' . $this->getFileName()
-            '/storage/upload/' 
-            . $email 
-            . '/' 
-            . $this->getFileName()
-        );
-        if (!$report) {
-            throw new Exception('We could not move the file to its final destination.');
+        try {
+            $report = move_uploaded_file(
+                $_FILES["photo"]["tmp_name"], 
+                __DIR__ . '/../../storage/upload/' . $email . '/' . $this->getFileName()
+            );
+        } catch (Exception $error) {
+            echo $error->getErrorMessage();
         }
-        $t = 4;
     }
 
     /**
