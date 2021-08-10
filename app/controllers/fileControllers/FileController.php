@@ -4,6 +4,7 @@ namespace App\controllers\fileControllers;
 
 use App\Models\File;
 use System\request\RequestInterface;
+use Exception;
 
 class FileController
 {
@@ -18,7 +19,9 @@ class FileController
     }
 
     /**
-     * Handles the file upload.
+     * Handles the file upload. Since this class is a controller
+     * and we want slim controllers, all the upload work is done by the 
+     * File model.
      *
      * @param RequestInterface $request
      * @return void
@@ -27,13 +30,17 @@ class FileController
     {
         $uploadData = $request->getAllRequestData();//so this is = to $_FILES now, we can treat $uploadData as the $_FILES
         $file = new File($uploadData);
-        $errorMessage = $file->storeFile();
-        
-        if ($errorMessage) {
-            return view('upload', compact('errorMessage'));
-        }
 
-        return view('upload');
+        try {
+            $file->storeFile();
+            $message = 'Your upload was successfull.';
+            $alertType = 'alert-success';
+        } catch (Exception $error) {
+            $message = $error->getMessage();
+            $alertType = 'alert-warning';
+        }
+        
+        return view('upload', compact('message', 'alertType'));
     }
 
     /**

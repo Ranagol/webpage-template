@@ -11,12 +11,17 @@ if(!isset($_SESSION)){
     $user = User::getCurrentUser();
 ?>
 
-<!-- warning message if something is wrong with the upload -->
+<!-- success message OR warning message if something is wrong with the upload -->
 <div 
-    class="alert alert-warning <?= isset($errorMessage) && (!empty($errorMessage)) ? '' : 'd-none' ?> "
+    class="alert 
+        <?= isset($alertType) && ($alertType === 'alert-success') ? 'alert-success' : 'alert-warning' ?>
+        <?= isset($message) && (!empty($message)) ? '' : 'd-none' ?>
+    "
 >
-    <?= $errorMessage ?>
+    <?= $message ?>
 </div>
+
+
 
 <!-- This form will be displayed only if the user is logged in -->
 <form 

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\models\User;
+use Exception;
 
 class File extends Model
 {
@@ -39,8 +40,6 @@ class File extends Model
      */
     private $maxFileSize = 5 * 1024 * 1024;
 
-    private $errorMessage;
-
     public function __construct(Array $uploadData)
     {
         $this->uploadData = $uploadData;
@@ -73,40 +72,57 @@ class File extends Model
      */
     private function putFileIntoStorage()
     {
+        //get user
         $user = User::getCurrentUser();
         if (!($user instanceof User)) {
-
-            return 'User is not logged in.';
+            throw new Exception('User is not logged in.');
         }
 
+        //create directory for the upload
         $email = $user->email;
-        if (!file_exists('storage/upload/' . $email)) {
-            $test = mkdir(__DIR__ . '/../../storage/upload/' . $email);
+        if (!file_exists(__DIR__ . '/../../storage/upload/' . $email)) {
+            $boolean = mkdir(__DIR__ . '/../../storage/upload/' . $email);
+            if (!$boolean) {
+                throw new Exception('We could not make a new directory for the uploaded file.');
+            }
         }
 
-        move_uploaded_file(
+        //place the uploaded file into the new dir
+        $report = move_uploaded_file(
             $_FILES["photo"]["tmp_name"], 
-            __DIR__ . '/../../storage/upload/' . $email . '/' . $this->getFileName()
+            // __DIR__ . '/../../storage/upload/' . $email . '/' . $this->getFileName()
+            '/storage/upload/' 
+            . $email 
+            . '/' 
+            . $this->getFileName()
         );
+        if (!$report) {
+            throw new Exception('We could not move the file to its final destination.');
+        }
         $t = 4;
     }
 
+    /**
+     * Validates the uploaded file size. It has to be smaller than 5MB.
+     *
+     * @return void
+     */
     private function validateFileSize()
     {
         if($this->getFileSize() > $this->getMaxFileSize()) {
-            $this->setErrorMessage('Error: File size is larger than the allowed limit.');
+            throw new Exception('Error: File size is larger than the allowed limit.');
         }
     }
 
     /**
      * Checks if the uploaded file type (example: jpg) is in the $allowedFileFormats[].
      *
-     * @return void
+     * @throws Exception if the file format is not allowed.
      */
     private function validateFileType()
     {
         if(!in_array($this->getFileType(), $this->getAllowedFileFormats())) {
-            $this->setErrorMessage('Error: Please select a valid file format.');
+            throw new Exception('Error: Please select a valid file format.');
         }
     }
 
@@ -115,16 +131,19 @@ class File extends Model
      * parameters can be validated.
      *
      * @return void
+     * @throws Exception When blabla is not whatever.
      */
     private function setFileSizeNameType()
     {
         $uploadData = $this->getUploadData();
+        $c = 6;
         if(isset($uploadData["photo"]) && $uploadData["photo"]["error"] == 0){
             $this->setFileName($uploadData["photo"]["name"]);
             $this->setFileType($uploadData["photo"]["type"]);
             $this->setFileSize($uploadData["photo"]["size"]);
+            $a = 5;
         } else {
-            $this->setErrorMessage("Error: " . $uploadData["photo"]["error"]);
+            throw new Exception('Error with uploading: ' . $uploadData['photo']['error']);
         }
     }
 
