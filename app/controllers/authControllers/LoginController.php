@@ -8,13 +8,29 @@ use System\request\RequestInterface;
 
 class LoginController
 {
+    /**
+     * Loads the login page view.
+     *
+     * @return void
+     */
     public static function loadLoginPage()
     {
         return view('login');
     }
 
+    /**
+     * Logs in the user.
+     * First we check if the user is already logged in. If so, he will be redirected to the home page.
+     * Secondly we do email and password validation. Example: if they are longer than 2 characters.
+     * Thirdly we do authentication. We check if the email and password are the same, as the email 
+     * and password from db.
+     *
+     * @param RequestInterface $request
+     * @return void
+     */
     public static function login(RequestInterface $request)
     {
+        //check if the user is already logged in.
         self::isUserAlreadyLoggedIn();
 
         //login data validation
@@ -23,11 +39,11 @@ class LoginController
         $email = $request2['email'];
         $password = $request2['password'];
         
-        if ($errors !== false) {
+        if ($errors !== false) {//TODO THIS HAS TO BE CORRECTED, USE EXCEPTIONS!!!!
             return view('login', compact('errors', 'email', 'password'));
         } 
 
-        //authentication
+        //authentication (are the email and the password = to the u and p from the db?)
 
         $requestData1 = $request->getAllRequestData();
         $email = $requestData1['email'];
@@ -56,6 +72,11 @@ class LoginController
         }
     }
 
+    /**
+     * Logs out a logged in user.
+     *
+     * @return void
+     */
     public static function logout()
     {
         // Initialize the session
@@ -69,7 +90,6 @@ class LoginController
 
         //Redirect to login page 
         redirect('login');
-
     }
 
     private static function authenticate(RequestInterface $request)
@@ -82,7 +102,7 @@ class LoginController
         $user = User::where('email', '=', $email)->first();
         var_dump($user);
         if ($user === null) {
-            var_dump('wrong user credentials...');
+            var_dump('wrong user credentials...');//TODO THIS HAS TO BE CORRECTED, USE EXCEPTIONS!!!!
             return false;
         }
         $t = 4;
@@ -115,14 +135,18 @@ class LoginController
         var_dump('login data validation finished');
 
         
-        if ($errors !== false) {
+        if ($errors !== false) {//TODO THIS HAS TO BE CORRECTED, USE EXCEPTIONS!!!!
             return view('login', compact('errors', 'email', 'password'));
         } 
     }
 
+    /**
+     * Check if the user is already logged in, if yes then redirect him to home page
+     *
+     */
     private static function isUserAlreadyLoggedIn()
     {
-        // Check if the user is already logged in, if yes then redirect him to home page
+        // 
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
             redirect('/');
         }

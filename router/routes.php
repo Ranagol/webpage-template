@@ -14,11 +14,8 @@ if(!isset($_SESSION)){
     session_start(); 
 }
 
-
 // Create Router instance
 $router = new \Bramus\Router\Router();
-
-
 
 /**
  * This is a middleware, that will check every GET route, and will be activated
@@ -28,12 +25,11 @@ $router = new \Bramus\Router\Router();
  * In every other case, redirect user to the login page.
  */
 $router->before('GET', '/.*', function() {
-    $t = 4;
     // echo 'User wants to go here: ' . $_SERVER['REQUEST_URI'] . '<br>';
 
     //if the user is logged in...
     if (isset($_SESSION['username'])) {
-        // echo 'user is logged in';
+        // echo 'user is logged in';//TODO THIS HAS TO BE CORRECTED, REFACTORED!
     } else {
         //...or if the user is not logged in, he can visit login, register, logout
         // echo 'user is NOT logged in';
@@ -60,7 +56,7 @@ $router->before('GET', '/.*', function() {
 /**
  * INDEX
  */
-$router->get('/server/users', function () {//TODO itt miert nem lehet api/users hasznalni?
+$router->get('/server/users', function () {
     UserApiController::index();
 });
 
@@ -121,10 +117,6 @@ $router->delete('/server/users/{id}', function ($id) {
 
 //WEBPAGE ROUTES***********************************************************************
 
-
-
-$t = 5;
-
 //home page
 $router->get('/', function () {
     PageController::home();
@@ -167,17 +159,10 @@ $router->get('/logout', function () {
     LoginController::logout();
 });
 
-
-
-
-
-//************************** */
-
 //show all users
 $router->get('/users', function () {
     UserWebController::index();
 });
-
 
 /**
  * go to the create user page
@@ -205,7 +190,7 @@ $router->get('/users/{id}', function ($id) {
 
 //save user 
 $router->post('/users', function () {
-    var_dump('store activated');
+    // var_dump('store activated');
     UserWebController::store(new WebPageRequest());
 });
 

@@ -2,8 +2,14 @@
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
+/**
+ * Basically, this capsule is an Eloquent object. 
+ */
 $capsule = new Capsule;
 
+/**
+ * Here we tell Eloqent which connection to use.
+ */
 $capsule->addConnection([
     'driver' => 'mysql',
     'host'      => $_ENV['DB_HOST'],

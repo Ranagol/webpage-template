@@ -8,6 +8,16 @@ class Validator
 {
     public static $errors = [];
 
+    //LOSI: VALIDATIONT ATCSINALNI ERRE A STILUSRA
+    // public function validate(): void
+    // {
+    //     if (count($this->errors) > 0) {
+    //         throw new \Exception(\json_encode($errors), 422);
+    //     }
+
+    //     return true;
+    // }
+
     public static function validateLoginData(RequestInterface $request)
     {
         $request = $request->getAllRequestData();

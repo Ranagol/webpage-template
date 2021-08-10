@@ -7,8 +7,9 @@ use System\response\ApiResponse;
 use System\request\RequestInterface;
 use App\controllers\apiControllers\ApiController;
 
-
-
+/**
+ * This controller is used for API requests, regarding user CRUD operations.
+ */
 class UserApiController extends ApiController
 {
     public function index()

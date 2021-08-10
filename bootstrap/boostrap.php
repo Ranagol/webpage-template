@@ -2,16 +2,17 @@
 
 use Dotenv\Dotenv;
 
-//dotenv setup
-//Create a new immutable dotenv instance with default repository, it's path must point to the app root dir
+//dotenv setup: we use dotenv to load all .env variables into the $_ENV superglobal, from where it will be available for further actions
+//Create a new immutable dotenv instance with default repository, 
+//it's path must point to the app root dir
 $dotenv = Dotenv::createImmutable(__DIR__  . '/../');
 //loads all .env variables into the $_ENV superglobal, from where they will be available to us
 $dotenv->load();
 
-//Eloquent setup 
+//Eloquent setup: we use Eloquent the same way is it is used in Laravel
 require __DIR__ . '/../database/database.php';
 
-//router setup
+//router setup: we use bramus router in order to activate with url's the controllers
 require __DIR__ . '/../router/routes.php';
 
 /**

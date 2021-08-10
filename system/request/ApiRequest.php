@@ -24,8 +24,8 @@ class ApiRequest extends AbstractRequest
      */
     public function __construct()
     {
-        $rawJsonData = file_get_contents('php://input');
-        $rawJsonData = str_replace([PHP_EOL, ",}"], ["", "}"], $rawJsonData);
+        $rawJsonData = file_get_contents('php://input');//And this is how to receive JSON POST with PHP:
+        $rawJsonData = str_replace([PHP_EOL, ",}"], ["", "}"], $rawJsonData);//this line is needed here, because during the data extraction above, there will be an strange not-really-json format (so json_decode will not work!), and with this line we make the data to be json format.
         $this->requestData = json_decode($rawJsonData, true);//this will be an array
     }
 }
