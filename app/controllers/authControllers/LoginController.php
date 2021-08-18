@@ -33,41 +33,73 @@ class LoginController
         //check if the user is already logged in.
         self::isUserAlreadyLoggedIn();
 
-        //login data validation
-        $errors = Validator::validateLoginData($request);
-        $request2 = $request->getAllRequestData();
-        $email = $request2['email'];
-        $password = $request2['password'];
-        
-        if ($errors !== false) {//TODO THIS HAS TO BE CORRECTED, USE EXCEPTIONS!!!!
-            return view('login', compact('errors', 'email', 'password'));
-        } 
+        //getting email and password from the request
+        $request = $request->getAllRequestData();
+        $email = $request['email'];
+        $password = $request['password'];
 
+        //login data validation
+        self::validateLoginData($email, $password);
+
+        //finding the user
+        $user = self::findUser($email, $password);
+
+        //authenticate the user
+        self::authenticateUser($user, $email, $password);
+    }
+
+    private static function authenticateUser(User $user, $email, $password)
+    {
         //authentication (are the email and the password = to the u and p from the db?)
-        $requestData1 = $request->getAllRequestData();
-        $email = $requestData1['email'];
-        $password = $requestData1['password'];
-        $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
-        if ($user === null) {
+        $emailFromDb = $user->email;
+        $passwordFromDb = $user->password;
+
+        try {
+            if ($email === $emailFromDb && $password === $passwordFromDb) {
+                session_start();
+                $_SESSION["loggedin"] = true;
+                $_SESSION["id"] = $user->id;
+                $_SESSION["username"] = $user->username; 
+    
+                return redirect('users');
+            }
+            throw new CantAuthenticateException('Can not authenticate this user: ' . $email);
+        } catch (CantAuthenticateException $error) {
             $isAuthenticated = false;
 
             return view('login', compact('isAuthenticated'));
         }
-        $emailFromDb = $user->email;
-        $passwordFromDb = $user->password;
+    }
 
+    private static function findUser($email, $password)
+    {
+        try {
+            //check if there is a user with the validated email and password
+            $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
+            if ($user === null) {
+                throw new CantFindUserException(
+                    'Can not find the user in the db during authentication. Users email is: ' . $email
+                );
+            }
 
-        if ($email === $emailFromDb && $password === $passwordFromDb) {
-            session_start();
-            $_SESSION["loggedin"] = true;
-            $_SESSION["id"] = $user->id;
-            $_SESSION["username"] = $user->username; 
+            return $user;
 
-            return redirect('users');
-        } else {
+        } catch (CantFindUserException $error) {
             $isAuthenticated = false;
 
             return view('login', compact('isAuthenticated'));
+        }
+    }
+
+    private static function validateLoginData($email, $password)
+    {
+        try {
+            $loginValidator = new LoginValidator();
+            $loginValidator->validate($email, $password);
+        } catch (\Exception $errors) {
+            $errors = json_decode($errors->getMessage(), true);
+
+            return view('login', compact('errors', 'email', 'password'));
         }
     }
 
