@@ -1,5 +1,6 @@
 <?php
 
+use App\logger\Logger;
 use System\request\ApiRequest;
 use System\request\WebPageRequest;
 use System\request\FileUploadRequest;
@@ -119,6 +120,15 @@ $router->delete('/server/users/{id}', function ($id) {
 
 //home page
 $router->get('/', function () {
+    
+    // Logger::getInstance()->log('Random textfff.');
+
+    try {
+        throw new Exception('Just a random exception error message');
+    } catch (Exception $error) {
+        Logger::getInstance()->logError($error);
+    }
+
     PageController::home();
 }); 
 
