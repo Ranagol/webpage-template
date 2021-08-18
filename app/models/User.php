@@ -3,6 +3,7 @@
 namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
+use Exception;
 
 class User extends Model
 {
@@ -17,13 +18,18 @@ class User extends Model
      */
     public static function getCurrentUser()
     {
-        if (isset($_SESSION)) {
-            $userId = $_SESSION['id'];
-            $user = User::findOrFail($userId);
-
-            return $user;
-        } 
-        echo 'There is no logged in user.';
+        try {
+            if (isset($_SESSION)) {
+                $userId = $_SESSION['id'];
+                $user = User::findOrFail($userId);
+    
+                return $user;
+            } 
+            throw new Exception('User is not logged in.');
+        } catch (Exception $error) {
+            echo $error->getMessage();
+            redirect('/login');
+        }
 
         return false;
     }

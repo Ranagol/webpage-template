@@ -44,7 +44,6 @@ class LoginController
         } 
 
         //authentication (are the email and the password = to the u and p from the db?)
-
         $requestData1 = $request->getAllRequestData();
         $email = $requestData1['email'];
         $password = $requestData1['password'];
@@ -92,64 +91,14 @@ class LoginController
         redirect('login');
     }
 
-    private static function authenticate(RequestInterface $request)
-    {
-        var_dump('authentication started');
-
-        $request = $request->getAllRequestData();
-        $email = $request['email'];
-        $password = $request['password'];
-        $user = User::where('email', '=', $email)->first();
-        var_dump($user);
-        if ($user === null) {
-            var_dump('wrong user credentials...');//TODO THIS HAS TO BE CORRECTED, USE EXCEPTIONS!!!!
-            return false;
-        }
-        $t = 4;
-        $emailFromDb = $user->email;
-        $passwordFromDb = $user->password;
-
-        var_dump('authentication finished');
-
-        if ($email === $emailFromDb && $password === $passwordFromDb) {
-            session_start();
-            $_SESSION["loggedin"] = true;
-            $_SESSION["id"] = $user->id;
-            $_SESSION["username"] = $user->username; 
-
-            return true;
-        } else {
-
-            return false;
-        }
-    }
-
-    private static function validateLoginData(RequestInterface $request)
-    {
-        //login data validation
-        var_dump('login data validation started');
-        $errors = Validator::validateLoginData($request);
-        $request = $request->getAllRequestData();
-        $email = $request['email'];
-        $password = $request['password'];
-        var_dump('login data validation finished');
-
-        
-        if ($errors !== false) {//TODO THIS HAS TO BE CORRECTED, USE EXCEPTIONS!!!!
-            return view('login', compact('errors', 'email', 'password'));
-        } 
-    }
-
     /**
      * Check if the user is already logged in, if yes then redirect him to home page
      *
      */
     private static function isUserAlreadyLoggedIn()
     {
-        // 
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
             redirect('/');
         }
     }
 }
-

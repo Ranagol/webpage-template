@@ -149,13 +149,13 @@ $router->get('/login', function () {
 
 //logging in
 $router->post('/login', function () {
-    var_dump('login post form activated');
+    // var_dump('login post form activated');
     LoginController::login(new WebPageRequest());
 });
 
 //logout
 $router->get('/logout', function () {
-    var_dump('logout route activated');
+    // var_dump('logout route activated');
     LoginController::logout();
 });
 
