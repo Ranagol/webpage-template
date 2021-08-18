@@ -1,5 +1,11 @@
 <?php require 'partials/header.php'; ?>
-<?php session_start(); ?>
+<?php
+
+if(!isset($_SESSION)){ 
+    session_start(); 
+}
+
+?>
 
     <div class="wrapper">
         <h2>Sign Up</h2>

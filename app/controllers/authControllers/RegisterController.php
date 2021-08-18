@@ -4,6 +4,7 @@ namespace App\controllers\authControllers;
 
 use App\models\User;
 use System\request\RequestInterface;
+use App\validators\RegisterValidator;
 
 
 class RegisterController
@@ -32,7 +33,6 @@ class RegisterController
      */
     public static function register(RequestInterface $request)
     {
-        $errors = Validator::validateRegisterData($request);
         $request = $request->getAllRequestData();
         $username = $request['username'];
         $firstname = $request['firstname'];
@@ -40,8 +40,31 @@ class RegisterController
         $email = $request['email'];
         $password = $request['password'];
 
+        try {
+            $registerValidator = new RegisterValidator();
+            $registerValidator->validate(
+                $email, 
+                $password,
+                $username,
+                $firstname,
+                $lastname,
+            );
+
+            User::create($request);
+
+            //automatic login, after a succesfull registratin
+            $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
+            session_start();
+                $_SESSION["loggedin"] = true;
+                $_SESSION["id"] = $user->id;
+                $_SESSION["username"] = $user->username; 
+            
+            return view('home');
+
+        } catch (\Exception $errors) {
         //in case of validation errors here we return all input field values to be displayed again for the user, so he could correct them without typing everything from the beginning
-        if ($errors) {
+            $errors = json_decode($errors->getMessage(), true);
+            $t = 4;
             return view('register', compact(
                 'errors', 
                 'username',
@@ -51,16 +74,5 @@ class RegisterController
                 'password'
             ));
         }
-
-        User::create($request);
-
-        //automatic login, after a succesfull registratin
-        $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
-        session_start();
-            $_SESSION["loggedin"] = true;
-            $_SESSION["id"] = $user->id;
-            $_SESSION["username"] = $user->username; 
-        
-        return view('home');
     }
 }
