@@ -11,9 +11,9 @@
                 echo '<div class="alert alert-danger">Invalid login credentials.</div>';
             }
 
-            if (isset($errors)) {
-                var_dump($errors);
-            }
+            // if (isset($errors)) {
+            //     var_dump($errors);
+            // }
 
         ?>
 

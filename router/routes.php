@@ -123,11 +123,11 @@ $router->get('/', function () {
     
     // Logger::getInstance()->log('Random textfff.');
 
-    try {
-        throw new Exception('Just a random exception error message');
-    } catch (Exception $error) {
-        Logger::getInstance()->logError($error);
-    }
+    // try {
+    //     throw new Exception('Just a random exception error message');
+    // } catch (Exception $error) {
+    //     Logger::getInstance()->logError($error);
+    // }
 
     PageController::home();
 }); 

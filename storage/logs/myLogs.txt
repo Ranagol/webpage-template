@@ -18,3 +18,11 @@ D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on l
 D:\_CODE\webpage-template\router\routes.php on line 260
 D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
 D:\_CODE\webpage-template\public\index.php on line 12
+2021-08-18 20:22:31 - Can not find the user in the db during authentication. Users email is: andorhorvat@gmail.com
+2021-08-18 20:24:31 - Can not find the user in the db during authentication. Users email is: andorhorvat@gmail.com
+2021-08-18 20:27:13 - Can not find the user in the db during authentication. Users email is: andorhorvat@gmail.com
+2021-08-18 20:35:07 - Can not find the user in the db during authentication. Users email is: andorhorvat@gmail.com
+2021-08-18 20:36:10 - Can not find the user in the db during authentication. Users email is: andorhorvat@gmail.com
+2021-08-18 20:36:10 - Can not authenticate this user: andorhorvat@gmail.com
+2021-08-18 20:42:24 - Can not find the user in the db during authentication. Users email is: andorhorvat@gmail.com
+2021-08-18 20:46:53 - Can not find the user in the db during authentication. Users email is: andorhorvat@gmail.com

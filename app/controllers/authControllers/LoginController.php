@@ -3,7 +3,10 @@
 namespace App\controllers\authControllers;
 
 use App\models\User;
+use App\Validators\LoginValidator;
 use System\request\RequestInterface;
+use App\Exceptions\CantFindUserException;
+use App\Exceptions\CantAuthenticateException;
 
 
 class LoginController
@@ -39,16 +42,44 @@ class LoginController
         $password = $request['password'];
 
         //login data validation
-        self::validateLoginData($email, $password);
+        try {
+            self::validateLoginData($email, $password);
+        } catch (\Exception $errors) {
+            $errors = json_decode($errors->getMessage(), true);
+
+            return view('login', compact('errors', 'email', 'password'));
+        }
 
         //finding the user
-        $user = self::findUser($email, $password);
+        try {
+            $user = self::findUser($email, $password);
+        } catch (CantFindUserException $error) {
+            $isAuthenticated = false;
+
+            return view('login', compact('isAuthenticated'));
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //authenticate the user
         self::authenticateUser($user, $email, $password);
     }
 
-    private static function authenticateUser(User $user, $email, $password)
+    private static function authenticateUser($user, $email, $password)
     {
         //authentication (are the email and the password = to the u and p from the db?)
         $emailFromDb = $user->email;
@@ -73,34 +104,23 @@ class LoginController
 
     private static function findUser($email, $password)
     {
-        try {
-            //check if there is a user with the validated email and password
-            $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
-            if ($user === null) {
-                throw new CantFindUserException(
-                    'Can not find the user in the db during authentication. Users email is: ' . $email
-                );
-            }
-
-            return $user;
-
-        } catch (CantFindUserException $error) {
-            $isAuthenticated = false;
-
-            return view('login', compact('isAuthenticated'));
+        
+        //check if there is a user with the validated email and password
+        $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
+        $r=7;
+        if ($user === null) {
+            throw new CantFindUserException(
+                'Can not find the user in the db during authentication. Users email is: ' . $email
+            );
         }
+
+        return $user;
     }
 
     private static function validateLoginData($email, $password)
     {
-        try {
-            $loginValidator = new LoginValidator();
-            $loginValidator->validate($email, $password);
-        } catch (\Exception $errors) {
-            $errors = json_decode($errors->getMessage(), true);
-
-            return view('login', compact('errors', 'email', 'password'));
-        }
+        $loginValidator = new LoginValidator();
+        $loginValidator->validate($email, $password);
     }
 
     /**
