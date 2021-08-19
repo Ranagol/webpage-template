@@ -63,9 +63,18 @@ class LoginController
         }
     }
 
+    /**
+     * Checks if the email and the password from the input fields are = to the 
+     * username and password from the db
+     *
+     * @param [type] $user
+     * @param [type] $email
+     * @param [type] $password
+     * @return void
+     */
     private static function authenticateUser($user, $email, $password)
     {
-        //authentication (are the email and the password = to the u and p from the db?)
+        //authentication (?)
         $emailFromDb = $user->email;
         $passwordFromDb = $user->password;
 
@@ -79,6 +88,14 @@ class LoginController
         }
     }
 
+    /**
+     * Tries to find the user based on the email and password 
+     * receved from the html form.
+     *
+     * @param [type] $email
+     * @param [type] $password
+     * @return void
+     */
     private static function findUser($email, $password)
     {
         //check if there is a user with the validated email and password
@@ -93,6 +110,13 @@ class LoginController
         return $user;
     }
 
+    /**
+     * Validates login data.
+     *
+     * @param [type] $email
+     * @param [type] $password
+     * @return void
+     */
     private static function validateLoginData($email, $password)
     {
         $loginValidator = new LoginValidator();

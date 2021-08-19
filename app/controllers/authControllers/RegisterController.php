@@ -7,6 +7,9 @@ use System\request\RequestInterface;
 use App\validators\RegisterValidator;
 use App\Exceptions\ValidationException;
 
+/**
+ * Handles user registering stuff.
+ */
 class RegisterController
 {
     /**
@@ -74,6 +77,15 @@ class RegisterController
         }
     }
 
+    /**
+     * When a user is succesfully authenticated, this function 
+     * automatically logs in the user, after the registratio. Aka: 
+     * a newly registered user gets automatically logged in.
+     *
+     * @param [type] $email
+     * @param [type] $password
+     * @return void
+     */
     private static function loginUser($email, $password)
     {
         $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
@@ -87,6 +99,16 @@ class RegisterController
         $_SESSION["username"] = $user->username; 
     }
 
+    /**
+     * Validates user data.
+     *
+     * @param [type] $email
+     * @param [type] $password
+     * @param [type] $username
+     * @param [type] $firstname
+     * @param [type] $lastname
+     * @return void
+     */
     private static function validateUserData(
         $email, 
         $password,

@@ -4,6 +4,16 @@ namespace App\Validators;
 
 class RegisterValidator extends AuthValidator
 {
+    /**
+     * Validates register data.
+     *
+     * @param [type] $email
+     * @param [type] $password
+     * @param [type] $username
+     * @param [type] $firstname
+     * @param [type] $lastname
+     * @return void
+     */
     public function validate(
         $email, 
         $password,
@@ -19,6 +29,13 @@ class RegisterValidator extends AuthValidator
         $this->checkForValidationErrors();
     }
 
+    /**
+     * Input field validation function. 
+     * Any new validation rules should be added with a new elseif at the end.
+     *
+     * @param [type] $username
+     * @return void
+     */
     private function validateUsername($username)
     {
         $usernameError = null;
@@ -34,6 +51,13 @@ class RegisterValidator extends AuthValidator
         }
     }
 
+    /**
+     * Input field validation function. 
+     * Any new validation rules should be added with a new elseif at the end.
+     *
+     * @param [type] $firstname
+     * @return void
+     */
     private function validateFirstname($firstname)
     {
         $firstnameError = null;
@@ -49,6 +73,13 @@ class RegisterValidator extends AuthValidator
         }
     }
 
+    /**
+     * Input field validation function. 
+     * Any new validation rules should be added with a new elseif at the end.
+     *
+     * @param [type] $lastname
+     * @return void
+     */
     private function validateLastname($lastname)
     {
         $lastNameError = null;

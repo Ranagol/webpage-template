@@ -2,3 +2,4 @@
 .env
 .vscode
 /storage
+/storage/logs/myLogs.txt
