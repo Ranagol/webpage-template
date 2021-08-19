@@ -9,7 +9,7 @@ class BaseException extends Exception
 {
     public function __construct($message = null, $code = 0, \Throwable $previous = null)
     {
-        Logger::getInstance()->log($message);
-        parent::__construct($message, $code, $previous);
+        Logger::getInstance()->logError($this);
+        parent::__construct($message, $code, $previous);//TODO LOSI MOST ITT MI IS TORTENIK?
     }
 }

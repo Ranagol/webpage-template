@@ -2,6 +2,9 @@
 
 namespace App\validators;
 
+use App\Validators\AbstractValidator;
+use App\Exceptions\ValidationException;
+
 abstract class AuthValidator extends AbstractValidator
 {
     protected $errors = [];
@@ -9,7 +12,7 @@ abstract class AuthValidator extends AbstractValidator
     protected function checkForValidationErrors()
     {
         if (count($this->errors) > 0) {
-            throw new \Exception(json_encode($this->errors), 422);
+            throw new ValidationException(json_encode($this->errors), 422);
         }
 
         return true;

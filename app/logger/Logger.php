@@ -80,6 +80,7 @@ class Logger
         $line = 'The exception was created on this line: ' . $error->getLine() . '.' . PHP_EOL;
         $file = 'The exceptions was created in this file: ' . $error->getFile() . '.' . PHP_EOL;
         $trace = $error->getTrace();
+        
         $firstLine = $date . ' - ' . $errorMessage . $file . $line;
 
         $filePointer = fopen($this->getPath(), 'a+');

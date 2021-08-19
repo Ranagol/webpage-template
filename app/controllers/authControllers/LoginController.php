@@ -44,7 +44,7 @@ class LoginController
         //login data validation
         try {
             self::validateLoginData($email, $password);
-        } catch (\Exception $errors) {
+        } catch (ValidationException $errors) {
             $errors = json_decode($errors->getMessage(), true);
 
             return view('login', compact('errors', 'email', 'password'));
@@ -58,22 +58,6 @@ class LoginController
 
             return view('login', compact('isAuthenticated'));
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         //authenticate the user
         self::authenticateUser($user, $email, $password);
