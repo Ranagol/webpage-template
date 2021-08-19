@@ -33,11 +33,13 @@ require __DIR__ . '/../router/routes.php';
  *
  * @param String $name
  * @param Array $data
+ *
+ * @return void
  */
-function view(String $name, Array $data = [])
+function view(String $name, Array $data = []):void
 {
     extract($data);
-    return require __DIR__ . "/../resources/views/{$name}.view.php";
+    require __DIR__ . "/../resources/views/{$name}.view.php";
 }
 
 /**

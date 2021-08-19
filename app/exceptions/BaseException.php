@@ -12,13 +12,17 @@ use App\logger\Logger;
  */
 class BaseException extends Exception
 {
-    //TODO valamiert az error message nem akarja beirni a Loggerba (mindez mukodik a sima Exception classal)
-    //routes.php itt van beallitva sima Exception pelda - kiprobalni
-    //LoginController van masik exception pelda - kiprobalni loginalassal, hibas passworddal
-    //mikor ezzel megvagyunk, akkor ezt a reszt el kene magyarazni...
+    /**
+     * In this constructor we set up that for every exception when it is created,
+     * it will be logged immediatelly into the logs.
+     *
+     * @param [type] $message
+     * @param integer $code
+     * @param \Throwable $previous
+     */
     public function __construct($message = null, $code = 0, \Throwable $previous = null)
     {
-        Logger::getInstance()->logError($this);
         parent::__construct($message, $code, $previous);
+        Logger::getInstance()->logError($this);
     }
 }

@@ -15,11 +15,11 @@ class RegisterController
     /**
      * Loads the register page.
      *
-     * @return void//TODO LOSI mit kell ide tenni? View lesz returnolva...
+     * @return void
      */
-    public static function loadRegisterPage()
+    public static function loadRegisterPage():void
     {
-        return view('register');
+        view('register');
     }
 
     /**

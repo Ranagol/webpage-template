@@ -16,7 +16,7 @@ abstract class AuthValidator extends AbstractValidator
      * We must collect in one place all the errors regarding these multiple input fields. 
      * This is the place where this collection is happening.
      *
-     * @var array
+     * @var string[]
      */
     protected $errors = [];
     

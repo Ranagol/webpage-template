@@ -1,7 +1,9 @@
 
-2021-08-19 09:26:19 - Error message: Just a random exception error message.
-The exceptions was created in this file: D:\_CODE\webpage-template\router\routes.php.
-The exception was created on this line: 127.
+2021-08-19 16:31:25 - Error message: Can not find the user in the db during authentication. Users email is: andorhorvat@gmail.com.
+The exceptions was created in this file: D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php.
+The exception was created on this line: 105.
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 49
+D:\_CODE\webpage-template\router\routes.php on line 163
 D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
 D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
 D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287

@@ -13,7 +13,7 @@ class UserWebController extends WebController
         $users = User::orderBy('id', 'desc')->get();
 
         return view('index', compact('users'));
-    } 
+    }
     
     public static function show($id)
     {
