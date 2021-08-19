@@ -8,7 +8,10 @@
 <table class='table'>
     <tr>
         <th>Id</th>
-        <th>Name</th>
+        <th>Username</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
         <th>Delete user</th>
     </tr>
     <?php foreach ($users as $user): ?>
@@ -17,10 +20,12 @@
             <td><?= $user->id; ?></td>
             <td>
                 <a href='/users/<?= $user->id; ?>'>
-                    <?= $user->firstname; ?> 
-                    <?= $user->lastname; ?>
+                    <?= $user->username; ?> 
                 </a>
             </td>
+            <td><?= $user->firstname; ?></td>
+            <td><?= $user->lastname; ?></td>
+            <td><?= $user->email; ?></td>
             <td>
                 <!-- 
  * Most browser do not support DELETE as method parameter for <form ...>

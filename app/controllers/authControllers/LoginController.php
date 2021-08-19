@@ -2,12 +2,11 @@
 
 namespace App\controllers\authControllers;
 
+use App\Exceptions\CantFindUserException;
 use App\models\User;
 use App\Validators\LoginValidator;
 use System\request\RequestInterface;
-use App\Exceptions\CantFindUserException;
-use App\Exceptions\CantAuthenticateException;
-
+use App\Exceptions\ValidationException;
 
 class LoginController
 {
@@ -25,7 +24,7 @@ class LoginController
      * Logs in the user.
      * First we check if the user is already logged in. If so, he will be redirected to the home page.
      * Secondly we do email and password validation. Example: if they are longer than 2 characters.
-     * Thirdly we do authentication. We check if the email and password are the same, as the email 
+     * Thirdly we do authentication. We check if the email and password are the same, as the email
      * and password from db.
      *
      * @param RequestInterface $request
@@ -41,26 +40,27 @@ class LoginController
         $email = $request['email'];
         $password = $request['password'];
 
-        //login data validation
         try {
+
+            //login data validation
             self::validateLoginData($email, $password);
+
+            //finding the user
+            $user = self::findUser($email, $password);
+
+            //authenticate the user
+            self::authenticateUser($user, $email, $password);
+
         } catch (ValidationException $errors) {
             $errors = json_decode($errors->getMessage(), true);
 
             return view('login', compact('errors', 'email', 'password'));
-        }
 
-        //finding the user
-        try {
-            $user = self::findUser($email, $password);
         } catch (CantFindUserException $error) {
             $isAuthenticated = false;
 
             return view('login', compact('isAuthenticated'));
         }
-
-        //authenticate the user
-        self::authenticateUser($user, $email, $password);
     }
 
     private static function authenticateUser($user, $email, $password)
@@ -69,29 +69,21 @@ class LoginController
         $emailFromDb = $user->email;
         $passwordFromDb = $user->password;
 
-        try {
-            if ($email === $emailFromDb && $password === $passwordFromDb) {
-                session_start();
-                $_SESSION["loggedin"] = true;
-                $_SESSION["id"] = $user->id;
-                $_SESSION["username"] = $user->username; 
-    
-                return redirect('users');
-            }
-            throw new CantAuthenticateException('Can not authenticate this user: ' . $email);
-        } catch (CantAuthenticateException $error) {
-            $isAuthenticated = false;
+        if ($email === $emailFromDb && $password === $passwordFromDb) {
+            session_start();
+            $_SESSION["loggedin"] = true;
+            $_SESSION["id"] = $user->id;
+            $_SESSION["username"] = $user->username;
 
-            return view('login', compact('isAuthenticated'));
+            return redirect('users');
         }
     }
 
     private static function findUser($email, $password)
     {
-        
         //check if there is a user with the validated email and password
         $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
-        $r=7;
+        $r = 7;
         if ($user === null) {
             throw new CantFindUserException(
                 'Can not find the user in the db during authentication. Users email is: ' . $email
@@ -116,14 +108,14 @@ class LoginController
     {
         // Initialize the session
         session_start();
-        
+
         // Unset all of the session variables
         $_SESSION = [];
 
         // Destroy the session.
         session_destroy();
 
-        //Redirect to login page 
+        //Redirect to login page
         redirect('login');
     }
 
@@ -133,7 +125,7 @@ class LoginController
      */
     private static function isUserAlreadyLoggedIn()
     {
-        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
             redirect('/');
         }
     }

@@ -38,3 +38,151 @@ D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on l
 D:\_CODE\webpage-template\router\routes.php on line 260
 D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
 D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-19 08:37:18 - Error message: .
+The exceptions was created in this file: D:\_CODE\webpage-template\app\validators\AuthValidator.php.
+The exception was created on this line: 15.
+D:\_CODE\webpage-template\app\validators\LoginValidator.php on line 11
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 102
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 48
+D:\_CODE\webpage-template\router\routes.php on line 163
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 260
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-19 08:39:53 - Error message: .
+The exceptions was created in this file: D:\_CODE\webpage-template\app\validators\AuthValidator.php.
+The exception was created on this line: 15.
+D:\_CODE\webpage-template\app\validators\LoginValidator.php on line 11
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 98
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 45
+D:\_CODE\webpage-template\router\routes.php on line 163
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 260
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-19 08:46:55 - Error message: .
+The exceptions was created in this file: D:\_CODE\webpage-template\app\validators\AuthValidator.php.
+The exception was created on this line: 15.
+D:\_CODE\webpage-template\app\validators\LoginValidator.php on line 11
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 99
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 46
+D:\_CODE\webpage-template\router\routes.php on line 163
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 260
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-19 08:47:13 - Error message: .
+The exceptions was created in this file: D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php.
+The exception was created on this line: 88.
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 49
+D:\_CODE\webpage-template\router\routes.php on line 163
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 260
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-19 08:48:22 - Error message: .
+The exceptions was created in this file: D:\_CODE\webpage-template\app\validators\AuthValidator.php.
+The exception was created on this line: 15.
+D:\_CODE\webpage-template\app\validators\LoginValidator.php on line 11
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 99
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 46
+D:\_CODE\webpage-template\router\routes.php on line 163
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 260
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-19 08:49:35 - Error message: .
+The exceptions was created in this file: D:\_CODE\webpage-template\app\validators\AuthValidator.php.
+The exception was created on this line: 15.
+D:\_CODE\webpage-template\app\validators\LoginValidator.php on line 11
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 99
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 46
+D:\_CODE\webpage-template\router\routes.php on line 163
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 260
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-19 08:49:42 - Error message: .
+The exceptions was created in this file: D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php.
+The exception was created on this line: 88.
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 49
+D:\_CODE\webpage-template\router\routes.php on line 163
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 260
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-19 08:49:56 - Error message: .
+The exceptions was created in this file: D:\_CODE\webpage-template\app\validators\AuthValidator.php.
+The exception was created on this line: 15.
+D:\_CODE\webpage-template\app\validators\RegisterValidator.php on line 19
+D:\_CODE\webpage-template\app\controllers\authControllers\RegisterController.php on line 46
+D:\_CODE\webpage-template\router\routes.php on line 152
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 260
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-19 08:54:32 - Error message: .
+The exceptions was created in this file: D:\_CODE\webpage-template\app\validators\AuthValidator.php.
+The exception was created on this line: 15.
+D:\_CODE\webpage-template\app\validators\RegisterValidator.php on line 19
+D:\_CODE\webpage-template\app\controllers\authControllers\RegisterController.php on line 46
+D:\_CODE\webpage-template\router\routes.php on line 152
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 260
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-19 09:05:26 - Error message: .
+The exceptions was created in this file: D:\_CODE\webpage-template\app\validators\AuthValidator.php.
+The exception was created on this line: 15.
+D:\_CODE\webpage-template\app\validators\RegisterValidator.php on line 19
+D:\_CODE\webpage-template\app\controllers\authControllers\RegisterController.php on line 95
+D:\_CODE\webpage-template\app\controllers\authControllers\RegisterController.php on line 47
+D:\_CODE\webpage-template\router\routes.php on line 152
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 260
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-19 09:05:36 - Error message: .
+The exceptions was created in this file: D:\_CODE\webpage-template\app\validators\AuthValidator.php.
+The exception was created on this line: 15.
+D:\_CODE\webpage-template\app\validators\RegisterValidator.php on line 19
+D:\_CODE\webpage-template\app\controllers\authControllers\RegisterController.php on line 95
+D:\_CODE\webpage-template\app\controllers\authControllers\RegisterController.php on line 47
+D:\_CODE\webpage-template\router\routes.php on line 152
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 260
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
