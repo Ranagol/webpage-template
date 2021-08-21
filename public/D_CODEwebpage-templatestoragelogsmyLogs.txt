@@ -1,5 +1,5 @@
 
-2021-08-21 13:28:32 - Error message: Just a random exception error message.
+2021-08-21 15:37:15 - Error message: Just a random exception error message.
 The exceptions was created in this file: /srv/www/router/routes.php.
 The exception was created on this line: 127.
 /srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458

@@ -30,11 +30,14 @@ services:
       # this app links to db container service...
       - my-database-service
     environment:
+      # problem: I need dynamically to pull in these enviroment variables somehow
+      # solution: https://stackoverflow.com/questions/29377853/how-to-use-environment-variables-in-docker-compose
+
       DB_HOST: my-database-service
-      DB_DATABASE: webpage-template
-      DB_USERNAME: experiment
-      DB_PORT: 3306
-      DB_PASSWORD: password
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PORT: ${DB_PORT}
+      DB_PASSWORD: ${DB_PASSWORD}
   
   # DB SETUP
   # so, we can connect Heidi too. See 'Connecting docker....png' for details.
@@ -45,10 +48,13 @@ services:
     #  restarts the service whenever any defined configuration changes.
     restart: always
     environment:
+        # problem: I need dynamically to pull in these enviroment variables somehow
+        # solution: https://stackoverflow.com/questions/29377853/how-to-use-environment-variables-in-docker-compose
+
         MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
-        MYSQL_DATABASE: webpage-template
-        MYSQL_USER: experiment
-        MYSQL_PASSWORD: password
+        MYSQL_DATABASE: ${DB_DATABASE}
+        MYSQL_USER: ${DB_USERNAME}
+        MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
         - "13306:3306"
   

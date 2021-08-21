@@ -1,7 +1,7 @@
 <?php 
 
 if ($desiredView === 'create') {
-  $pageTitle = 'Create user';
+  $pageTitle = 'Create user - this is only for testing purposes';
 } else {
   $pageTitle = 'User page';
 }
