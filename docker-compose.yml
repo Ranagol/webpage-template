@@ -1,0 +1,78 @@
+# below we select the Docker version that we want to use
+version: '3.8'
+services:
+
+# this is our app, this is the app service
+  my-app:
+    # ‘build’ defines the location of the Dockerfile of the respected service.
+    build:
+      # our app is in the same dir as this docker compose file, that is why we use .
+      context: .
+      # the location of our custom dockerfile, that has to be runned for the app
+      dockerfile: docker/Dockerfile
+    hostname: webpage-template
+    domainname: webpage-template.com
+
+    # this is the image that we create from the .docker/Dockerfile
+    image: webpage-template
+    ports:
+      # so our app will run here: http://127.0.0.1:8088/ through docker
+      # left side: outside docker (:8088)
+      # right side: inside docker (:80)
+      # we are redirecting all requests from laptop localhost:8088 to docker:80
+      - 8088:80
+    volumes:
+      # this is the extension that has to be added to require_once paths (/srv/www)
+      # yeah, but how to solve this in Windows?
+      # we are connecting the current dir (note the '.') with the /srv/www
+      - .:/srv/www
+    links:
+      # this app links to db container service...
+      - my-database-service
+    environment:
+      DB_HOST: my-database-service
+      DB_DATABASE: webpage-template
+      DB_USERNAME: experiment
+      DB_PORT: 3306
+      DB_PASSWORD: password
+  
+  # DB SETUP
+  # so, we can connect Heidi too. See 'Connecting docker....png' for details.
+  my-database-service:
+    # the container_name is a random name
+    container_name: my-database-container
+    image: mysql
+    #  restarts the service whenever any defined configuration changes.
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+        MYSQL_DATABASE: webpage-template
+        MYSQL_USER: experiment
+        MYSQL_PASSWORD: password
+    ports:
+        - "13306:3306"
+  
+  # PHPMYADMIN SETUP
+  # username for the admin: root
+  # password for the admin: whatever is in the db/enviroment/MYSQL_ROOT_PASSWORD, which is ... MYSQL_ROOT_PASSWORD
+  # username for the app: MYSQL_USER
+  # password for the app: MYSQL_PASSWORD
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      # so, the phpadmin will be available to us on
+      - '8080:80'
+    restart: always
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - my-database-service
+
+# ok, what is happening below?
+volumes:
+  dbdata:
+    driver: "local"
+# ok, what is happening below?
+networks:
+  api:
+    driver: "bridge"
