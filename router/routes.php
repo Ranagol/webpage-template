@@ -256,7 +256,13 @@ $router->set404(function () {
 });
 
 
-
+/**
+ * The $router->run(); is the final step in the routing process, this starts everything 
+ * regarding routing. In some cases, we do not use routing (example: activating a 
+ * migration through the composer.) Now, the router is activated then too, but obviously
+ * there is no routing request, there is no request method. In this case the bramus
+ * router freezes. Solution: use if condition, like below.
+ */
 if (isset($_SERVER['REQUEST_METHOD'])) {
     $router->run();
 }

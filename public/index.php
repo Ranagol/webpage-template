@@ -16,3 +16,6 @@ if(!isset($_SESSION)){
     session_start(); 
 }
 
+$d = 7;
+
+//TODO LOSI mindek a htaccess file a Claromentis feladatban, mikor neked van full hozzáférésed a apache config fájlhoz?
