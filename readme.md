@@ -23,6 +23,9 @@ Soooo... This app can:
 2-registering and and login
 3-uploading user files to individual user storages
 4-logging errors
+5-env variables are hidden
+6-works thorugh docker
+7-has MVC system
 
 
 # Docker
@@ -31,9 +34,6 @@ Open terminal in docker: docker exec -it webpage-template_my-app_1 bash
 
 
 # I STOPPED HERE:
-All is working.
-No tables and user in the db at the beginning, I need to solve the migration problem too...
-Middleware in route.php is commented out. It should stay that way, untill I don't solve the migration issue.
-Migration issue: I must have a users table created during the docker-compose up process, so the
-new user could register himself.
+register forms are repeating themselves. We need dry code.
 The server time is wrong, it shows two hours earlier time.
+The xdebug is not working currently with the docker???????

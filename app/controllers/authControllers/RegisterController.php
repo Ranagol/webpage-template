@@ -55,7 +55,13 @@ class RegisterController
             );
 
             //creating user in db
-            User::create($request);
+            $user = new User;
+            $user->email = $email;
+            $user->password = $password;
+            $user->username = $username;
+            $user->firstname = $firstname;
+            $user->lastname = $lastname;
+            $user->save();
 
             //automatic login, after a succesfull registratin
             self::loginUser($email, $password);

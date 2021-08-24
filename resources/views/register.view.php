@@ -26,7 +26,7 @@ if(!isset($_SESSION)){
                     class="form-control alert alert-danger 
                     <?= isset($errors['firstnameError']) ? '' : 'd-none' ?>"
                 >
-                    <?= $errors['firstnameError'] ?>
+                    <?= isset($errors['firstnameError']) ? $errors['firstnameError'] : '' ?>
                 </p>
 
             </div>
@@ -42,7 +42,7 @@ if(!isset($_SESSION)){
                     class="form-control alert alert-danger 
                     <?= isset($errors['lastNameError']) ? '' : 'd-none' ?>"
                 >
-                    <?= $errors['lastNameError'] ?>
+                <?= isset($errors['lastnameError']) ? $errors['lastnameError'] : '' ?>
                 </p>
             </div>
             <div class="form-group">
@@ -57,7 +57,7 @@ if(!isset($_SESSION)){
                     class="form-control alert alert-danger 
                     <?= isset($errors['usernameError']) ? '' : 'd-none' ?>"
                 >
-                    <?= $errors['usernameError'] ?>
+                <?= isset($errors['usernameError']) ? $errors['usernameError'] : '' ?>
                 </p>
             </div>
             <div class="form-group">
@@ -72,7 +72,7 @@ if(!isset($_SESSION)){
                     class="form-control alert alert-danger 
                     <?= isset($errors['emailError']) ? '' : 'd-none' ?>"
                 >
-                    <?= $errors['emailError'] ?>
+                <?= isset($errors['emailError']) ? $errors['emailError'] : '' ?>
                 </p>
             </div>    
             <div class="form-group">
@@ -87,7 +87,7 @@ if(!isset($_SESSION)){
                     class="form-control alert alert-danger 
                     <?= isset($errors['passwordError']) ? '' : 'd-none' ?>"
                 >
-                    <?= $errors['passwordError'] ?>
+                <?= isset($errors['passwordError']) ? $errors['passwordError'] : '' ?>
                 </p>
             </div>
             <div class="form-group">

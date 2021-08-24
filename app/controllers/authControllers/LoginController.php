@@ -85,7 +85,9 @@ class LoginController
         $passwordFromDb = $user->password;
 
         if ($email === $emailFromDb && $password === $passwordFromDb) {
-            session_start();
+            if(!isset($_SESSION)){ 
+                session_start(); 
+            }
             $_SESSION["loggedin"] = true;
             $_SESSION["id"] = $user->id;
             $_SESSION["username"] = $user->username;
@@ -137,7 +139,9 @@ class LoginController
     public static function logout()
     {
         // Initialize the session
-        session_start();
+        if(!isset($_SESSION)){ 
+            session_start(); 
+        }
 
         // Unset all of the session variables
         $_SESSION = [];

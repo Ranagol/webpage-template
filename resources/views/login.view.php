@@ -31,7 +31,7 @@
                     class="form-control alert alert-danger 
                     <?= isset($errors['emailError']) ? '' : 'd-none' ?>"
                 >
-                    <?= $errors['emailError'] ?>
+                <?= isset($errors['emailError']) ? $errors['emailError'] : '' ?>
                 </p>
             </div>    
 
@@ -47,7 +47,7 @@
                     class="form-control alert alert-danger 
                     <?= isset($errors['passwordError']) ? '' : 'd-none' ?>"
                 >
-                    <?= $errors['passwordError'] ?>
+                <?= isset($errors['passwordError']) ? $errors['passwordError'] : '' ?>
                 </p>
             </div>
 
