@@ -22,7 +22,10 @@ class Logger
      *
      * @var string
      */
-    private $path = 'D:\_CODE\webpage-template\storage\logs\myLogs.txt';
+    private $path = __DIR__ . '/../../storage/logs/myLogs.txt';//ez bedobja az app folderba
+
+
+
 
     /**
      * This is deliberatly a private construct.
@@ -47,6 +50,8 @@ class Logger
 
     /**
      * Logs simple string messages.
+     * Example: 
+     * Logger::getInstance()->log('Your custom error message.');
      *
      * @param String $string
      * @return void

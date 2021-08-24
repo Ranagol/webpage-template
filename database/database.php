@@ -8,7 +8,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 $capsule = new Capsule;
 
 /**
- * Here we tell Eloqent which connection to use.
+ * Here we tell Eloqent which connection data, which db, password... to use.
  */
 $capsule->addConnection([
     'driver' => 'mysql',

@@ -1,6 +1,9 @@
 # Apache, this is the main document that you are looking for
 DirectoryIndex index.php
 
+# Set timezone to Europe/Athens UTC+02:00 --- this is only experimental!
+SetEnv TZ Europe/Athens
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews

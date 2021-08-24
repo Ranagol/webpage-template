@@ -25,8 +25,14 @@ class LoginController
      * First we check if the user is already logged in. If so, he will be redirected to the home page.
      * Secondly we do email and password validation. Example: if they are longer than 2 characters.
      * Thirdly we do authentication. We check if the email and password are the same, as the email
-     * and password from db.
-     *
+     * and password from db.Now the loggin in is happening through the $_SESSION global variable.
+     * Like this: 
+     *       $_SESSION["loggedin"] = true;
+     *       $_SESSION["id"] = $user->id;
+     *       $_SESSION["username"] = $user->username;
+     * We will store these user data in the session superglobal. And logging out is done by
+     * deleting all the session data, and destroying the session.
+     * 
      * @param RequestInterface $request
      * @return void
      */
