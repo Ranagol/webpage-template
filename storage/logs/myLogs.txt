@@ -1,3 +1,43 @@
 2021-08-24 09:44:29 - displayMessage() was activated through composer from Testing class.
 2021-08-24 09:44:52 - displayMessage() was activated through composer from Testing class.
 2021-08-24 09:51:25 - displayMessage() was activated through composer from Testing class.
+
+2021-08-24 13:43:52 - Error message: Just a random exception error message.
+The exceptions was created in this file: /srv/www/router/routes.php.
+The exception was created on this line: 127.
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/router/routes.php on line 260
+/srv/www/bootstrap/boostrap.php on line 16
+/srv/www/public/index.php on line 12
+
+2021-08-24 13:44:36 - Error message: Just a random exception error message.
+The exceptions was created in this file: /srv/www/router/routes.php.
+The exception was created on this line: 127.
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/router/routes.php on line 260
+/srv/www/bootstrap/boostrap.php on line 16
+/srv/www/public/index.php on line 12
+
+2021-08-24 14:29:04 - Error message: Just a random exception error message.
+The exceptions was created in this file: /srv/www/router/routes.php.
+The exception was created on this line: 127.
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/router/routes.php on line 261
+/srv/www/bootstrap/boostrap.php on line 16
+/srv/www/public/index.php on line 12
+
+2021-08-24 14:30:50 - Error message: Just a random exception error message.
+The exceptions was created in this file: /srv/www/router/routes.php.
+The exception was created on this line: 127.
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/router/routes.php on line 261
+/srv/www/bootstrap/boostrap.php on line 16
+/srv/www/public/index.php on line 12

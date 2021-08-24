@@ -252,9 +252,12 @@ $router->post('/upload', function () {
 // Custom 404 Handler*********************************************************************
 $router->set404(function () {
     header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-    echo '404, route not found!';
+    echo '404, route not found!' . __FILE__ . __LINE__ ;
 });
 
 
 
-$router->run();
+if (isset($_SERVER['REQUEST_METHOD'])) {
+    $router->run();
+}
+

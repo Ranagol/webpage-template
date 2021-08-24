@@ -12,11 +12,11 @@
         "bramus/router": "~1.5"
     },
     "scripts": {
-        "testScript": "@php testScript.php",
-		"create": "App\\Testing::displayMessage"
+		"create": "App\\Testing::displayMessage",
+        "migrate": "@php Database/migrations/create-users-table.php"
 	},
     "scripts-descriptions": {
         "testScript": "This is just a test to see how basic php script activation is working",
-        "create": "This should start the migration, and create tables in the db"
+        "migrate": "This should start the migration, and create tables in the db"
     }
 }
