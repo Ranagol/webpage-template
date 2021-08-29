@@ -1,3 +1,6 @@
+# This is a standard Laravel .htaccess file, needed when this app is served thorugh apache. 
+# It is not needed when this app is served through php -S localhost:8889
+
 # Apache, this is the main document that you are looking for
 DirectoryIndex index.php
 

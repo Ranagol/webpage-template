@@ -8,7 +8,7 @@ services:
     build:
       # our app is in the same dir as this docker compose file, that is why we use .
       context: .
-      # the location of our custom dockerfile, that has to be runned for the app
+      # the path our custom dockerfile, that has to be runned for the app by docker-compose
       dockerfile: docker/Dockerfile
     hostname: webpage-template
     domainname: webpage-template.com
@@ -24,7 +24,7 @@ services:
       - 8088:80
     volumes:
       # this is the extension that has to be added to require_once paths (/srv/www)
-      # we are connecting the current dir (note the '.') with the /srv/www
+      # we are connecting, linking (and not copying) the current dir (note the '.') with the /srv/www
       - .:/srv/www
     links:
       # this webpage-template image links to db container service...
@@ -61,7 +61,11 @@ services:
         # below is the app password, taken from the .env file
         MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
+        # 13306 is the port where Heidi can access this db. Inside docker the 3306 port works.
         - "13306:3306"
+    volumes:
+        #
+      - dbdata:/var/lib/mysql
   
   # PHPMYADMIN SETUP
   # username for the admin: root
@@ -71,7 +75,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
-      # so, the phpadmin will be available to us on
+      # so, the phpadmin will be available to us on localhost:8080
       - '8080:80'
     restart: always
     environment:
@@ -83,10 +87,8 @@ services:
 # or even between containers. In other words, a volume is a shared directory in the host, visible from 
 # some or all containers.
 volumes:
+  # this is on the local pc hard drive, called dbdata, and our my-database-service saves all db data here
   dbdata:
+    # here we say that the driver is on the local pc hard
     driver: "local"
-# networks define the communication rules between containers, and between a container and the host. 
-# Common network zones will make containers' services discoverable by each other
-networks:
-  api:
-    driver: "bridge"
+# we did not create the networks part, since we do not need it. The docker-compose makes one automatically.

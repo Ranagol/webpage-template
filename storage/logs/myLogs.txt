@@ -191,3 +191,85 @@ The exception was created on this line: 127.
 /srv/www/router/routes.php on line 267
 /srv/www/bootstrap/boostrap.php on line 16
 /srv/www/public/index.php on line 12
+
+2021-08-29 14:49:00 - Error message: Can not find the user in the db during authentication. Users email is: andorhorvat@gmail.com.
+The exceptions was created in this file: /srv/www/app/controllers/authControllers/LoginController.php.
+The exception was created on this line: 113.
+/srv/www/app/controllers/authControllers/LoginController.php on line 55
+/srv/www/router/routes.php on line 163
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/router/routes.php on line 267
+/srv/www/bootstrap/boostrap.php on line 16
+/srv/www/public/index.php on line 12
+
+2021-08-29 15:04:07 - Error message: Just a random exception error message.
+The exceptions was created in this file: /srv/www/router/routes.php.
+The exception was created on this line: 127.
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/router/routes.php on line 267
+/srv/www/bootstrap/boostrap.php on line 16
+/srv/www/public/index.php on line 12
+
+2021-08-29 15:33:32 - Error message: Just a random exception error message.
+The exceptions was created in this file: /srv/www/router/routes.php.
+The exception was created on this line: 127.
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/router/routes.php on line 267
+/srv/www/bootstrap/boostrap.php on line 16
+/srv/www/public/index.php on line 12
+
+2021-08-29 16:01:57 - Error message: Just a random exception error message.
+The exceptions was created in this file: /srv/www/router/routes.php.
+The exception was created on this line: 127.
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/router/routes.php on line 267
+/srv/www/bootstrap/boostrap.php on line 16
+/srv/www/public/index.php on line 12
+
+2021-08-29 18:35:17 - Error message: Just a random exception error message.
+The exceptions was created in this file: D:\_CODE\webpage-template\router\routes.php.
+The exception was created on this line: 127.
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 267
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-29 18:41:12 - Error message: Just a random exception error message.
+The exceptions was created in this file: D:\_CODE\webpage-template\router\routes.php.
+The exception was created on this line: 127.
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 267
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-29 18:41:40 - Error message: Just a random exception error message.
+The exceptions was created in this file: D:\_CODE\webpage-template\router\routes.php.
+The exception was created on this line: 127.
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 267
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-08-29 18:43:07 - Error message: Just a random exception error message.
+The exceptions was created in this file: D:\_CODE\webpage-template\router\routes.php.
+The exception was created on this line: 127.
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 267
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
+D:\_CODE\webpage-template\public\index.php on line 12

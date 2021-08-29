@@ -10,8 +10,6 @@ require __DIR__ . '/../../vendor/autoload.php';
  */
 require __DIR__ . '/../../bootstrap/boostrap.php';
 
-
-//TODO LOSI en itt maskepp csinaltam meg a migralast mint te. Joval egyszerubben. Ez igy elfogadhato?
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 Capsule::schema()->create('users', function ($table) {
