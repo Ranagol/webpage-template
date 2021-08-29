@@ -4,7 +4,7 @@ services:
 
 # this is our app, this is the app service
   my-app:
-    # ‘build’ defines the location of the Dockerfile of the respected service.
+    # here we build our an image from the Dockerfile
     build:
       # our app is in the same dir as this docker compose file, that is why we use .
       context: .
@@ -13,8 +13,9 @@ services:
     hostname: webpage-template
     domainname: webpage-template.com
 
-    # this is the image that we create from the .docker/Dockerfile
+    # this is the image that we have created above from the .docker/Dockerfile
     image: webpage-template
+    # exposing our app to make it publicable reachable
     ports:
       # so our app will run here: http://127.0.0.1:8088/ through docker
       # left side: outside docker (:8088)
@@ -23,17 +24,17 @@ services:
       - 8088:80
     volumes:
       # this is the extension that has to be added to require_once paths (/srv/www)
-      # yeah, but how to solve this in Windows?
       # we are connecting the current dir (note the '.') with the /srv/www
       - .:/srv/www
     links:
-      # this app links to db container service...
+      # this webpage-template image links to db container service...
       - my-database-service
     environment:
       # problem: I need dynamically to pull in these enviroment variables somehow
       # solution: https://stackoverflow.com/questions/29377853/how-to-use-environment-variables-in-docker-compose
 
       DB_HOST: my-database-service
+      # all ${} variables are imported from the .env file
       DB_DATABASE: ${DB_DATABASE}
       DB_USERNAME: ${DB_USERNAME}
       DB_PORT: ${DB_PORT}
@@ -51,9 +52,13 @@ services:
         # problem: I need dynamically to pull in these enviroment variables somehow
         # solution: https://stackoverflow.com/questions/29377853/how-to-use-environment-variables-in-docker-compose
 
+        # below is the admin user password, needed to enter into phpmyadmin. The username is root.
         MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+        # below is the db name, taken from the .env file
         MYSQL_DATABASE: ${DB_DATABASE}
+        # below is the app username, taken from the .env file
         MYSQL_USER: ${DB_USERNAME}
+        # below is the app password, taken from the .env file
         MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
         - "13306:3306"
@@ -70,15 +75,18 @@ services:
       - '8080:80'
     restart: always
     environment:
-      PMA_HOST: db
+      PMA_HOST: my-database-service
     depends_on:
       - my-database-service
 
-# ok, what is happening below?
+# Volumes, on the other hand, are physical areas of disk space shared between the host and a container, 
+# or even between containers. In other words, a volume is a shared directory in the host, visible from 
+# some or all containers.
 volumes:
   dbdata:
     driver: "local"
-# ok, what is happening below?
+# networks define the communication rules between containers, and between a container and the host. 
+# Common network zones will make containers' services discoverable by each other
 networks:
   api:
     driver: "bridge"

@@ -6,7 +6,7 @@ COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
 #The WORKDIR instruction sets the working directory for several commands 
 # such as RUN, CMD, ENTRYPOINT, COPY and ADD instructions.
-# tehat itt van a docker ebben a folderban?
+# this is the working directory inside docker system
 WORKDIR /srv/www
 
 #RUN that is used to execute commands on top of the images 
