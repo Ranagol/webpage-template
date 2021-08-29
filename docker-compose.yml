@@ -66,8 +66,8 @@ services:
   # PHPMYADMIN SETUP
   # username for the admin: root
   # password for the admin: whatever is in the db/enviroment/MYSQL_ROOT_PASSWORD, which is ... MYSQL_ROOT_PASSWORD
-  # username for the app: MYSQL_USER
-  # password for the app: MYSQL_PASSWORD
+  # username for the app: MYSQL_USER, aka see what is in the .env ${DB_USERNAME}
+  # password for the app: MYSQL_PASSWORD, aka see what is in the .env ${DB_PASSWORD}
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
