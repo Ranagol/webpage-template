@@ -2,45 +2,63 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\models\User;
 use Exception;
+use Illuminate\Database\Eloquent\Model;
 
+/**
+ * The File model handles the file uploading.
+ */
 class File extends Model
 {
     /**
      *  this is = to $_FILES now, we can treat $uploadData as the $_FILES
      *
-     * @var [type]
+     * @var array
      */
     private $uploadData;
 
+    /**
+     * All the allowed upload formats are stored here.
+     *
+     * @var array
+     */
     private $allowedFileFormats = [
-        'image/jpg', 
-        'image/jpeg', 
-        'image/gif', 
-        'image/png'
+        'image/jpg',
+        'image/jpeg',
+        'image/gif',
+        'image/png',
     ];
 
+    /**
+     * The name of the file is stored here.
+     *
+     * @var string
+     */
     private $fileName;
 
+    /**
+     * The type of the file is stored here.
+     *
+     * @var string
+     */
     private $fileType;
 
     /**
      * The size of the uploaded file.
      *
-     * @var [type]
+     * @var float
      */
     private $fileSize;
 
     /**
      * The maximum allowed size for the uploaded file.
      *
-     * @var [type]
+     * @var float
      */
     private $maxFileSize = 5 * 1024 * 1024;
 
-    public function __construct(Array $uploadData)
+    public function __construct(array $uploadData)
     {
         $this->uploadData = $uploadData;
     }
@@ -51,7 +69,7 @@ class File extends Model
      *
      * @return void
      */
-    public function storeFile()
+    public function storeFile(): void
     {
         $this->setFileSizeNameType();
         $this->validateFileType();
@@ -61,16 +79,16 @@ class File extends Model
 
     /**
      * We need to get the user here, because we will use the
-     * users email address to create the user's individual directory 
-     * inside the storage folder. Every user will upload his files into 
+     * users email address to create the user's individual directory
+     * inside the storage folder. Every user will upload his files into
      * his own directory.
-     * What we do here: if the user does not have alredy his directory, then 
-     * we make him one, and then we move the uploaded file from the temporary 
+     * What we do here: if the user does not have alredy his directory, then
+     * we make him one, and then we move the uploaded file from the temporary
      * $_FILES place to the user's own directory.
      *
      * @return void
      */
-    private function putFileIntoStorage()
+    private function putFileIntoStorage(): void
     {
         //get user
         $user = User::getCurrentUser();
@@ -90,7 +108,7 @@ class File extends Model
         //place the uploaded file into the new dir
         try {
             $report = move_uploaded_file(
-                $_FILES["photo"]["tmp_name"], 
+                $_FILES["photo"]["tmp_name"],
                 __DIR__ . '/../../storage/upload/' . $email . '/' . $this->getFileName()
             );
         } catch (Exception $error) {
@@ -101,11 +119,13 @@ class File extends Model
     /**
      * Validates the uploaded file size. It has to be smaller than 5MB.
      *
-     * @return void
+     * @throws Exception
+     *
+     * @return mixed
      */
-    private function validateFileSize()
+    private function validateFileSize(): void
     {
-        if($this->getFileSize() > $this->getMaxFileSize()) {
+        if ($this->getFileSize() > $this->getMaxFileSize()) {
             throw new Exception('Error: File size is larger than the allowed limit.');
         }
     }
@@ -114,10 +134,12 @@ class File extends Model
      * Checks if the uploaded file type (example: jpg) is in the $allowedFileFormats[].
      *
      * @throws Exception if the file format is not allowed.
+     *
+     * @return mixed
      */
-    private function validateFileType()
+    private function validateFileType(): void
     {
-        if(!in_array($this->getFileType(), $this->getAllowedFileFormats())) {
+        if (!in_array($this->getFileType(), $this->getAllowedFileFormats())) {
             throw new Exception('Error: Please select a valid file format.');
         }
     }
@@ -126,18 +148,17 @@ class File extends Model
      * We set the uploaded files name, type, size - so these
      * parameters can be validated.
      *
-     * @return void
-     * @throws Exception When blabla is not whatever.
+     * @throws Exception
+     *
+     * @return mixed
      */
-    private function setFileSizeNameType()
+    private function setFileSizeNameType(): void
     {
         $uploadData = $this->getUploadData();
-        $c = 6;
-        if(isset($uploadData["photo"]) && $uploadData["photo"]["error"] == 0){
+        if (isset($uploadData["photo"]) && $uploadData["photo"]["error"] == 0) {
             $this->setFileName($uploadData["photo"]["name"]);
             $this->setFileType($uploadData["photo"]["type"]);
             $this->setFileSize($uploadData["photo"]["size"]);
-            $a = 5;
         } else {
             throw new Exception('Error with uploading: ' . $uploadData['photo']['error']);
         }
@@ -145,8 +166,10 @@ class File extends Model
 
     /**
      * Get the value of fileName
-     */ 
-    public function getFileName()
+     * 
+     * @return string
+     */
+    public function getFileName(): string
     {
         return $this->fileName;
     }
@@ -155,8 +178,8 @@ class File extends Model
      * Set the value of fileName
      *
      * @return  self
-     */ 
-    public function setFileName($fileName)
+     */
+    public function setFileName($fileName): self
     {
         $this->fileName = $fileName;
 
@@ -165,8 +188,10 @@ class File extends Model
 
     /**
      * Get the value of fileType
-     */ 
-    public function getFileType()
+     * 
+     * @return string
+     */
+    public function getFileType(): string
     {
         return $this->fileType;
     }
@@ -175,8 +200,8 @@ class File extends Model
      * Set the value of fileType
      *
      * @return  self
-     */ 
-    public function setFileType($fileType)
+     */
+    public function setFileType($fileType): self
     {
         $this->fileType = $fileType;
 
@@ -185,8 +210,10 @@ class File extends Model
 
     /**
      * Get the value of fileSize
-     */ 
-    public function getFileSize()
+     * 
+     * @return string
+     */
+    public function getFileSize(): string
     {
         return $this->fileSize;
     }
@@ -195,8 +222,8 @@ class File extends Model
      * Set the value of fileSize
      *
      * @return  self
-     */ 
-    public function setFileSize($fileSize)
+     */
+    public function setFileSize($fileSize): self
     {
         $this->fileSize = $fileSize;
 
@@ -206,37 +233,19 @@ class File extends Model
     /**
      * Get this is = to $_FILES now, we can treat $uploadData as the $_FILES
      *
-     * @return  [type]
-     */ 
-    public function getUploadData()
+     * @return array
+     */
+    public function getUploadData(): array
     {
         return $this->uploadData;
     }
 
     /**
-     * Get the value of errorMessage
-     */ 
-    public function getErrorMessage()
-    {
-        return $this->errorMessage;
-    }
-
-    /**
-     * Set the value of errorMessage
-     *
-     * @return  self
-     */ 
-    public function setErrorMessage($errorMessage)
-    {
-        $this->errorMessage = $errorMessage;
-
-        return $this;
-    }
-
-    /**
      * Get the value of allowedFileFormats
-     */ 
-    public function getAllowedFileFormats()
+     * 
+     * @return string
+     */
+    public function getAllowedFileFormats(): string
     {
         return $this->allowedFileFormats;
     }
@@ -244,9 +253,9 @@ class File extends Model
     /**
      * Get the maximum allowed size for the uploaded file.
      *
-     * @return  [type]
-     */ 
-    public function getMaxFileSize()
+     * @return  float
+     */
+    public function getMaxFileSize(): float
     {
         return $this->maxFileSize;
     }

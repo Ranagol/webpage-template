@@ -17,9 +17,9 @@ class RegisterController
      *
      * @return void
      */
-    public static function loadRegisterPage():void
+    public static function loadRegisterPage(): void
     {
-        view('register');
+        returnView('register');
     }
 
     /**
@@ -33,9 +33,10 @@ class RegisterController
      * After this, we navivate the user to the home page.
      *
      * @param RequestInterface $request
+     * 
      * @return void
      */
-    public static function register(RequestInterface $request)
+    public static function register(RequestInterface $request): void
     {
         $request = $request->getAllRequestData();
         $username = $request['username'];
@@ -66,13 +67,13 @@ class RegisterController
             //automatic login, after a succesfull registratin
             self::loginUser($email, $password);
 
-            return view('home');
+            returnView('home');
 
         } catch (ValidationException $errors) {
         //in case of validation errors here we return all input field values to be displayed again for the user, so he could correct them without typing everything from the beginning
             $errors = json_decode($errors->getMessage(), true);
             
-            return view('register', compact(
+            returnView('register', compact(
                 'errors', 
                 'username',
                 'firstname',
@@ -88,11 +89,12 @@ class RegisterController
      * automatically logs in the user, after the registratio. Aka: 
      * a newly registered user gets automatically logged in.
      *
-     * @param [type] $email
-     * @param [type] $password
+     * @param string $email
+     * @param string $password
+     * 
      * @return void
      */
-    private static function loginUser($email, $password)
+    private static function loginUser(string $email,string $password): void
     {
         $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
         
@@ -108,19 +110,20 @@ class RegisterController
     /**
      * Validates user data.
      *
-     * @param [type] $email
-     * @param [type] $password
-     * @param [type] $username
-     * @param [type] $firstname
-     * @param [type] $lastname
+     * @param string $email
+     * @param string $password
+     * @param string $username
+     * @param string $firstname
+     * @param string $lastname
+     * 
      * @return void
      */
     private static function validateUserData(
-        $email, 
-        $password,
-        $username,
-        $firstname,
-        $lastname
+        string $email, 
+        string $password,
+        string $username,
+        string $firstname,
+        string $lastname
     ) {
         $registerValidator = new RegisterValidator();
         $registerValidator->validate(

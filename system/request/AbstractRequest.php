@@ -13,8 +13,10 @@ abstract class AbstractRequest implements RequestInterface
 {
     /**
      * We store all request data here, once the child __construct() is activated.
+     * 
+     * @var array
      */
-    protected array $requestData;
+    protected $requestData;
 
     /**
      * Returns all request data.
@@ -34,7 +36,7 @@ abstract class AbstractRequest implements RequestInterface
      *
      * @param string $key
      */
-    public function get(string $key)
+    public function get(string $key): string
     {
         return $this->requestData[$key];
     }

@@ -19,8 +19,6 @@ class ApiRequest extends AbstractRequest
      * used in the controller.
      * Also, check the parent class, because this class by itself is incomplete for 
      * understanding.
-     *
-     * @return void
      */
     public function __construct()
     {

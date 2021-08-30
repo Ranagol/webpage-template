@@ -4,11 +4,20 @@ namespace App\controllers\webControllers;
 
 use App\controllers\webControllers\WebController;
 
+/**
+ * PageController is used with pages like Home, About us, Contact pages, where we actually don't
+ * get any data from the db, and don't use Models.
+ */
 class PageController extends WebController
 {
-    public static function home()
+    /**
+     * Loads the Home page.
+     *
+     * @return void
+     */
+    public static function home(): void
     {
-        return view('home');// this is equal to: require 'views/contact.view.php';
+        returnView('home');// this is equal to: require 'views/contact.view.php';
     }
 
     /**
@@ -17,15 +26,20 @@ class PageController extends WebController
      *
      * @return void
      */
-    public static function about()
+    public static function about(): void
     {
         $data = 'Some random data about the about page :) ';
 
-        return view('about', compact('data'));
+        returnView('about', compact('data'));
     }
 
-    public static function contact()
+    /**
+     * Loads the contact page.
+     *
+     * @return void
+     */
+    public static function contact(): void
     {
-        return view('contact');// this is equal to: require 'views/contact.view.php';
+        returnView('contact');// this is equal to: require 'views/contact.view.php';
     }
 }

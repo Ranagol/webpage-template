@@ -13,19 +13,16 @@ class Logger
     /**
      * The singleton will be stored here.
      *
-     * @var Logger
+     * @var Logger $instance
      */
     private static $instance;
 
     /**
      * The path to the file, where all logs are written.
      *
-     * @var string
+     * @var string $path
      */
-    private $path = __DIR__ . '/../../storage/logs/myLogs.txt';//ez bedobja az app folderba
-
-
-
+    private $path = __DIR__ . '/../../storage/logs/myLogs.txt';
 
     /**
      * This is deliberatly a private construct.
@@ -38,9 +35,10 @@ class Logger
      * Example: 
      * Logger::getInstance()->log('Random textfff.');
      *
-     * @return void
+     * @return self
      */
-    static public function getInstance() {
+    static public function getInstance(): self
+    {
         if (self::$instance == null) {
             self::$instance = new Logger();
         }
@@ -53,10 +51,11 @@ class Logger
      * Example: 
      * Logger::getInstance()->log('Your custom error message.');
      *
-     * @param String $string
+     * @param string $string
+     * 
      * @return void
      */
-    public function log(String $string): void
+    public function log(string $string): void
     {
         $date = date('Y-m-d H:i:s');
         $string = $date . ' - ' . $string . PHP_EOL;
@@ -76,6 +75,7 @@ class Logger
      *       }
      *
      * @param Exception $error
+     * 
      * @return void
      */
     public function logError(Exception $error): void
@@ -101,8 +101,10 @@ class Logger
 
     /**
      * Get the value of path
+     * 
+     * @return string
      */ 
-    public function getPath()
+    public function getPath(): string
     {
         return $this->path;
     }

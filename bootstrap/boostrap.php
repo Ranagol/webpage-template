@@ -2,14 +2,17 @@
 
 use Dotenv\Dotenv;
 
-//dotenv setup: we use dotenv to load all .env variables into the $_ENV superglobal, from where it will be available for further actions
-//Create a new immutable dotenv instance with default repository, 
-//it's path must point to the app root dir
+
+/**
+ * dotenv setup: we use dotenv to load all .env variables into the $_ENV superglobal, from where it will be available for further actions
+ * Create a new immutable dotenv instance with default repository, 
+ * it's path must point to the app root dir
+ * loads all .env variables into the $_ENV superglobal, from where they will be available to us
+ */
 $dotenv = Dotenv::createImmutable(__DIR__  . '/../');
-//loads all .env variables into the $_ENV superglobal, from where they will be available to us
 $dotenv->load();
 
-//Eloquent setup: we use Eloquent the same way is it is used in Laravel
+//Here we do Eloquent setup: we use Eloquent the same way is it is used in Laravel
 require __DIR__ . '/../database/database.php';
 
 //router setup: we use bramus router in order to activate with url's the controllers
@@ -31,12 +34,12 @@ require __DIR__ . '/../router/routes.php';
  *  names and array values into variable value. Input : array("a" => "one", "b" => "two", "c" => "three"). 
  * Output :$a = "one" , $b = "two" , $c = "three".
  *
- * @param String $name
- * @param Array $data
+ * @param string $name
+ * @param array $data
  *
  * @return void
  */
-function view(String $name, Array $data = []):void
+function returnView(String $name, Array $data = []):void
 {
     extract($data);
     require __DIR__ . "/../resources/views/{$name}.view.php";
@@ -45,10 +48,11 @@ function view(String $name, Array $data = []):void
 /**
  * Here we boostrap our redirect() which will be used by PageController in page
  *
- * @param [type] $path
+ * @param string $path
+ * 
  * @return void
  */
-function redirect($path)
+function redirect(string $path): void
 {
     header("Location: /{$path}");
 }

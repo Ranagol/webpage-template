@@ -7,20 +7,21 @@ class RegisterValidator extends AuthValidator
     /**
      * Validates register data.
      *
-     * @param [type] $email
-     * @param [type] $password
-     * @param [type] $username
-     * @param [type] $firstname
-     * @param [type] $lastname
+     * @param string $email
+     * @param string $password
+     * @param string $username
+     * @param string $firstname
+     * @param string $lastname
+     * 
      * @return void
      */
     public function validate(
-        $email, 
-        $password,
-        $username,
-        $firstname,
-        $lastname
-    ){
+        string $email, 
+        string $password,
+        string $username,
+        string $firstname,
+        string $lastname
+    ): void{
         $this->validateUsername($username);
         $this->validateFirstname($firstname);
         $this->validateLastname($lastname);
@@ -33,10 +34,11 @@ class RegisterValidator extends AuthValidator
      * Input field validation function. 
      * Any new validation rules should be added with a new elseif at the end.
      *
-     * @param [type] $username
+     * @param string $username
+     * 
      * @return void
      */
-    private function validateUsername($username)
+    private function validateUsername($username): void
     {
         $usernameError = null;
 
@@ -55,10 +57,11 @@ class RegisterValidator extends AuthValidator
      * Input field validation function. 
      * Any new validation rules should be added with a new elseif at the end.
      *
-     * @param [type] $firstname
+     * @param string $firstname
+     * 
      * @return void
      */
-    private function validateFirstname($firstname)
+    private function validateFirstname($firstname): void
     {
         $firstnameError = null;
 
@@ -77,10 +80,11 @@ class RegisterValidator extends AuthValidator
      * Input field validation function. 
      * Any new validation rules should be added with a new elseif at the end.
      *
-     * @param [type] $lastname
+     * @param string $lastname
+     * 
      * @return void
      */
-    private function validateLastname($lastname)
+    private function validateLastname($lastname): void
     {
         $lastNameError = null;
 

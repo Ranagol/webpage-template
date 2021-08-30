@@ -15,9 +15,9 @@ class LoginController
      *
      * @return void
      */
-    public static function loadLoginPage()
+    public static function loadLoginPage(): void
     {
-        return view('login');
+        returnView('login');
     }
 
     /**
@@ -34,9 +34,10 @@ class LoginController
      * deleting all the session data, and destroying the session.
      * 
      * @param RequestInterface $request
+     * 
      * @return void
      */
-    public static function login(RequestInterface $request)
+    public static function login(RequestInterface $request): void
     {
         //check if the user is already logged in.
         self::isUserAlreadyLoggedIn();
@@ -60,12 +61,12 @@ class LoginController
         } catch (ValidationException $errors) {
             $errors = json_decode($errors->getMessage(), true);
 
-            return view('login', compact('errors', 'email', 'password'));
+            returnView('login', compact('errors', 'email', 'password'));
 
         } catch (CantFindUserException $error) {
             $isAuthenticated = false;
 
-            return view('login', compact('isAuthenticated'));
+            returnView('login', compact('isAuthenticated'));
         }
     }
 
@@ -73,12 +74,13 @@ class LoginController
      * Checks if the email and the password from the input fields are = to the 
      * username and password from the db
      *
-     * @param [type] $user
-     * @param [type] $email
-     * @param [type] $password
+     * @param User $user
+     * @param string $email
+     * @param string $password
+     * 
      * @return void
      */
-    private static function authenticateUser($user, $email, $password): void
+    private static function authenticateUser(User $user,string $email,string $password): void
     {
         //authentication (?)
         $emailFromDb = $user->email;
@@ -100,11 +102,14 @@ class LoginController
      * Tries to find the user based on the email and password 
      * receved from the html form.
      *
-     * @param [type] $email
-     * @param [type] $password
-     * @return void
+     * @param string $email
+     * @param string $password
+     * 
+     * @throws CantFindUserException
+     * 
+     * @return User
      */
-    private static function findUser($email, $password)
+    private static function findUser(string $email,string $password): User
     {
         //check if there is a user with the validated email and password
         $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
@@ -121,11 +126,12 @@ class LoginController
     /**
      * Validates login data.
      *
-     * @param [type] $email
-     * @param [type] $password
+     * @param string $email
+     * @param string $password
+     * 
      * @return void
      */
-    private static function validateLoginData($email, $password)
+    private static function validateLoginData(string $email,string $password): void
     {
         $loginValidator = new LoginValidator();
         $loginValidator->validate($email, $password);
@@ -136,7 +142,7 @@ class LoginController
      *
      * @return void
      */
-    public static function logout()
+    public static function logout(): void
     {
         // Initialize the session
         if(!isset($_SESSION)){ 
@@ -156,8 +162,9 @@ class LoginController
     /**
      * Check if the user is already logged in, if yes then redirect him to home page
      *
+     * @return void
      */
-    private static function isUserAlreadyLoggedIn()
+    private static function isUserAlreadyLoggedIn(): void
     {
         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
             redirect('/');

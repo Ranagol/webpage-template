@@ -9,6 +9,7 @@ $capsule = new Capsule;
 
 /**
  * Here we tell Eloqent which connection data, which db, password... to use.
+ * We are pullind the sensitive data from the .env, with the help of the Dotenv dependancy.
  */
 $capsule->addConnection([
     'driver' => 'mysql',
@@ -17,11 +18,6 @@ $capsule->addConnection([
     'username'  => $_ENV['DB_USERNAME'],
     'password'  => $_ENV['DB_PASSWORD'],
 ]);
-
-// Set the event dispatcher used by Eloquent models... (optional)
-// use Illuminate\Events\Dispatcher;
-// use Illuminate\Container\Container;
-// $capsule->setEventDispatcher(new Dispatcher(new Container));
 
 // Make this Capsule instance available globally via static methods... (optional)
 $capsule->setAsGlobal();

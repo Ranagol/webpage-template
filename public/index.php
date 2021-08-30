@@ -16,4 +16,4 @@ if(!isset($_SESSION)){
     session_start(); 
 }
 
-$d = 'Test docker here.';
+$dockerTestingSpot = 'Test docker here.';

@@ -24,9 +24,12 @@ abstract class AuthValidator extends AbstractValidator
      * After the end of the validation process, this function checks if there are 
      * validation errors. If so, then it throws an extension.
      *
-     * @return ValidationException | boolean
+     * @throws ValidationException
+     * 
+     * @return bool
      */
-    protected function checkForValidationErrors()
+    //TODO LOSI NEZZE MEG... DOCBLOCK ES RETURN TYPE JO?
+    protected function checkForValidationErrors(): bool
     {
         if (count($this->errors) > 0) {
             throw new ValidationException(json_encode($this->errors), 422);
@@ -39,10 +42,11 @@ abstract class AuthValidator extends AbstractValidator
      * Input field validation function. 
      * Any new validation rules should be added with a new elseif at the end.
      *
-     * @param [type] $email
+     * @param string $email
+     * 
      * @return void
      */
-    protected function validateEmail($email)
+    protected function validateEmail(string $email): void
     {
         $emailError = null;
 
@@ -61,10 +65,11 @@ abstract class AuthValidator extends AbstractValidator
      * Input field validation function. 
      * Any new validation rules should be added with a new elseif at the end.
      *
-     * @param [type] $password
+     * @param string $password
+     * 
      * @return void
      */
-    protected function validatePassword($password)
+    protected function validatePassword(string $password): void
     {
         $passwordError = null;
 

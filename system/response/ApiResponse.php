@@ -18,6 +18,7 @@ class ApiResponse implements ResponseInterface
 	 * Notice that this property is a constant!
 	 * This data will be used to create a response status code with a message.
 	 * 
+	 * @var array
 	 */
     private const STATUS_CODE = [
 		100 => "100 Continue",
@@ -70,9 +71,11 @@ class ApiResponse implements ResponseInterface
      * header("Content-Type: application/json");
 	 * 3. We must set a response status header, which should contain the 
 	 * server protocol and the response status code.
+	 * 
+	 * @return void
      *
      */
-    public static function send($data, int $code = 200)
+    public static function send($data, int $code = 200): void
     {
 		$serverProtocol = $_SERVER['SERVER_PROTOCOL'];//here we create server protocoll. Example HTTP/1.1
 		$statusCode = self::STATUS_CODE[$code];
@@ -84,5 +87,4 @@ class ApiResponse implements ResponseInterface
             echo $response['body'];//yup, this is the way, with echo to create a json response...
         }
     }
-
 }

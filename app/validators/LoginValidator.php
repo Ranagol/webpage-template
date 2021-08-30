@@ -7,11 +7,12 @@ class LoginValidator extends AuthValidator
     /**
      * Validates login data.
      *
-     * @param [type] $email
-     * @param [type] $password
+     * @param string $email
+     * @param string $password
+     * 
      * @return void
      */
-    public function validate($email, $password)
+    public function validate(string $email,string $password): void
     {
         $this->validateEmail($email);
         $this->validatePassword($password);

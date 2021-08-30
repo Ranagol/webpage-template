@@ -16,11 +16,11 @@ class BaseException extends Exception
      * In this constructor we set up that for every exception when it is created,
      * it will be logged immediatelly into the logs.
      *
-     * @param [type] $message
+     * @param string $message
      * @param integer $code
      * @param \Throwable $previous
      */
-    public function __construct($message = null, $code = 0, \Throwable $previous = null)
+    public function __construct(string $message = null, int $code = 0, \Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
         Logger::getInstance()->logError($this);

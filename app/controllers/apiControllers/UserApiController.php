@@ -18,7 +18,7 @@ class UserApiController extends ApiController
         ApiResponse::send($users);
     }
 
-    public function show($id)
+    public function show(string $id): void
     {
         $user = User::find($id);
         ApiResponse::send($user);
@@ -30,7 +30,7 @@ class UserApiController extends ApiController
      *
      * @return void
      */
-    public function store(RequestInterface $request)
+    public function store(RequestInterface $request): void
     {
         $arrayRequestData = $request->getAllRequestData();
         User::create($arrayRequestData);
@@ -38,7 +38,7 @@ class UserApiController extends ApiController
         ApiResponse::send($savedUserId);
     }
 
-    public function update(RequestInterface $request)
+    public function update(RequestInterface $request): void
     {
         $id = $request->get('id');
         $user = User::find($id);
@@ -48,7 +48,7 @@ class UserApiController extends ApiController
         ApiResponse::send('id ' . $id . ' was updated.');
     }
 
-    public function delete($id)
+    public function delete(string$id): void
     {
         User::destroy($id);
         ApiResponse::send('id ' . $id . ' was deleted.');

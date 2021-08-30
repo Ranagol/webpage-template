@@ -13,9 +13,9 @@ class FileController
      *
      * @return void
      */
-    public static function displayUploadPage()
+    public static function displayUploadPage(): void
     {
-        return view('upload');
+        returnView('upload');
     }
 
     /**
@@ -24,9 +24,10 @@ class FileController
      * File model.
      *
      * @param RequestInterface $request
+     * 
      * @return void
      */
-    public static function store(RequestInterface $request)
+    public static function store(RequestInterface $request): void
     {
         $uploadData = $request->getAllRequestData();//so this is = to $_FILES now, we can treat $uploadData as the $_FILES
         $file = new File($uploadData);
@@ -40,7 +41,7 @@ class FileController
             $alertType = 'alert-warning';
         }
         
-        return view('upload', compact('message', 'alertType'));
+        returnView('upload', compact('message', 'alertType'));
     }
 
     /**
@@ -49,8 +50,8 @@ class FileController
      *
      * @return void
      */
-    public static function processFile()
+    public static function processFile(): void
     {
-
+        //process the file
     }
 }

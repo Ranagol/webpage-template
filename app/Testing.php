@@ -13,7 +13,7 @@ class Testing
      *
      * @return void
      */
-    public static function displayMessage()
+    public static function displayMessage(): void
     {
         require __DIR__ . '/../vendor/autoload.php';
         
