@@ -78,7 +78,7 @@ class LoginController
      * @param [type] $password
      * @return void
      */
-    private static function authenticateUser($user, $email, $password)
+    private static function authenticateUser($user, $email, $password): void
     {
         //authentication (?)
         $emailFromDb = $user->email;
@@ -92,7 +92,7 @@ class LoginController
             $_SESSION["id"] = $user->id;
             $_SESSION["username"] = $user->username;
 
-            return redirect('users');
+            redirect('users');
         }
     }
 

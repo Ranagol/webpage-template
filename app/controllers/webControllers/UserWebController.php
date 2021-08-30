@@ -20,7 +20,8 @@ class UserWebController extends WebController
         $user = User::find($id);
         $desiredView = 'show';
 
-        return view('user', compact('user', 'desiredView'));
+        $t =  view('user', compact('user', 'desiredView'));
+        return $t;
     }
 
     /**

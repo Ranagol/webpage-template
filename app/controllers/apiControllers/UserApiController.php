@@ -12,7 +12,7 @@ use App\controllers\apiControllers\ApiController;
  */
 class UserApiController extends ApiController
 {
-    public function index()
+    public function index(): void
     {
         $users = User::all();
         ApiResponse::send($users);
