@@ -51,15 +51,15 @@ $router->before('GET', '/.*', function() {
     }
 });
 
-require_once __DIR__ . '/routesApi';
+require_once __DIR__ . '/routesApi.php';
 
-require_once __DIR__ . '/routesWebPage';
+require_once __DIR__ . '/routesWebPage.php';
 
-require_once __DIR__ . '/routesAuthentication';
+require_once __DIR__ . '/routesAuthentication.php';
 
-require_once __DIR__ . '/routesUserWebPageCrud';
+require_once __DIR__ . '/routesUserWebPageCrud.php';
 
-require_once __DIR__ . '/routesUpload';
+require_once __DIR__ . '/routesUpload.php';
 
 // Custom 404 Handler
 $router->set404(function () {
