@@ -37,12 +37,14 @@ $router->before('GET', '/.*', function() {
         if ($_SERVER['REQUEST_URI'] === '/login' 
             || $_SERVER['REQUEST_URI'] === '/register'
             || $_SERVER['REQUEST_URI'] === '/logout') {
+            //but the not-logged-in user can't visit the pages listed below
             } elseif ($_SERVER['REQUEST_URI'] === '/'
                 || $_SERVER['REQUEST_URI'] === '/about'
                 || $_SERVER['REQUEST_URI'] === '/contact'
                 || $_SERVER['REQUEST_URI'] === '/users'
                 || $_SERVER['REQUEST_URI'] === '/users/create'
                 || $_SERVER['REQUEST_URI'] === '/upload'
+                || $_SERVER['REQUEST_URI'] === '/guzzle'
             ) {
                 //not logged in user can't visit /, about, contact... pages, and will be redirected to login page
                 // echo 'user is not logged in and wants to see the wepages, should be redirected to login';
@@ -60,6 +62,8 @@ require_once __DIR__ . '/routesAuthentication.php';
 require_once __DIR__ . '/routesUserWebPageCrud.php';
 
 require_once __DIR__ . '/routesUpload.php';
+
+require_once __DIR__ . '/routesGuzzle.php';
 
 // Custom 404 Handler
 $router->set404(function () {

@@ -39,7 +39,7 @@ require __DIR__ . '/../router/routes.php';
  *
  * @return void
  */
-function returnView(String $name, Array $data = []):void
+function returnView(string $name, array $data = []):void
 {
     extract($data);
     require __DIR__ . "/../resources/views/{$name}.view.php";
