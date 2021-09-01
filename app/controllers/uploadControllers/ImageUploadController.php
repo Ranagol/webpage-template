@@ -1,12 +1,13 @@
 <?php
 
-namespace App\controllers\fileControllers;
+namespace App\controllers\uploadControllers;
 
-use App\Models\File;
-use System\request\RequestInterface;
 use Exception;
+use App\Models\Image;
+use System\request\RequestInterface;
+use App\Controllers\UploadControllers\UploadController;
 
-class FileController
+class ImageUploadController extends UploadController
 {
     /**
      * This method is called by the router, and it returns the file upload view.
@@ -15,7 +16,7 @@ class FileController
      */
     public static function displayUploadPage(): void
     {
-        returnView('upload');
+        returnView('upload-image');
     }
 
     /**
@@ -30,7 +31,7 @@ class FileController
     public static function store(RequestInterface $request): void
     {
         $uploadData = $request->getAllRequestData();//so this is = to $_FILES now, we can treat $uploadData as the $_FILES
-        $file = new File($uploadData);
+        $file = new Image($uploadData);
 
         try {
             $file->storeFile();
@@ -41,17 +42,8 @@ class FileController
             $alertType = 'alert-warning';
         }
         
-        returnView('upload', compact('message', 'alertType'));
+        returnView('upload-image', compact('message', 'alertType'));
     }
 
-    /**
-     * In some cases, the uploaded file needs to be read, changed (processed),
-     * and in these cases we call this method.
-     *
-     * @return void
-     */
-    public static function processFile(): void
-    {
-        //process the file
-    }
+    
 }

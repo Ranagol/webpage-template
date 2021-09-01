@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * The File model handles the file uploading.
  */
-class File extends Model
+class Image extends Model
 {
     /**
      *  this is = to $_FILES now, we can treat $uploadData as the $_FILES

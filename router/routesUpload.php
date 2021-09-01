@@ -1,14 +1,23 @@
 <?php
 
 use System\request\FileUploadRequest;
-use App\controllers\fileControllers\FileController;
+use App\Controllers\UploadControllers\CsvUploadController;
+use App\controllers\uploadControllers\ImageUploadController;
 
 //UPLOAD - DOWNLOAD STORY***********************************************************
 
-$router->get('/upload', function () {
-    FileController::displayUploadPage();
+$router->get('/upload-image', function () {
+    ImageUploadController::displayUploadPage();
 });
 
-$router->post('/upload', function () {
-    FileController::store(new FileUploadRequest);
+$router->post('/upload-image', function () {
+    ImageUploadController::store(new FileUploadRequest);
+});
+
+$router->get('/upload-csv', function () {
+    CsvUploadController::displayUploadPage();
+});
+
+$router->post('/upload-csv', function () {
+    CsvUploadController::store(new FileUploadRequest);
 });

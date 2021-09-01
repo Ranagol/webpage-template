@@ -5,7 +5,7 @@
 // use System\request\WebPageRequest;
 // use System\request\FileUploadRequest;
 // use App\controllers\webControllers\PageController;
-// use App\controllers\fileControllers\FileController;
+// use App\controllers\uploadControllers\FileController;
 // use App\controllers\authControllers\LoginController;
 // use App\controllers\apiControllers\UserApiController;
 // use App\controllers\webControllers\UserWebController;
