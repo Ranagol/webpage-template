@@ -21,25 +21,23 @@ if(!isset($_SESSION)){
     <?= $message ?>
 </div>
 
-
-
 <!-- This form will be displayed only if the user is logged in -->
 <form 
-    action="upload" 
+    action="upload-csv" 
     method="post" 
     enctype="multipart/form-data" 
     class="form-group <?= $user ? '' : 'd-none' ?>"
 >
-    <h2 class='mt-'3'>Upload File</h2>
+    <h2 class='mt-'3'>Upload .csv file</h2>
     <div class='mt-3'>
         <label for="fileSelect">Filename:</label>
-        <input type="file" name="photo" id="fileSelect" class='form-control-file'>
+        <input type="file" name="file" id="fileSelect" class='form-control-file'>
     </div>
     <div class='mt-3'>
         <input type="submit" name="submit" value="Upload" class='btn btn-warning'>
     </div>
     <p>
-        <strong>Note:</strong> Only .jpg, .jpeg, .gif, .png formats allowed to a max size of 5 MB.
+        <strong>Note:</strong> Only .csv formats allowed to a max size of 5 MB.
     </p>
 </form>
 

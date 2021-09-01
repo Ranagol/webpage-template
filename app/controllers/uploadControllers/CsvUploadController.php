@@ -8,15 +8,9 @@ use App\Models\Csv;
 
 class CsvUploadController extends UploadController
 {
-    public static function displayUploadPage(): void
-    {
+    protected static $pageName = 'upload-csv';
 
-    }
-
-    public static function store(): void
-    {
-
-    }
+    protected static $modelName = 'Csv';
 
     /**
      * In some cases, the uploaded file needs to be read, changed (processed),
