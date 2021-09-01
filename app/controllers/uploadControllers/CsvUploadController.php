@@ -12,15 +12,6 @@ class CsvUploadController extends UploadController
 
     protected static $modelName = 'Csv';
 
-    /**
-     * In some cases, the uploaded file needs to be read, changed (processed),
-     * and in these cases we call this method.
-     *
-     * @return void
-     */
-    public static function processFile(): void
-    {
-        //process the file
-    }
+    
 
 }

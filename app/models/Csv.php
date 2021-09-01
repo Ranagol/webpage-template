@@ -3,7 +3,6 @@
 namespace App\models;
 
 use App\Models\AbstractUploadModel;
-use Illuminate\Database\Eloquent\Model;
 
 class Csv extends AbstractUploadModel
 {
@@ -15,5 +14,16 @@ class Csv extends AbstractUploadModel
      * @var array
      */
     protected $allowedFileFormats = ['application/vnd.ms-excel'];
+
+    /**
+     * In some cases, the uploaded file needs to be read, changed (processed),
+     * and in these cases we call this method.
+     *
+     * @return void
+     */
+    public static function processCsvFile(): void
+    {
+        
+    }
 
 }

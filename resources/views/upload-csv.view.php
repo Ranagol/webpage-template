@@ -22,6 +22,7 @@ if(!isset($_SESSION)){
 </div>
 
 <!-- This form will be displayed only if the user is logged in -->
+<!-- UPLOAD CSV FILE -->
 <form 
     action="upload-csv" 
     method="post" 
@@ -40,6 +41,24 @@ if(!isset($_SESSION)){
         <strong>Note:</strong> Only .csv formats allowed to a max size of 5 MB.
     </p>
 </form>
+
+<!-- REPORT FROM THE UPLOADED CSV FILE -->
+<div class='<?= isset($alertType) && ($alertType === 'alert-success') ? '' : 'd-none' ?>'>
+    <h2 class='mt-'3'>Report</h2>
+
+
+    <!-- DOWNLOADING THE REPORT AS A .CSV FILE -->
+    <form action="" method="GET">
+        <button class='btn btn-success'>Download report</button>
+    </form>
+</div>
+
+
+
+
+
+
+
 
 <!-- warning message if the user is not logged in -->
 <div 

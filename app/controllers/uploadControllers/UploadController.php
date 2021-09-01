@@ -43,6 +43,7 @@ class UploadController
             $file->storeFile();
             $message = 'Your upload was successfull.';
             $alertType = 'alert-success';
+            static::checkIfItIsCsv();
         } catch (Exception $error) {
             $message = $error->getMessage();
             $alertType = 'alert-warning';
@@ -59,5 +60,21 @@ class UploadController
     public static function getPageName(): string
     {
         return static::$pageName;
+    }
+
+    /**
+     * This is an unfinished, hardcoded method!!!!!!!!!!!!!!!!!!!!!!!!!!
+     * Once consulted with Losi, this has to be corrected.
+     * 
+     *
+     * @return void
+     */
+    public static function checkIfItIsCsv()
+    {
+        //TODO LOSI
+        // if (static::getModelName() === 'Csv') {
+        if ('Csv' === 'Csv') {
+            Csv::processCsvFile();
+        }
     }
 }
