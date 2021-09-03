@@ -4,9 +4,9 @@ namespace App\Report\ReportDomain;
 
 class Amount
 {
-    private $amount;
+    private float $amount;
 
-    public function __construct(int $amount)
+    public function __construct(float $amount)
     {
         $this->amount = $amount;
     }
@@ -14,7 +14,7 @@ class Amount
     /**
      * Get the value of amount
      */ 
-    public function getAmount(): int
+    public function getAmount(): float
     {
         return $this->amount;
     }

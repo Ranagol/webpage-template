@@ -8,28 +8,33 @@ use App\Report\ReportDomain\Category;
 
 class Line
 {
-    private $category;
+    private Category $category;
 
-    private $price;
+    private Price $price;
 
-    private $amount;
+    private Amount $amount;
 
     public function __construct(Category $category, Price $price, Amount $amount)
     {
         $this->category = $category;
         $this->price = $price;
         $this->amount = $amount;
+        $x = 8;
     }
 
-    public function getLineSum(): int
+    public function getLineSum(): float
     {
-        return $this->getPrice() * $this->getAmount();
+        $price = $this->getPrice()->getPrice();
+        $amount = $this->getAmount()->getAmount();
+        $result = $price * $amount;
+        $c = 8;
+        return $result;
     }
 
     /**
      * Get the value of category
      */ 
-    public function getCategory()
+    public function getCategory(): Category
     {
         return $this->category;
     }
@@ -37,7 +42,7 @@ class Line
     /**
      * Get the value of price
      */ 
-    public function getPrice()
+    public function getPrice(): Price
     {
         return $this->price;
     }
@@ -45,7 +50,7 @@ class Line
     /**
      * Get the value of amount
      */ 
-    public function getAmount()
+    public function getAmount(): Amount
     {
         return $this->amount;
     }

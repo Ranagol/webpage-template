@@ -78,14 +78,18 @@ class Upload extends Model
         $this->validateFileType();
         $this->validateFileSize();
         $this->putFileIntoStorage();
+        //from here this code is only in case of uploaded .csv files
         $this->activateCsvProcessing();
     }
 
     public function activateCsvProcessing(): void
     {
+        //finds and reads the uploaded .csv file
         if ($this->getFileType() === 'application/vnd.ms-excel') {
-            $csvReader = new CsvReader($this->getUserEmail(), $this->getFileName());
+            $csvFile = new CsvReader($this->getUserEmail(), $this->getFileName());
         }
+        
+
     }
 
     /**
@@ -105,6 +109,7 @@ class Upload extends Model
         $email = $this->getUserEmail();
 
         //create directory for the upload if there is none yet
+        clearstatcache();//deleting cached stuff
         if (!file_exists(__DIR__ . '/../../storage/upload/' . $email)) {
             $boolean = mkdir(__DIR__ . '/../../storage/upload/' . $email);
             if (!$boolean) {

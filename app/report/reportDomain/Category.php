@@ -4,7 +4,7 @@ namespace App\Report\ReportDomain;
 
 class Category
 {
-    private $category;
+    private string $category;
 
     public function __construct(string $category)
     {

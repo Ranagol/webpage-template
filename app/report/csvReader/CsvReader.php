@@ -2,26 +2,30 @@
 
 namespace App\Report\CsvReader;
 
+use Exception;
+use App\Report\ReportDomain\Line;
+use App\Report\ReportDomain\Price;
+use App\Report\ReportDomain\Amount;
+use App\Report\ReportDomain\CsvFile;
+use App\Report\ReportDomain\Category;
+
 class CsvReader
 {
-    //GETTING DATA FROM FILE, LINE BY LINE INTO AN ARRAY
+    /**
+     * Stores the file path.
+     *
+     * @var string
+     */
+    private string $fileNameWithPath;
     
-    private $fileNameWithPath;
-    private $lines = [];
+    /**
+     * We store here the opened file. This will be used for further file manage operations.
+     *
+     * @var [type]
+     */
     private $filePointer;
 
     public function __construct(string $email, string $fileName)
-    {
-        $this->processCsvFile($email, $fileName);
-    }
-
-    /**
-     * In some cases, the uploaded file needs to be read, changed (processed),
-     * and in these cases we call this method.
-     *
-     * @return void
-     */
-    public function processCsvFile(string $email, string $fileName): void
     {
         $this->createFilePath($email, $fileName);
         $this->createFilePointer();
@@ -35,50 +39,57 @@ class CsvReader
      */
     public function readCsvFile(): void
     {
+        $lines = [];
+
         try {
-            $file = fopen($this->getFileNameWithPath(), 'r');
-            $lines = [];
-            while (($line = fgetcsv($file)) !== FALSE) {
-            //$line is an array of the csv elements
+            // $file = fopen($this->getFileNameWithPath(), 'r');
+            
+            //this is how we can read csv file line by line. The result will be an array o arrays.
+            while (($lineFromCsv = fgetcsv($this->getFilePointer())) !== false) {
+            //$lineFromCsv is an array of the csv elements
+                // print_r($lineFromCsv);
+                $category = new Category($lineFromCsv[0]);
+                $price = new Price($lineFromCsv[1]);
+                $amount = new Amount($lineFromCsv[2]);
+                $line = new Line($category, $price, $amount);
                 $lines[] = $line;
             }
-            var_dump($lines);
 
-
-            // while (!feof($filePointer)) {//feof() tests if the end-of-file has been reached.
-            //     $lines[] = fgets($filePointer);
-            // }
-            // echo '<pre>';
-            // var_dump($lines);
-            // echo '</pre>';
         } catch (\Throwable $e) {
-            echo $e->getMessage();
+            var_dump($e->getMessage() . PHP_EOL);//will shjow the actual error message, aka what is the issue
+            var_dump($e->getTrace());//will show where could be the error. This function will return an array. This array will have values. These values will be the parts of the apps that were activated during/before this current exception was thrown. We need to ignore all values, that are in the vendor, and we need to find the first value (part of the app, that is not in the vendor)
+
+            //where the exception was created (where the actual error is and where the exeption was created are not the same! If we can’t find the first, the latter may be useful)
+            var_dump($e->getFile() . PHP_EOL);//gets the file in which the exception was created
+            var_dump($e->getLine() . PHP_EOL);//gets the line in which the exception was created
+
         } finally {
             if ($this->getFilePointer()) {
                 fclose($this->getFilePointer());
             }
         }
+
+        $csvFile = new CsvFile($this->getFileNameWithPath(), $lines);
+        echo '<br>**********************************************************************';
+        echo '<pre>';
+        var_dump($csvFile);
+        echo '</pre>';
     }
-
-
 
     private function createFilePointer(): void
     {
-
         try {
+            clearstatcache();//deleting cached stuff
             if (file_exists($this->getFileNameWithPath())) {
-                echo 'file exists';
+                // echo 'file exists';
                 $this->filePointer = fopen($this->getFileNameWithPath(), 'r');//opening a file
+            } else {
+                throw new Exception('We have issue with the filePointer, we cant find the file...' . __FILE__ . __LINE__);
             }
         } catch (\Throwable $th) {
             var_dump($th->getMessage());
         }
-
-        
     }
-
-
-
 
     private function createFilePath(string $email, string $fileName)
     {
@@ -93,14 +104,6 @@ class CsvReader
     public function getFileNameWithPath()
     {
         return $this->fileNameWithPath;
-    }
-
-    /**
-     * Get the value of lines
-     */ 
-    public function getLines()
-    {
-        return $this->lines;
     }
 
     /**
