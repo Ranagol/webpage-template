@@ -2,53 +2,62 @@
 
 namespace App\Models;
 
-use App\models\User;
 use Exception;
+use App\models\User;
+use App\Report\CsvReader\CsvReader;
 use Illuminate\Database\Eloquent\Model;
 
-abstract class AbstractUploadModel extends Model
+class Upload extends Model
 {
     /**
      *  this is = to $_FILES now, we can treat $uploadData as the $_FILES
      *
      * @var array
      */
-    protected $uploadData;
+    private $uploadData;
 
     /**
      * All the allowed upload formats are stored here.
+     * The 'application/vnd.ms-excel' means .csv file.
      *
      * @var array
      */
-    protected $allowedFileFormats = [];
+    private $allowedFileFormats = [
+        'image/jpg',
+        'image/jpeg',
+        'image/gif',
+        'image/png',
+        'application/vnd.ms-excel'
+    ];
 
     /**
      * The name of the file is stored here.
      *
      * @var string
      */
-    protected $fileName;
+    private $fileName;
 
     /**
      * The type of the file is stored here.
      *
      * @var string
      */
-    protected $fileType;
+    private $fileType;
 
     /**
      * The size of the uploaded file.
      *
      * @var float
      */
-    protected $fileSize;
+    private $fileSize;
 
     /**
      * The maximum allowed size for the uploaded file.
      *
      * @var float
      */
-    protected $maxFileSize = 5 * 1024 * 1024;
+    //TODO nem jobb mindig float ot mondani integer helyett ilyen szituban? Hisz integer mindig lehet float, de float soha nem lesz integer...
+    private $maxFileSize = 5 * 1024 * 1024;
 
     public function __construct(array $uploadData)
     {
@@ -57,7 +66,9 @@ abstract class AbstractUploadModel extends Model
 
     /**
      * This is the central, main function that calls all other functions
-     * regarding the file uploading.
+     * regarding the file uploading. Now, the process is same for images and csv files - almost. The
+     * only difference is, that if we are uploading a csv file, then we need to process it, once the
+     * upload is successfull.
      *
      * @return void
      */
@@ -67,8 +78,14 @@ abstract class AbstractUploadModel extends Model
         $this->validateFileType();
         $this->validateFileSize();
         $this->putFileIntoStorage();
+        // $this->activateCsvProcessing();
+    }
 
-        //ITT KELL RETURNOLNI A FILE NEVET, HA CSVROL VAN SZO
+    public function activateCsvProcessing(): void
+    {
+        if ($this->getFileType() === 'application/vnd.ms-excel') {
+            $csvReader = new CsvReader($this->getUserEmail(), $this->getFileName());
+        }
     }
 
     /**
@@ -82,21 +99,25 @@ abstract class AbstractUploadModel extends Model
      *
      * @return void
      */
-    protected function putFileIntoStorage(): void
+    private function putFileIntoStorage(): void
     {
-        //get user
-        $user = User::getCurrentUser();
-        if (!($user instanceof User)) {
-            throw new Exception('User is not logged in.');
-        }
+        //get user email - this will be the name of his private storage
+        $email = $this->getUserEmail();
 
         //create directory for the upload if there is none yet
-        $email = $user->email;
         if (!file_exists(__DIR__ . '/../../storage/upload/' . $email)) {
             $boolean = mkdir(__DIR__ . '/../../storage/upload/' . $email);
             if (!$boolean) {
                 throw new Exception('We could not make a new directory for the uploaded file.');
             }
+        }
+
+        //check if there is already a same file uploaded, and if so delete the previous file
+        clearstatcache();//deleting cached stuff
+        $path = __DIR__ . '/../../storage/upload/' . $this->getUserEmail() . '/' . $this->getFileName();
+        if (file_exists($path)) {
+            echo 'file exists';
+            \unlink($path);
         }
 
         //place the uploaded file into the new dir
@@ -110,6 +131,17 @@ abstract class AbstractUploadModel extends Model
         }
     }
 
+    public function getUserEmail(): string
+    {
+        $user = User::getCurrentUser();
+        if (!($user instanceof User)) {
+            throw new Exception('User is not logged in.');
+        }
+        $email = $user->email;
+
+        return $email;
+    }
+
     /**
      * Validates the uploaded file size. It has to be smaller than 5MB.
      *
@@ -117,7 +149,7 @@ abstract class AbstractUploadModel extends Model
      *
      * @return mixed
      */
-    protected function validateFileSize(): void
+    private function validateFileSize(): void
     {
         if ($this->getFileSize() > $this->getMaxFileSize()) {
             throw new Exception('Error: File size is larger than the allowed limit.');
@@ -131,7 +163,7 @@ abstract class AbstractUploadModel extends Model
      *
      * @return mixed
      */
-    protected function validateFileType(): void
+    private function validateFileType(): void
     {
         if (!in_array($this->getFileType(), $this->getAllowedFileFormats())) {
             throw new Exception('Error: Please select a valid file format.');
@@ -146,7 +178,7 @@ abstract class AbstractUploadModel extends Model
      *
      * @return mixed
      */
-    protected function setFileSizeNameType(): void
+    private function setFileSizeNameType(): void
     {
         $uploadData = $this->getUploadData();
         if (isset($uploadData["file"]) && $uploadData["file"]["error"] == 0) {

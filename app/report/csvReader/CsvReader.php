@@ -10,10 +10,19 @@ class CsvReader
     private $lines = [];
     private $filePointer;
 
-    public function __construct($fileNameWithPath)
+    public function __construct(string $email, string $fileName)
     {
-        $this->fileNameWithPath = $fileNameWithPath;
+        $this->fileNameWithPath = $this->createFilePath($email, $fileName);
         $this->filePointer = fopen($this->getFileNameWithPath(), 'a+');//opening a file
+
+        $this->processCsvFile();
+    }
+
+    private function createFilePath(string $email, string $fileName): string
+    {
+        $path = __DIR__ . '/../../../storage/upload/' . $email . '/' . $fileName . '.csv';
+
+        return $path;
     }
 
     /**
@@ -22,20 +31,39 @@ class CsvReader
      *
      * @return void
      */
-    public static function processCsvFile(): void
+    public function processCsvFile(): void
     {
-        
+        $this->readCsvFile();
     }
 
+    /**
+     * https://stackoverflow.com/questions/1269562/how-to-create-an-array-from-a-csv-file-using-php-and-the-fgetcsv-function
+     *
+     * @return void
+     */
     public function readCsvFile(): void
     {
         try {
-            while (!feof($this->getFilePointer())) {//feof() tests if the end-of-file has been reached.
-                $lines[] = fgets($this->getFilePointer());
+            
+            
+            $file = fopen($this->getFileNameWithPath(), 'r');
+            $lines = [];
+            while (($line = fgetcsv($file)) !== FALSE) {
+            //$line is an array of the csv elements
+                $lines[$line];
             }
-            echo '<pre>';
             var_dump($lines);
-            echo '</pre>';
+
+            $f = 5;
+
+
+
+            // while (!feof($filePointer)) {//feof() tests if the end-of-file has been reached.
+            //     $lines[] = fgets($filePointer);
+            // }
+            // echo '<pre>';
+            // var_dump($lines);
+            // echo '</pre>';
         } catch (\Throwable $e) {
             echo $e->getMessage();
         } finally {

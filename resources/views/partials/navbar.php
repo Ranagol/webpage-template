@@ -31,10 +31,7 @@ if(!isset($_SESSION)){
 					<a class="nav-item nav-link" href="/users/create">Create user</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-item nav-link" href="/upload-image">Upload image</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-item nav-link" href="/upload-csv">Upload csv</a>
+					<a class="nav-item nav-link" href="/upload">Upload</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-item nav-link" href="/register">Register</a>
