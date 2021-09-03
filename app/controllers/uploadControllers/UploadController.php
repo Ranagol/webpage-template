@@ -31,7 +31,7 @@ class UploadController
     /**
      * Handles the file upload. Since this class is a controller
      * and we want slim controllers, all the upload work is done by the 
-     * File model.
+     * models.
      *
      * @param RequestInterface $request
      * 
@@ -79,8 +79,15 @@ class UploadController
      */
     public static function checkIfItIsCsv()
     {
-        //TODO Start with this, this is now easy to do
-        // if (static::getModelName() === 'Csv') {
+        //TODO LOSI
+        /**
+         * Jelen pillanatban az app tud uploadolni image es csv. Mivel az upload 95%ba ugyanaz,
+         * ezert van egy kozos parent controller. Ez. A csv uploadnal van egy extra funkcio
+         * amit kell csinalni, a vegen - ezt nem kell csinalni ha image upload van. Igy oldanam meg
+         * most, deeee... lehet hogy nem jo.
+         * $modelName = 'App\Models\\' . static::getModelName();
+         */
+        // if (static::getModelName() === 'App\Models\Csv') {//TODO LOSI most akkor itt hol kell escape character es hol nem?
         if ('Csv' === 'Csv') {
             CsvReader::processCsvFile();//we need here the newly created file name, path, location!
         }
