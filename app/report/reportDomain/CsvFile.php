@@ -36,23 +36,38 @@ class CsvFile
         $this->mergeDuplicateLines();
     }
 
+    /**
+     * ITT ALLTAM MEG. A KOVETKEZO LEPES EXCELBEN LESZIMULALSNI KET OSZLOPBAN EZT A SZITUT.
+     * EGY OSZLOP TARTALMA KEY, CATEGORY, SUM.
+     * MASIK OSZLOP TARTALMA KEY, CATEGORY, SUM.
+     * MENNI LEPESROL LEPESRE ES SZIMULALNI MI KELLENE HOGY TORTENJEN.
+     *
+     * @return void
+     */
     public function mergeDuplicateLines(): void
     {
-        // $lines = $this->getLines();
-        // $processedLines = [];
-        // foreach ($lines as $key1 => $value1) {
-        //     foreach ($lines as $key2 => $value2) {
-        //         if ($value1->getCategory() === $value2->getCategory()) {
-        //             $mergedSum = $value1->getLineSum() + $value2->getLineSum();
-        //             $processedLines[$value1->getCategory()] = $mergedSum();
-        //             unset($lines[$key2]);
-        //         } else {
-        //             $processedLines[$value1->getCategory()] = $value1->getLineSum();
-        //         }
-        //     }
-        // }
-        // print_r($processedLines);
-        // $x = 10;
+        $lines = $this->getLines();
+        $processedLines = [];
+        foreach ($lines as $key1 => $value1) {
+            foreach ($lines as $key2 => $value2) {
+                //case 1: keys =, values = : This is the same object, don't compare, don't do anything
+                if ($value1->getCategory() === $value2->getCategory() && $key1 === $key2) {
+                    //don't do anything///
+                
+                //case 2: keys !=, values = : This is a duplicate, merge lines, and delete the $key2 line
+                } elseif($value1->getCategory() === $value2->getCategory() && $key1 !== $key2) {
+                    $mergedSum = $value1->getLineSum() + $value2->getLineSum();
+                    $processedLines[$value1->getCategory()->getCategory()] = $mergedSum;
+                    unset($lines[$key2]);
+
+                //case 3: keys !=, values != : These are totally different objects
+                } elseif($value1->getCategory() !== $value2->getCategory() && $key1 !== $key2) {
+                    //don't do anything///
+                }
+            }
+        }
+        print_r($processedLines);
+        $x = 10;
     }
 
 
