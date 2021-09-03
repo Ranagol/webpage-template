@@ -78,7 +78,7 @@ class Upload extends Model
         $this->validateFileType();
         $this->validateFileSize();
         $this->putFileIntoStorage();
-        // $this->activateCsvProcessing();
+        $this->activateCsvProcessing();
     }
 
     public function activateCsvProcessing(): void
@@ -116,7 +116,7 @@ class Upload extends Model
         clearstatcache();//deleting cached stuff
         $path = __DIR__ . '/../../storage/upload/' . $this->getUserEmail() . '/' . $this->getFileName();
         if (file_exists($path)) {
-            echo 'file exists';
+            // echo 'file exists';
             \unlink($path);
         }
 

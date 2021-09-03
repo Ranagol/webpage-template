@@ -12,17 +12,7 @@ class CsvReader
 
     public function __construct(string $email, string $fileName)
     {
-        $this->fileNameWithPath = $this->createFilePath($email, $fileName);
-        $this->filePointer = fopen($this->getFileNameWithPath(), 'a+');//opening a file
-
-        $this->processCsvFile();
-    }
-
-    private function createFilePath(string $email, string $fileName): string
-    {
-        $path = __DIR__ . '/../../../storage/upload/' . $email . '/' . $fileName . '.csv';
-
-        return $path;
+        $this->processCsvFile($email, $fileName);
     }
 
     /**
@@ -31,8 +21,10 @@ class CsvReader
      *
      * @return void
      */
-    public function processCsvFile(): void
+    public function processCsvFile(string $email, string $fileName): void
     {
+        $this->createFilePath($email, $fileName);
+        $this->createFilePointer();
         $this->readCsvFile();
     }
 
@@ -44,18 +36,13 @@ class CsvReader
     public function readCsvFile(): void
     {
         try {
-            
-            
             $file = fopen($this->getFileNameWithPath(), 'r');
             $lines = [];
             while (($line = fgetcsv($file)) !== FALSE) {
             //$line is an array of the csv elements
-                $lines[$line];
+                $lines[] = $line;
             }
             var_dump($lines);
-
-            $f = 5;
-
 
 
             // while (!feof($filePointer)) {//feof() tests if the end-of-file has been reached.
@@ -71,6 +58,33 @@ class CsvReader
                 fclose($this->getFilePointer());
             }
         }
+    }
+
+
+
+    private function createFilePointer(): void
+    {
+
+        try {
+            if (file_exists($this->getFileNameWithPath())) {
+                echo 'file exists';
+                $this->filePointer = fopen($this->getFileNameWithPath(), 'r');//opening a file
+            }
+        } catch (\Throwable $th) {
+            var_dump($th->getMessage());
+        }
+
+        
+    }
+
+
+
+
+    private function createFilePath(string $email, string $fileName)
+    {
+        $path = __DIR__ . '/../../../storage/upload/' . $email . '/' . $fileName;
+
+        $this->fileNameWithPath = $path;
     }
 
     /**
