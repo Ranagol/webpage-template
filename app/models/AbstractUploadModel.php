@@ -67,6 +67,8 @@ abstract class AbstractUploadModel extends Model
         $this->validateFileType();
         $this->validateFileSize();
         $this->putFileIntoStorage();
+
+        //ITT KELL RETURNOLNI A FILE NEVET, HA CSVROL VAN SZO
     }
 
     /**
@@ -88,7 +90,7 @@ abstract class AbstractUploadModel extends Model
             throw new Exception('User is not logged in.');
         }
 
-        //create directory for the upload
+        //create directory for the upload if there is none yet
         $email = $user->email;
         if (!file_exists(__DIR__ . '/../../storage/upload/' . $email)) {
             $boolean = mkdir(__DIR__ . '/../../storage/upload/' . $email);
