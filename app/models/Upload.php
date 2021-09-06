@@ -147,7 +147,7 @@ class Upload extends Model
         }
     }
 
-    public function getUserEmail(): string
+    private function getUserEmail(): string
     {
         $user = User::getCurrentUser();
         if (!($user instanceof User)) {
