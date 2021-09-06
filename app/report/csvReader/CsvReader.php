@@ -25,6 +25,8 @@ class CsvReader
      */
     private $filePointer;
 
+    private CsvFile $csvFile;
+
     public function __construct(string $email, string $fileName)
     {
         $this->createFilePath($email, $fileName);
@@ -37,7 +39,7 @@ class CsvReader
      *
      * @return void
      */
-    public function readCsvFile(): void
+    private function readCsvFile(): void
     {
         $lines = [];
 
@@ -56,6 +58,7 @@ class CsvReader
             }
 
         } catch (\Throwable $e) {
+            //TODO I need to correct this later...
             var_dump($e->getMessage() . PHP_EOL);//will shjow the actual error message, aka what is the issue
             var_dump($e->getTrace());//will show where could be the error. This function will return an array. This array will have values. These values will be the parts of the apps that were activated during/before this current exception was thrown. We need to ignore all values, that are in the vendor, and we need to find the first value (part of the app, that is not in the vendor)
 
@@ -70,10 +73,8 @@ class CsvReader
         }
 
         $csvFile = new CsvFile($this->getFileNameWithPath(), $lines);
-        echo '<br>**********************************************************************';
-        echo '<pre>';
-        var_dump($csvFile);
-        echo '</pre>';
+        
+        $this->csvFile = $csvFile;
     }
 
     private function createFilePointer(): void
@@ -112,5 +113,13 @@ class CsvReader
     public function getFilePointer()
     {
         return $this->filePointer;
+    }
+
+    /**
+     * Get the value of csvFile
+     */ 
+    public function getCsvFile()
+    {
+        return $this->csvFile;
     }
 }

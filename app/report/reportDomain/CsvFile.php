@@ -2,7 +2,9 @@
 
 namespace App\Report\ReportDomain;
 
-class CsvFile
+use App\Report\ReportDomain\Reportable;
+
+class CsvFile implements Reportable
 {
     /**
      * Path of the csv file
@@ -20,14 +22,11 @@ class CsvFile
     private array $lines = [];
 
     /**
-     * This array has processed lines. That means that there are no duplicates. The same category
-     * lines are merged into one category. 
-     * While in the $lines we have category, price and amount, in the $processedLines we can have
-     * only category and sum.
+     * Will contain the final report data in array, that we want to display for the user.
      *
      * @var array
      */
-    private array $processedLines = [];
+    private array $report;
 
     public function __construct(string $path, array $lines = [])
     {
@@ -37,14 +36,11 @@ class CsvFile
     }
 
     /**
-     * ITT ALLTAM MEG. A KOVETKEZO LEPES EXCELBEN LESZIMULALSNI KET OSZLOPBAN EZT A SZITUT.
-     * EGY OSZLOP TARTALMA KEY, CATEGORY, SUM.
-     * MASIK OSZLOP TARTALMA KEY, CATEGORY, SUM.
-     * MENNI LEPESROL LEPESRE ES SZIMULALNI MI KELLENE HOGY TORTENJEN.
+     * Will create the final report, by merging the same categories into one category.
      *
      * @return void
      */
-    public function mergeDuplicateLines(): void
+    private function mergeDuplicateLines(): void
     {
         $lines = $this->getLines();
         $processedLines = [];
@@ -66,7 +62,7 @@ class CsvFile
             }
         }
 
-        print_r($categories);
+        $this->report = $categories;
     }
 
     public function getFileSum(): int
@@ -111,10 +107,12 @@ class CsvFile
     }
 
     /**
-     * Get the value of processedLines
+     * Will get the final report data in array, that we want to display for the user.
+     *
+     * @return  array
      */ 
-    public function getProcessedLines()
+    public function getReport(): array
     {
-        return $this->processedLines;
+        return $this->report;
     }
 }

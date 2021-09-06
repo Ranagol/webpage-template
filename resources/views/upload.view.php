@@ -43,8 +43,29 @@ if(!isset($_SESSION)){
 </form>
 
 <!-- REPORT FROM THE UPLOADED CSV FILE -->
-<div class='<?= isset($alertType) && ($alertType === 'alert-success') ? '' : 'd-none' ?>'>
-    <h2 class='mt-'3'>Report</h2>
+<div class='<?= isset($report) ? '' : 'd-none' ?>'>
+    <h2 class='mt-3'>Report</h2>
+
+    <table class='table'>
+        <tr>
+            <th>Category</th>
+            <th>Cost</th>
+        </tr>
+
+        <?php foreach ($report as $category => $cost): ?>
+        <!--This is the fancy version of the foreach loop. The ':' is needed-->
+
+        <tr>
+            <td><?= $category ?></td>
+            <td><?= $cost ?></td>
+        </tr>
+
+        <!-- This is how the fancy foreach loop ends -->
+        <?php endforeach;?>
+    </table>
+
+
+
 
 
     <!-- DOWNLOADING THE REPORT AS A .CSV FILE -->

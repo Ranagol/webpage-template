@@ -7,6 +7,7 @@ use App\Models\Upload;
 use App\Report\CsvReader\CsvReader;
 use System\request\RequestInterface;
 use App\Controllers\UploadControllers\UploadController;
+use App\Report\ReportDomain\Reportable;
 
 /**
  * In this class we have a nice example how inheritance is working with static properties and 
@@ -41,7 +42,13 @@ class UploadController
         $upload = new Upload($uploadData);
 
         try {
-            $upload->storeFile();
+            $file = $upload->storeFile();
+            if ($file instanceof Reportable) {
+                $report = $file->getReport();
+            } else {
+                $report = null;
+            }
+            
             $message = 'Your upload was successfull.';
             $alertType = 'alert-success';
         } catch (Exception $error) {
@@ -49,6 +56,6 @@ class UploadController
             $alertType = 'alert-warning';
         }
         
-        returnView('upload', compact('message', 'alertType'));
+        returnView('upload', compact('message', 'alertType', 'report'));
     }
 }

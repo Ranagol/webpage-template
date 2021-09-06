@@ -6,6 +6,7 @@ use Exception;
 use App\models\User;
 use App\Report\CsvReader\CsvReader;
 use Illuminate\Database\Eloquent\Model;
+use App\Report\ReportDomain\CsvFile;
 
 class Upload extends Model
 {
@@ -70,26 +71,36 @@ class Upload extends Model
      * only difference is, that if we are uploading a csv file, then we need to process it, once the
      * upload is successfull.
      *
-     * @return void
+     * @return CsvFile|null
      */
-    public function storeFile(): void
+    public function storeFile(): ?CsvFile
     {
         $this->setFileSizeNameType();
         $this->validateFileType();
         $this->validateFileSize();
         $this->putFileIntoStorage();
         //from here this code is only in case of uploaded .csv files
-        $this->activateCsvProcessing();
+        $csvFile = $this->activateCsvProcessing();
+
+        return $csvFile;
     }
 
-    public function activateCsvProcessing(): void
+    /**
+     * Undocumented function
+     *
+     * @return CsvFile|null
+     */
+    public function activateCsvProcessing(): ?CsvFile
     {
         //finds and reads the uploaded .csv file
         if ($this->getFileType() === 'application/vnd.ms-excel') {
-            $csvFile = new CsvReader($this->getUserEmail(), $this->getFileName());
-        }
-        
+            $csvReader = new CsvReader($this->getUserEmail(), $this->getFileName());
+            $csvFile = $csvReader->getCsvFile();
 
+            return $csvFile;
+        }
+
+        return null;
     }
 
     /**
