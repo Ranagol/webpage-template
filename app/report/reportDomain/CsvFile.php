@@ -48,28 +48,26 @@ class CsvFile
     {
         $lines = $this->getLines();
         $processedLines = [];
-        foreach ($lines as $key1 => $value1) {
-            foreach ($lines as $key2 => $value2) {
-                //case 1: keys =, values = : This is the same object, don't compare, don't do anything
-                if ($value1->getCategory() === $value2->getCategory() && $key1 === $key2) {
-                    //don't do anything///
-                
-                //case 2: keys !=, values = : This is a duplicate, merge lines, and delete the $key2 line
-                } elseif($value1->getCategory() === $value2->getCategory() && $key1 !== $key2) {
-                    $mergedSum = $value1->getLineSum() + $value2->getLineSum();
-                    $processedLines[$value1->getCategory()->getCategory()] = $mergedSum;
-                    unset($lines[$key2]);
 
-                //case 3: keys !=, values != : These are totally different objects
-                } elseif($value1->getCategory() !== $value2->getCategory() && $key1 !== $key2) {
-                    //don't do anything///
-                }
+        //HERE WE ARE CREATING SUBARAYS BY CATEGORY, AND GIVE EVERY SUBARAY ITS VALUE.
+        $categories = [];
+
+        foreach ($lines as $key => $line) {
+            $categoryName = $line->getCategory()->getCategory();
+
+            //if there is already a category with this $categoryName... Then is has a (previous) value. We need to add the new value to the previous value.
+            if (array_key_exists($categoryName, $categories)) {
+                $previousCategoryValue = $categories[$categoryName];
+                $newCategoryValue = $previousCategoryValue + $line->getLineSum();
+                $categories[$categoryName] = $newCategoryValue;
+            } else {
+                //if categoryName does not exist, just simply add this value to the newly created category
+                $categories[$categoryName] = $line->getLineSum();
             }
         }
-        print_r($processedLines);
-        $x = 10;
-    }
 
+        print_r($categories);
+    }
 
     public function getFileSum(): int
     {

@@ -28,6 +28,7 @@ class Line
         $amount = $this->getAmount()->getAmount();
         $result = $price * $amount;
         $c = 8;
+        
         return $result;
     }
 
