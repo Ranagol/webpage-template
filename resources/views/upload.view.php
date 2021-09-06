@@ -64,12 +64,15 @@ if(!isset($_SESSION)){
         <?php endforeach;?>
     </table>
 
-
-
-
-
     <!-- DOWNLOADING THE REPORT AS A .CSV FILE -->
-    <form action="" method="GET">
+    <?php
+        if(isset($report)){
+            // We put the $report that we want to download into the session
+            $_SESSION['downloadRequest'] = $report;
+        }
+    ?>
+
+    <form action="download-report" method="GET">
         <button class='btn btn-success'>Download report</button>
     </form>
 </div>

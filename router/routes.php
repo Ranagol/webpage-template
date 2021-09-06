@@ -61,6 +61,9 @@ require_once __DIR__ . '/routesUserWebPageCrud.php';
 
 require_once __DIR__ . '/routesUpload.php';
 
+require_once __DIR__ . '/routesDownload.php';
+
+
 // Custom 404 Handler
 $router->set404(function () {
     header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
