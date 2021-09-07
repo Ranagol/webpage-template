@@ -2,14 +2,14 @@
 
 namespace App\validators;
 
-use App\Validators\AbstractValidator;
 use App\Exceptions\ValidationException;
 
 /**
  * This class contains functions that are used by LoginValidator 
- * and RegisterValidator too.
+ * and RegisterValidator too. That is why the AuthValidator is parent of the LoginValidator and the
+ * RegisterValidator.
  */
-abstract class AuthValidator extends AbstractValidator
+abstract class AuthValidator
 {
     /**
      * Since a form is sending multiple input fields like email, password, username... 

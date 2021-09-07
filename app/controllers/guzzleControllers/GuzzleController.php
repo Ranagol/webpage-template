@@ -4,8 +4,6 @@ namespace App\Controllers\GuzzleControllers;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-use Psr\Http\Message\ResponseInterface;
-use GuzzleHttp\Exception\RequestException;
 
 /**
  * The Guzzle class is ment for sending guzzle requests to https://dummyapi.io/.
@@ -55,9 +53,6 @@ class GuzzleController
      */
     public static function getPosts(): void
     {
-        //TODO LOSI LOSI CSINALJON EGY ASYNC REQUESTET
-        //asyncNotWorking();
-        //*************************** */
         $client = new Client();//it is ok to work with no arguments in the Client()
         $url = self::$baseUri . self::$postsUri;
         $headers = self::getHeaders();
@@ -77,7 +72,6 @@ class GuzzleController
         } catch (\Throwable $th) {
             var_dump('GUZZLE ERROR');
         }
-
     }
 
     public static function getHeaders(): array

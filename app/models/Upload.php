@@ -8,6 +8,10 @@ use App\Report\CsvReader\CsvReader;
 use Illuminate\Database\Eloquent\Model;
 use App\Report\ReportDomain\CsvFile;
 
+/**
+ * Now this Upload model is not really used as a model in Laravel/Eloquent sense. This model is used 
+ * simply just to make a skinny controller.
+ */
 class Upload extends Model
 {
     /**
