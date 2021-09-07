@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use App\models\User;
 use Exception;
+use App\models\User;
+use App\Report\CsvReader\CsvReader;
 use Illuminate\Database\Eloquent\Model;
+use App\Report\ReportDomain\CsvFile;
 
-/**
- * The File model handles the file uploading.
- */
-class File extends Model
+class Upload extends Model
 {
     /**
      *  this is = to $_FILES now, we can treat $uploadData as the $_FILES
@@ -20,6 +19,7 @@ class File extends Model
 
     /**
      * All the allowed upload formats are stored here.
+     * The 'application/vnd.ms-excel' means .csv file.
      *
      * @var array
      */
@@ -28,6 +28,7 @@ class File extends Model
         'image/jpeg',
         'image/gif',
         'image/png',
+        'application/vnd.ms-excel'
     ];
 
     /**
@@ -65,16 +66,40 @@ class File extends Model
 
     /**
      * This is the central, main function that calls all other functions
-     * regarding the file uploading.
+     * regarding the file uploading. Now, the process is same for images and csv files - almost. The
+     * only difference is, that if we are uploading a csv file, then we need to process it, once the
+     * upload is successfull.
      *
-     * @return void
+     * @return CsvFile|null
      */
-    public function storeFile(): void
+    public function storeFile(): ?CsvFile
     {
         $this->setFileSizeNameType();
         $this->validateFileType();
         $this->validateFileSize();
         $this->putFileIntoStorage();
+        //from here this code is only in case of uploaded .csv files
+        $csvFile = $this->activateCsvProcessing();
+
+        return $csvFile;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return CsvFile|null
+     */
+    public function activateCsvProcessing(): ?CsvFile
+    {
+        //finds and reads the uploaded .csv file
+        if ($this->getFileType() === 'application/vnd.ms-excel') {
+            $csvReader = new CsvReader($this->getUserEmail(), $this->getFileName());
+            $csvFile = $csvReader->getCsvFile();
+
+            return $csvFile;
+        }
+
+        return null;
     }
 
     /**
@@ -90,14 +115,11 @@ class File extends Model
      */
     private function putFileIntoStorage(): void
     {
-        //get user
-        $user = User::getCurrentUser();
-        if (!($user instanceof User)) {
-            throw new Exception('User is not logged in.');
-        }
+        //get user email - this will be the name of his private storage
+        $email = $this->getUserEmail();
 
-        //create directory for the upload
-        $email = $user->email;
+        //create directory for the upload if there is none yet
+        clearstatcache();//deleting cached stuff
         if (!file_exists(__DIR__ . '/../../storage/upload/' . $email)) {
             $boolean = mkdir(__DIR__ . '/../../storage/upload/' . $email);
             if (!$boolean) {
@@ -105,15 +127,34 @@ class File extends Model
             }
         }
 
+        //check if there is already a same file uploaded, and if so delete the previous file
+        clearstatcache();//deleting cached stuff
+        $path = __DIR__ . '/../../storage/upload/' . $this->getUserEmail() . '/' . $this->getFileName();
+        if (file_exists($path)) {
+            // echo 'file exists';
+            \unlink($path);
+        }
+
         //place the uploaded file into the new dir
         try {
             $report = move_uploaded_file(
-                $_FILES["photo"]["tmp_name"],
+                $_FILES["file"]["tmp_name"],
                 __DIR__ . '/../../storage/upload/' . $email . '/' . $this->getFileName()
             );
         } catch (Exception $error) {
             echo $error->getErrorMessage();
         }
+    }
+
+    private function getUserEmail(): string
+    {
+        $user = User::getCurrentUser();
+        if (!($user instanceof User)) {
+            throw new Exception('User is not logged in.');
+        }
+        $email = $user->email;
+
+        return $email;
     }
 
     /**
@@ -155,12 +196,12 @@ class File extends Model
     private function setFileSizeNameType(): void
     {
         $uploadData = $this->getUploadData();
-        if (isset($uploadData["photo"]) && $uploadData["photo"]["error"] == 0) {
-            $this->setFileName($uploadData["photo"]["name"]);
-            $this->setFileType($uploadData["photo"]["type"]);
-            $this->setFileSize($uploadData["photo"]["size"]);
+        if (isset($uploadData["file"]) && $uploadData["file"]["error"] == 0) {
+            $this->setFileName($uploadData["file"]["name"]);
+            $this->setFileType($uploadData["file"]["type"]);
+            $this->setFileSize($uploadData["file"]["size"]);
         } else {
-            throw new Exception('Error with uploading: ' . $uploadData['photo']['error']);
+            throw new Exception('Error with uploading: ' . $uploadData['file']['error']);
         }
     }
 
@@ -243,9 +284,9 @@ class File extends Model
     /**
      * Get the value of allowedFileFormats
      * 
-     * @return string
+     * @return array
      */
-    public function getAllowedFileFormats(): string
+    public function getAllowedFileFormats(): array
     {
         return $this->allowedFileFormats;
     }

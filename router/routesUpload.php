@@ -1,14 +1,15 @@
 <?php
 
 use System\request\FileUploadRequest;
-use App\controllers\fileControllers\FileController;
+use App\Controllers\UploadControllers\UploadController;
 
 //UPLOAD - DOWNLOAD STORY***********************************************************
 
 $router->get('/upload', function () {
-    FileController::displayUploadPage();
+    UploadController::displayUploadPage();
 });
 
 $router->post('/upload', function () {
-    FileController::store(new FileUploadRequest);
+    UploadController::store(new FileUploadRequest);
 });
+

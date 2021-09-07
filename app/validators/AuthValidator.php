@@ -28,7 +28,6 @@ abstract class AuthValidator extends AbstractValidator
      * 
      * @return bool
      */
-    //TODO LOSI NEZZE MEG... DOCBLOCK ES RETURN TYPE JO?
     protected function checkForValidationErrors(): bool
     {
         if (count($this->errors) > 0) {

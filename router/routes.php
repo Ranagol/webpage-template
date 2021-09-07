@@ -5,7 +5,7 @@
 // use System\request\WebPageRequest;
 // use System\request\FileUploadRequest;
 // use App\controllers\webControllers\PageController;
-// use App\controllers\fileControllers\FileController;
+// use App\controllers\uploadControllers\FileController;
 // use App\controllers\authControllers\LoginController;
 // use App\controllers\apiControllers\UserApiController;
 // use App\controllers\webControllers\UserWebController;
@@ -64,6 +64,9 @@ require_once __DIR__ . '/routesUserWebPageCrud.php';
 require_once __DIR__ . '/routesUpload.php';
 
 require_once __DIR__ . '/routesGuzzle.php';
+
+require_once __DIR__ . '/routesDownload.php';
+
 
 // Custom 404 Handler
 $router->set404(function () {

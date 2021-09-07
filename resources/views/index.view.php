@@ -37,7 +37,9 @@
                 </form>
             </td>
         </tr>
+    <!-- This is how the fancy foreach loop ends -->
     <?php endforeach;?>
+    
 </table>
 
 <?php require 'partials/footer.php';?>
