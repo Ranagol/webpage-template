@@ -57,7 +57,6 @@ class Upload extends Model
      *
      * @var float
      */
-    //TODO nem jobb mindig float ot mondani integer helyett ilyen szituban? Hisz integer mindig lehet float, de float soha nem lesz integer...
     private $maxFileSize = 5 * 1024 * 1024;
 
     public function __construct(array $uploadData)

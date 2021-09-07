@@ -42,7 +42,7 @@ if(!isset($_SESSION)){
     </p>
 </form>
 
-<!-- REPORT FROM THE UPLOADED CSV FILE -->
+<!-- REPORT CREATED FROM THE UPLOADED CSV FILE -->
 <div class='<?= isset($report) ? '' : 'd-none' ?>'>
     <h2 class='mt-3'>Report</h2>
 
@@ -52,8 +52,8 @@ if(!isset($_SESSION)){
             <th>Cost</th>
         </tr>
 
-        <?php foreach ($report as $category => $cost): ?>
         <!--This is the fancy version of the foreach loop. The ':' is needed-->
+        <?php foreach ($report as $category => $cost): ?>
 
         <tr>
             <td><?= $category ?></td>
@@ -67,7 +67,7 @@ if(!isset($_SESSION)){
     <!-- DOWNLOADING THE REPORT AS A .CSV FILE -->
     <?php
         if(isset($report)){
-            // We put the $report that we want to download into the session
+            // We put the $report that we want to download into the session, so this data will be accessible to our controller later
             $_SESSION['downloadRequest'] = $report;
         }
     ?>
