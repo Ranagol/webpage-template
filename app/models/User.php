@@ -3,7 +3,6 @@
 namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
-use Exception;
 
 class User extends Model
 {

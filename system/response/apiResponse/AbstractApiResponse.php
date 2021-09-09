@@ -1,6 +1,6 @@
 <?php
 
-namespace System\response;
+namespace System\response\apiResponse;
 
 /**
  * Create API responses.
@@ -12,7 +12,7 @@ namespace System\response;
  * 3. We must set a response status header, which should contain the 
  * server protocol and the response status code.
  */
-class ApiResponse implements ResponseInterface
+abstract class ApiResponse implements ResponseInterface
 {
 	/**
 	 * Notice that this property is a constant!

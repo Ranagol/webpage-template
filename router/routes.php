@@ -67,6 +67,9 @@ require_once __DIR__ . '/routesGuzzle.php';
 
 require_once __DIR__ . '/routesDownload.php';
 
+require_once __DIR__ . '/routesStudent.php';
+
+
 
 // Custom 404 Handler
 $router->set404(function () {
