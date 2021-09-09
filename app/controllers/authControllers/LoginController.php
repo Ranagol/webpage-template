@@ -49,13 +49,13 @@ class LoginController
 
         try {
 
-            //login data validation
+            //login data - email and password - validation
             self::validateLoginData($email, $password);
 
-            //finding the user
-            $user = self::findUser($email, $password);
+            //finding the user in the db based on his unique email
+            $user = self::findUser($email);
 
-            //authenticate the user
+            //authenticate the user - compare data from form with data from db
             self::authenticateUser($user, $email, $password);
 
         } catch (ValidationException $errors) {
@@ -82,11 +82,10 @@ class LoginController
      */
     private static function authenticateUser(User $user,string $email,string $password): void
     {
-        //authentication (?)
         $emailFromDb = $user->email;
-        $passwordFromDb = $user->password;
+        $hashFromDb = $user->password;
 
-        if ($email === $emailFromDb && $password === $passwordFromDb) {
+        if ($email === $emailFromDb && \password_verify($password, $hashFromDb)) {
             if(!isset($_SESSION)){ 
                 session_start(); 
             }
@@ -99,21 +98,19 @@ class LoginController
     }
 
     /**
-     * Tries to find the user based on the email and password 
+     * Tries to find the user based on the email
      * receved from the html form.
      *
      * @param string $email
-     * @param string $password
      * 
      * @throws CantFindUserException
      * 
      * @return User
      */
-    private static function findUser(string $email,string $password): User
+    private static function findUser(string $email): User
     {
         //check if there is a user with the validated email and password
-        $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
-        $r = 7;
+        $user = User::where('email', '=', $email)->first();
         if ($user === null) {
             throw new CantFindUserException(
                 'Can not find the user in the db during authentication. Users email is: ' . $email

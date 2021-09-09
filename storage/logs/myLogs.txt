@@ -273,3 +273,15 @@ D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on l
 D:\_CODE\webpage-template\router\routes.php on line 267
 D:\_CODE\webpage-template\bootstrap\boostrap.php on line 16
 D:\_CODE\webpage-template\public\index.php on line 12
+
+2021-09-09 15:21:53 - Error message: Can not find the user in the db during authentication. Users email is: andorhorvat@gmail.com.
+The exceptions was created in this file: D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php.
+The exception was created on this line: 115.
+D:\_CODE\webpage-template\app\controllers\authControllers\LoginController.php on line 56
+D:\_CODE\webpage-template\router\routesAuthentication.php on line 25
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 458
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 440
+D:\_CODE\webpage-template\vendor\bramus\router\src\Bramus\Router\Router.php on line 287
+D:\_CODE\webpage-template\router\routes.php on line 85
+D:\_CODE\webpage-template\bootstrap\boostrap.php on line 19
+D:\_CODE\webpage-template\public\index.php on line 12

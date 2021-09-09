@@ -44,6 +44,7 @@ class RegisterController
         $lastname = $request['lastname'];
         $email = $request['email'];
         $password = $request['password'];
+        $hash = \password_hash($password, PASSWORD_DEFAULT);
 
         try {
             //data validation
@@ -55,17 +56,19 @@ class RegisterController
                 $lastname
             );
 
+
+
             //creating user in db
             $user = new User;
             $user->email = $email;
-            $user->password = $password;
+            $user->password = $hash;
             $user->username = $username;
             $user->firstname = $firstname;
             $user->lastname = $lastname;
             $user->save();
 
             //automatic login, after a succesfull registratin
-            self::loginUser($email, $password);
+            self::loginUser($email, $hash);
 
             returnView('home');
 
@@ -94,9 +97,9 @@ class RegisterController
      * 
      * @return void
      */
-    private static function loginUser(string $email,string $password): void
+    private static function loginUser(string $email,string $hash): void
     {
-        $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
+        $user = User::where('email', '=', $email)->where('password', '=', $hash)->first();
         
         if(!isset($_SESSION)){ 
             session_start(); 
