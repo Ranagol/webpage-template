@@ -12,7 +12,7 @@ namespace System\response\apiResponse;
  * 3. We must set a response status header, which should contain the 
  * server protocol and the response status code.
  */
-abstract class ApiResponse implements ResponseInterface
+abstract class AbstractApiResponse
 {
 	/**
 	 * Notice that this property is a constant!
@@ -20,7 +20,7 @@ abstract class ApiResponse implements ResponseInterface
 	 * 
 	 * @var array
 	 */
-    private const STATUS_CODE = [
+    protected const STATUS_CODE = [
 		100 => "100 Continue",
 		101 => "101 Switching Protocols",
 		200 => "200 OK",
@@ -61,30 +61,5 @@ abstract class ApiResponse implements ResponseInterface
 		502 => "502 Bad Gateway",
 		503 => "503 Service Unavailable",
 		504 => "504 Gateway Time-out"
-	];
-
-	/**
-     * When we want to create a json response in our vanilla api, we
-     * must do three things.
-     * 1. the needed data has to be transformed into json, with json_encode
-     * 2. we must tell php the handle our response as a json. We do this by setting the header like
-     * header("Content-Type: application/json");
-	 * 3. We must set a response status header, which should contain the 
-	 * server protocol and the response status code.
-	 * 
-	 * @return void
-     *
-     */
-    public static function send($data, int $code = 200): void
-    {
-		$serverProtocol = $_SERVER['SERVER_PROTOCOL'];//here we create server protocoll. Example HTTP/1.1
-		$statusCode = self::STATUS_CODE[$code];
-        $response['status_code_header'] = $serverProtocol . ' ' . $statusCode;
-        $response['body'] = json_encode($data);
-
-        header('Content-Type: application/json');
-        if ($response['body']) {
-            echo $response['body'];//yup, this is the way, with echo to create a json response...
-        }
-    }
+	];	
 }
