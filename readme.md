@@ -15,7 +15,7 @@ Soooo... This app can:
 8-docker-compose with xdebug full set
 9-works with api requests
 
-## Run this app thorugh docker
+## Run this app through docker
  
  #### in terminal 
  - run `docker-compose build`
@@ -38,5 +38,6 @@ app can be converted back to be used thorugh docker.
 
 
 ## Run this app without docker (this is the primary, default option)
-- start your mysql or xampp
+- start your xampp with apache and sql
 - In webpage-template/public dir, with cli, type 'php -S localhost:8889'
+- Then just go to http://localhost:8889

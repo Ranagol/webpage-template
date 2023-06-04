@@ -6,4 +6,8 @@ use System\response\apiResponse\studentResponse\AbstractStudentResponse;
 
 class StudentXmlResponse extends AbstractStudentResponse
 {
+    public static function send()
+    {
+        
+    }
 }

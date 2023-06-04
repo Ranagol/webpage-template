@@ -7,7 +7,7 @@ use App\models\User;
 if(!isset($_SESSION)){ 
     session_start(); 
 }
-//here we check if the user is logged in
+    //here we check if the user is logged in
     $user = User::getCurrentUser();
 ?>
 
@@ -67,7 +67,8 @@ if(!isset($_SESSION)){
     <!-- DOWNLOADING THE REPORT AS A .CSV FILE -->
     <?php
         if(isset($report)){
-            // We put the $report that we want to download into the session, so this data will be accessible to our controller later
+            // We put the $report that we want to download into the session, so this data will be 
+            //accessible to our controller later
             $_SESSION['downloadRequest'] = $report;
         }
     ?>
