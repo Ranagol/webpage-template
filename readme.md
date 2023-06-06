@@ -56,5 +56,8 @@ You can find the Postman collection in this file:
 'Postman collection for all user API requests.json'
 
 ## Registration and login with validation
-This app has a hand-made vanilla registering and login system.
+This app has a hand-made vanilla registering and login system. The app 'remembers' the logged in
+user with the help of the $_SESSION superglobal. We store HERE the user id, username, and the users 
+login status.
+Both for registering and for login there is a validation process, with error displaying.
 

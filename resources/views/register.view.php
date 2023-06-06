@@ -12,6 +12,8 @@ if(!isset($_SESSION)){
         <p>Please fill this form to create an account.</p>
         <form action="/register" method="post">
             <div class="form-group">
+
+                <!-- FIRST NAME -->
                 <label>First name</label>
 
                 <input 
@@ -21,8 +23,8 @@ if(!isset($_SESSION)){
                     value="<?= isset($firstname) ? $firstname : '' ?>"
                 >
 
+                <!-- ERROR DISPLAY -->
                 <p 
-                    
                     class="form-control alert alert-danger 
                     <?= isset($errors['firstnameError']) ? '' : 'd-none' ?>"
                 >
@@ -31,6 +33,8 @@ if(!isset($_SESSION)){
 
             </div>
             <div class="form-group">
+
+                <!-- LAST NAME -->
                 <label>Lastname</label>
                 <input 
                     type="text" 
@@ -38,14 +42,19 @@ if(!isset($_SESSION)){
                     class="form-control"
                     value="<?= isset($lastname) ? $lastname : '' ?>"
                 >
+
+                <!-- ERROR DISPLAY -->
                 <p 
                     class="form-control alert alert-danger 
                     <?= isset($errors['lastNameError']) ? '' : 'd-none' ?>"
                 >
                 <?= isset($errors['lastnameError']) ? $errors['lastnameError'] : '' ?>
                 </p>
+
             </div>
             <div class="form-group">
+
+                <!-- USERNAME -->
                 <label>Username</label>
                 <input 
                     type="text" 
@@ -53,6 +62,8 @@ if(!isset($_SESSION)){
                     class="form-control"
                     value="<?= isset($username) ? $username : '' ?>"
                 >
+
+                <!-- ERROR DISPLAY -->
                 <p 
                     class="form-control alert alert-danger 
                     <?= isset($errors['usernameError']) ? '' : 'd-none' ?>"
@@ -61,6 +72,8 @@ if(!isset($_SESSION)){
                 </p>
             </div>
             <div class="form-group">
+
+                <!-- EMAIL -->
                 <label>Email</label>
                 <input 
                     type="email" 
@@ -68,6 +81,8 @@ if(!isset($_SESSION)){
                     class="form-control"
                     value="<?= isset($email) ? $email : '' ?>"
                 >
+
+                <!-- ERROR DISPLAY -->
                 <p 
                     class="form-control alert alert-danger 
                     <?= isset($errors['emailError']) ? '' : 'd-none' ?>"
@@ -76,13 +91,17 @@ if(!isset($_SESSION)){
                 </p>
             </div>    
             <div class="form-group">
+
+                <!-- PASSWORD -->
                 <label>Password</label>
                 <input 
-                type="password" 
-                name="password" 
-                class="form-control"
-                value="<?= isset($password) ? $password : '' ?>"
+                    type="password" 
+                    name="password" 
+                    class="form-control"
+                    value="<?= isset($password) ? $password : '' ?>"
                 >
+
+                <!-- ERROR DISPLAY -->
                 <p 
                     class="form-control alert alert-danger 
                     <?= isset($errors['passwordError']) ? '' : 'd-none' ?>"

@@ -9,7 +9,7 @@ $router->get('/register', function () {
     RegisterController::loadRegisterPage();
 });
 
-//registering
+//registering the user
 $router->post('/register', function () {
     RegisterController::register(new WebPageRequest());
 });
@@ -19,7 +19,7 @@ $router->get('/login', function () {
     LoginController::loadLoginPage();
 });
 
-//logging in
+//logging in a user
 $router->post('/login', function () {
     // var_dump('login post form activated');
     LoginController::login(new WebPageRequest());

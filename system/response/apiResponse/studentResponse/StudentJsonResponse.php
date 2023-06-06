@@ -2,6 +2,7 @@
 
 namespace System\response\apiResponse\studentResponse;
 
+use App\Models\Student;
 use System\response\apiResponse\studentResponse\AbstractStudentResponse;
 
 class StudentJsonResponse extends AbstractStudentResponse

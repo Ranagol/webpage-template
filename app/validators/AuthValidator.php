@@ -22,7 +22,8 @@ abstract class AuthValidator
     
     /**
      * After the end of the validation process, this function checks if there are 
-     * validation errors. If so, then it throws an extension.
+     * validation errors. If so, then it throws an exception.
+     * This exception will be catched in a try/catch block in RegisterController.
      *
      * @throws ValidationException
      * 
