@@ -8,7 +8,8 @@ use App\controllers\apiControllers\ApiController;
 use System\response\apiResponse\userResponse\UserApiResponse;
 
 /**
- * This controller is used for API requests, regarding user CRUD operations.
+ * This controller is used for API requests, regarding user CRUD operations. Basically this 
+ * controller is used, when we send a API user related request from the Postman to our app.
  */
 class UserApiController extends ApiController
 {
@@ -34,8 +35,8 @@ class UserApiController extends ApiController
     {
         $arrayRequestData = $request->getAllRequestData();
         User::create($arrayRequestData);
-        $savedUserId = User::orderBy('id', 'desc')->first()->id;
-        UserApiResponse::send($savedUserId);
+        $savedUserId = User::orderBy('id', 'desc')->first()->id;//get the id of the newly create user
+        UserApiResponse::send($savedUserId);//send back the id of the newly created user
     }
 
     public function update(RequestInterface $request): void
@@ -48,7 +49,7 @@ class UserApiController extends ApiController
         UserApiResponse::send('id ' . $id . ' was updated.');
     }
 
-    public function delete(string$id): void
+    public function delete(string $id): void
     {
         User::destroy($id);
         UserApiResponse::send('id ' . $id . ' was deleted.');

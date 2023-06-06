@@ -21,7 +21,7 @@ class UserApiResponse extends AbstractApiResponse
     public static function send($data, int $code = 200): void
     {
 		$serverProtocol = $_SERVER['SERVER_PROTOCOL'];//here we create server protocoll. Example HTTP/1.1
-		$statusCode = self::STATUS_CODE[$code];
+		$statusCode = self::STATUS_CODE[$code];//STATUS_CODE is a constant property inherited from the parent class
         $response['status_code_header'] = $serverProtocol . ' ' . $statusCode;
         $response['body'] = json_encode($data);
 

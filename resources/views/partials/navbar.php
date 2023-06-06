@@ -27,9 +27,9 @@ if(!isset($_SESSION)){
 				<li class="nav-item">
 					<a class="nav-item nav-link" href="/users">Users</a>
 				</li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-item nav-link" href="/users/create">Create user</a>
-				</li>
+				</li> -->
 				<li class="nav-item">
 					<a class="nav-item nav-link" href="/upload">Upload</a>
 				</li>

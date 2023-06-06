@@ -7,8 +7,8 @@ namespace System\response\apiResponse;
  * When we want to create a json response in our vanilla api, we
  * must do three things.
  * 1. the needed data has to be transformed into json, with json_encode
- * 2. we must tell php the handle our response as a json. We do this by setting the header like
- * header("Content-Type: application/json");
+ * 2. we must tell php to handle our response as a json. We do this by setting the header like
+ * ---> header("Content-Type: application/json");
  * 3. We must set a response status header, which should contain the 
  * server protocol and the response status code.
  */

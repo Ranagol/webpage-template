@@ -2,8 +2,6 @@
 
 namespace System\request;
 
-use System\request\AbstractRequest;
-
 /**
  * The request classes are ment to get the request data. Because that is not the controllers job.
  * They will get the request data as soon as they are created (through the __construct(), 
