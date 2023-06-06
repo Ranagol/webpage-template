@@ -12,13 +12,18 @@
 		</form>
 
 		<form action="guzzle" method='GET'>
-			<button class='btn btn-success'>Return to previous page</button>
+			<button class='btn btn-success'>Reset</button>
 		</form>
 		
 	</div>
 
 	<div class='mt-5'>
 		<h3 class='mt-5'>Received responses</h3>
+		<p>	Note: the received data is on purpose displayed with just a var_dump, since the
+			goal here was only to get some data from a webpage with the help of the Guzzle, and not
+			to do a frontend exercise.
+		</p>
+
 		<?php isset($posts) ? var_dump($posts) : '' ?>
 	</div>
 

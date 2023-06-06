@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 
 /**
- * The Guzzle class is ment for sending guzzle requests to https://dummyapi.io/.
+ * The GuzzleController class is meant for sending guzzle requests to https://dummyapi.io/.
  */
 class GuzzleController
 {
@@ -45,7 +45,7 @@ class GuzzleController
     }
 
     /**
-     * Gets hardcoded 10 post data.
+     * Gets hardcoded 10 post data, by sending a GET request to the predefined url.
      * 
      * @throws Exception
      *
@@ -61,14 +61,19 @@ class GuzzleController
             $url,
             $headers
         );
-        //insert here try catch block
+
         try {
+
+            /**
+             * The request is send, and the response is received here.
+             */
             $response = $client->send($request);
             $response = json_decode($response->getBody(), true);
             $posts = $response['data'];
             // var_dump($posts['data']);
             
             returnView('guzzle', compact('posts'));
+            
         } catch (\Throwable $th) {
             var_dump('GUZZLE ERROR');
         }

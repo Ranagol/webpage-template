@@ -1,5 +1,5 @@
 
-# Basic description
+# App description
 
 The aim with this app was to create a modern, fully functional MVC php webpage, but only with the use of
 vanilla php and packages (so no framework was allowed.)
@@ -14,6 +14,9 @@ Soooo... This app can:
 7-has MVC system for all requests
 8-docker-compose with xdebug full set
 9-works with api requests too
+
+
+# Run the app
 
 ## Run this app through docker (currently this is only a secondary option)
  
@@ -57,7 +60,10 @@ You can find the Postman collection in this file:
 
 ## Registration and login with validation
 This app has a hand-made vanilla registering and login system. The app 'remembers' the logged in
-user with the help of the $_SESSION superglobal. We store HERE the user id, username, and the users 
+user with the help of the $_SESSION superglobal. We store here the user id, username, and the users 
 login status.
-Both for registering and for login there is a validation process, with error displaying.
+Both for registering and for login there is a faily complex validation process, with error displaying.
+
+## Error handling, exceptions and error logging
+
 
