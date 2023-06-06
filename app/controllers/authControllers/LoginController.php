@@ -39,7 +39,7 @@ class LoginController
      */
     public static function login(RequestInterface $request): void
     {
-        //check if the user is already logged in.
+        //check if the user is already logged in. If so, the user will be redirected to home page.
         self::isUserAlreadyLoggedIn();
 
         //getting email and password from the request
@@ -59,11 +59,16 @@ class LoginController
             self::authenticateUser($user, $email, $password);
 
         } catch (ValidationException $errors) {
+
+            /**
+             * This is a case when we have an email or password validation error.
+             */
             $errors = json_decode($errors->getMessage(), true);
 
             returnView('login', compact('errors', 'email', 'password'));
 
         } catch (CantFindUserException $error) {
+            
             $isAuthenticated = false;
 
             returnView('login', compact('isAuthenticated'));
@@ -157,7 +162,9 @@ class LoginController
     }
 
     /**
-     * Check if the user is already logged in, if yes then redirect him to home page
+     * Check if the user is already logged in, if yes then redirect him to home page.
+     * The redirect() is my custom function, defined in boostrap.php
+     * //TODO why there is no check for the  $_SESSION["username"]????
      *
      * @return void
      */
