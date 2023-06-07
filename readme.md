@@ -64,12 +64,14 @@ You can find the Postman collection in this file:
 This app has a hand-made vanilla registering and login system. The app 'remembers' the logged in
 user with the help of the $_SESSION superglobal. We store here the user id, username, and the users 
 login status.
-Both for registering and for login there is a faily complex validation process, with error displaying.
+Both for registering and for login there is a fairly complex validation process, with error 
+displaying.
 
 ## Logging
-The app uses a singleton class for Logging.
+The app uses a singleton class for Logging. All exceptions in the app automatically do error logging.
 
-## Error handling, exceptions and error logging
+## Exceptions
+
 
 
 

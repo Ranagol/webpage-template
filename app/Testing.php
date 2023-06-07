@@ -10,6 +10,8 @@ class Testing
      * Warning! When creating a class that will be called with composer, make sure that it is 
      * callable by the autoload. That means that your future class must be in a dir, that is 
      * mapped and listed for autoloading. Example: app dir. 
+     * 
+     * This class is called from the terminal, with this command: composer test-logger
      *
      * @return void
      */

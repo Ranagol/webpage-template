@@ -77,8 +77,14 @@ class RegisterController
             returnView('home');
 
         } catch (ValidationException $errors) {
-
-        //in case of validation errors here we return all input field values to be displayed again for the user, so he could correct them without typing everything from the beginning
+            
+            /**
+             * in case of validation errors here we return 
+             * 1 - the validation errors
+             * 2 - all input field values to be displayed 
+             * again for the user, so he could correct them without typing everything from the 
+             * beginning.
+             */
             $errors = json_decode($errors->getMessage(), true);
             
             returnView('register', compact(
