@@ -10,7 +10,7 @@ Soooo... This app can:
 3-uploading user files to individual user storages
 4-logging errors with exceptions
 5-env variables are in .env file like in Laravel
-6-works thorugh docker too, though it is better to use with php server
+6-works thorugh docker too
 7-has MVC system for all requests
 8-docker-compose with xdebug full set
 9-works with api requests too
@@ -53,7 +53,9 @@ necesary for user login and registration.
 
 ## API requests and respone regarding user CRUD operations.
 This app has a users table in db, where it stores the user data. We can send an API request,
-for example with a Postman, to do CRUD operations over the user data. Hint: turn on Apache and
+for example with a Postman, to do CRUD operations over the user data. 
+(show all users, show one user, edit user, delete user, etc. ...)
+Hint: turn on Apache and
 MySQL in XAMPP, before you send a request. :)
 You can find the Postman collection in this file: 
 'Postman collection for all user API requests.json'
@@ -64,6 +66,11 @@ user with the help of the $_SESSION superglobal. We store here the user id, user
 login status.
 Both for registering and for login there is a faily complex validation process, with error displaying.
 
+## Logging
+The app uses a singleton class for Logging.
+
 ## Error handling, exceptions and error logging
+
+
 
 

@@ -6,12 +6,12 @@ use Exception;
 
 /**
  * This class is a singleton. It has one purpose: 
- * to write error logs.
+ * to write error logs, into the /../../storage/logs/myLogs.txt'.
  */
 class Logger
 {
     /**
-     * The singleton will be stored here.
+     * The singleton object will be stored here, in the Logger class.
      *
      * @var Logger $instance
      */
@@ -47,7 +47,7 @@ class Logger
     }
 
     /**
-     * Logs simple string messages.
+     * Logs simple string messages. For testing, debugging...
      * Example: 
      * Logger::getInstance()->log('Your custom error message.');
      *
@@ -57,7 +57,7 @@ class Logger
      */
     public function log(string $string): void
     {
-        $date = date('Y-m-d H:i:s');
+        $date = PHP_EOL . date('Y-m-d H:i:s');
         $string = $date . ' - ' . $string . PHP_EOL;
         $filePointer = fopen($this->getPath(), 'a+');
         fwrite($filePointer, $string);//writing into a file
@@ -100,7 +100,7 @@ class Logger
     }
 
     /**
-     * Get the value of path
+     * Get the value of path, where the log is.
      * 
      * @return string
      */ 

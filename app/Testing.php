@@ -17,7 +17,14 @@ class Testing
     {
         require __DIR__ . '/../vendor/autoload.php';
         
+        /**
+         * Writes into the log.
+         */
         Logger::getInstance()->log('displayMessage() was activated through composer from Testing class.');
+
+        /**
+         * Writes a feedback to the user, in terminal.
+         */
         var_dump('Message is displayed from Testing class.');
     }
 }

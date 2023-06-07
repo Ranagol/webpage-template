@@ -7,7 +7,8 @@ use App\logger\Logger;
 
 /**
  * This class is the parent of all exceptions in this app. 
- * The reason for this is: this way all child exceptions are automatically logged 
+ * The reason for this is: since this parent class has the ability to log exception, and to use
+ * the Logger class, therefore all child classes can also log exceptions.
  * into the storage/logs/myLogs.txt. 
  */
 class BaseException extends Exception
@@ -26,3 +27,6 @@ class BaseException extends Exception
         Logger::getInstance()->logError($this);
     }
 }
+
+
+

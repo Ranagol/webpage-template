@@ -13,11 +13,11 @@
         "guzzlehttp/guzzle": "7.0"
     },
     "scripts": {
-		"create": "App\\Testing::displayMessage",
+		"test-logger": "App\\Testing::displayMessage",
         "migrate": "@php Database/migrations/create-users-table.php"
 	},
     "scripts-descriptions": {
-        "testScript": "This is just a test to see how basic php script activation is working",
-        "migrate": "This should start the migration, and create tables in the db"
+        "test-logger": "This is just a test to see how basic php script activation is working. Just write composer test-logger into the terminal.",
+        "migrate": "This should start the migration, and create tables in the db. Just write 'composer migrate'."
     }
 }
