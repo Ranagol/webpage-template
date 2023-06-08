@@ -10,7 +10,7 @@ use App\Report\ReportDomain\CsvFile;
 
 /**
  * Now this Upload model is not really used as a model in Laravel/Eloquent sense. This model is used 
- * simply just to make a skinny controller.
+ * simply just to make a skinny UploadController.
  */
 class Upload extends Model
 {
@@ -23,7 +23,7 @@ class Upload extends Model
 
     /**
      * All the allowed upload formats are stored here.
-     * The 'application/vnd.ms-excel' means .csv file.
+     * The 'application/vnd.ms-excel' or 'text/csv' means .csv file.
      *
      * @var array
      */
@@ -32,7 +32,8 @@ class Upload extends Model
         'image/jpeg',
         'image/gif',
         'image/png',
-        'application/vnd.ms-excel'
+        'application/vnd.ms-excel',
+        'text/csv',
     ];
 
     /**
@@ -89,16 +90,19 @@ class Upload extends Model
     }
 
     /**
-     * Undocumented function
+     * When a .csv file is uploaded, then we need not just to store this file, but to process it too.
+     * 
      *
      * @return CsvFile|null
      */
     public function activateCsvProcessing(): ?CsvFile
     {
         //finds and reads the uploaded .csv file
-        if ($this->getFileType() === 'application/vnd.ms-excel') {
+        if ($this->getFileType() === 'application/vnd.ms-excel' || $this->getFileType() === 'text/csv') {
             $csvReader = new CsvReader($this->getUserEmail(), $this->getFileName());
             $csvFile = $csvReader->getCsvFile();
+
+            $t = 8;
 
             return $csvFile;
         }
@@ -139,13 +143,18 @@ class Upload extends Model
             \unlink($path);
         }
 
+        $t = 8;
+
         //place the uploaded file into the new dir
         try {
+            $t = 8;
             $report = move_uploaded_file(
                 $_FILES["file"]["tmp_name"],
                 __DIR__ . '/../../storage/upload/' . $email . '/' . $this->getFileName()
             );
         } catch (Exception $error) {
+
+            $t = 8;
             echo $error->getErrorMessage();
         }
     }
@@ -185,6 +194,7 @@ class Upload extends Model
     private function validateFileType(): void
     {
         if (!in_array($this->getFileType(), $this->getAllowedFileFormats())) {
+            $t = 8;
             throw new Exception('Error: Please select a valid file format.');
         }
     }

@@ -38,7 +38,9 @@ if(!isset($_SESSION)){
         <input type="submit" name="submit" value="Upload" class='btn btn-warning'>
     </div>
     <p>
-        <strong>Note:</strong> Max allowed file size is 5 MB.
+        <strong>Note: max allowed file size is 5 MB. Only .jpg, .png, and .csv
+                files can be uploaded.
+        </strong> 
     </p>
 </form>
 
@@ -76,6 +78,7 @@ if(!isset($_SESSION)){
     <form action="download-report" method="GET">
         <button class='btn btn-success'>Download report</button>
     </form>
+
 </div>
 
 

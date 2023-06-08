@@ -4,14 +4,16 @@ namespace App\Controllers\UploadControllers;
 
 use Exception;
 use App\Models\Upload;
-use App\Report\CsvReader\CsvReader;
 use System\request\RequestInterface;
-use App\Controllers\UploadControllers\UploadController;
 use App\Report\ReportDomain\Reportable;
 
 /**
  * In this class we have a nice example how inheritance is working with static properties and 
- * methods. Also, we use here static instead of the self.
+ * methods. 
+ * 
+ * All the heavy work is done by the Upload model.
+ * 
+ * Also, we use here static instead of the self.
  */
 class UploadController
 {
@@ -41,17 +43,24 @@ class UploadController
         $uploadData = $request->getAllRequestData();
         $upload = new Upload($uploadData);
 
+        $t = 8;
+
         try {
             $file = $upload->storeFile();
+
             if ($file instanceof Reportable) {
+                $t = 8;
                 $report = $file->getReport();
+
             } else {
+                $t = 8;
                 $report = null;
             }
             
             $message = 'Your upload was successfull.';
             $alertType = 'alert-success';
         } catch (Exception $error) {
+
             $message = $error->getMessage();
             $alertType = 'alert-warning';
         }
