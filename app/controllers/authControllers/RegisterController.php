@@ -81,7 +81,7 @@ class RegisterController
             /**
              * in case of validation errors here we return 
              * 1 - the validation errors
-             * 2 - all input field values to be displayed 
+             * 2 - all previous input field values to be displayed 
              * again for the user, so he could correct them without typing everything from the 
              * beginning.
              */

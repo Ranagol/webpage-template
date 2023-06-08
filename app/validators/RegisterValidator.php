@@ -2,6 +2,15 @@
 
 namespace App\Validators;
 
+/**
+ * Validates email, password, firstname...
+ * 
+ * Inherits from AuthValidator parent the exception throwing ability.
+ * 
+ * Password and email validation are the same for login and register. 
+ * So, these two features* are in the parent AuthValidator, and not in the RegisterValidator or 
+ * LoginValidator.
+ */
 class RegisterValidator extends AuthValidator
 {
     /**
@@ -27,6 +36,10 @@ class RegisterValidator extends AuthValidator
         $this->validateLastname($lastname);
         $this->validateEmail($email);
         $this->validatePassword($password);
+
+        /**
+         * Here we check if there are validation errors. If so, an exception is thrown.
+         */
         $this->checkForValidationErrors();
     }
 

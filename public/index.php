@@ -15,5 +15,3 @@ require __DIR__ . '/../bootstrap/boostrap.php';
 if(!isset($_SESSION)){ 
     session_start(); 
 }
-
-$dockerTestingSpot = 'Test docker here.';

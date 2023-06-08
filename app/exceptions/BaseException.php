@@ -23,6 +23,11 @@ class BaseException extends Exception
      */
     public function __construct(string $message = null, int $code = 0, \Throwable $previous = null)
     {
+        /**
+         * If a class extends the built-in Exception class and re-defines the constructor, it is 
+         * highly recommended that it also call parent::__construct() to ensure all available data 
+         * has been properly assigned.
+         */
         parent::__construct($message, $code, $previous);
         Logger::getInstance()->logError($this);
     }

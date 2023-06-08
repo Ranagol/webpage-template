@@ -8,13 +8,17 @@ use App\Exceptions\ValidationException;
  * This class contains functions that are used by LoginValidator 
  * and RegisterValidator too. That is why the AuthValidator is parent of the LoginValidator and the
  * RegisterValidator.
+ * 
+ * 1 - all email, password, username validation errors are collected in $errors
+ * 2 - we count the number of these errors in the $errors. If there are errors in $errors, then
+ * this class throws an exception.
  */
 abstract class AuthValidator
 {
     /**
      * Since a form is sending multiple input fields like email, password, username... 
      * We must collect in one place all the errors regarding these multiple input fields. 
-     * This is the place where this collection is happening.
+     * This is the place where this collection is happening. For registration and for login too.
      *
      * @var string[]
      */
@@ -41,6 +45,8 @@ abstract class AuthValidator
     /**
      * Input field validation function. 
      * Any new validation rules should be added with a new elseif at the end.
+     * Password and email validation are the same for login and register. So, these two features
+     * are in the parent AuthValidator, and not in the RegisterValidator or LoginValidator.
      *
      * @param string $email
      * 
@@ -64,6 +70,9 @@ abstract class AuthValidator
     /**
      * Input field validation function. 
      * Any new validation rules should be added with a new elseif at the end.
+     * 
+     * Password and email validation are the same for login and register. So, these two features
+     * are in the parent AuthValidator, and not in the RegisterValidator or LoginValidator.
      *
      * @param string $password
      * 

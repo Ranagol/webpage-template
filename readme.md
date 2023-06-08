@@ -2,7 +2,7 @@
 # App description
 
 The aim with this app was to create a modern, fully functional MVC php webpage, but only with the use of
-vanilla php and packages (so no framework was allowed.)
+vanilla php code and composer packages (so no framework was allowed.)
 
 Soooo... This app can:
 1-CRUD with users
@@ -69,8 +69,15 @@ displaying.
 
 ## Logging
 The app uses a singleton class for Logging. All exceptions in the app automatically do error logging.
+The navbar displays always, if the user is logged in or not. If the user is logged in, then a 
+'Hi, ...' is displayed in navbar.
 
 ## Exceptions
+
+
+## Views
+Every view has a header, footer and a navbar. These are reusable components. Views are here: 
+resources\views.
 
 
 

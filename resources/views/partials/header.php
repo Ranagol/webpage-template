@@ -6,5 +6,5 @@
 	<link rel="stylesheet" type="text/css" href="/resources/css/style.css">
 </head>
 <body>
-	<?php require 'navbar.php'; ?>
+	<?php require 'navbar.php';?>
 	<div class='container'>

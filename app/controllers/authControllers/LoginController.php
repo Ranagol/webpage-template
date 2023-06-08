@@ -49,10 +49,16 @@ class LoginController
 
         try {
 
-            //login data - email and password - validation
+            /**
+             * login data - email and password - validation.
+             * A ValidationException will be thrown if there is a validation error.
+             */
             self::validateLoginData($email, $password);
-
-            //finding the user in the db based on his unique email
+            
+            /**
+             * finding the user in the db based on his unique email
+             * CantFindUserException will be thrown, if the app can't find the user.
+             */
             $user = self::findUser($email);
 
             //authenticate the user - compare data from form with data from db
@@ -68,7 +74,10 @@ class LoginController
             returnView('login', compact('errors', 'email', 'password'));
 
         } catch (CantFindUserException $error) {
-            
+
+            /**
+             * This here is a case when the app can't find the user in the db.
+             */
             $isAuthenticated = false;
 
             returnView('login', compact('isAuthenticated'));
@@ -85,18 +94,37 @@ class LoginController
      * 
      * @return void
      */
-    private static function authenticateUser(User $user,string $email,string $password): void
+    private static function authenticateUser(
+        User $user,
+        string $email,
+        string $password
+    ): void
     {
         $emailFromDb = $user->email;
         $hashFromDb = $user->password;
 
+        /**
+         * If the email from the request and email from the db...
+         * and
+         * the password from the request and password from the db...
+         * match, then this user is ok.
+         */
         if ($email === $emailFromDb && \password_verify($password, $hashFromDb)) {
+
+            /**
+             * If there is no session, then start one.
+             */
             if(!isset($_SESSION)){ 
                 session_start(); 
             }
+
+            /**
+             * Put the users data into the session superglobal.
+             */
             $_SESSION["loggedin"] = true;
             $_SESSION["id"] = $user->id;
             $_SESSION["username"] = $user->username;
+            $t = 8;
 
             redirect('users');
         }
