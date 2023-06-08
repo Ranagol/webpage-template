@@ -74,13 +74,20 @@ The app uses a singleton class for Logging. All exceptions in the app automatica
 
 
 ## Exceptions
-
+All exceptions used in this app should inherit from app\exceptions\BaseException.php
 
 ## Views
 Every view has a header, footer and a navbar. These are reusable components. Views are here: 
 resources\views.
 
-## Upload and download
+## Eloquent - COMPLETED
+The app uses Eloquent to work with db, similar like Laravel.
+All future models should inherit like it was done in app\models\User.php.
+illuminate/database composer package is used for this feature.
+
+## Routes
+
+## Upload and download - COMPLETED
 We can upload .jpg or .png images to this app. And .csv files.
 
 ### Image uploading
@@ -117,4 +124,10 @@ Once the summary data has been calculated and displayed, it should be possible t
 ### .csv processing
 
 ### .csv downloading
+
+## Using Guzzle for request/response - COMPLETED
+The app can send request and receive response to this site: https://dummyapi.io/
+The received data is simply dumped in the view page.
+
+## Student - Quantox task - NOT FINISHED YET
 

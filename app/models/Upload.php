@@ -92,7 +92,6 @@ class Upload extends Model
     /**
      * When a .csv file is uploaded, then we need not just to store this file, but to process it too.
      * 
-     *
      * @return CsvFile|null
      */
     public function activateCsvProcessing(): ?CsvFile
