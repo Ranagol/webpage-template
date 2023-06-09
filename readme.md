@@ -86,7 +86,7 @@ All future models should inherit like it was done in app\models\User.php.
 illuminate/database composer package is used for this feature.
 
 ## Routes
-
+For routing I used the bramus/router composer package.
 ## Upload and download - COMPLETED
 We can upload .jpg or .png images to this app. And .csv files.
 
@@ -96,6 +96,7 @@ uploading user will have a personel dir in the storage\upload dir. This personal
 after the users email address.
 
 ### .csv file uploading
+Use this file: csvFile.csv
 When a .csv file is uploaded, the same process will happen as with the images. But, here we will 
 have an additional process. This is the task that the app must do:
 

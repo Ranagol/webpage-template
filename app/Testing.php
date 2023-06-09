@@ -4,6 +4,11 @@ namespace App;
 
 use App\logger\Logger;
 
+/**
+ * This class is used, to test the composer scripts. 
+ * This is just a test to see how basic php script activation is working. Just write composer 
+ * test-logger into the terminal. That will trigger this class.
+ */
 class Testing
 {
     /**
