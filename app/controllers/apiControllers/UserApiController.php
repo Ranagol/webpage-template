@@ -13,13 +13,13 @@ use System\response\apiResponse\userResponse\UserApiResponse;
  */
 class UserApiController extends ApiController
 {
-    public function index(): void
+    public static function index(): void
     {
         $users = User::all();
         UserApiResponse::send($users);
     }
 
-    public function show(string $id): void
+    public static function show(string $id): void
     {
         $user = User::find($id);
         UserApiResponse::send($user);
@@ -31,7 +31,7 @@ class UserApiController extends ApiController
      *
      * @return void
      */
-    public function store(RequestInterface $request): void
+    public static function store(RequestInterface $request): void
     {
         $arrayRequestData = $request->getAllRequestData();
         User::create($arrayRequestData);
@@ -39,7 +39,7 @@ class UserApiController extends ApiController
         UserApiResponse::send($savedUserId);//send back the id of the newly created user
     }
 
-    public function update(RequestInterface $request): void
+    public static function update(RequestInterface $request): void
     {
         $id = $request->get('id');
         $user = User::find($id);
@@ -49,7 +49,7 @@ class UserApiController extends ApiController
         UserApiResponse::send('id ' . $id . ' was updated.');
     }
 
-    public function delete(string $id): void
+    public static function delete(string $id): void
     {
         User::destroy($id);
         UserApiResponse::send('id ' . $id . ' was deleted.');

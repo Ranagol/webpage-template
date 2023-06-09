@@ -51,11 +51,11 @@ $router->before('GET', '/.*', function() {
     } 
 });
 
-require_once __DIR__ . '/routesApi.php';
+require_once __DIR__ . '/routesApi.php';//API requests and responses
 
-require_once __DIR__ . '/routesWebPage.php';
+require_once __DIR__ . '/routesWebPage.php';//pages-views like /, about, contact...
 
-require_once __DIR__ . '/routesAuthentication.php';
+require_once __DIR__ . '/routesAuthentication.php';//everything regarding login and register
 
 require_once __DIR__ . '/routesUserWebPageCrud.php';
 

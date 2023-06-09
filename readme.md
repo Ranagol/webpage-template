@@ -59,6 +59,11 @@ Hint: turn on Apache and
 MySQL in XAMPP, before you send a request. :)
 You can find the Postman collection in this file: 
 'Postman collection for all user API requests.json'
+Examples for the API request urls:
+GET     /server/users           list all users
+GET     /server/users/{id}      show this user
+POST    /server/users           create/save new user
+
 
 ## Registration and login with validation
 This app has a hand-made vanilla registering and login system. The app 'remembers' the logged in
