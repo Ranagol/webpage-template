@@ -4,8 +4,6 @@
  * This is where all the stuff regarding routing starts. The entry point for the routes.
  * The request from a user's browser will reach the $_SERVER superglobal. No the Bramus router
  * package will have to extract the request method (GET, POST...), the requested url, and so on.
- * 
- * 
  */
 
 if(!isset($_SESSION)){ 
@@ -31,34 +29,26 @@ $router = new \Bramus\Router\Router();
 $router->before('GET', '/.*', function() {
     // echo 'User wants to go here: ' . $_SERVER['REQUEST_URI'] . '<br>';
 
-    //if the user is logged in...
-    if (isset($_SESSION['username'])) {
-        // echo 'user is logged in';
-    } else {
+    //if the user is NOT logged in...
+    if (!isset($_SESSION['username'])) {
+        // echo 'user is not logged in';
         
         /**
-         * if the user is not logged in, he can visit login, register, logout
+         * The not-logged-in user can't visit the pages listed below (everything else he can).
+         * So, these pages are forbidden for the not-logged-in user.
+         * Pages that can be visited by the not-logged-in user: /, login, register, logout.
          */
-        if ($_SERVER['REQUEST_URI'] === '/login' 
-            || $_SERVER['REQUEST_URI'] === '/register'
-            || $_SERVER['REQUEST_URI'] === '/logout') {
-            //but the not-logged-in user can't visit the pages listed below
-            } elseif ($_SERVER['REQUEST_URI'] === '/'
-                || $_SERVER['REQUEST_URI'] === '/about'
-                || $_SERVER['REQUEST_URI'] === '/contact'
-                || $_SERVER['REQUEST_URI'] === '/users'
-                || $_SERVER['REQUEST_URI'] === '/users/create'
-                || $_SERVER['REQUEST_URI'] === '/upload'
-                || $_SERVER['REQUEST_URI'] === '/guzzle'
-            ) {
+        if ($_SERVER['REQUEST_URI'] === '/about'
+        || $_SERVER['REQUEST_URI'] === '/contact'
+        || $_SERVER['REQUEST_URI'] === '/users'
+        || $_SERVER['REQUEST_URI'] === '/users/create'
+        || $_SERVER['REQUEST_URI'] === '/upload'
+        || $_SERVER['REQUEST_URI'] === '/guzzle') {
 
-                /**
-                 * not logged in user can't visit /, about, contact... pages, and will be redirected 
-                 * to login page.
-                 */
-                redirect('login');
-            }
-    }
+            //redirect to login page
+            redirect('login');
+        }
+    } 
 });
 
 require_once __DIR__ . '/routesApi.php';

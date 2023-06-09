@@ -86,7 +86,14 @@ All future models should inherit like it was done in app\models\User.php.
 illuminate/database composer package is used for this feature.
 
 ## Routes
+
+### General description
 For routing I used the bramus/router composer package.
+
+### Middleware
+Only the login, register, logout views are accessible for a not-logged-in user. The app is checking
+in the $_SUPERGLOBAL, if the user is logged in.
+
 ## Upload and download - COMPLETED
 We can upload .jpg or .png images to this app. And .csv files.
 
