@@ -2,10 +2,13 @@
 
 /**
  * This is where all the stuff regarding routing starts. The entry point for the routes.
- * The request from a user's browser will reach the $_SERVER superglobal. No the Bramus router
- * package will have to extract the request method (GET, POST...), the requested url, and so on.
+ * The request from a user's browser will reach the $_SERVER superglobal. Now the Bramus router
+ * package will have to extract the request method (GET, POST...), the requested url, and a bunch
+ * of other data from the $_SERVER.
  */
 
+
+// Set a session, if there is none.
 if(!isset($_SESSION)){ 
     session_start(); 
 }
@@ -51,21 +54,21 @@ $router->before('GET', '/.*', function() {
     } 
 });
 
-require_once __DIR__ . '/routesApi.php';//API requests and responses
+require_once __DIR__ . '/routesApi.php';//API requests and responses for user CRUD
 
 require_once __DIR__ . '/routesWebPage.php';//pages-views like /, about, contact...
 
 require_once __DIR__ . '/routesAuthentication.php';//everything regarding login and register
 
-require_once __DIR__ . '/routesUserWebPageCrud.php';
+require_once __DIR__ . '/routesUserWebPageCrud.php';//'normal' web page requests for user CRUD
 
-require_once __DIR__ . '/routesUpload.php';
+require_once __DIR__ . '/routesUpload.php';//for uploading (images and csv files)
 
-require_once __DIR__ . '/routesGuzzle.php';
+require_once __DIR__ . '/routesGuzzle.php';//for Guzzle stuff
 
-require_once __DIR__ . '/routesDownload.php';
+require_once __DIR__ . '/routesDownload.php';//for donwloading a calculated .csv file
 
-require_once __DIR__ . '/routesStudent.php';
+require_once __DIR__ . '/routesStudent.php';//for the Quantox/Student task. Unfinished.
 
 
 
