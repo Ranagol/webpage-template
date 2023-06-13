@@ -10,9 +10,15 @@ class ApiRequest extends AbstractRequest
      * When working with api request, there are two ways of getting the data from the
      * request. 
      * 1-get from the url (delete, show, index...)
-     * 2-get from the request body (create, update...)
-     * This 2. is being done in this function.
-     * And this is how to receive JSON POST with PHP: 
+     * 2-get from the request body (create, update/put... so: POST like requests, with data in the r. body)
+     * This 2. is being done in this function/class.
+     * 
+     * Basically, we use this class to get the data from the request body.
+     * 
+     * For GET, DELETE, SHOW we do not use this ApiRequest class, we trigger the UserApiController
+     * immediatelly.
+     * 
+     * And this is how to receive JSON POST date from the request with PHP: 
      * https://www.geeksforgeeks.org/how-to-receive-json-post-with-php/
      * So. The request arrives. When we create a ApiRequest object, we 
      * store the request data in the the ApiRequest object. This object will be 

@@ -18,7 +18,7 @@ class DownloadController
      * 
      * @return void
      */
-    public function download(RequestInterface $request): void
+    public static function download(RequestInterface $request): void
     {
         $dataToDownload = $request->getAllRequestData();
         $dowloadResponse = new DownloadResponse($dataToDownload);

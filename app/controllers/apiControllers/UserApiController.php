@@ -2,7 +2,7 @@
 
 namespace App\controllers\apiControllers;
 
-use App\models\User;
+use App\models\User;//This is an Eloquent modell
 use System\request\RequestInterface;
 use App\controllers\apiControllers\ApiController;
 use System\response\apiResponse\userResponse\UserApiResponse;
@@ -28,12 +28,22 @@ class UserApiController extends ApiController
     /**
      * How to receive JSON POST with PHP: 
      * https://www.geeksforgeeks.org/how-to-receive-json-post-with-php/
+     * 
+     * Here we want to create a new user. For that, a POST request must be sent. A POST request
+     * has some private data (about the user that we want to create.) We must get this private data
+     * (simple GET request don't have this issue.) This is happening in the routesApi.php. Here,
+     * for every POST request, this will happen:
+     * 
+     * UserApiController::store(new ApiRequest());
+     * 
+     * A new ApiRequest object will be created. This object will have all POST data, and it will
+     * be passed as argument to this store method here. This here and now is the $apiRequest object.
      *
      * @return void
      */
-    public static function store(RequestInterface $request): void
+    public static function store(RequestInterface $apiRequest): void//this here is not an injection, just a type hinting!
     {
-        $arrayRequestData = $request->getAllRequestData();
+        $arrayRequestData = $apiRequest->getAllRequestData();
         User::create($arrayRequestData);
         $savedUserId = User::orderBy('id', 'desc')->first()->id;//get the id of the newly create user
         UserApiResponse::send($savedUserId);//send back the id of the newly created user

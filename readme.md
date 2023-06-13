@@ -58,11 +58,14 @@ for example with a Postman, to do CRUD operations over the user data.
 Hint: turn on Apache and
 MySQL in XAMPP, before you send a request. :)
 You can find the Postman collection in this file: 
-'Postman collection for all user API requests.json'
+'Postman collection for all user API requests.json'.
+
 Examples for the API request urls:
 GET     /server/users           list all users
 GET     /server/users/{id}      show this user
 POST    /server/users           create/save new user
+
+Note: the files necesary to do request/response are here: /system.
 
 
 ## Registration and login with validation

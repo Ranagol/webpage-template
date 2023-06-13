@@ -27,7 +27,7 @@ $router->get('/server/users/{id}', function ($id) {
  * 
  * Question: how will the controller access the data from a post request?
  * When the bramus router receives a post api request to /servers/users,
- * it activates the controller, and as an argumenet sends the controller a 
+ * it activates the UserApiController, and as an argumenet sends the controller a 
  * newly created ApiRequest object. During creation, the ApiRequest object 
  * automatically gets the request data, and this data will be stored in the 
  * ApiRequest object. Which is passed as an argument to the controller.
@@ -41,11 +41,16 @@ $router->post('/server/users', function () {
  * update
  * 
  * We are sending the request data (from the request body) 
- * to the controller with the 
- * the 'new ApiRequest() line. Reminder: ApiRequest has acces to 
+ * to the controller with the the 'new ApiRequest() line. 
+ * 
+ * Reminder: ApiRequest has acces to 
  * request data. ApiRequest  is used like this only for store and update,
  * since only for these two we have the data in the request body, all other
  * request have their data in the url.
+ * 
+ * How the app knows which user we want ti update? We are sending a PUT request to the /server/users,
+ * and in the body of the request we send the user id. UserApiController::update() extracts this
+ * id, and uses it.
  */
 $router->put('/server/users', function () {
     UserApiController::update(new ApiRequest());
