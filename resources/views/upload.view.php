@@ -11,7 +11,8 @@ if(!isset($_SESSION)){
     $user = User::getCurrentUser();
 ?>
 
-<!-- success message OR warning message if something is wrong with the upload -->
+<!-- success message OR warning message if something is wrong with the upload. In the controller
+there is a validation logic, that can - if needed - create error messages. -->
 <div 
     class="alert 
         <?= isset($alertType) && ($alertType === 'alert-success') ? 'alert-success' : 'alert-warning' ?>
@@ -21,8 +22,7 @@ if(!isset($_SESSION)){
     <?= $message ?>
 </div>
 
-<!-- This form will be displayed only if the user is logged in -->
-<!-- UPLOAD CSV FILE -->
+<!-- UPLOAD CSV FILE. This form will be displayed only if the user is logged in -->
 <form 
     action="upload" 
     method="post" 
@@ -45,9 +45,14 @@ if(!isset($_SESSION)){
 </form>
 
 <!-- REPORT CREATED FROM THE UPLOADED CSV FILE -->
+<!-- Once a .csv file is uploaded, the app will do some calculations on this data, and it will
+1 - display the results of this calculation
+2 - return the result of this calculation, also in .csv file. Which will be donwloadable.
+This is the report that can be downloaded. -->
 <div class='<?= isset($report) ? '' : 'd-none' ?>'>
     <h2 class='mt-3'>Report</h2>
 
+    <!-- DISPLAY THE REPORT IN A TABLE FOR THE USER -->
     <table class='table'>
         <tr>
             <th>Category</th>
@@ -69,24 +74,21 @@ if(!isset($_SESSION)){
     <!-- DOWNLOADING THE REPORT AS A .CSV FILE -->
     <?php
         if(isset($report)){
-            // We put the $report that we want to download into the session, so this data will be 
-            //accessible to our controller later
+            
+            /**
+             * We put the $report that we want to download into the session, so this data will be 
+             * accessible to our controller later
+             */
             $_SESSION['downloadRequest'] = $report;
         }
     ?>
 
+    <!-- DOWNLOAD REPORT BUTTON -->
     <form action="download-report" method="GET">
         <button class='btn btn-success'>Download report</button>
     </form>
 
 </div>
-
-
-
-
-
-
-
 
 <!-- warning message if the user is not logged in -->
 <div 

@@ -32,6 +32,9 @@ class UploadController
      * Handles the file upload. Since this class is a controller
      * and we want slim controllers, all the upload work is done by the 
      * models.
+     * 
+     * We use the FileUploadRequest to get the uploaded file, and this actually happens in
+     * routesUpload.php
      *
      * @param RequestInterface $request
      * 
@@ -39,8 +42,16 @@ class UploadController
      */
     public static function store(RequestInterface $request): void
     {
-        //so this below is = to $_FILES now, we can treat $uploadData as the $_FILES
+        
+        /**
+         * Here we extract the upload data and the upload file.
+         * So this below is = to $_FILES now, we can treat $uploadData as the $_FILES
+         */
         $uploadData = $request->getAllRequestData();
+
+        /**
+         * The Upload model has all the logic to handle the upload process.
+         */
         $upload = new Upload($uploadData);
 
         $t = 8;
@@ -48,6 +59,14 @@ class UploadController
         try {
             $file = $upload->storeFile();
 
+            /**
+             * Now, here we have two cases. If the uploaded file is an image, then nothing should
+             * be returned to the upload page. But, if the uploaded file is a .csv file, then a 
+             * specific report should be returned to the user, that will be downloadable.
+             * 
+             * If the uploaded file is a .csv file, then the created CsvFile object (that will 
+             * contain the .csv file) will have implemented a Reportable interface.
+             */
             if ($file instanceof Reportable) {
                 $t = 8;
                 $report = $file->getReport();
@@ -57,8 +76,12 @@ class UploadController
                 $report = null;
             }
             
+            /**
+             * Feedback message for the user, display in the upload view.
+             */
             $message = 'Your upload was successfull.';
             $alertType = 'alert-success';
+
         } catch (Exception $error) {
 
             $message = $error->getMessage();
