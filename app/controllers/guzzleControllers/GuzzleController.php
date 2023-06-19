@@ -22,6 +22,8 @@ class GuzzleController
      * This is the additional uri that we need to make a get request regarding the posts.
      * page=0   give me only the first page
      * limit=10 give just 10 posts
+     * 
+     * Basically here we state that we want to get 10 posts.
      *
      * @var string
      */
@@ -52,8 +54,11 @@ class GuzzleController
      * @return void
      */
     public static function getPosts(): void
-    {
-        $client = new Client();//it is ok to work with no arguments in the Client()
+    {   
+        /**
+         * This ['verify' => false] is a must, without this there will be some SSL error.
+         */
+        $client = new Client(['verify' => false]);
         $url = self::$baseUri . self::$postsUri;
         $headers = self::getHeaders();
         $request = new Request(
@@ -68,7 +73,7 @@ class GuzzleController
              * The request is send, and the response is received here.
              */
             $t = 8;
-            $response = $client->send($request);
+            $response = $client->send($request);//itt van a probléma
             $t = 8;
 
             $response = json_decode($response->getBody(), true);
@@ -77,8 +82,12 @@ class GuzzleController
             
             returnView('guzzle', compact('posts'));
             
-        } catch (\Throwable $th) {
-            var_dump('GUZZLE ERROR');
+        } catch (\Throwable $error) {
+            // var_dump('GUZZLE ERROR');
+            echo 'My error message: ' . $error->getMessage() . '<br>';
+            echo 'The error was triggered in this file: ' . $error->getFile(). '<br>';
+            echo 'The error was triggered on this line: ' . $error->getLine(). '<br>';
+
         }
     }
 
