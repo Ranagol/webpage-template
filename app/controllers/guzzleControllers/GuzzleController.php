@@ -67,7 +67,10 @@ class GuzzleController
             /**
              * The request is send, and the response is received here.
              */
+            $t = 8;
             $response = $client->send($request);
+            $t = 8;
+
             $response = json_decode($response->getBody(), true);
             $posts = $response['data'];
             // var_dump($posts['data']);
