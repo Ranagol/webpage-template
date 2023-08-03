@@ -23,7 +23,7 @@ Soooo... This app can:
  ### in terminal 
  - run `docker-compose build`
  - run `docker-compose up`
- - run `docker exec -it webpage-template_my-app_1 bash`
+ - run `docker exec -it webpage-template-my-app-1 bash`
  
  ### in docker bash
  - run `composer install`

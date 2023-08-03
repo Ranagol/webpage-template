@@ -23,7 +23,6 @@ services:
       # we are redirecting all requests from laptop localhost:8088 to docker:80
       - 8088:80
     volumes:
-      # this is the extension that has to be added to require_once paths (/srv/www)
       # we are connecting, linking (and not copying) the current dir (note the '.') with the /srv/www
       - .:/srv/www
     links:
@@ -43,7 +42,6 @@ services:
   # DB SETUP
   # so, we can connect Heidi too. See 'Connecting docker....png' for details.
   my-database-service:
-    # the container_name is a random name
     container_name: my-database-container
     image: mysql
     #  restarts the service whenever any defined configuration changes.
