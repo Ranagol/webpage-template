@@ -17,6 +17,8 @@ class PageController extends WebController
      */
     public static function home(): void
     {
+        // xdebug_info();
+        $t = 8;
         returnView('home');// this is equal to: require 'views/home.view.php';
     }
 

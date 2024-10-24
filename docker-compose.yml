@@ -90,3 +90,9 @@ volumes:
     # here we say that the driver is on the local pc hard
     driver: "local"
 # we did not create the networks part, since we do not need it. The docker-compose makes one automatically.
+
+
+
+
+
+ 
