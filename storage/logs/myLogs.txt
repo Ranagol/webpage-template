@@ -27,3 +27,11 @@ The exception was created on this line: 127.
 2023-06-07 14:40:26 - displayMessage() was activated through composer from Testing class.
 
 2023-06-07 14:40:38 - displayMessage() was activated through composer from Testing class.
+
+2024-10-25 16:45:28 - displayMessage() was activated through composer from Testing class.
+
+2024-10-25 16:54:02 - Error message: Just testing if this exception will be written in the log file..
+The exceptions was created in this file: D:\_CODE2\php\webpage-template\router\routes.php.
+The exception was created on this line: 75.
+D:\_CODE2\php\webpage-template\bootstrap\boostrap.php on line 28
+D:\_CODE2\php\webpage-template\public\index.php on line 12

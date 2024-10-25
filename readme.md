@@ -1,7 +1,7 @@
 
 # 1. App description
 
-The aim with this app was to create an MVC php webpage, but only with the use of vanilla php code and composer packages (so no framework was allowed.)
+The aim with this app was to create an MVC php webpage, but only with the use of vanilla php code and composer packages (so no framework was allowed).
 
 Used technologies: PHP, Boostrap, Composer, Docker.
 
@@ -110,9 +110,8 @@ The upload happens here: http://localhost:8889/upload
 
 ### 3.4.1 Image uploading
 
-The image will be stored separatelly for every user. Every uploading user will have a personal dir in the storage\upload dir. This personal dir will be named after the users email address. 
-Example, if a user with email address tri@gmail.com uploads a .png picture, the picture will be found
-here: storage\upload\tri@gmail.com\Honorverse map.png
+The image will be stored separatelly for every user. Every uploading user will have a personal dir in the storage\upload dir. This personal dir will be named after the users email address. If the user uploads multiple documents, naturally all these documents will be stored only in one place: in his directory.
+Example, if a user with email address tri@gmail.com uploads a .png picture, the picture will be found here: storage\upload\tri@gmail.com\Honorverse map.png
 
 ### 3.4.2 .csv file uploading
 
@@ -155,9 +154,17 @@ This feature is here: http://localhost:8889/guzzle
 
 The app uses a singleton class for Logging.
 All exceptions used in this app should inherit from app\exceptions\BaseException.php
-This will ensure that when an Exception is thrown, it will be logged.
+This will ensure that when an BaseException is thrown, it will be logged.
 The logs are recorded here: 
 storage\logs\myLogs.txt
+How to check this feature? Just copy these two lines into router\routes.php file. 
+
+`use App\Exceptions\BaseException;`
+
+`throw new BaseException('Just testing if this exception will be written in the log file.');`
+
+Now just refresh the webpage, the routes.php file will throw a BaseException, and this will be 
+logged.
 
 
 ## 3.7 Eloquent
