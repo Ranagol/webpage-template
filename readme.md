@@ -169,16 +169,19 @@ logged.
 
 ## 3.7 Eloquent
 The app uses Eloquent to work with db, similar like Laravel.
-All future models should inherit Illuminate\Database\Eloquent\Model; like it was done in app\models\User.php.
+All future models should inherit Illuminate\Database\Eloquent\Model; like it was done in 
+app\models\User.php. After this setup we can use models like in Laravel.
 illuminate/database composer package is used for this feature.
 
 ## 3.8 Routes
 
-### 3.8.1 General description
-For routing I used the bramus/router composer package.
 
-### 3.8.2 Middleware
-Only the login, register, logout views are accessible for a not-logged-in user. The app is checking
+For routing I used the bramus/router composer package. Everything regarding routes is in the
+./router dir. The ./router/routes.php contains the router setup, this is the central place for the
+routes.
+
+
+MIDDLEWARE: Only the login, register, logout views are accessible for a not-logged-in user. The app is checking
 in the $_SUPERGLOBAL, if the user is logged in.
 
 

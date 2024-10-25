@@ -9,7 +9,6 @@ $router->get('/guzzle', function () {
 
 //getting 10 posts from DummyApi
 $router->get('/getPosts', function () {
-    $t = 8;
     GuzzleController::getPosts();
 });
 
