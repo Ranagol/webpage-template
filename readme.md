@@ -31,7 +31,8 @@ All these features will be explained in details, below.
 
 ## 2.1 Run this app through Docker 
  
- ### in terminal 
+ ### in terminal
+ (type these things in the root dir)
  - run `docker-compose build`
  - run `docker-compose up`
  - run `docker exec -it webpage-template-my-app-1 bash`
