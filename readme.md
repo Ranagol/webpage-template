@@ -30,6 +30,8 @@ All these features will be explained in details, below.
 # 2. Run the app
 
 ## 2.1 Run this app through Docker 
+### First things
+- Create a .env file. Use the ./.env.example file as an example.
  
  ### in terminal
  (type these things in the root dir)
@@ -47,8 +49,12 @@ All these features will be explained in details, below.
 ### Reminder:
 Open terminal in docker: docker exec -it webpage-template_my-app_1 bash
 
-Note: although the docker is fully functional, the xdebug execution is slow, because I have Windows on my laptop. Because of this, the primary set up for this app will be to work without docker. However, 
-if there is a need, the app can be converted back to be used through docker.
+If you want to connect your DBeaver to the Docker database container, connect like this:
+- Server Host: localhost
+- Database: webpage-template
+- Username: your username defined in your .env
+- Password: your password defined in your .env
+- Port: 13306   <---- don't forget this!!
 
 
 ## 2.2 Run this app with PHP server for the first time
