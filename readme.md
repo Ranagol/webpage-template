@@ -184,7 +184,7 @@ illuminate/database composer package is used for this feature.
 
 
 For routing I used the bramus/router composer package. Everything regarding routes is in the
-./router dir. The ./router/routes.php contains the router setup, this is the central place for the
+./router dir. The ./routes/routes.php contains the router setup, this is the central place for the
 routes.
 
 

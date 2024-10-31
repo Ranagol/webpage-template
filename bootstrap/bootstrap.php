@@ -25,7 +25,7 @@ $dotenv->load();
 require __DIR__ . '/../database/database.php';
 
 //router setup: we use bramus router in order to activate with url's the controllers
-require __DIR__ . '/../router/routes.php';
+require __DIR__ . '/../routes/routes.php';
 
 /**
  * This function will be used for returning views in the PageController.

@@ -35,3 +35,15 @@ The exceptions was created in this file: D:\_CODE2\php\webpage-template\router\r
 The exception was created on this line: 75.
 D:\_CODE2\php\webpage-template\bootstrap\boostrap.php on line 28
 D:\_CODE2\php\webpage-template\public\index.php on line 12
+
+2024-10-31 19:42:28 - Error message: Can not find the user in the db during authentication. Users email is: andorhorvat@gmail.com.
+The exceptions was created in this file: /srv/www/app/controllers/authControllers/LoginController.php.
+The exception was created on this line: 148.
+/srv/www/app/controllers/authControllers/LoginController.php on line 62
+/srv/www/routes/routesAuthentication.php on line 25
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/routes/routes.php on line 89
+/srv/www/bootstrap/bootstrap.php on line 28
+/srv/www/public/index.php on line 12
