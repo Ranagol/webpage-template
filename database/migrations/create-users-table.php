@@ -8,7 +8,7 @@ require __DIR__ . '/../../vendor/autoload.php';
  * to get the env variables from the .env file) and the Eloquent package (that we need for the 
  * migration) are not booted. That is why we need to require the bootstrap.php
  */
-require __DIR__ . '/../../bootstrap/boostrap.php';
+require __DIR__ . '/../../bootstrap/bootstrap.php';
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 

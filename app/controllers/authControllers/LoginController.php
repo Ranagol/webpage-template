@@ -191,7 +191,7 @@ class LoginController
 
     /**
      * Check if the user is already logged in, if yes then redirect him to home page.
-     * The redirect() is my custom function, defined in boostrap.php
+     * The redirect() is my custom function, defined in bootstrap.php
      * //TODO why there is no check for the  $_SESSION["username"]????
      *
      * @return void

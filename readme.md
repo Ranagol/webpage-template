@@ -3,7 +3,7 @@
 
 The aim with this app was to create an MVC php webpage, but only with the use of vanilla php code and composer packages (so no framework was allowed).
 
-Used technologies: PHP, Boostrap, Composer, Docker.
+Used technologies: PHP, bootstrap, Composer, Docker.
 
 Soooo... This has the next features:
 
