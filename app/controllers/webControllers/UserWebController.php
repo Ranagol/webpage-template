@@ -50,7 +50,6 @@ class UserWebController extends WebController
 
     public static function update($id, RequestInterface $request): void
     {
-        // echo 'update controller activated';
         $user = User::find($id);
         $data = $request->getAllRequestData();
         $user->update($data);

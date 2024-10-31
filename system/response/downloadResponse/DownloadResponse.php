@@ -5,6 +5,7 @@ namespace System\response\downloadResponse;
 /**
  * When a .csv file is uploaded, the app must do some calculations (see details for this in 
  * /readme.md), and must return a .csv file, that contains the end result for these calculations.
+ * We do this by creating a csv file, and then we force this csv file to be downloaded.
  */
 class DownloadResponse
 {

@@ -22,7 +22,7 @@ class StudentJsonResponse extends AbstractStudentResponse
 
     private static function processStudentData(Student $student): void
     {
-        //TODO I STOPPED HERE!!!!!
+        //TODO I STOPPED HERE WITH THE STUDENT-XML PROJECT!!!!!
         //CSM considers pass if the average is bigger or equal to 7 and fail otherwise - THIS HAS TO BE INSTANTIATED HERE
     }
 
