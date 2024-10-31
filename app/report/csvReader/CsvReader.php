@@ -3,6 +3,7 @@
 namespace App\Report\CsvReader;
 
 use Exception;
+use App\logger\Logger;
 use App\Report\ReportDomain\Line;
 use App\Report\ReportDomain\Price;
 use App\Report\ReportDomain\Amount;
@@ -58,13 +59,16 @@ class CsvReader
             }
 
         } catch (\Throwable $e) {
-            //TODO I need to correct this later...
             var_dump($e->getMessage() . PHP_EOL);//will shjow the actual error message, aka what is the issue
             var_dump($e->getTrace());//will show where could be the error. This function will return an array. This array will have values. These values will be the parts of the apps that were activated during/before this current exception was thrown. We need to ignore all values, that are in the vendor, and we need to find the first value (part of the app, that is not in the vendor)
 
             //where the exception was created (where the actual error is and where the exeption was created are not the same! If we can’t find the first, the latter may be useful)
             var_dump($e->getFile() . PHP_EOL);//gets the file in which the exception was created
             var_dump($e->getLine() . PHP_EOL);//gets the line in which the exception was created
+
+            // Here we log the error in our logs
+            Logger::getInstance()->logError($e);
+
 
         } finally {
             if ($this->getFilePointer()) {
