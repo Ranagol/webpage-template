@@ -17,7 +17,7 @@ class PageController extends WebController
      */
     public static function home(): void
     {
-        // xdebug_info();
+        xdebug_info();//Use this line to check if xdebug is installed and the step debugger is enabled.
         $t = 8;
         returnView('home');// this is equal to: require 'views/home.view.php';
     }

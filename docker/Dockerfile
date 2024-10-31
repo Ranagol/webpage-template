@@ -20,6 +20,9 @@ RUN docker-php-ext-install pdo pdo_mysql \
     && docker-php-ext-install soap calendar zip gd \
     && yes | pecl install xdebug
 
+# Creating a file, where Xdebug will log its problems
+RUN touch /var/log/xdebug.log && \chmod 666 /var/log/xdebug.log
+
 # Get latest Composer, composer is copied from the Docker hub. Left side is the Docker hub, right side is inside docker
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
