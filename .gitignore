@@ -1,6 +1,8 @@
 /vendor
 .env
 .vscode
+.idea
+.phpunit.cache
 /storage
 /storage/logs/myLogs.txt
 /storage/upload

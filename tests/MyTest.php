@@ -7,5 +7,4 @@ class MyTest extends TestCase {
     public function testFirstAssertion(){
         $this->assertTrue(true);
     }
-
 }
