@@ -1,9 +1,9 @@
-# below we select the Docker version that we want to use
-version: '3.8'
 services:
 
-# this is our app, this is the app service
-  my-app:
+# this is our PHP app, this is the app service
+  app:
+    # this is the name of the container, that will be created
+    container_name: php-container
     # here we build our an image from the Dockerfile
     build:
       # our app is in the same dir as this docker compose file, that is why we use .
@@ -36,9 +36,8 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
   
   # DB SETUP
-  # so, we can connect Heidi too. See 'Connecting docker....png' for details.
   my-database-service:
-    container_name: my-database-container
+    container_name: db-container
     image: mysql
     #  restarts the service whenever any defined configuration changes.
     restart: always
@@ -62,7 +61,7 @@ services:
   
   # PHPMYADMIN SETUP
   # username for the admin: root
-  # password for the admin: whatever is in the db/enviroment/MYSQL_ROOT_PASSWORD, which is ... MYSQL_ROOT_PASSWORD
+  # password for the admin: whatever is in the .env ${MYSQL_ROOT_PASSWORD}
   # username for the app: MYSQL_USER, aka see what is in the .env ${DB_USERNAME}
   # password for the app: MYSQL_PASSWORD, aka see what is in the .env ${DB_PASSWORD}
   phpmyadmin:
@@ -76,8 +75,8 @@ services:
     depends_on:
       - my-database-service
 
-# Volumes, on the other hand, are physical areas of disk space shared between the host and a container, 
-# or even between containers. In other words, a volume is a shared directory in the host, visible from 
+# Volumes, on the other hand, are physical areas of disk space shared between the host pc and a container, 
+# or even between containers. In other words, a volume is a shared directory in the host pc, visible from 
 # some or all containers.
 volumes:
   # this is on the local pc hard drive, called dbdata, and our my-database-service saves all db data here
