@@ -22,7 +22,7 @@ $dotenv = Dotenv::createImmutable(__DIR__  . '/../');
 $dotenv->load();
 
 //Here we do Eloquent setup: we use Eloquent the same way is it is used in Laravel
-require __DIR__ . '/../database/database.php';
+require __DIR__ . '/../bootstrap/bootEloquent.php';
 
 //router setup: we use bramus router in order to activate with url's the controllers
 require __DIR__ . '/../routes/routes.php';

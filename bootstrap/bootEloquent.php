@@ -1,5 +1,8 @@
 <?php 
 
+/**
+ * Here we set up the Eloquent, so we can use it to interact with the database, just like in Laravel.
+ */
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 /**
@@ -9,7 +12,7 @@ $capsule = new Capsule;
 
 /**
  * Here we tell Eloqent which connection data, which db, password... to use.
- * We are pullind the sensitive data from the .env, with the help of the Dotenv dependancy.
+ * We are pulling the sensitive data from the .env, with the help of the Dotenv dependancy.
  */
 $capsule->addConnection([
     'driver' => 'mysql',
