@@ -1,4 +1,4 @@
-#docker, start from here. We will need this php: image, with that version. Pulls in Linux.
+#docker, start from here. We will need this php: image, with that version. Pulls in Linux, ads PHP.
 FROM php:8.0.7-apache
 
 # Copy vhost.conf file to etc/apache2/... location.

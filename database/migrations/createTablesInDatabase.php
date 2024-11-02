@@ -27,6 +27,9 @@ Capsule::schema()->create('users', function ($table) {
   $table->timestamps();
 });
 
+echo 'Users migration was successfull' . PHP_EOL;
+
+
 /**
  * Create the students table
  */
@@ -37,4 +40,4 @@ Capsule::schema()->create('students', function ($table) {
   $table->timestamps();
 });
 
-echo 'Migration was successfull' . PHP_EOL;
+echo 'Student migration was successfull' . PHP_EOL;

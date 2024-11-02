@@ -39,7 +39,7 @@ All these features will be explained in details, below.
  - run `docker-compose up`
  - run `docker exec -it webpage-template-my-app-1 bash`
  
- ### in docker bash
+ ### in docker bash (not in the code editor terminal!!!)
  - run `composer install`
  - run `composer migrate` (this will run migrations)
  

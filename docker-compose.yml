@@ -13,8 +13,6 @@ services:
     hostname: webpage-template
     domainname: webpage-template.com
 
-    # this is the image that we have created above from the .docker/Dockerfile
-    image: webpage-template
     # exposing our app to make it publicable reachable
     ports:
       # so our app will run here: http://127.0.0.1:8088/ through docker
@@ -29,11 +27,9 @@ services:
       # this webpage-template image links to db container service...
       - my-database-service
     environment:
-      # problem: I need dynamically to pull in these enviroment variables somehow
       # solution: https://stackoverflow.com/questions/29377853/how-to-use-environment-variables-in-docker-compose
-
-      DB_HOST: my-database-service
       # all ${} variables are imported from the .env file
+      DB_HOST: ${DB_HOST}
       DB_DATABASE: ${DB_DATABASE}
       DB_USERNAME: ${DB_USERNAME}
       DB_PORT: ${DB_PORT}
@@ -47,22 +43,21 @@ services:
     #  restarts the service whenever any defined configuration changes.
     restart: always
     environment:
-        # problem: I need dynamically to pull in these enviroment variables somehow
-        # solution: https://stackoverflow.com/questions/29377853/how-to-use-environment-variables-in-docker-compose
+      # problem: I need dynamically to pull in these enviroment variables somehow
+      # solution: https://stackoverflow.com/questions/29377853/how-to-use-environment-variables-in-docker-compose
 
-        # below is the admin user password, needed to enter into phpmyadmin. The username is root.
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-        # below is the db name, taken from the .env file
-        MYSQL_DATABASE: ${DB_DATABASE}
-        # below is the app username, taken from the .env file
-        MYSQL_USER: ${DB_USERNAME}
-        # below is the app password, taken from the .env file
-        MYSQL_PASSWORD: ${DB_PASSWORD}
+      # below is the admin user password, needed to enter into phpmyadmin. The username is root.
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      # below is the db name, taken from the .env file
+      MYSQL_DATABASE: ${DB_DATABASE}
+      # below is the app username, taken from the .env file
+      MYSQL_USER: ${DB_USERNAME}
+      # below is the app password, taken from the .env file
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
-        # 13306 is the port where Heidi can access this db. Inside docker the 3306 port works.
-        - "13306:3306"
+      # 13306 is the port where Heidi can access this db. Inside docker the 3306 port works.
+      - "13306:3306"
     volumes:
-        #
       - dbdata:/var/lib/mysql
   
   # PHPMYADMIN SETUP
@@ -89,7 +84,6 @@ volumes:
   dbdata:
     # here we say that the driver is on the local pc hard
     driver: "local"
-# we did not create the networks part, since we do not need it. The docker-compose makes one automatically.
 
 
 
