@@ -65,12 +65,12 @@ $students = [
     ],
     [
         'name' => 'John Johnson',
-        'board' => 'CSM',
+        'board' => 'CSMB',
         'grades' => json_encode([8, 9, 10])
     ],
     [
         'name' => 'Jane Johnson',
-        'board' => 'CSM',
+        'board' => 'CSMB',
         'grades' => json_encode([5, 10, 10])
     ],
    

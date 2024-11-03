@@ -6,6 +6,10 @@ use App\Models\Student;
 use System\response\apiResponse\studentResponse\AbstractStudentResponse;
 use App\student\SchoolCSM;
 
+/**
+ * When we student is from CSM school, we send a json response. This json response is created in this
+ * class.
+ */
 class StudentJsonResponse extends AbstractStudentResponse
 {
     /**
