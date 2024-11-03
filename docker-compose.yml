@@ -1,76 +1,56 @@
+version: '3.8'
 services:
-
-# this is our PHP app, this is the app service
-  app:
-    # this is the name of the container, that will be created
+  php:
     container_name: php-container
-    # here we build our an image from the Dockerfile
     build:
-      # our app is in the same dir as this docker compose file, that is why we use .
       context: .
-      # the path our custom dockerfile, that has to be runned for the app by docker-compose
       dockerfile: docker/Dockerfile
-    # exposing our app to make it accessable
-    ports:
-      # so our app will run here: http://127.0.0.1:8088/ through docker
-      # left side: outside docker (:8088), in our web browser
-      # right side: inside docker (:80)
-      # we are redirecting all requests from laptop localhost:8088 to docker:80
-      - 8088:80
     volumes:
-      # we are connecting, linking (and not copying) the current dir (note the '.') from host pc
-      # with the /srv/www in the php docker container. This is a bind mount
       - .:/srv/www
     environment:
-      # with the ${} we access the data from the .env file. Php needs this data to connect to the db
       DB_HOST: ${DB_HOST}
       DB_DATABASE: ${DB_DATABASE}
       DB_USERNAME: ${DB_USERNAME}
       DB_PORT: ${DB_PORT}
       DB_PASSWORD: ${DB_PASSWORD}
-  
-  # DB SETUP
+
+  apache:
+    container_name: apache-container
+    image: httpd:latest
+    ports:
+      - 8088:80
+    volumes:
+      - .:/srv/www
+      - ./docker/vhost.conf:/usr/local/apache2/conf/httpd.conf
+    depends_on:
+      - php
+
   my-database-service:
     container_name: db-container
     image: mysql
-    # the container will not be restarted if it was manually stopped by the user, otherwise it will be restarted
-    restart: unless-stopped
+    restart: always
     environment:
-      # with the ${} we access the data from the .env file. Php needs this data to connect to the db
-      # below is the admin user password, needed to enter into phpmyadmin.
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
-      # 13306 is the port where Heidi/DBeaver can access this db. Inside docker the 3306 port works.
       - "13306:3306"
     volumes:
-      # this is a named volume. We store here all the data from the db. 
-      # dbdata: This is the name of the volume
-      # /var/lib/mysql: This is the path in the container where the data will be stored
       - dbdata:/var/lib/mysql
-  
-  # PHPMYADMIN SETUP
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
-      # so, the phpadmin will be available to us in the browser on localhost:8080
       - '8080:80'
     restart: always
     environment:
-      # PMA here simply means phpmyadmin
       PMA_HOST: my-database-service
       PMA_USER: ${DB_USERNAME}
       PMA_PASSWORD: ${DB_PASSWORD}
-    # Ensures that the my-database-service is started before the phpmyadmin service.
     depends_on:
       - my-database-service
 
-# The volumes section defines named volumes, that can be shared between containers and are persisted on the host pc.
-# In this case, there is only one named volume, called dbdata. This 'dbdata' must be declared in the volumes section too.
 volumes:
-  # We have a named volume, declared in the my-database-service. It is called 'dbdata'. 
   dbdata:
-    # The local driver is the default driver and stores the volume data on the somewhere on the host pc.
     driver: "local"
