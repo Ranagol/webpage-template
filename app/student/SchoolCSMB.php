@@ -13,16 +13,16 @@ class SchoolCSMB extends School
      * 
      * @return bool
      */
-    public function checkIfStudentPassed(Student $student): bool
+    public function checkIfStudentPassed(Student $student): string
     {
         $allGrades = $student->grades;
         $biggestGrade = max($allGrades);
 
         if ($biggestGrade > 8) {
-            return true;
+            return 'Pass';
         }
 
-        return false;
+        return 'Fail';
     }
 
     /**

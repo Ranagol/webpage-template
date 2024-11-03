@@ -82,13 +82,6 @@ class StudentXmlResponse extends AbstractStudentResponse
                 $subnode = $xmlData->addChild($key);
                 self::arrayToXml($value, $subnode);
             } else {
-
-                /**
-                 * XML works with strings, can't have boolean values. So we convert them to strings.
-                 */
-                if (is_bool($value)) {
-                    $value = $value ? 'true' : 'false';
-                }
                 $xmlData->addChild("$key", htmlspecialchars("$value"));
             }
         }

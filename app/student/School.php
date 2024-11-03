@@ -10,7 +10,7 @@ abstract class School
      * 
      * @return bool
      */
-    abstract public function checkIfStudentPassed(Student $student): bool;
+    abstract public function checkIfStudentPassed(Student $student): string;
 
     /**
      * @param Student $student

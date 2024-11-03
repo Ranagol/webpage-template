@@ -13,15 +13,15 @@ class SchoolCSM extends School
      * 
      * @return bool
      */
-    public function checkIfStudentPassed(Student $student): bool
+    public function checkIfStudentPassed(Student $student): string
     {
         $averageGrade = $student->calculcateAverageGrade();
 
         if ($averageGrade >= 7) {
-            return true;
+            return 'Pass';
         } 
         
-        return false;
+        return 'Fail';
     }
 
     /**
