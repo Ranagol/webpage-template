@@ -4,21 +4,49 @@ namespace System\response\apiResponse\studentResponse;
 
 use App\Models\Student;
 use System\response\apiResponse\studentResponse\AbstractStudentResponse;
+use App\student\SchoolCSM;
 
 class StudentJsonResponse extends AbstractStudentResponse
 {
     /**
-     * CSM considers pass if the average is bigger or equal to 7 and fail otherwise.
-     *
-     * @var integer
+     * Send a json response.
+     * 
+     * @param Student $student
+     * @param int $code
+     * 
+     * @return void
      */
-    private static int $minGradeLimit = 7;
-
     public static function send(Student $student, int $code = 200): void
     {
-        self::sendResponse($student, $code);
+        $studentArray = self::evaluateStudent($student);
+        self::sendResponse($studentArray, $code);
     }
 
+    /**
+     * This is the place where we calculate the average grade and check if the student passed, 
+     * according to the CSM rules.
+     *
+     * @param Student $student
+     * @return array
+     */
+    private static function evaluateStudent(Student $student): array
+    {
+        $schoolCSM = new SchoolCSM();
+        $studentArray = $student->toArray();
+        $studentArray['average'] = $schoolCSM->calculateAverageGrade($student);
+        $studentArray['passed'] = $schoolCSM->checkIfStudentPassed($student);
+
+        return $studentArray;
+    }
+
+    /**
+     * Send a json response.
+     * 
+     * @param Student $student
+     * @param int $code
+     * 
+     * @return void
+     */
     private static function sendResponse($data, int $code = 200): void
     {
         $serverProtocol = $_SERVER['SERVER_PROTOCOL'];//here we create server protocoll. Example HTTP/1.1
@@ -27,7 +55,7 @@ class StudentJsonResponse extends AbstractStudentResponse
         $response['body'] = json_encode($data);
 
         /**
-         * This is the way to send a json response.
+         * This is the way to send a json response in vanilla php.
          */
         header('Content-Type: application/json');
         if ($response['body']) {

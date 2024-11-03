@@ -8,21 +8,22 @@ use System\response\apiResponse\studentResponse\StudentJsonResponse;
 
 class StudentController
 {
-    public static function show(int $id)
+    /**
+     * Show a student as an api response, either as a json or as an xml.
+     * 
+     * @param int $id
+     * 
+     * @return void
+     */
+    public static function show(int $id): void
     {
-        // die('Student die triggered');
-
         $student = Student::find($id);
-
-        // var_dump($student);
         
         if ($student->board === 'CSM') {
             StudentJsonResponse::send($student);
         } else {
             StudentXmlResponse::send($student);
         }
-        
-        
     }
 }
 

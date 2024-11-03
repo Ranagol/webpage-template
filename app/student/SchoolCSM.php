@@ -6,12 +6,15 @@ use App\models\Student;
 
 class SchoolCSM extends School
 {
-    private string $name = 'SchoolCSM';
-    private string $responseFormat = 'json';
-
-    public function checkIfStudentPassed(int $studentId): bool
+    /**
+     * Check if student passed, according the CSM rules.
+     * 
+     * @param Student $student
+     * 
+     * @return bool
+     */
+    public function checkIfStudentPassed(Student $student): bool
     {
-        $student = Student::find($studentId);
         $averageGrade = $student->calculcateAverageGrade();
 
         if ($averageGrade >= 7) {
@@ -21,12 +24,17 @@ class SchoolCSM extends School
         return false;
     }
 
-    public function calculateAverageGrade(int $studentId): float
+    /**
+     * Calculate the average grade of a student.
+     * 
+     * @param Student $student
+     * 
+     * @return float
+     */
+    public function calculateAverageGrade(Student $student): float
     {
-        $student = Student::find($studentId);
         $averageGrade = $student->calculcateAverageGrade();
+        
         return $averageGrade;
     }
-
-
 }

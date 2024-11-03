@@ -4,14 +4,17 @@ namespace App\student;
 
 use App\models\Student;
 
-class SchoolCSM extends School
+class SchoolCSMB extends School
 {
-    private string $name = 'SchoolCSM';
-    private string $responseFormat = 'xml';
-
-    public function checkIfStudentPassed(int $studentId): bool
+    /**
+     * Check if student passed by CSMB rules.
+     * 
+     * @param Student $student
+     * 
+     * @return bool
+     */
+    public function checkIfStudentPassed(Student $student): bool
     {
-        $student = Student::find($studentId);
         $allGrades = $student->grades;
         $biggestGrade = max($allGrades);
 
@@ -22,9 +25,15 @@ class SchoolCSM extends School
         return false;
     }
 
-    public function calculateAverageGrade(int $studentId): float
+    /**
+     * Calculate average grade by CSMB rules.
+     * 
+     * @param Student $student
+     * 
+     * @return float
+     */
+    public function calculateAverageGrade(Student $student): float
     {
-        $student = Student::find($studentId);
         $allGrades = $student->grades;
         $numberOfGrades = count($allGrades);
 

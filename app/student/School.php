@@ -2,13 +2,20 @@
 
 namespace App\student;
 
+use App\Models\Student;
 abstract class School
 {
-    private string $name;
-    private string $responseFormat;
+    /**
+     * @param Student $student
+     * 
+     * @return bool
+     */
+    abstract public function checkIfStudentPassed(Student $student): bool;
 
-    abstract public function checkIfStudentPassed(int $studentId): bool;
-
-    abstract public function calculateAverageGrade(int $studentId): float;
-
+    /**
+     * @param Student $student
+     * 
+     * @return float
+     */
+    abstract public function calculateAverageGrade(Student $student): float;
 }

@@ -8,6 +8,12 @@ class User extends Model
 {
     protected $guarded = ['id'];
 
+    protected $hidden = [
+        'password',
+        'created_at',
+        'updated_at',
+    ];
+
     /**
      * Returns the current logged in user.
      * The session supergolbal contains the logged in user's id, so if a 
