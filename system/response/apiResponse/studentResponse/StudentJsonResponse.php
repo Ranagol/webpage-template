@@ -16,14 +16,7 @@ class StudentJsonResponse extends AbstractStudentResponse
 
     public static function send(Student $student, int $code = 200): void
     {
-        $data = self::processStudentData($student);
-        self::sendResponse($data);
-    }
-
-    private static function processStudentData(Student $student): void
-    {
-        //TODO I STOPPED HERE WITH THE STUDENT-XML PROJECT!!!!!
-        //CSM considers pass if the average is bigger or equal to 7 and fail otherwise - THIS HAS TO BE INSTANTIATED HERE
+        self::sendResponse($student, $code);
     }
 
     private static function sendResponse($data, int $code = 200): void
@@ -33,9 +26,12 @@ class StudentJsonResponse extends AbstractStudentResponse
         $response['status_code_header'] = $serverProtocol . ' ' . $statusCode;
         $response['body'] = json_encode($data);
 
+        /**
+         * This is the way to send a json response.
+         */
         header('Content-Type: application/json');
         if ($response['body']) {
-            echo $response['body'];//yup, this is the way, with echo to create a json response...
+            echo $response['body'];
         }
     }
 }

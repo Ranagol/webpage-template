@@ -14,7 +14,7 @@ class StudentController
 
         $student = Student::find($id);
 
-        var_dump($student);
+        // var_dump($student);
         
         if ($student->board === 'CSM') {
             StudentJsonResponse::send($student);
