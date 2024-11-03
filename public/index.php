@@ -19,3 +19,6 @@ if(!isset($_SESSION)){
 //TODO LOSI Amit meg nem tudok, az az apache beallitas. Mikor kellene kontenerizalni egy vanilla php
 //alkalmazast. Mit kell masolni, hova, miert, es mi kell hogy legyen a config file-ban? Hogyan 
 //valaszolni erre a kerdesre?
+
+
+//TODO LOSI storage/logs/myLogs.txt --- why is this not ignored by gitignore?
