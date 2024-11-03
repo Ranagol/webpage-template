@@ -23,6 +23,7 @@
     "scripts-descriptions": {
         "test-logger": "This is just a test to see how basic php script activation is working. Just write composer test-logger into the terminal.",
         "migrate": "This should start the migration, and create tables in the db. Just write 'composer migrate'.",
+        "seed": "This should seed the database with some data. Just write 'composer seed'.",
         "question": "//TODO Losi miert composeron keresztul aktivaltad a migrate parancsot? Miert nem siman php Database/migrations/createTablesInDatabase.php?"
     },
     "require-dev": {

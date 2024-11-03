@@ -35,8 +35,9 @@ echo 'Users migration was successfull' . PHP_EOL;
  */
 Capsule::schema()->create('students', function ($table) {
   $table->increments('id');
-  $table->string('name');
-  $table->string('board');
+  $table->string('name')->required();
+  $table->string('board')->required();
+  $table->json('grades')->nullable();
   $table->timestamps();
 });
 

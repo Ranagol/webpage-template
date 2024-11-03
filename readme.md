@@ -42,6 +42,7 @@ All these features will be explained in details, below.
  ### in docker bash (not in the code editor terminal!!!)
  - run `composer install`
  - run `composer migrate` (this will run migrations)
+ - run `composer seed` (this will run the seeders)
  
  ### in browser
  - go to `localhost:8088`
@@ -150,7 +151,7 @@ When a .csv file is uploaded, the same process will happen as with the images. B
 have an additional process. This is the task that the app must do:
 
 
-## 3.5 Send API request
+## 3.5 Send API request to another webpage
 
 With the use of Guzzle, this app can send API requests to https://dummyapi.io/, and it is able to
 display the received response.
@@ -175,10 +176,12 @@ logged.
 
 
 ## 3.7 Eloquent
+
 The app uses Eloquent to work with db, similar like Laravel.
 All future models should inherit Illuminate\Database\Eloquent\Model; like it was done in 
 app\models\User.php. After this setup we can use models like in Laravel.
 illuminate/database composer package is used for this feature.
+The users and the seeders table is created by migrations, and seeded by a seeder.
 
 ## 3.8 Routes
 

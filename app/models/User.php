@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     /**
      * Returns the current logged in user.
@@ -15,7 +15,7 @@ class User extends Model
      *
      * @return User|bool
      */
-    public static function getCurrentUser()
+    public static function getCurrentUser(): User|bool
     {
         if (isset($_SESSION)) {
             $userId = $_SESSION['id'];
