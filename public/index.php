@@ -15,3 +15,7 @@ require __DIR__ . '/../bootstrap/bootstrap.php';
 if(!isset($_SESSION)){ 
     session_start(); 
 }
+
+//TODO LOSI Amit meg nem tudok, az az apache beallitas. Mikor kellene kontenerizalni egy vanilla php
+//alkalmazast. Mit kell masolni, hova, miert, es mi kell hogy legyen a config file-ban? Hogyan 
+//valaszolni erre a kerdesre?

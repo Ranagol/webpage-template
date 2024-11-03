@@ -28,3 +28,5 @@ SetEnv TZ Europe/Athens
     RewriteRule .? %{ENV:BASE}/index.php [L]
 
 </IfModule>
+
+# //TODO LOSI minek ide htaccess, mikor mindezt sokkal job a docker\vhost.conf -ban megadni?

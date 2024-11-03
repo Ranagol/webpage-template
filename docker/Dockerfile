@@ -1,7 +1,9 @@
-#docker, start from here. We will need this php: image, with that version. Pulls in Linux, ads PHP.
-FROM php:8.0.7-apache
+# docker, start from here. We will need this php: image, with that version. Pulls in Linux, ads PHP.
+# To always use the latest stable PHP version in your Dockerfile, you can use the php:apache tag. 
+# This tag will pull the latest stable version of PHP with Apache.
+FROM php:apache
 
-# Copy vhost.conf file to etc/apache2/... location.
+# Copy docker/vhost.conf file from our host pc to etc/apache2/... location in the php container.
 COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
 #The WORKDIR instruction sets the working directory for several commands 
@@ -20,12 +22,15 @@ RUN docker-php-ext-install pdo pdo_mysql \
     && docker-php-ext-install soap calendar zip gd \
     && yes | pecl install xdebug
 
+
+
+# Get latest Composer, composer is copied from the Docker hub. The left /usr/bin/composer is the path
+# in the Composer image, the source. The right /usr/bin/composer is the path in the PHP image, the destination.
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 # Creating a file, where Xdebug will log its problems
 RUN touch /var/log/xdebug.log && \chmod 666 /var/log/xdebug.log
 
-# Get latest Composer, composer is copied from the Docker hub. Left side is the Docker hub, right side is inside docker
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# here we copy our custom xdebug setup into docker
+# here we copy our custom xdebug setup from our pc host into docker container
 COPY docker/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
