@@ -11,7 +11,10 @@ require __DIR__ . '/../vendor/autoload.php';
  */
 require __DIR__ . '/../bootstrap/bootstrap.php';
 
-//if the session is not started yet somewhere else, then please start it
+
+/**
+ * if the session is not started yet somewhere else, then please start it.
+ */
 if(!isset($_SESSION)){ 
     session_start(); 
 }
@@ -22,3 +25,4 @@ if(!isset($_SESSION)){
 
 
 //TODO LOSI storage/logs/myLogs.txt --- why is this not ignored by gitignore?
+

@@ -12,12 +12,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8889/server/users",
+					"raw": "http://localhost:8088/server/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8889",
+					"port": "8088",
 					"path": [
 						"server",
 						"users"
@@ -32,12 +32,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8889/server/users/2",
+					"raw": "http://localhost:8088/server/users/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8889",
+					"port": "8088",
 					"path": [
 						"server",
 						"users",
@@ -57,12 +57,12 @@
 					"raw": "{\r\n    \"firstname\": \"aa\",\r\n    \"lastname\": \"aa\",\r\n    \"email\": \"aa\",\r\n    \"password\": \"aa\",\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8889/server/users",
+					"raw": "http://localhost:8088/server/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8889",
+					"port": "8088",
 					"path": [
 						"server",
 						"users"
@@ -81,12 +81,12 @@
 					"raw": "{\r\n    \"id\": \"42\",\r\n    \"firstname\": \"ggggggggggggggaa\",\r\n    \"lastname\": \"aa\",\r\n    \"email\": \"aa\",\r\n    \"password\": \"aa\",\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8889/server/users",
+					"raw": "http://localhost:8088/server/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8889",
+					"port": "8088",
 					"path": [
 						"server",
 						"users"
@@ -105,12 +105,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8889/server/users/23",
+					"raw": "http://localhost:8088/server/users/23",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8889",
+					"port": "8088",
 					"path": [
 						"server",
 						"users",
@@ -126,12 +126,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8889/students/1",
+					"raw": "http://localhost:8088/students/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8889",
+					"port": "8088",
 					"path": [
 						"students",
 						"1"

@@ -14,8 +14,8 @@ services:
     ports:
       # so our app will run here: http://127.0.0.1:8088/ through docker
       # left side: outside docker (:8088), in our web browser
-      # right side: inside docker (:80)
-      # we are redirecting all requests from laptop localhost:8088 to docker:80
+      # right side: inside docker (:80). Apache listesn automatically on port 80.
+      # we are redirecting all requests from laptop localhost:8088 to docker:80, where Apache listens
       - 8088:80
     volumes:
       # we are connecting, linking (and not copying) the current dir (note the '.') from host pc
