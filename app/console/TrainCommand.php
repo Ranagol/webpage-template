@@ -22,6 +22,7 @@ class TrainCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $trainService = new TrainService();
+        $trainService->handle();
 
         $output->writeln('Command was executed, see the STDOUT file for the output');
         return Command::SUCCESS;

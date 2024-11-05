@@ -37,7 +37,7 @@ All these features will be explained in details, below.
  (type these things in the root dir)
  - run `docker-compose build`
  - run `docker-compose up`
- - run `docker exec -it webpage-template-my-app-1 bash`
+ - run `docker-compose exec -it webpage-template bash`
  
  ### in docker bash (not in the code editor terminal!!!)
  - run `composer install`
@@ -56,6 +56,10 @@ If you want to connect your DBeaver to the Docker database container, connect li
 - Username: your username defined in your .env
 - Password: your password defined in your .env
 - Port: 13306   <---- don't forget this!!
+
+### xdebug
+Xdebug is set to work. It works when the app runs through Docker, it will not work for your local
+Xammp + MySQL enviroment.
 
 
 ## 2.2 Run this app with PHP server for the first time
