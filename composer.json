@@ -13,7 +13,8 @@
         "vlucas/phpdotenv": "^5.3",
         "illuminate/database": "^8.51",
         "bramus/router": "~1.5",
-        "guzzlehttp/guzzle": "^7.0"
+        "guzzlehttp/guzzle": "^7.0",
+        "symfony/console": "^5.4"
     },
     "scripts": {
 		"test-logger": "App\\Testing::displayMessage",
