@@ -2,17 +2,15 @@
 
 namespace App\trains\input;
 
-class TestCase {
+class TimeTableCase {
     
     private int $turnaroundTime;
 
-    private int $tripsAtoB;
+    private int $numberOfTripsAtoB;
 
-    private int $tripsBtoA;
+    private int $numberOfTripsBtoA;
 
     private array $tripTimesAtoB;
 
     private array $tripTimesBtoA;
-
-
 }

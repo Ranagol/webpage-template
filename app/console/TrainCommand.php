@@ -45,10 +45,9 @@ class TrainCommand extends Command
             return Command::FAILURE;
         }
 
-        // var_dump($trainTimetable);//This will show us all the data from the file
 
-        // $trainService = new TrainService($trainTimetable);
-        // $trainService->handle();
+        $trainService = new TrainService();
+        $trainService->handle($trainTimetable);
 
         /**
          * Here we measure the max memory usage

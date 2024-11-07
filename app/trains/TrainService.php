@@ -2,13 +2,13 @@
 
 namespace App\trains;
 
-use App\trains\input\FileReader;
+use App\trains\input\Converter;
 use App\trains\output\OutputWriter;
 use App\trains\trainCalculator\TrainCalculator;
 
 class TrainService 
 {
-    private FileReader $fileReader;
+    private Converter $converter;
     private TrainCalculator $trainCalculator;
     private OutputWriter $outputWriter;
 
@@ -20,19 +20,16 @@ class TrainService
     private string $trainTimetableString;
 
 
-    public function __construct(string $trainTimetableString)
+    public function __construct()
     {
-        $this->trainTimetableString = $trainTimetableString;
-        $this->fileReader = new FileReader();
+        $this->converter = new Converter();
         $this->trainCalculator = new TrainCalculator();
         $this->outputWriter = new OutputWriter();
     }
 
-    public function handle(): void
+    public function handle(string $trainTimetable): void
     {
-        $t = 7;
-        $this->fileReader->read();
-        $t = 8;
-        // var_dump($this);
+        $lines = $this->converter->transformStringToLines($trainTimetable);
+        $cases = $this->caseMaker->makeCases($lines);
     }
 }
