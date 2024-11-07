@@ -1,9 +1,9 @@
 services:
 
 # this is our PHP app, this is the app service
-  app:
+  php-container:
     # this is the name of the container, that will be created
-    container_name: php-container
+    # container_name: php-container
     # here we build our an image from the Dockerfile
     build:
       # our app is in the same dir as this docker compose file, that is why we use .

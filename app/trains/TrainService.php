@@ -10,11 +10,19 @@ class TrainService
 {
     private FileReader $fileReader;
     private TrainCalculator $trainCalculator;
-
     private OutputWriter $outputWriter;
 
-    public function __construct()
+    /**
+     * Contains all the data from the input file, in one big string.
+     *
+     * @var string
+     */
+    private string $trainTimetableString;
+
+
+    public function __construct(string $trainTimetableString)
     {
+        $this->trainTimetableString = $trainTimetableString;
         $this->fileReader = new FileReader();
         $this->trainCalculator = new TrainCalculator();
         $this->outputWriter = new OutputWriter();
