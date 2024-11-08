@@ -14,7 +14,8 @@
         "illuminate/database": "^8.51",
         "bramus/router": "~1.5",
         "guzzlehttp/guzzle": "^7.0",
-        "symfony/console": "^5.4"
+        "symfony/console": "^5.4",
+        "nesbot/carbon": "^2.72"
     },
     "scripts": {
 		"test-logger": "App\\Testing::displayMessage",
