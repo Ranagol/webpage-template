@@ -31,12 +31,14 @@ class TrainService
         $this->outputWriter = new OutputWriter();
     }
 
-    public function handle(string $taskData): void
+    public function handle(string $taskData): array
     {
         $lines = $this->converter->transformStringToLines($taskData);
         $schedules = $this->scheduleMaker->handle($lines);
         $t = 8;
-        // $result = $this->trainCalculator->calculate($schedules);
-        // $this->outputWriter->write($result);
+        $schedulesWithResult = $this->trainCalculator->handle($schedules);
+        $responses = $this->outputWriter->makeResponse($schedulesWithResult);
+
+        return $responses;
     }
 }

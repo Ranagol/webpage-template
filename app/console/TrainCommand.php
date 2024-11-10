@@ -47,7 +47,12 @@ class TrainCommand extends Command
 
 
         $trainService = new TrainService();
-        $trainService->handle($taskData);
+        $reponses = $trainService->handle($taskData);
+
+        // Output the reponses
+        foreach ($reponses as $result) {
+            $output->writeln($result);
+        }
 
         /**
          * Here we measure the max memory usage
