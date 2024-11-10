@@ -55,12 +55,7 @@ class ScheduleMaker {
     {
         $this->setNumberOfSchedules($lines);
 
-        for ($i = $this->numberOfSchedules; $i > 0; $i--) {
-            $this->extractDataFromLines($this->linesWithoutNumberOfSchedules);
-            $this->createSchedule();
-            // Now reset all schedule variables, so we can create the next schedule
-            $this->resetScheduleVariables();
-        }
+        $this->processSchedule($this->linesWithoutNumberOfSchedules);
 
         return $this->schedules;
     }
@@ -71,7 +66,7 @@ class ScheduleMaker {
      * @param array $lines
      * @return array
      */
-    private function setNumberOfSchedules(array $lines): array
+    private function setNumberOfSchedules(array $lines): void
     {
         // The first line in the input file is the number of schedules.
         $this->numberOfSchedules = (int) $lines[0];
@@ -82,7 +77,7 @@ class ScheduleMaker {
         // Reset the indexing
         $lines = array_values($lines);
 
-        return $lines;
+        $this->linesWithoutNumberOfSchedules = $lines;
     }
 
     /**
@@ -94,16 +89,31 @@ class ScheduleMaker {
      * @param array $lines
      * @return void
      */
-    private function extractDataFromLines(array $lines): void
+    private function processSchedule(array $lines): void
     {
         foreach ($lines as $line) {
 
+            /**
+             * Here we go line by line. For every line these 4 functions are called, conditionally.
+             * For conditions, see the functions.
+             */
             $this->extractTurnaroundTime($line);
             $this->extractNumberOfTrips($line);
             $this->extractTimes($line);
+            $this->createSchedule();
+            
         }
     }
 
+    /**
+     * Extracts the turnaround time from the line.
+     * At the beginning, this function gets a random line. 
+     * If the turnaround time is not set yet, and the line contains the turnaround time, then the
+     * this function will be triggered.
+     *
+     * @param string $line
+     * @return void
+     */
     private function extractTurnaroundTime(string $line): void
     {
         // Turnoaround time
@@ -131,6 +141,14 @@ class ScheduleMaker {
         return true;
     }
 
+    /**
+     * Extracts the number of trips from A to B and from B to A.
+     * If the number of trips is not set yet, and the line contains the number of trips, then this 
+     * function will be triggered.
+     *
+     * @param string $line
+     * @return void
+     */
     private function extractNumberOfTrips(string $line): void
     {
         // Number of trips
@@ -158,6 +176,13 @@ class ScheduleMaker {
         return false;
     }
 
+    /**
+     * Extracts the departure and arrival times.
+     * 
+     *
+     * @param string $line
+     * @return void
+     */
     private function extractTimes(string $line)
     {
         // This is the last extractor. 
@@ -166,13 +191,13 @@ class ScheduleMaker {
             $departureTime = $times[0];
             $arrivalTime = $times[1];
 
-            // If the number of trips from A to B is not reached yet, add the trip to the tripsAb array.
+            
             if ($this->numberOfTripsAb > 0) {
                 $this->extractAbTimes($departureTime, $arrivalTime);
             } elseif ($this->numberOfTripsBa > 0) {
                 $this->extractBaTimes($departureTime, $arrivalTime);
             } else {
-                throw new BaseException('Error while extracting times.');
+                throw new ScheduleMakerException('Error while extracting times.');
             }
         }
     }
@@ -193,6 +218,13 @@ class ScheduleMaker {
         return false;
     }
 
+    /**
+     * Extracts the departure and arrival times for A to B trips. And stores it in the $this->tripsAb.
+     *
+     * @param string $departureTime
+     * @param string $arrivalTime
+     * @return void
+     */
     private function extractAbTimes(string $departureTime, string $arrivalTime)
     {
         $this->tripsAb[] = new TripAb(
@@ -203,6 +235,13 @@ class ScheduleMaker {
         $this->numberOfTripsAb--;
     }
 
+    /**
+     * Extracts the departure and arrival times for B to A trips. And stores it in the $this->tripsBa.
+     *
+     * @param string $departureTime
+     * @param string $arrivalTime
+     * @return void
+     */
     private function extractBaTimes(string $departureTime, string $arrivalTime)
     {
         $this->tripsBa[] = new TripBa(
@@ -213,15 +252,42 @@ class ScheduleMaker {
         $this->numberOfTripsBa--;
     }
 
+    /**
+     * Creates a schedule.
+     * This function too is called for every line. It should be only triggered when all the A to B 
+     * trips and B to A trips are extracted. 
+     * When A to B trips all are extracted, the $this->numberOfTripsAb will be 0.
+     * When B to A trips all are extracted, the $this->numberOfTripsBa will be 0.
+     * Only then will this function be triggered.
+     * @return void
+     */
     private function createSchedule()
     {
-        $schedule = new Schedule(
-            $this->turnaroundTime,
-            $this->tripsAb,
-            $this->tripsBa
-        );
+        // Check if all the trips are extracted.
+        if ($this->numberOfTripsAb === 0 && $this->numberOfTripsBa === 0) {
+
+            // Create a schedule
+            $schedule = new Schedule(
+                $this->turnaroundTime,
+                $this->tripsAb,
+                $this->tripsBa
+            );
+
+            $this->schedules[] = $schedule;
+
+            // Now reset all schedule variables, so we can create the next schedule
+            $this->resetScheduleVariables();
+        }
     }
 
+    /**
+     * Resets the schedule variables, after the schedule is created we have to reset all the temporary
+     * variables that stored the schedule data. Because we are in a loop, and now we have to create
+     * the next schedule. Or we have finished creating schedules, and because of that we have to reset
+     * the variables.
+     *
+     * @return void
+     */
     private function resetScheduleVariables()
     {
         $this->turnaroundTime = null;

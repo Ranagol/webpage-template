@@ -2,14 +2,16 @@
 
 namespace App\trains;
 
-use App\trains\input\Converter;
-use App\trains\output\OutputWriter;
-use App\trains\trainCalculator\TrainCalculator;
+use Dotenv\Parser\Lines;
 use App\trains\input\ScheduleMaker;
+use App\trains\output\OutputWriter;
+use App\trains\input\StringToLinesConverter;
+use App\trains\trainCalculator\TrainCalculator;
+use App\Trains\Input\LinesToScheduleDataExtractor;
 
 class TrainService 
 {
-    private Converter $converter;
+    private StringToLinesConverter $converter;
     private ScheduleMaker $scheduleMaker;
     private TrainCalculator $trainCalculator;
     private OutputWriter $outputWriter;
@@ -23,7 +25,7 @@ class TrainService
 
     public function __construct()
     {
-        $this->converter = new Converter();
+        $this->converter = new StringToLinesConverter();
         $this->scheduleMaker = new ScheduleMaker();
         $this->trainCalculator = new TrainCalculator();
         $this->outputWriter = new OutputWriter();

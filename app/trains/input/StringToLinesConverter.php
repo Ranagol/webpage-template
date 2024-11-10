@@ -7,7 +7,7 @@ namespace App\trains\input;
  * Converts a a string that contains all the train timetable data into an array of lines that 
  * - again - contain the train timetable data.
  */
-class Converter
+class StringToLinesConverter
 {
     public function transformStringToLines(string $taskData): array
     {
