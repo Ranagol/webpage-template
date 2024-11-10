@@ -9,19 +9,20 @@ namespace App\trains\input;
  */
 class Converter
 {
-    public function transformStringToLines(string $trainTimetable): array
+    public function transformStringToLines(string $taskData): array
     {
         // Split the string into an array of lines
-        $lines = explode("\n", $trainTimetable);
+        $lines = explode("\n", $taskData);
         // var_dump($lines);
 
         // Process each line
         foreach ($lines as $line) {
             // Trim any leading or trailing whitespace
             $line = trim($line);
+
             $formattedLines[] = $line;
 
-            echo $line . PHP_EOL;
+            // echo $line . PHP_EOL;
         }
         
         /**

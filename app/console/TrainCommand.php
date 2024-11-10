@@ -26,7 +26,7 @@ class TrainCommand extends Command
      * docker-compose exec -it php-container bash
      * 
      * Run the app and input the train timetable:
-     * cat app/trains/trainTimetable | php console.php trains
+     * cat app/trains/taskData | php console.php trains
      * 
      * @param InputInterface $input
      * @param OutputInterface $output
@@ -38,16 +38,16 @@ class TrainCommand extends Command
         $startTime = microtime(true);
 
         //this will get everything, the whole data from STDIN
-        $trainTimetable = stream_get_contents(STDIN);
+        $taskData = stream_get_contents(STDIN);
 
-        if (!$trainTimetable) {
-            $output->writeln("No input file provided");
+        if (!$taskData) {
+            $output->writeln("No input file provided or input file is empty.");
             return Command::FAILURE;
         }
 
 
         $trainService = new TrainService();
-        $trainService->handle($trainTimetable);
+        $trainService->handle($taskData);
 
         /**
          * Here we measure the max memory usage

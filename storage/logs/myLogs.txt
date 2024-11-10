@@ -59,3 +59,29 @@ The exception was created on this line: 148.
 /srv/www/routes/routes.php on line 89
 /srv/www/bootstrap/bootstrap.php on line 28
 /srv/www/public/index.php on line 12
+
+2024-11-10 17:31:09 - Error message: Error while extracting times..
+The exceptions was created in this file: /srv/www/app/trains/input/ScheduleMaker.php.
+The exception was created on this line: 177.
+/srv/www/app/trains/input/ScheduleMaker.php on line 95
+/srv/www/app/trains/input/ScheduleMaker.php on line 55
+/srv/www/app/trains/TrainService.php on line 35
+/srv/www/app/console/TrainCommand.php on line 50
+/srv/www/vendor/symfony/console/Command/Command.php on line 298
+/srv/www/vendor/symfony/console/Application.php on line 1040
+/srv/www/vendor/symfony/console/Application.php on line 301
+/srv/www/vendor/symfony/console/Application.php on line 171
+/srv/www/console.php on line 16
+
+2024-11-10 17:37:27 - Error message: Error while extracting times..
+The exceptions was created in this file: /srv/www/app/trains/input/ScheduleMaker.php.
+The exception was created on this line: 177.
+/srv/www/app/trains/input/ScheduleMaker.php on line 95
+/srv/www/app/trains/input/ScheduleMaker.php on line 55
+/srv/www/app/trains/TrainService.php on line 35
+/srv/www/app/console/TrainCommand.php on line 50
+/srv/www/vendor/symfony/console/Command/Command.php on line 298
+/srv/www/vendor/symfony/console/Application.php on line 1040
+/srv/www/vendor/symfony/console/Application.php on line 301
+/srv/www/vendor/symfony/console/Application.php on line 171
+/srv/www/console.php on line 16
