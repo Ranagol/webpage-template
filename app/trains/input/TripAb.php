@@ -2,6 +2,6 @@
 
 namespace App\Trains\Input;
 
-class TripAb
+class TripAb extends Trip
 {
 }

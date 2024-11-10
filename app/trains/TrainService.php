@@ -6,7 +6,7 @@ use Dotenv\Parser\Lines;
 use App\trains\input\ScheduleMaker;
 use App\trains\output\OutputWriter;
 use App\trains\input\StringToLinesConverter;
-use App\trains\trainCalculator\TrainCalculator;
+use App\trains\calculation\TrainCalculator;
 use App\Trains\Input\LinesToScheduleDataExtractor;
 
 class TrainService 

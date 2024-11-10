@@ -39,13 +39,6 @@ class Trip
         $this->departureTime = Carbon::createFromFormat('H:i', $departureTime);
         $this->arrivalTime = Carbon::createFromFormat('H:i', $arrivalTime);
     }
-
-
-
-
-
-
-
 }
 
 
