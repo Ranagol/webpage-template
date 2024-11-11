@@ -37,8 +37,8 @@ class Schedule {
         $this->turnaroundTime = $turnaroundTime;
         $this->tripsAtoB = $tripsAtoB;
         $this->tripsBtoA = $tripsBtoA;
-        $this->setNumberOfTrainsA(count($tripsAtoB));
-        $this->setNumberOfTrainsB(count($tripsBtoA));
+        $this->numberOfTrainsA = (count($tripsAtoB));
+        $this->numberOfTrainsB = (count($tripsBtoA));
     }
 
     /**
@@ -60,23 +60,23 @@ class Schedule {
     /**
      * Set the value of numberOfTrainsA
      *
-     * @param int $numberOfTrainsA
+     * @param int $number
      * @return  void
      */ 
-    public function setNumberOfTrainsA(int $numberOfTrainsA): void
+    public function reduceNumberOfTrainsA(int $number): void
     {
-        $this->numberOfTrainsA = $numberOfTrainsA;
+        $this->numberOfTrainsA = $this->numberOfTrainsA - $number;
     }
 
     /**
      * Set the value of numberOfTrainsB
      *
-     * @param int $numberOfTrainsB
+     * @param int $number
      * @return  void
      */ 
-    public function setNumberOfTrainsB(int $numberOfTrainsB): void
+    public function reduceNumberOfTrainsB(int $number): void
     {
-        $this->numberOfTrainsB = $numberOfTrainsB;
+        $this->numberOfTrainsB = $this->numberOfTrainsB - $number;
     }
 
     /**

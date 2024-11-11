@@ -35,7 +35,6 @@ class TrainService
     {
         $lines = $this->converter->transformStringToLines($taskData);
         $schedules = $this->scheduleMaker->handle($lines);
-        $t = 8;
         $schedulesWithResult = $this->trainCalculator->handle($schedules);
         $responses = $this->outputWriter->makeResponse($schedulesWithResult);
 

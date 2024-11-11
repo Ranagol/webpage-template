@@ -2,6 +2,8 @@
 
 namespace App\trains\calculation;
 
+use App\trains\input\Schedule;
+
 class TrainCalculator
 {
     /**
@@ -11,29 +13,45 @@ class TrainCalculator
      */
     private array $schedules = [];
 
-    //*******THESE HERE ARE TEMPORARY STORAGES********** */
-    private int $numberOfTrainsA = 0;
-    private int $numberOfTrainsB = 0;
-
-
-
     public function handle(array $schedules)
     {
         $this->schedules = $schedules;
 
         foreach ($this->schedules as $schedule) {
-
-            /**
-             * Here we set the initial number of trains needed at the start of the day. Simple: in
-             * worst case scneario, when there are no reusable trains, we must have as much trains in
-             * the given station, as much trips are in the schedule. 
-             */
-            $this->numberOfTrainsA = count($schedule->getTripsAtoB());
-            $this->numberOfTrainsB = count($schedule->getTripsBtoA());
+            $this->calculate($schedule);
         }
 
         // Just return the schedules that contain their needed number of trains
         return $this->schedules;
+    }
+
+    private function calculate(Schedule $schedule): void
+    {
+        $tripsAtoB = $schedule->getTripsAtoB();
+        $tripsBtoA = $schedule->getTripsBtoA();
+
+        foreach ($tripsAtoB as $tripAtoB) {
+            foreach ($tripsBtoA as $tripBtoA) {
+
+                /**
+                 * If the arrival + turnaround time for train A is less than the departure time for
+                 * train B, then the train A can be reused for the trip BtoA.
+                 * That means that we can reduce the number of initial trains in B with one.
+                 */
+                if ($tripAtoB->getArrivalTurnaroundSum()->lessThan($tripBtoA->getDepartureTime())) {
+                    $schedule->reduceNumberOfTrainsB(1);
+                }
+
+                /**
+                 * If the arrival + turnaround time for train B is less than the departure time for
+                 * train A, then the train B can be reused for the trip AtoB.
+                 * That means that we can reduce the number of initial trains in A with one.
+                 */
+                if ($tripBtoA->getArrivalTurnaroundSum()->lessThan($tripAtoB->getDepartureTime())) {
+                    $schedule->reduceNumberOfTrainsA(1);
+                }
+            }
+        }
     }
 
 
