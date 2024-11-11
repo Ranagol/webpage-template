@@ -3,11 +3,27 @@
 namespace App\trains\input;
 
 class Schedule {
-    
+
+    /**
+     * The turnaround time in minutes. It is the time needed for the train to be prepared for the next trip,
+     * back to the station where it initially came.
+     *
+     * @var float
+     */
     private float $turnaroundTime;
 
+    /**
+     * Contains all TripAtoB objects in an array, that belong to this schedule.
+     *
+     * @var array
+     */
     private array $tripsAtoB;
 
+    /**
+     * Contains all TripBtoA objects in an array, that belong to this schedule.
+     *
+     * @var array
+     */
     private array $tripsBtoA;
 
     /**

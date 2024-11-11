@@ -45,12 +45,12 @@ class TrainCommand extends Command
             return Command::FAILURE;
         }
 
-
+        // This is the main service that handles the logic, caclulates the initial number of trains
         $trainService = new TrainService();
-        $reponses = $trainService->handle($taskData);
+        $responses = $trainService->handle($taskData);
 
-        // Output the reponses
-        foreach ($reponses as $result) {
+        // Output the responses
+        foreach ($responses as $result) {
             $output->writeln($result);
         }
 
@@ -72,7 +72,6 @@ class TrainCommand extends Command
         // Format the elapsed time to 6 decimal places
         $executionTime = number_format($executionTime, 6);
         $output->writeln("Execution time: $executionTime seconds");
-
 
         $output->writeln('Command was executed!');
         return Command::SUCCESS;

@@ -33,8 +33,16 @@ class ScheduleMaker {
      */
     private int $numberOfSchedules;
 
+    /**
+     * Contains the lines without the number of schedules. This will be used for future processing.
+     *
+     * @var array
+     */
     private array $linesWithoutNumberOfSchedules = [];
 
+    /**
+     * Temporary variables for storing the schedule data.
+     */
     private null|float $turnaroundTime = null;
     private null|int $numberOfTripsAb = null;
     private null|int $numberOfTripsBa = null;
@@ -43,6 +51,11 @@ class ScheduleMaker {
     private bool $isTurnaroundTimeSet = false;
     private bool $isNumberOfTripsSet = false;
 
+    /**
+     * Stores all the Schedule objects in an array. Aka this is the final result created by this class.
+     *
+     * @var array
+     */
     private array $schedules = [];
 
     /**
@@ -55,7 +68,7 @@ class ScheduleMaker {
     {
         $this->setNumberOfSchedules($lines);
 
-        $this->processSchedule($this->linesWithoutNumberOfSchedules);
+        $this->makeSchedules($this->linesWithoutNumberOfSchedules);
 
         return $this->schedules;
     }
@@ -89,7 +102,7 @@ class ScheduleMaker {
      * @param array $lines
      * @return void
      */
-    private function processSchedule(array $lines): void
+    private function makeSchedules(array $lines): void
     {
         foreach ($lines as $line) {
 
@@ -100,8 +113,9 @@ class ScheduleMaker {
             $this->extractTurnaroundTime($line);
             $this->extractNumberOfTrips($line);
             $this->extractTimes($line);
+
+            // If all the data is extracted, then create a schedule.
             $this->createSchedule();
-            
         }
     }
 
