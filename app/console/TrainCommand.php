@@ -26,7 +26,10 @@ class TrainCommand extends Command
      * docker-compose exec -it php-container bash
      * 
      * Run the app and input the train timetable:
-     * cat app/trains/taskData | php console.php trains
+     *  - Below is the command for the original task data
+     * cat app/trains/taskDataOriginal | php console.php trains
+     *  - Below is the command for the big task data created by me
+     * cat app/trains/taskDataBig | php console.php trains
      * 
      * @param InputInterface $input
      * @param OutputInterface $output
