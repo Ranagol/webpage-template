@@ -31,7 +31,6 @@ class OutputWriter
 
         $caseNumber = 1;
 
-
         foreach ($this->schedules as $schedule) {
             $numberOfTrainsA = $schedule->getNumberOfTrainsA();
             $numberOfTrainsB = $schedule->getNumberOfTrainsB();

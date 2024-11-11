@@ -10,8 +10,22 @@ class Schedule {
 
     private array $tripsBtoA;
 
+    /**
+     * Number of trains initally needed at the start of the day, at the station A. It is equal to the
+     * number of trips from A to B. This is a bit maybe redundant here, but it helps understanding
+     * the logic.
+     *
+     * @var integer
+     */
     private int $numberOfTrainsA = 0;
 
+    /**
+     * Number of trains initally needed at the start of the day, at the station B. It is equal to the
+     * number of trips from B to A. This is a bit maybe redundant here, but it helps understanding
+     * the logic.
+     *
+     * @var integer
+     */
     private int $numberOfTrainsB = 0;
 
     public function __construct(
@@ -23,6 +37,8 @@ class Schedule {
         $this->turnaroundTime = $turnaroundTime;
         $this->tripsAtoB = $tripsAtoB;
         $this->tripsBtoA = $tripsBtoA;
+        $this->setNumberOfTrainsA(count($tripsAtoB));
+        $this->setNumberOfTrainsB(count($tripsBtoA));
     }
 
     /**
