@@ -2,6 +2,7 @@
 
 namespace App\controllers\webControllers;
 
+use Jenssegers\Blade\Blade;
 use App\controllers\webControllers\WebController;
 
 /**
@@ -27,7 +28,7 @@ class PageController extends WebController
      *
      * @return void
      */
-    public static function about(): void
+    public static function about()
     {
         $data = 'Some random data about the about page :) , sent by PageController. ';
 
@@ -36,7 +37,10 @@ class PageController extends WebController
          * It takes a string as an argument, and uses this string to find the actuall variable that
          * contains the data, that we want to send to the view.
          */
-        returnView('about', compact('data'));
+        // returnView('about', compact('data'));
+        
+        // return $blade->render('about', ['title' => 'About Us']);
+        return $GLOBALS['blade']->render('about', ['title' => 'About Us']);
     }
 
     /**

@@ -4,6 +4,16 @@
  */
 require __DIR__ . '/../vendor/autoload.php';
 
+
+
+use Jenssegers\Blade\Blade;
+
+$views = __DIR__ . '/../resources/views';
+$cache = __DIR__ . '/cache';
+$blade = new Blade($views, $cache);
+$GLOBALS['blade'] = $blade;
+
+
 /**
  * This will start bootstrap. Meaning: it will activate all the stuff that this app
  * needs. That means, that it will activate Eloquent, the router, the view() and redirect() 
