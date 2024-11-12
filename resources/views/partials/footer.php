@@ -1,4 +1,5 @@
-</div>
+    </div>
+    <?php if (isset($debugbarRenderer)) echo $debugbarRenderer->render(); ?>
 </body>
 
 <br>

@@ -27,13 +27,4 @@
 		<?php isset($posts) ? var_dump($posts) : '' ?>
 	</div>
 
-
-
-
-
-
-
-
-
-
 <?php require 'partials/footer.php';?>

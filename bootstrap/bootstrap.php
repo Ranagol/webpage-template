@@ -1,12 +1,13 @@
 <?php
 
-
+// Here we do php debugbar boostrapping, to show debug info in the browser
+require __DIR__ . '/bootDebugbar.php';
 
 // Here we do dotenv boostraping, to load variables from .env file into $_ENV superglobal
-require __DIR__ . '/../bootstrap/bootDotenv.php';
+require __DIR__ . '/bootDotenv.php';
 
 //Here we do Eloquent setup: we use Eloquent the same way is it is used in Laravel
-require __DIR__ . '/../bootstrap/bootEloquent.php';
+require __DIR__ . '/bootEloquent.php';
 
 //router setup: we use bramus router in order to activate with url's the controllers
 require __DIR__ . '/../routes/routes.php';
