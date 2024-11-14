@@ -1,10 +1,14 @@
 <?php
 namespace App\console;
 
+use App\trains\TrainService;
+use App\trains\input\ScheduleMaker;
+use App\trains\output\OutputWriter;
+use App\trains\calculation\TrainCalculator;
+use App\trains\input\StringToLinesConverter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use App\trains\TrainService;
 
 class TrainCommand extends Command
 {
@@ -48,8 +52,20 @@ class TrainCommand extends Command
             return Command::FAILURE;
         }
 
+        // Instantiate dependencies
+        $converter = new StringToLinesConverter();
+        $scheduleMaker = new ScheduleMaker();
+        $trainCalculator = new TrainCalculator();
+        $outputWriter = new OutputWriter();
+
         // This is the main service that handles the logic, caclulates the initial number of trains
-        $trainService = new TrainService();
+        $trainService = new TrainService(
+            $converter,
+            $scheduleMaker,
+            $trainCalculator,
+            $outputWriter
+        );
+        
         $responses = $trainService->handle($taskData);
 
         // Output the responses

@@ -21,13 +21,18 @@ class TrainService
      */
     private string $trainTimetableString;
 
-    public function __construct()//TODO ANDOR EZT AT KELL CSINALNI INJECT FORMARA
-    {
-        $this->converter = new StringToLinesConverter();
-        $this->scheduleMaker = new ScheduleMaker();
-        $this->trainCalculator = new TrainCalculator();
-        $this->outputWriter = new OutputWriter();
+    public function __construct(
+        StringToLinesConverter $converter,
+        ScheduleMaker $scheduleMaker,
+        TrainCalculator $trainCalculator,
+        OutputWriter $outputWriter
+    ) {
+        $this->converter = $converter;
+        $this->scheduleMaker = $scheduleMaker;
+        $this->trainCalculator = $trainCalculator;
+        $this->outputWriter = $outputWriter;
     }
+
 
     public function handle(string $taskData): array
     {
