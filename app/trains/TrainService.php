@@ -12,22 +12,13 @@ use App\trains\calculation\TrainCalculator;
  */
 class TrainService 
 {
-    private StringToLinesConverter $converter;
-    private ScheduleMaker $scheduleMaker;
-    private TrainCalculator $trainCalculator;
-    private OutputWriter $outputWriter;
 
     public function __construct(
-        StringToLinesConverter $converter,
-        ScheduleMaker $scheduleMaker,
-        TrainCalculator $trainCalculator,
-        OutputWriter $outputWriter
-    ) {
-        $this->converter = $converter;
-        $this->scheduleMaker = $scheduleMaker;
-        $this->trainCalculator = $trainCalculator;
-        $this->outputWriter = $outputWriter;
-    }
+        private StringToLinesConverter $converter,
+        private ScheduleMaker $scheduleMaker,
+        private TrainCalculator $trainCalculator,
+        private OutputWriter $outputWriter
+    ) {}
 
     /**
      * This is the main method of the service. It handles the whole task. See the comments below for
