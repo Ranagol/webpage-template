@@ -9,7 +9,8 @@ namespace App\Trains\Input;
  */
 use Carbon\CarbonImmutable;
 
-//TODO ANDOR nem kell TripAtoB es TripBtoA klassza. Refactor.
+//TODO ANDOR WAIT ----- nem kell TripAtoB es TripBtoA klassza. Refactor. De csak a végén. Mert lehet hogy ez fog
+//kelleni az új Losi logika miatt.
 class Trip
 {
     /**

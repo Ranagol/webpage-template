@@ -7,25 +7,28 @@ use App\trains\input\Schedule;
 class TrainCalculator
 {
     /**
-     * Stores all the Schedule objects in an array.
-     *
-     * @var array
+     * This method calculates the number of trains needed for every schedule.
+     * 
+     * We simply loop through every Schedule object, calculate the number of trains needed for every schedule,
+     * add this result to the Schedule object, and return the array of Schedule objects.
+     * 
+     * @param array $schedules
+     * @return array
      */
-    private array $schedules = [];
-
     public function handle(array $schedules)
     {
-        $this->schedules = $schedules;
-
-        foreach ($this->schedules as $schedule) {
+        foreach ($schedules as $schedule) {
             $this->calculate($schedule);
         }
 
-        // Just return the schedules that contain their needed number of trains
-        return $this->schedules;
+        return $schedules;
     }
 
-    //TODO ANDOR https://www.digitalocean.com/community/tutorials/composition-vs-inheritance - EZT A TEMAT IS ERTENI KELL, OLVASD EL
+    /**
+     * This method calculates the number of trains needed for a single schedule, for station A and B.
+     * 
+     * @param Schedule $schedule
+     */
     private function calculate(Schedule $schedule): void
     {
         $tripsAtoB = $schedule->getTripsAtoB();

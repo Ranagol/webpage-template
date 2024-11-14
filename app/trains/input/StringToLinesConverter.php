@@ -25,7 +25,7 @@ class StringToLinesConverter
         /**
          * For some reason there is a strange line at the end, we need to remove this. We do this 
          * with array_pop. The array is modified in place, so we don't need to assign the result to
-         * a new variable.
+         * a new variable. Most likely this is a newline character for the end of the file.
          */
         array_pop($formattedLines);
 

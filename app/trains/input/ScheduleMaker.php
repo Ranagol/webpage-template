@@ -2,7 +2,6 @@
 
 namespace App\trains\input;
 
-use App\Exceptions\BaseException;
 use App\Trains\Input\TripAb;
 use App\Trains\Input\TripBa;
 use App\Exceptions\ScheduleMakerException;
@@ -81,15 +80,12 @@ class ScheduleMaker {
      */
     private function setNumberOfSchedules(array $lines): void
     {
-        //TODO ANDOR ARRAY UNSHIFT VAGY POP VAGY AKARMI EGY SORBAN MEGCSINALJA 3 SOR HELYETT
-        // The first line in the input file is the number of schedules.
-        $this->numberOfSchedules = (int) $lines[0];
-
-        // Remove the first element, the number of schedules. We don't need it anymore.
-        unset($lines[0]);
-
-        // Reset the indexing
-        $lines = array_values($lines);
+        /**
+         * The first line in the input file is the number of schedules. So here we set the number of
+         * schedules, and remove it from the lines array. This is achieved with array_shift(). array_shift()
+         * will remove the first element from the array, and return it. 
+         */
+        $this->numberOfSchedules = (int) array_shift($lines);
 
         $this->linesWithoutNumberOfSchedules = $lines;
     }
@@ -279,8 +275,11 @@ class ScheduleMaker {
      */
     private function createSchedule(): void
     {
+        /**
+         * Here we use the early return pattern. If the number of trips from A to B or from B to A is
+         * not 0, then we return.
+         */
         if ($this->numberOfTripsAb !== 0 || $this->numberOfTripsBa !== 0) {
-            //TODO ANDOR EARLY RETURN LEARN ABOUT THIS
             return;
         }   
     
