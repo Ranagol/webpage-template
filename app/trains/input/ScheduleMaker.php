@@ -38,7 +38,7 @@ class ScheduleMaker {
      * @var array
      */
     private array $linesWithoutNumberOfSchedules = [];//TODO ANDOR TOROLD EZT KI. REFACTOR. MINNEL KEVESEBB PROPERTIES LEGYEN.
-
+    //TODO ANDOR COMPLETELY REFACTOR SCHEDULEMAKER, THE WAY LOSI EXPLAINED.
     /**
      * Temporary variables for storing the schedule data.
      */
@@ -239,7 +239,7 @@ class ScheduleMaker {
      */
     private function extractAbTimes(string $departureTime, string $arrivalTime)
     {
-        $this->tripsAb[] = new TripAb(
+        $this->tripsAb[] = new Train(
             $this->turnaroundTime, 
             $departureTime, 
             $arrivalTime
@@ -256,7 +256,7 @@ class ScheduleMaker {
      */
     private function extractBaTimes(string $departureTime, string $arrivalTime)
     {
-        $this->tripsBa[] = new TripBa(
+        $this->tripsBa[] = new Train(
             $this->turnaroundTime, 
             $departureTime, 
             $arrivalTime

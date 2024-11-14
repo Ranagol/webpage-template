@@ -11,12 +11,12 @@ use Carbon\CarbonImmutable;
 
 //TODO ANDOR WAIT ----- nem kell TripAtoB es TripBtoA klassza? Refactor. De csak a végén. Mert lehet hogy ez fog
 //kelleni az új Losi logika miatt.
-class Trip
+class Train
 {
     /**
      * Sometimes a train can be reused for another trip. This is a flag for that. If a train arrives
-     * to A station at 10:00, and the next trip starts at 10:30, then the train can be reused for the
-     * next trip. But, if there is another trip from station A, lets say at 12:00, then for this time
+     * to A station at 10:00, and the next trip starts at 10:30 from station A, then this train can be reused for the
+     * next trip. But, if there is another, third trip from station A, lets say at 12:00, then for this time
      * this train can't be reused again, since it is reused already for the 10:30 trip.
      *
      * @var boolean
