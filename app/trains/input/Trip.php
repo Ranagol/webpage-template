@@ -9,10 +9,20 @@ namespace App\Trains\Input;
  */
 use Carbon\CarbonImmutable;
 
-//TODO ANDOR WAIT ----- nem kell TripAtoB es TripBtoA klassza. Refactor. De csak a végén. Mert lehet hogy ez fog
+//TODO ANDOR WAIT ----- nem kell TripAtoB es TripBtoA klassza? Refactor. De csak a végén. Mert lehet hogy ez fog
 //kelleni az új Losi logika miatt.
 class Trip
 {
+    /**
+     * Sometimes a train can be reused for another trip. This is a flag for that. If a train arrives
+     * to A station at 10:00, and the next trip starts at 10:30, then the train can be reused for the
+     * next trip. But, if there is another trip from station A, lets say at 12:00, then for this time
+     * this train can't be reused again, since it is reused already for the 10:30 trip.
+     *
+     * @var boolean
+     */
+    private bool $isReused = false;
+    
     /**
      * Train turnaround time in minutes
      *
@@ -47,6 +57,11 @@ class Trip
         $this->arrivalTime = CarbonImmutable::createFromFormat('H:i', $arrivalTime);
     }
 
+    /**
+     * Get the sum of turnaroundTime + arrivalTime.
+     * 
+     * @return  float
+     */
     public function getArrivalTurnaroundSum(): CarbonImmutable
     {
         return $this->arrivalTime->addMinutes($this->turnaroundTime);
@@ -70,6 +85,26 @@ class Trip
     public function getArrivalTime(): CarbonImmutable
     {
         return $this->arrivalTime;
+    }
+
+    /**
+     * Get the value of isReused
+     * 
+     * @return  bool
+     */ 
+    public function getIsReused(): bool
+    {
+        return $this->isReused;
+    }
+
+    /**
+     * Set the value of isReused
+     *
+     * @return  void
+     */ 
+    public function setIsReused($isReused): void
+    {
+        $this->isReused = $isReused;
     }
 }
 

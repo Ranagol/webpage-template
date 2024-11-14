@@ -39,20 +39,28 @@ class TrainCalculator
 
                 /**
                  * If the arrival + turnaround time for train A is less than the departure time for
-                 * train B, then the train A can be reused for the trip BtoA.
+                 * train B, 
+                 * and
+                 * if the train A is not reused yet for another trip,
+                 * then the train A can be reused for the trip BtoA.
                  * That means that we can reduce the number of initial trains in B with one.
                  */
-                if ($tripAtoB->getArrivalTurnaroundSum()->lessThan($tripBtoA->getDepartureTime())) {
-                    $schedule->reduceNumberOfTrainsB(1);
+                if ($tripAtoB->getArrivalTurnaroundSum()->lessThan($tripBtoA->getDepartureTime()) && !$tripAtoB->getIsReused()) {
+                    $tripAtoB->setIsReused(true);
+                    $schedule->reduceNumberOfTrainsInB(1);
                 }
 
                 /**
                  * If the arrival + turnaround time for train B is less than the departure time for
-                 * train A, then the train B can be reused for the trip AtoB.
+                 * train A, 
+                 * and
+                 * if the train B is not reused yet for another trip,
+                 * then the train B can be reused for the trip AtoB.
                  * That means that we can reduce the number of initial trains in A with one.
                  */
-                if ($tripBtoA->getArrivalTurnaroundSum()->lessThan($tripAtoB->getDepartureTime())) {
-                    $schedule->reduceNumberOfTrainsA(1);
+                if ($tripBtoA->getArrivalTurnaroundSum()->lessThan($tripAtoB->getDepartureTime()) && !$tripBtoA->getIsReused()) {
+                    $tripBtoA->setIsReused(true);
+                    $schedule->reduceNumberOfTrainsInA(1);
                 }
             }
         }

@@ -79,7 +79,7 @@ class Schedule {
      * @param int $number
      * @return  void
      */ 
-    public function reduceNumberOfTrainsA(int $number): void
+    public function reduceNumberOfTrainsInA(int $number): void
     {
         $this->numberOfTrainsA = $this->numberOfTrainsA - $number;
     }
@@ -90,7 +90,7 @@ class Schedule {
      * @param int $number
      * @return  void
      */ 
-    public function reduceNumberOfTrainsB(int $number): void
+    public function reduceNumberOfTrainsInB(int $number): void
     {
         $this->numberOfTrainsB = $this->numberOfTrainsB - $number;
     }
