@@ -32,8 +32,27 @@ class TrainCommand extends Command
      * Run the app and input the train timetable:
      *  - Below is the command for the original task data
      * cat app/trains/taskDataOriginal | php console.php trains
+     * Expected output:
+     * Case #1: 2 2
+     * Case #2: 2 0
+     * 
      *  - Below is the command for the big task data created by me
      * cat app/trains/taskDataBig | php console.php trains
+     * Expected output:
+     * Case #1: 2 2
+     * Case #2: 2 0
+     * Case #3: 2 2
+     * Case #4: 2 0
+     * Case #5: 2 2
+     * Case #6: 2 0
+     * Case #7: 2 2
+     * Case #8: 2 0
+     * 
+     * - Below is the command for the double reusability problem by Losi
+     * cat app/trains/taskDataWithLosiDoubleReusabilityProblem | php console.php trains
+     * Expected output:
+     * Case #1: 3 2
+     * Case #2: 2 0
      * 
      * @param InputInterface $input
      * @param OutputInterface $output
