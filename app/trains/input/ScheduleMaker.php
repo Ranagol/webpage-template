@@ -24,38 +24,6 @@ use App\Exceptions\ScheduleMakerException;
  */
 class ScheduleMaker {
 
-    /**
-     * For example, in the sample trainTimetable above, the number of schedules is 2. We have two 
-     * train timetables, two schedules.
-     *
-     * @var integer
-     */
-    private int $numberOfSchedules;
-
-    /**
-     * Contains the lines without the number of schedules. This will be used for future processing.
-     *
-     * @var array
-     */
-    private array $linesWithoutNumberOfSchedules = [];//TODO ANDOR TOROLD EZT KI. REFACTOR. MINNEL KEVESEBB PROPERTIES LEGYEN.
-    //TODO ANDOR COMPLETELY REFACTOR SCHEDULEMAKER, THE WAY LOSI EXPLAINED.
-    /**
-     * Temporary variables for storing the schedule data.
-     */
-    private null|float $turnaroundTime = null;
-    private null|int $numberOfTripsAb = null;
-    private null|int $numberOfTripsBa = null;
-    private array $tripsAb = [];
-    private array $tripsBa = [];
-    private bool $isTurnaroundTimeSet = false;
-    private bool $isNumberOfTripsSet = false;
-
-    /**
-     * Stores all the Schedule objects in an array. Aka this is the final result created by this class.
-     *
-     * @var array
-     */
-    private array $schedules = [];
 
     /**
      * Makes Schedule objects from the input lines.
@@ -63,255 +31,159 @@ class ScheduleMaker {
      * @param array $lines
      * @return array
      */
-    public function handle(array $lines)
+    public function handle(array $lines): array
     {
-        $this->setNumberOfSchedules($lines);
+        $numberOfSchedules = $this->getNumberOfSchedules($lines);
+        $lines = $this->removeCurrentFirstLine($lines);// Removes number of schedules line
 
-        $this->makeSchedules($this->linesWithoutNumberOfSchedules);
+        $schedules = [];
+        
+        /**
+         * For every schedule, we need to extract the turnaround time, the number of trips, and the 
+         * times from the task data. So we can createa Schedule object from them.
+         */
+        for ($i = 0; $i < $numberOfSchedules; $i++) {
 
-        return $this->schedules;
+            // Turnaround time extracting
+            $turnaroundTime = $this->extractTurnaroundTime($lines);
+            $lines = $this->removeCurrentFirstLine($lines);// Removes turnaround time line
+
+            // Number of trips extracting
+            $numberOfTrains = $this->extractNumberOfTrains($lines);
+            $numberOfTrainsAb = $numberOfTrains[0];
+            $numberOfTrainsBa = $numberOfTrains[1];
+            $lines = $this->removeCurrentFirstLine($lines);// Removes number of trips line
+
+            // Travel times extracting and creating trains from travel times
+            $trainsAtoB = $this->createTrains($lines, $numberOfTrainsAb, $turnaroundTime);
+            $trainsBtoA = $this->createTrains($lines, $numberOfTrainsBa, $turnaroundTime);
+
+            $schedule = $this->createSchedule(
+                $turnaroundTime,
+                $trainsAtoB,
+                $trainsBtoA
+            );
+
+            $schedules[] = $schedule;   
+        }
+
+        return $schedules;
     }
 
     /**
      * Set the number of schedules, and removes them form the task data.
-     * 
-     * @param array $lines
-     * @return array
      */
-    private function setNumberOfSchedules(array $lines): void
+    private function getNumberOfSchedules(array $lines): int
     {
         /**
          * The first line in the input file is the number of schedules. So here we set the number of
-         * schedules, and remove it from the lines array. This is achieved with array_shift(). array_shift()
-         * will remove the first element from the array, and return it. 
+         * schedules.
          */
-        $this->numberOfSchedules = (int) array_shift($lines);
+        $numberOfSchedules = (int) array_shift($lines);
 
-        $this->linesWithoutNumberOfSchedules = $lines;
+        return $numberOfSchedules;
     }
 
     /**
-     * At this stage, there are three tipes of lines (which are repeated in the taskData):
-    * 5             //contains one number. This is the turnaround time.
-    * 3 2           //contains two numbers. First one is number of trips from A to B, second one is number of trips from B to A.
-    * 09:00 12:00   //contains two times. First one is departure time, second one is arrival time.
+     * Removes the current first line from the $lines array, and reindexes the array.
+     */
+    private function removeCurrentFirstLine(array $lines): array
+    {
+        unset($lines[0]);// Remove the current first line
+        $reIndexedLines = array_values($lines);// Reindex the array
+        return $reIndexedLines;
+    }
+
+    /**
+     * Extracts the turnaround time.
      *
      * @param array $lines
-     * @return void
+     * @return integer
      */
-    private function makeSchedules(array $lines): void
-    { 
-        foreach ($lines as $line) {
-
-            /**
-             * Here we go line by line. For every line these 4 functions are called, conditionally.
-             * For conditions, see the functions.
-             */
-            $this->extractTurnaroundTime($line);
-            $this->extractNumberOfTrips($line);
-            $this->extractTimes($line);
-
-            // If all the data is extracted, then create a schedule.
-            $this->createSchedule();
-        }
+    private function extractTurnaroundTime(array $lines): int
+    {
+        $line = $lines[0];
+        return (int) $line;
     }
 
     /**
-     * Extracts the turnaround time from the line.
-     * At the beginning, this function gets a random line. 
-     * If the turnaround time is not set yet, and the line contains the turnaround time, then the
-     * this function will be triggered.
+     * Extracts the number of trains 
      *
-     * @param string $line
-     * @return void
+     * @param array $lines
+     * @return array
      */
-    private function extractTurnaroundTime(string $line): void
+    private function extractNumberOfTrains(array $lines): array
     {
-        // Turnoaround time
-        if ($this->isTurnaroundTimeSet === false && $this->isTurnaroundTime($line) === true) {
-            $this->turnaroundTime = (int) $line;
-            $this->isTurnaroundTimeSet = true;
-        }
+        $line = $lines[0];
+
+        $numberOfTrains = explode(' ', $line);
+        $numberOfTrainsAb = (int) $numberOfTrains[0];
+        $numberOfTrainsBa = (int) $numberOfTrains[1];
+
+        return [$numberOfTrainsAb, $numberOfTrainsBa];
     }
 
     /**
-     * Check if the line contains the turnaround time.
-     * Turnaround time line has no space. All other lines will contain at least one space. This is 
-     * how this function recognizes the turnaround time line.
-     * 
-     * @param string $line
-     * @return boolean
-     */
-    private function isTurnaroundTime(string $line): bool
-    {
-        // If the line does not contain a space, then it is the turnaround time.
-        if (str_contains($line, ' ')) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * Extracts the number of trips from A to B and from B to A.
-     * If the number of trips is not set yet, and the line contains the number of trips, then this 
-     * function will be triggered.
+     * Creates trains from the extracted travel times.
      *
-     * @param string $line
-     * @return void
+     * @param array $lines
+     * @param integer $numberOfTrains
+     * @param float $turnaroundTime
+     * @return array
      */
-    private function extractNumberOfTrips(string $line): void
+    private function createTrains(
+        array &$lines, // Notice that here use array by reference: whatever we change here, it will be changed in the original array.
+        int $numberOfTrains, 
+        float $turnaroundTime
+    ): array
     {
-        // Number of trips
-        if ($this->isNumberOfTripsSet === false && $this->isNumberOfTrips($line)) {
-            $numberOfTrips = explode(' ', $line);
-            $this->numberOfTripsAb = (int) $numberOfTrips[0];
-            $this->numberOfTripsBa = (int) $numberOfTrips[1];
-            $this->isNumberOfTripsSet = true;
-        } 
-    }
+        $trains = [];
 
-    /**
-     * Number of trips line will have one space always. This is how this function recognizes the
-     * number of trips line.
-     *
-     * @param string $line
-     * @return boolean
-     */
-    private function isNumberOfTrips(string $line): bool
-    {
-        if (str_contains($line, ' ')) {
-            return true;
-        } 
-
-        return false;
-    }
-
-    /**
-     * Extracts the departure and arrival times.
-     * 
-     *
-     * @param string $line
-     * @return void
-     * @throws Exception
-     */
-    private function extractTimes(string $line)
-    {
-        // This is the last extractor. 
-        if ($this->isDepartureArrivalTime($line)) {
+        for ($i = 0; $i < $numberOfTrains; $i++) {
+            $line = array_shift($lines);
             $times = explode(' ', $line);
+
+            // Extract departure time need to create a train object
             $departureTime = $times[0];
+
+            // Extract arrival time need to create a train object
             $arrivalTime = $times[1];
 
-            
-            if ($this->numberOfTripsAb > 0) {
-                $this->extractAbTimes($departureTime, $arrivalTime);
-            } elseif ($this->numberOfTripsBa > 0) {
-                $this->extractBaTimes($departureTime, $arrivalTime);
-            } else {
-                throw new ScheduleMakerException('Error while extracting times.');
-            }
-        }
-    }
+            // Create a train
+            $train = new Train(
+                $turnaroundTime,
+                $departureTime,
+                $arrivalTime
+            );
 
-    /**
-     * Check if the line contains departure and arrival times.
-     * Departure and arrival time lines will have always two double dots and one space.
-     *
-     * @param string $line
-     * @return boolean
-     */
-    private function isDepartureArrivalTime(string $line): bool
-    {
-        if (str_contains($line, ':') && str_contains($line, ' ')) {
-            return true;
+            $trains[] = $train;
         }
 
-        return false;
+        return $trains;
     }
 
     /**
-     * Extracts the departure and arrival times for A to B trips. And stores it in the $this->tripsAb.
+     * Creates a schedule from the extracted data.
      *
-     * @param string $departureTime
-     * @param string $arrivalTime
-     * @return void
+     * @param integer $turnaroundTime
+     * @param array $trainsAtoB
+     * @param array $trainsBtoA
+     * @return Schedule
      */
-    private function extractAbTimes(string $departureTime, string $arrivalTime)
+    private function createSchedule(
+        int $turnaroundTime,
+        array $trainsAtoB,
+        array $trainsBtoA
+    ): Schedule
     {
-        $this->tripsAb[] = new Train(
-            $this->turnaroundTime, 
-            $departureTime, 
-            $arrivalTime
-        );
-        $this->numberOfTripsAb--;
-    }
-
-    /**
-     * Extracts the departure and arrival times for B to A trips. And stores it in the $this->tripsBa.
-     *
-     * @param string $departureTime
-     * @param string $arrivalTime
-     * @return void
-     */
-    private function extractBaTimes(string $departureTime, string $arrivalTime)
-    {
-        $this->tripsBa[] = new Train(
-            $this->turnaroundTime, 
-            $departureTime, 
-            $arrivalTime
-        );
-        $this->numberOfTripsBa--;
-    }
-
-    /**
-     * Creates a schedule.
-     * This function too is called for every line. It should be only triggered when all the A to B 
-     * trips and B to A trips are extracted. 
-     * When A to B trips all are extracted, the $this->numberOfTripsAb will be 0.
-     * When B to A trips all are extracted, the $this->numberOfTripsBa will be 0.
-     * Only then will this function be triggered.
-     * @return void
-     */
-    private function createSchedule(): void
-    {
-        /**
-         * Here we use the early return pattern. If the number of trips from A to B or from B to A is
-         * not 0, then we return.
-         */
-        if ($this->numberOfTripsAb !== 0 || $this->numberOfTripsBa !== 0) {
-            return;
-        }   
     
         // Create a schedule
         $schedule = new Schedule(
-            $this->turnaroundTime,
-            $this->tripsAb,
-            $this->tripsBa
+            $turnaroundTime,
+            $trainsAtoB,
+            $trainsBtoA
         );
 
-        $this->schedules[] = $schedule;
-
-        // Now reset all schedule variables, so we can create the next schedule
-        $this->resetScheduleVariables();
-    }
-
-    /**
-     * Resets the schedule variables, after the schedule is created we have to reset all the temporary
-     * variables that stored the schedule data. Because we are in a loop, and now we have to create
-     * the next schedule. Or we have finished creating schedules, and because of that we have to reset
-     * the variables.
-     *
-     * @return void
-     */
-    private function resetScheduleVariables()
-    {
-        $this->turnaroundTime = null;
-        $this->numberOfTripsAb = null;
-        $this->numberOfTripsBa = null;
-        $this->tripsAb = [];
-        $this->tripsBa = [];
-        $this->isTurnaroundTimeSet = false;
-        $this->isNumberOfTripsSet = false;
+        return $schedule;
     }
 }
