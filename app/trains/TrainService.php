@@ -7,19 +7,15 @@ use App\trains\output\OutputWriter;
 use App\trains\input\StringToLinesConverter;
 use App\trains\calculation\TrainCalculator;
 
+/**
+ * This is the main service class. It is responsible for handling the whole train task.
+ */
 class TrainService 
 {
     private StringToLinesConverter $converter;
     private ScheduleMaker $scheduleMaker;
     private TrainCalculator $trainCalculator;
     private OutputWriter $outputWriter;
-
-    /**
-     * Contains all the data from the input file, in one big string.
-     *
-     * @var string
-     */
-    private string $trainTimetableString;
 
     public function __construct(
         StringToLinesConverter $converter,
@@ -33,7 +29,13 @@ class TrainService
         $this->outputWriter = $outputWriter;
     }
 
-
+    /**
+     * This is the main method of the service. It handles the whole task. See the comments below for
+     * more details.
+     *
+     * @param string $taskData
+     * @return array
+     */
     public function handle(string $taskData): array
     {
         // Transforms the big, useless, initial string into useful lines.
