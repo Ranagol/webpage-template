@@ -25,6 +25,7 @@ class TrainCalculator
         return $this->schedules;
     }
 
+    //TODO ANDOR https://www.digitalocean.com/community/tutorials/composition-vs-inheritance - EZT A TEMAT IS ERTENI KELL, OLVASD EL
     private function calculate(Schedule $schedule): void
     {
         $tripsAtoB = $schedule->getTripsAtoB();

@@ -21,7 +21,7 @@ class TrainService
      */
     private string $trainTimetableString;
 
-    public function __construct()
+    public function __construct()//TODO ANDOR EZT AT KELL CSINALNI INJECT FORMARA
     {
         $this->converter = new StringToLinesConverter();
         $this->scheduleMaker = new ScheduleMaker();

@@ -92,6 +92,7 @@ class Schedule {
      */ 
     public function reduceNumberOfTrainsB(int $number): void
     {
+        // TODO ANDOR LEARN WHAT IS DTO (DATA TRANSFER OBJECT)
         $this->numberOfTrainsB = $this->numberOfTrainsB - $number;
     }
 

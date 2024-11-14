@@ -37,7 +37,8 @@ class Student extends Model
     {
         $grades = $this->grades;
 
-        $t = 8;//TODO ANDOR WHY XDEBUG DOES NOT WORK HERE???? When I am sending a request from the webpage, Xdebug works. When I send a request from Postman, Xdebug dos not stops the code execution. Why?
+        $t = 8;//TODO LOSI WHY XDEBUG DOES NOT WORK HERE???? When I am sending a request from the webpage, Xdebug works. 
+        //When I send a request from Postman, Xdebug dos not stops the code execution. Why?
 
         if (empty($grades)) {
             return 0;

@@ -12,8 +12,7 @@ class StringToLinesConverter
     public function transformStringToLines(string $taskData): array
     {
         // Split the string into an array of lines
-        $lines = explode("\n", $taskData);
-        // var_dump($lines);
+        $lines = explode(PHP_EOL, $taskData);
 
         // Process each line
         foreach ($lines as $line) {
@@ -21,8 +20,6 @@ class StringToLinesConverter
             $line = trim($line);
 
             $formattedLines[] = $line;
-
-            // echo $line . PHP_EOL;
         }
         
         /**
@@ -31,7 +28,6 @@ class StringToLinesConverter
          * a new variable.
          */
         array_pop($formattedLines);
-        // var_dump($formattedLines);
 
         return $formattedLines;
     }

@@ -38,7 +38,7 @@ class ScheduleMaker {
      *
      * @var array
      */
-    private array $linesWithoutNumberOfSchedules = [];
+    private array $linesWithoutNumberOfSchedules = [];//TODO ANDOR TOROLD EZT KI. REFACTOR. MINNEL KEVESEBB PROPERTIES LEGYEN.
 
     /**
      * Temporary variables for storing the schedule data.
@@ -81,6 +81,7 @@ class ScheduleMaker {
      */
     private function setNumberOfSchedules(array $lines): void
     {
+        //TODO ANDOR ARRAY UNSHIFT VAGY POP VAGY AKARMI EGY SORBAN MEGCSINALJA 3 SOR HELYETT
         // The first line in the input file is the number of schedules.
         $this->numberOfSchedules = (int) $lines[0];
 
@@ -103,7 +104,7 @@ class ScheduleMaker {
      * @return void
      */
     private function makeSchedules(array $lines): void
-    {
+    { 
         foreach ($lines as $line) {
 
             /**
@@ -134,7 +135,7 @@ class ScheduleMaker {
         if ($this->isTurnaroundTimeSet === false && $this->isTurnaroundTime($line) === true) {
             $this->turnaroundTime = (int) $line;
             $this->isTurnaroundTimeSet = true;
-        } 
+        }
     }
 
     /**
@@ -150,7 +151,7 @@ class ScheduleMaker {
         // If the line does not contain a space, then it is the turnaround time.
         if (str_contains($line, ' ')) {
             return false;
-        } 
+        }
 
         return true;
     }
@@ -196,6 +197,7 @@ class ScheduleMaker {
      *
      * @param string $line
      * @return void
+     * @throws Exception
      */
     private function extractTimes(string $line)
     {
@@ -275,23 +277,24 @@ class ScheduleMaker {
      * Only then will this function be triggered.
      * @return void
      */
-    private function createSchedule()
+    private function createSchedule(): void
     {
-        // Check if all the trips are extracted.
-        if ($this->numberOfTripsAb === 0 && $this->numberOfTripsBa === 0) {
+        if ($this->numberOfTripsAb !== 0 || $this->numberOfTripsBa !== 0) {
+            //TODO ANDOR EARLY RETURN LEARN ABOUT THIS
+            return;
+        }   
+    
+        // Create a schedule
+        $schedule = new Schedule(
+            $this->turnaroundTime,
+            $this->tripsAb,
+            $this->tripsBa
+        );
 
-            // Create a schedule
-            $schedule = new Schedule(
-                $this->turnaroundTime,
-                $this->tripsAb,
-                $this->tripsBa
-            );
+        $this->schedules[] = $schedule;
 
-            $this->schedules[] = $schedule;
-
-            // Now reset all schedule variables, so we can create the next schedule
-            $this->resetScheduleVariables();
-        }
+        // Now reset all schedule variables, so we can create the next schedule
+        $this->resetScheduleVariables();
     }
 
     /**

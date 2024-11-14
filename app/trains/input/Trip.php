@@ -9,6 +9,7 @@ namespace App\Trains\Input;
  */
 use Carbon\CarbonImmutable;
 
+//TODO ANDOR nem kell TripAtoB es TripBtoA klassza. Refactor.
 class Trip
 {
     /**

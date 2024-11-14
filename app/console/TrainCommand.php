@@ -44,7 +44,7 @@ class TrainCommand extends Command
         $taskData = stream_get_contents(STDIN);
 
         if (!$taskData) {
-            $output->writeln("No input file provided or input file is empty.");
+            $output->writeln('No input file provided or input file is empty.');
             return Command::FAILURE;
         }
 
