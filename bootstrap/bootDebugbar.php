@@ -8,10 +8,8 @@ $debugbarRenderer = $debugbar->getJavascriptRenderer();
 $debugbarRenderer->setBaseUrl('/debugbar');
 
 // Make the variable global
-$GLOBALS['debugbarRenderer'] = $debugbarRenderer;
+// $GLOBALS['debugbarRenderer'] = $debugbarRenderer;
+
 
 // Add some data to the DebugBar
 $debugbar["messages"]->addMessage("Hello world!");
-
-
-

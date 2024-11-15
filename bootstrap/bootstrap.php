@@ -1,8 +1,5 @@
 <?php
 
-// Here we do php debugbar boostrapping, to show debug info in the browser
-require __DIR__ . '/bootDebugbar.php';
-
 // Here we do dotenv boostraping, to load variables from .env file into $_ENV superglobal
 require __DIR__ . '/bootDotenv.php';
 
@@ -45,9 +42,13 @@ require __DIR__ . '/../routes/routes.php';
  *
  * @return void
  */
-function returnView(string $name, array $data = []):void
+function returnView(string $name, array $data = []): void
 {
-    extract($data);
+    // TODO ANDOR understand this part. 
+    // Here we do php debugbar boostrapping, to show debug info in the browser
+    require_once __DIR__ . '/bootDebugbar.php';
+
+    extract($data);//TODO ANDOR understand this part too
     require __DIR__ . "/../resources/views/{$name}.view.php";
 }
 
