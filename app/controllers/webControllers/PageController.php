@@ -32,15 +32,31 @@ class PageController extends WebController
     {
         $data = 'Some random data about the about page :) , sent by PageController. ';
 
-        /**
-         * The compact() function creates an array from variables and their values.
-         * It takes a string as an argument, and uses this string to find the actuall variable that
-         * contains the data, that we want to send to the view.
-         */
-        // returnView('about', compact('data'));
+        require __DIR__ . '/../../../bootstrap/bootBlade.php';
+
+        // die(var_dump($blade));//this is ok, $blade is here
+
         
-        // return $blade->render('about', ['title' => 'About Us']);
-        return $GLOBALS['blade']->render('about', ['title' => 'About Us']);
+
+        // Debugging statement
+        echo "Reached before rendering the view";
+
+        //todo LOSI HELP
+
+        try {
+            return $blade->render('about', 
+                [
+                    'title' => 'About Us',
+                    'data' => $data
+                ]
+            );
+        } catch (\Throwable $th) {
+            var_dump($th);
+        }
+        
+
+        // Debugging statement
+        echo "Reached after rendering the view";
     }
 
     /**
