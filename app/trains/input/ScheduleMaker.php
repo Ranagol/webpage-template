@@ -69,6 +69,8 @@ class ScheduleMaker {
 
     /**
      * Set the number of schedules, and removes them form the task data.
+     * The $lines are is used by reference, so the original array will be changed. Notice the '&' sign.
+     * array_shift returns the first element of the array and removes it from the array.
      */
     private function getNumberOfSchedules(array &$lines): int
     {
@@ -83,6 +85,9 @@ class ScheduleMaker {
 
     /**
      * Extracts the turnaround time.
+     * 
+     * The $lines are is used by reference, so the original array will be changed. Notice the '&' sign.
+     * array_shift returns the first element of the array and removes it from the array.
      *
      * @param array $lines
      * @return integer
@@ -90,12 +95,15 @@ class ScheduleMaker {
     private function extractTurnaroundTime(array &$lines): int
     {
         $line = array_shift($lines);
-        
+
         return (int) $line;
     }
 
     /**
      * Extracts the number of trains 
+     * 
+     * The $lines are is used by reference, so the original array will be changed. Notice the '&' sign.
+     * array_shift returns the first element of the array and removes it from the array.
      *
      * @param array $lines
      * @return array
