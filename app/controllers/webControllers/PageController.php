@@ -29,12 +29,14 @@ class PageController extends WebController
      */
     public static function about(): void
     {
-        $data = 'Some random data about the about page :) , sent by PageController. ';
+        
+        $data = 'Some random data for the about page - sent by PageController. ';
 
         /**
-         * The compact() function creates an array from variables and their values.
-         * It takes a string as an argument, and uses this string to find the actuall variable that
-         * contains the data, that we want to send to the view.
+         * The compact() function creates an assoc array from variables and their values.
+         * Example: compact('data') will create an array like this: 
+         * ['data' => 'Some random data for the about page - sent by PageController.'].
+         * Now this array above is sent to the view page.
          */
         returnView('about', compact('data'));
     }
