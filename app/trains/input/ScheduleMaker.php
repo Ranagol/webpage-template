@@ -34,7 +34,6 @@ class ScheduleMaker {
     public function handle(array $lines): array
     {
         $numberOfSchedules = $this->getNumberOfSchedules($lines);
-        $lines = $this->removeCurrentFirstLine($lines);// Removes number of schedules line
 
         $schedules = [];
         
@@ -46,13 +45,11 @@ class ScheduleMaker {
 
             // Turnaround time extracting
             $turnaroundTime = $this->extractTurnaroundTime($lines);
-            $lines = $this->removeCurrentFirstLine($lines);// Removes turnaround time line
 
             // Number of trips extracting
             $numberOfTrains = $this->extractNumberOfTrains($lines);
             $numberOfTrainsAb = $numberOfTrains[0];
             $numberOfTrainsBa = $numberOfTrains[1];
-            $lines = $this->removeCurrentFirstLine($lines);// Removes number of trips line
 
             // Travel times extracting and creating trains from travel times
             $trainsAtoB = $this->createTrains($lines, $numberOfTrainsAb, $turnaroundTime);
@@ -73,7 +70,7 @@ class ScheduleMaker {
     /**
      * Set the number of schedules, and removes them form the task data.
      */
-    private function getNumberOfSchedules(array $lines): int
+    private function getNumberOfSchedules(array &$lines): int
     {
         /**
          * The first line in the input file is the number of schedules. So here we set the number of
@@ -85,24 +82,15 @@ class ScheduleMaker {
     }
 
     /**
-     * Removes the current first line from the $lines array, and reindexes the array.
-     */
-    private function removeCurrentFirstLine(array $lines): array
-    {
-        unset($lines[0]);// Remove the current first line
-        $reIndexedLines = array_values($lines);// Reindex the array
-        return $reIndexedLines;
-    }
-
-    /**
      * Extracts the turnaround time.
      *
      * @param array $lines
      * @return integer
      */
-    private function extractTurnaroundTime(array $lines): int
+    private function extractTurnaroundTime(array &$lines): int
     {
-        $line = $lines[0];
+        $line = array_shift($lines);
+        
         return (int) $line;
     }
 
@@ -112,9 +100,9 @@ class ScheduleMaker {
      * @param array $lines
      * @return array
      */
-    private function extractNumberOfTrains(array $lines): array
+    private function extractNumberOfTrains(array &$lines): array
     {
-        $line = $lines[0];
+        $line = array_shift($lines);
 
         $numberOfTrains = explode(' ', $line);
         $numberOfTrainsAb = (int) $numberOfTrains[0];
