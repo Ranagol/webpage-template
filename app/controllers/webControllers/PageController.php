@@ -18,8 +18,10 @@ class PageController extends WebController
      */
     public static function home(): void
     {
+        require __DIR__ . '/../../../bootstrap/bootBlade.php';
+
         // xdebug_info();//Use this line to check if xdebug is installed and the step debugger is enabled.
-        returnView('home');// this is equal to: require 'views/home.view.php';
+        echo $blade->render('home');
     }
 
     /**
@@ -49,7 +51,9 @@ class PageController extends WebController
      */
     public static function contact(): void
     {
-        returnView('contact');// this is equal to: require 'views/contact.view.php';
+        require __DIR__ . '/../../../bootstrap/bootBlade.php';
+
+        echo $blade->render('contact');
     }
 }
 

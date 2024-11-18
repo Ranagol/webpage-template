@@ -1,10 +1,7 @@
 
-
-<?php
-    if(!isset($_SESSION)){ 
-        session_start(); 
-    }
-?>
+<?php if(!isset($_SESSION)): ?>
+    session_start(); 
+<?php endif; ?>
 
 <div class='container'>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,6 +39,8 @@
 					<a class="nav-item nav-link" href="/logout">Logout</a>
 				</li>
 				<li class="nav-item">
+
+                    
 					<div class="nav-item nav-link" >
                         <?php if(isset($_SESSION['username'])): ?>
                             Hi, <?php echo e($_SESSION['username']); ?>
