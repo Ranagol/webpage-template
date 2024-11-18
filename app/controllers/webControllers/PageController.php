@@ -24,25 +24,6 @@ class PageController extends WebController
         echo $blade->render('home');
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
-    public static function about(): void
-    {
-        $data = 'Some random data about the about page :) , sent by PageController. ';
-
-        require __DIR__ . '/../../../bootstrap/bootBlade.php';
-        
-
-        echo $blade->render('about', 
-            [
-                'title' => 'About Us',
-                'data' => $data
-            ]
-        );
-    }
 
     /**
      * Loads the contact page.

@@ -2,6 +2,7 @@
 
 <?php $__env->startSection('content'); ?>
     <h1><?php echo e($title); ?></h1>
+    <h5><?php echo e($data); ?></h5>
     <p>Welcome to the About-Blade page!</p>
 <?php $__env->stopSection(); ?>
 

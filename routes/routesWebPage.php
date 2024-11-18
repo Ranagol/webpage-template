@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\AboutController;
 use App\controllers\webControllers\PageController;
 
 //WEBPAGE ROUTES**********************
@@ -11,7 +12,8 @@ $router->get('/', function () {
 
 //about page
 $router->get('/about', function () {
-    PageController::about();
+    $aboutController = new AboutController();
+    $aboutController->about();
 });
 
 //contact page 
