@@ -8,15 +8,15 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    {{-- //todo include navbar here --}}
+    
+    {{-- NAVBAR --}}
+    @include('navbar')
 
+    {{-- CONTENT --}}
     <div class='container'>
-
-        {{-- CONTENT COMES HERE --}}
         @yield('content')
-
-
     </div>
+
 </body>
 
 <br>
