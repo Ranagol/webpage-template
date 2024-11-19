@@ -16,7 +16,8 @@
         "guzzlehttp/guzzle": "^7.0",
         "symfony/console": "^5.4",
         "nesbot/carbon": "^2.72",
-        "jenssegers/blade": "^1.4"
+        "jenssegers/blade": "^1.4",
+        "maximebf/debugbar": "^1.23"
     },
     "scripts": {
 		"test-logger": "App\\Testing::displayMessage",
