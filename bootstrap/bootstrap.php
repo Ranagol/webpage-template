@@ -21,6 +21,9 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__  . '/../');
 $dotenv->load();
 
+//Here we do Blade template engine setup
+require __DIR__ . '/../bootstrap/bootBlade.php';
+
 //Here we do Eloquent setup: we use Eloquent the same way is it is used in Laravel
 require __DIR__ . '/../bootstrap/bootEloquent.php';
 

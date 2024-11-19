@@ -2,6 +2,7 @@
 
 namespace App\controllers\authControllers;
 
+use App\controllers\Controller;
 use App\models\User;
 use System\request\RequestInterface;
 use App\validators\RegisterValidator;
@@ -10,16 +11,16 @@ use App\Exceptions\ValidationException;
 /**
  * Handles user registering stuff.
  */
-class RegisterController
+class RegisterController extends Controller
 {
     /**
      * Loads the register page.
      *
      * @return void
      */
-    public static function loadRegisterPage(): void
+    public function loadRegisterPage(): void
     {
-        returnView('register');
+        $this->view('register');
     }
 
     /**
@@ -41,7 +42,7 @@ class RegisterController
      * 
      * @return void
      */
-    public static function register(RequestInterface $request): void
+    public function register(RequestInterface $request): void
     {
         //Extracting the registering data from the request
         $request = $request->getAllRequestData();
@@ -54,7 +55,7 @@ class RegisterController
 
         try {
             //data validation
-            self::validateUserData(
+            $this->validateUserData(
                 $email, 
                 $password,
                 $username,
@@ -72,9 +73,10 @@ class RegisterController
             $user->save();
 
             //automatic login, after a succesfull registratin
-            self::loginUser($email, $hash);
+            $this->loginUser($email, $hash);
 
-            returnView('home');
+            // returnView('home');
+            $this->view('home');
 
         } catch (ValidationException $errors) {
             
@@ -86,15 +88,18 @@ class RegisterController
              * beginning.
              */
             $errors = json_decode($errors->getMessage(), true);
-            
-            returnView('register', compact(
-                'errors', 
-                'username',
-                'firstname',
-                'lastname',
-                'email',
-                'password'
-            ));
+
+            $this->view(
+                'register',
+                [
+                    'errors' => $errors,
+                    'username' => $username,
+                    'firstname' => $firstname,
+                    'lastname' => $lastname,
+                    'email' => $email,
+                    'password' => $password
+                ]
+            );  
         }
     }
 
@@ -108,7 +113,7 @@ class RegisterController
      * 
      * @return void
      */
-    private static function loginUser(string $email,string $hash): void
+    private function loginUser(string $email,string $hash): void
     {
         /**
          * The user is just freshly registered. We want to find this user in the db.
@@ -138,7 +143,7 @@ class RegisterController
      * 
      * @return void
      */
-    private static function validateUserData(
+    private function validateUserData(
         string $email, 
         string $password,
         string $username,

@@ -15,7 +15,8 @@
         "bramus/router": "~1.5",
         "guzzlehttp/guzzle": "^7.0",
         "symfony/console": "^5.4",
-        "nesbot/carbon": "^2.72"
+        "nesbot/carbon": "^2.72",
+        "jenssegers/blade": "^1.4"
     },
     "scripts": {
 		"test-logger": "App\\Testing::displayMessage",

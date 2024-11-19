@@ -1,11 +1,12 @@
 <?php
 
 use System\request\WebPageRequest;
-use App\controllers\webControllers\UserWebController;
+use App\controllers\UserController;
 
 //show all users
 $router->get('/users', function () {
-    UserWebController::index();
+    $userController = new UserController();
+    $userController->index();
 });
 
 /**
@@ -17,7 +18,8 @@ $router->get('/users', function () {
  * DO NOT CHANGE THE ORDER OF THE CREATE AND SHOW!
  */
 $router->get('/users/create', function () {
-    UserWebController::create();
+    $userController = new UserController();
+    $userController->create();
 });
 
 /**
@@ -29,13 +31,14 @@ $router->get('/users/create', function () {
  *  * DO NOT CHANGE THE ORDER OF THE CREATE AND SHOW!
  */
 $router->get('/users/{id}', function ($id) {
-    UserWebController::show($id);
+    $userController = new UserController();
+    $userController->show($id);
 });
 
 //save user 
 $router->post('/users', function () {
-    // var_dump('store activated');
-    UserWebController::store(new WebPageRequest());
+    $userController = new UserController();
+    $userController->store(new WebPageRequest());
 });
 
 /**
@@ -45,7 +48,8 @@ $router->post('/users', function () {
  * fake put here with post method.
  */
 $router->post('/users/{id}', function ($id) {
-    UserWebController::update($id, new WebPageRequest());
+    $userController = new UserController();
+    $userController->update($id, new WebPageRequest());
 });
 
 /**
@@ -56,5 +60,6 @@ $router->post('/users/{id}', function ($id) {
  * So instead of DELETE method, we use POST method
  */
 $router->post('/user/delete/{id}', function ($id) {
-    UserWebController::delete($id);
+    $userController = new UserController();
+    $userController->delete($id);
 });

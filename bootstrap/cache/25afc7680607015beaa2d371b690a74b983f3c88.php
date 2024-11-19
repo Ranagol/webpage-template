@@ -1,11 +1,7 @@
-<!-- We must start session on every page, where we want to use the $_SESSION superglobal, othewise it won't work. -->
-<?php
 
-if(!isset($_SESSION)){ 
+<?php if(!isset($_SESSION)): ?>
     session_start(); 
-}
-
-?>
+<?php endif; ?>
 
 <div class='container'>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,9 +23,6 @@ if(!isset($_SESSION)){
 				<li class="nav-item">
 					<a class="nav-item nav-link" href="/users">Users</a>
 				</li>
-				<!-- <li class="nav-item">
-					<a class="nav-item nav-link" href="/users/create">Create user</a>
-				</li> -->
 				<li class="nav-item">
 					<a class="nav-item nav-link" href="/upload">Upload</a>
 				</li>
@@ -46,29 +39,19 @@ if(!isset($_SESSION)){
 					<a class="nav-item nav-link" href="/logout">Logout</a>
 				</li>
 				<li class="nav-item">
+
+                    
 					<div class="nav-item nav-link" >
-						<!-- <?php var_dump($_SESSION); ?> -->
-						<?= isset($_SESSION['username']) ? 'Hi, ' . $_SESSION['username'] : 'You are not logged in.' ?>
+                        <?php if(isset($_SESSION['username'])): ?>
+                            Hi, <?php echo e($_SESSION['username']); ?>
+
+                        <?php else: ?>
+                            You are not logged in.
+                        <?php endif; ?>
 					</div>
 				</li>
 			</ul>
 		</div>
 	</nav>
 </div>
-
-<!-- <div class='container'>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link" href="/">Home</a>
-				<a class="nav-item nav-link" href="/about">About</a>
-				<a class="nav-item nav-link" href="/contact">Contact</a>
-				<a class="nav-item nav-link" href="/users">Users</a>
-				<a class="nav-item nav-link" href="/users/create">Create user</a>
-				<a class="nav-item nav-link" href="/register">Register</a>
-				<a class="nav-item nav-link" href="/login">Login</a>
-				<a class="nav-item nav-link" href="/logout">Logout</a>
-			</div>
-		</div>
-	</nav>
-</div> -->
+<?php /**PATH /srv/www/resources/views/navbar.blade.php ENDPATH**/ ?>

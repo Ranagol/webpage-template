@@ -4,11 +4,13 @@ use App\Controllers\GuzzleControllers\GuzzleController;
 
 //loading the page
 $router->get('/guzzle', function () {
-    GuzzleController::loadGuzzlePage();
+    $guzzleController = new GuzzleController();
+    $guzzleController->loadGuzzlePage();
 });
 
 //getting 10 posts from DummyApi
 $router->get('/getPosts', function () {
-    GuzzleController::getPosts();
+    $guzzleController = new GuzzleController();
+    $guzzleController->getPosts();
 });
 

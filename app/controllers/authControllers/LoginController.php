@@ -2,22 +2,23 @@
 
 namespace App\controllers\authControllers;
 
-use App\Exceptions\CantFindUserException;
 use App\models\User;
+use App\controllers\Controller;
 use App\Validators\LoginValidator;
 use System\request\RequestInterface;
 use App\Exceptions\ValidationException;
+use App\Exceptions\CantFindUserException;
 
-class LoginController
+class LoginController extends Controller
 {
     /**
      * Loads the login page view.
      *
      * @return void
      */
-    public static function loadLoginPage(): void
+    public function loadLoginPage(): void
     {
-        returnView('login');
+        $this->view('login');
     }
 
     /**
@@ -37,10 +38,10 @@ class LoginController
      * 
      * @return void
      */
-    public static function login(RequestInterface $request): void
+    public function login(RequestInterface $request): void
     {
         //check if the user is already logged in. If so, the user will be redirected to home page.
-        self::isUserAlreadyLoggedIn();
+        $this->isUserAlreadyLoggedIn();
 
         //getting email and password from the request
         $request = $request->getAllRequestData();
@@ -53,16 +54,16 @@ class LoginController
              * login data - email and password - validation.
              * A ValidationException will be thrown if there is a validation error.
              */
-            self::validateLoginData($email, $password);
+            $this->validateLoginData($email, $password);
             
             /**
              * finding the user in the db based on his unique email
              * CantFindUserException will be thrown, if the app can't find the user.
              */
-            $user = self::findUser($email);
+            $user = $this->findUser($email);
 
             //authenticate the user - compare data from form with data from db
-            self::authenticateUser($user, $email, $password);
+            $this->authenticateUser($user, $email, $password);
 
         } catch (ValidationException $errors) {
 
@@ -71,16 +72,24 @@ class LoginController
              */
             $errors = json_decode($errors->getMessage(), true);
 
-            returnView('login', compact('errors', 'email', 'password'));
+            $this->view(
+                'login',
+                [
+                    'errors' => $errors,
+                    'email' => $email,
+                    'password' => $password
+                ]
+            );
 
         } catch (CantFindUserException $error) {
 
             /**
-             * This here is a case when the app can't find the user in the db.
+             * This here is a case when the app can't find the user in the db. So the user that
+             * wants to be authenticated, can't be authenticated. So, $isAuthenticated is false.
              */
             $isAuthenticated = false;
 
-            returnView('login', compact('isAuthenticated'));
+            $this->view('login', ['isAuthenticated' => $isAuthenticated]);
         }
     }
 
@@ -94,7 +103,7 @@ class LoginController
      * 
      * @return void
      */
-    private static function authenticateUser(
+    private function authenticateUser(
         User $user,
         string $email,
         string $password
@@ -140,7 +149,7 @@ class LoginController
      * 
      * @return User
      */
-    private static function findUser(string $email): User
+    private function findUser(string $email): User
     {
         //check if there is a user with the validated email and password
         $user = User::where('email', '=', $email)->first();
@@ -161,7 +170,7 @@ class LoginController
      * 
      * @return void
      */
-    private static function validateLoginData(string $email,string $password): void
+    private function validateLoginData(string $email,string $password): void
     {
         $loginValidator = new LoginValidator();
         $loginValidator->validate($email, $password);
@@ -172,7 +181,7 @@ class LoginController
      *
      * @return void
      */
-    public static function logout(): void
+    public function logout(): void
     {
         // Initialize the session
         if(!isset($_SESSION)){ 
@@ -195,7 +204,7 @@ class LoginController
      *
      * @return void
      */
-    private static function isUserAlreadyLoggedIn(): void
+    private function isUserAlreadyLoggedIn(): void
     {
         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
             redirect('/');

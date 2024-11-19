@@ -1,31 +1,27 @@
 <?php
 
-namespace App\Controllers\UploadControllers;
+namespace App\Controllers\UploadDownloadCsv;
 
+use App\controllers\Controller;
 use Exception;
 use App\Models\Upload;
 use System\request\RequestInterface;
 use App\Report\ReportDomain\Reportable;
 
 /**
- * In this class we have a nice example how inheritance is working with static properties and 
- * methods. 
- * 
  * All the heavy work is done by the Upload model.
- * 
- * Also, we use here static instead of the self.
  */
-class UploadController
+class UploadController extends Controller
 {
 
     /**
-     * This method is called by the router, and it returns the file upload view.
+     * Returns the file upload view.
      *
      * @return void
      */
-    public static function displayUploadPage(): void
+    public function displayUploadPage(): void
     {
-        returnView('upload');
+        $this->view('upload');
     }
 
     /**
@@ -40,7 +36,7 @@ class UploadController
      * 
      * @return void
      */
-    public static function store(RequestInterface $request): void
+    public function store(RequestInterface $request): void
     {
         
         /**
@@ -54,9 +50,8 @@ class UploadController
          */
         $upload = new Upload($uploadData);
 
-        $t = 8;
-
         try {
+
             $file = $upload->storeFile();
 
             /**
@@ -68,11 +63,8 @@ class UploadController
              * contain the .csv file) will have implemented a Reportable interface.
              */
             if ($file instanceof Reportable) {
-                $t = 8;
                 $report = $file->getReport();
-
             } else {
-                $t = 8;
                 $report = null;
             }
             
@@ -86,8 +78,16 @@ class UploadController
 
             $message = $error->getMessage();
             $alertType = 'alert-warning';
+            $report = null;
         }
         
-        returnView('upload', compact('message', 'alertType', 'report'));
+        $this->view(
+            'upload',
+            [
+                'message' => $message,
+                'alertType' => $alertType,
+                'report' => $report
+            ]
+        );
     }
 }
