@@ -3,7 +3,6 @@
 namespace App\controllers;
 
 use Jenssegers\Blade\Blade;
-use Illuminate\View\Compilers\BladeCompiler;
 
 /**
  * This is the parent class for all web page diplaying (non api related) controllers.
@@ -47,10 +46,7 @@ class Controller
 
         // The blade views are at the resources/views directory.
         $this->views = $rootDir . '/resources/views';
-
-        
         $this->cache = $rootDir . '/cache';// The blade cache is at the bootstrap/cache directory.
-        
         $this->blade = new Blade($this->views, $this->cache);
     }
 
