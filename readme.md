@@ -11,7 +11,7 @@ Soooo... This has the next features:
 - Connects to a mysql db 
 - registering and and login with credentials validation. App uses middleware.
 - has MVC architecture
-- For frontend displaying, we use php files, in a similar manner like Laravel/Blade. Header, footer is also a reusable php file.
+- For frontend displaying, we use Blade. As in Laravel.
 - composer is used for loading classes and for running scripts (migration and seeding) 
 - CRUD (create, read, update, delete) features on user objects through webpage
 - CRUD (create, read, update, delete) features on user objects the apps API endpoint
@@ -22,7 +22,7 @@ the sums of costs, and then it will create a downloadable .csv file report with 
 - logging errors with exceptions
 - env variables are in .env file like in Laravel
 - works through Docker too, and from local Xampp + MySQL database too
-- uses xdebug for debugging (fully set)
+- uses xdebug for debugging (fully set, works when app runs through Docker)
 
 All these features will be explained in details, below.
 
@@ -37,7 +37,7 @@ All these features will be explained in details, below.
  (type these things in the root dir)
  - run `docker-compose build`
  - run `docker-compose up`
- - run `docker-compose exec -it webpage-template bash`
+ - run `docker-compose exec -it php-container bash`
  
  ### in docker bash (not in the code editor terminal!!!)
  - run `composer install`
@@ -120,6 +120,7 @@ Note: the files necesary to do request/response are here: ./system.
 We can upload .jpg or .png images to this app. And .csv files.
 The upload happens here: http://localhost:8889/upload
 
+
 ### 3.4.1 Image uploading
 
 The image will be stored separatelly for every user. Every uploading user will have a personal dir in the storage\upload dir. This personal dir will be named after the users email address. If the user uploads multiple documents, naturally all these documents will be stored only in one place: in his directory.
@@ -199,6 +200,23 @@ MIDDLEWARE: Only the login, register, logout views are accessible for a not-logg
 in the $_SUPERGLOBAL, if the user is logged in.
 
 
-## 3.9 Student - Quantox task - UNFINISHED
+## 3.9 Student - Quantox task
 This task is not finished yet.
+
+## 4.0 Train - Antiloop task
+This was a code challenge from Antiloop company. There are two train stations, A and B. This is an
+example train schedule for one day:
+From A to B
+09:00 12:00
+10:00 13:00
+11:00 12:30
+From B to A 
+12:02 15:00
+09:00 10:30 
+The needs to calculate how many trains need to be at A and B station at the beginning of the day.
+This is just a quick description,, for more details see the official task.
+To handle this task, just open app\console\TrainCommand.php, there you will have all the instructions.
+
+## 4.1 PHP DebugBar
+This app uses PHP Debugbar.
 
