@@ -1,4 +1,6 @@
-<?php require 'partials/header.php';?>
+@extends('layout')
+
+@section('content')
 
 <h1>Users</h1>
 
@@ -14,32 +16,30 @@
         <th>Email</th>
         <th>Delete user</th>
     </tr>
-    <?php foreach ($users as $user): ?>
+    @foreach ($users as $user)
         <!--This is the fancy version of the foreach loop. The ':' is needed-->
         <tr>
-            <td><?= $user->id; ?></td>
+            <td>{{ $user->id }}</td>
             <td>
-                <a href='/users/<?= $user->id; ?>'>
-                    <?= $user->username; ?> 
+                <a href='/users/{{ $user->id }}'>
+                    {{ $user->username }} 
                 </a>
             </td>
-            <td><?= $user->firstname; ?></td>
-            <td><?= $user->lastname; ?></td>
-            <td><?= $user->email; ?></td>
+            <td>{{ $user->firstname }}</td>
+            <td>{{ $user->lastname }}</td>
+            <td>{{ $user->email }}</td>
             <td>
                 <!-- 
  * Most browser do not support DELETE as method parameter for <form ...>
  * Source: https://stackoverflow.com/questions/33785415/deleting-a-file-on-server-by-delete-form-method
  * So instead of DELETE method, we use POST method
                  -->
-                <form method='POST' action='/user/delete/<?= $user->id; ?>'>
+                <form method='POST' action='/user/delete/{{ $user->id }}'>
                     <button type='submit' class='btn btn-outline-danger btn-small'>Delete</button>
                 </form>
             </td>
         </tr>
-    <!-- This is how the fancy foreach loop ends -->
-    <?php endforeach;?>
-    
+    @endforeach
 </table>
 
-<?php require 'partials/footer.php';?>
+@endsection

@@ -1,30 +1,30 @@
 <?php
 
-namespace App\controllers\webControllers;
+namespace App\controllers;
 
 use App\models\User;
 use System\request\RequestInterface;
-use App\controllers\WebControllers\WebController;
+use App\controllers\Controller;
 
 /**
  * Handles all User related requests coming from the web page. API User requests are handled by the
  * UserApiController.
  */
-class UserWebController extends WebController
+class UserController extends Controller
 {
-    public static function index(): void
+    public function index(): void
     {
         $users = User::orderBy('id', 'desc')->get();
 
-        returnView('index', compact('users'));
+        $this->view('userIndex', ['users' => $users]);
     }
     
-    public static function show(string $id): void
+    public function show(string $id): void
     {
         $user = User::find($id);
         $desiredView = 'show';
 
-        returnView('user', compact('user', 'desiredView'));
+        $this->view('user', ['user' => $user, 'desiredView' => $desiredView]);
     }
 
     /**
@@ -32,14 +32,14 @@ class UserWebController extends WebController
      *
      * @return void
      */
-    public static function create(): void
+    public function create(): void
     {
         $desiredView = 'create';
+        $this->view('user', ['desiredView' => $desiredView]);
 
-        returnView('user', compact('desiredView'));
     }   
 
-    public static function store(RequestInterface $request): void
+    public function store(RequestInterface $request): void
     {
         $requestDataArray = $request->getAllRequestData();
         User::create($requestDataArray);
@@ -48,7 +48,7 @@ class UserWebController extends WebController
         redirect('users');
     }   
 
-    public static function update($id, RequestInterface $request): void
+    public function update($id, RequestInterface $request): void
     {
         $user = User::find($id);
         $data = $request->getAllRequestData();
@@ -67,7 +67,7 @@ class UserWebController extends WebController
      * 
      * @return void
      */
-    public static function delete(string $id): void
+    public function delete(string $id): void
     {
         User::destroy($id);
 
