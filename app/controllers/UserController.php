@@ -12,6 +12,11 @@ use App\controllers\Controller;
  */
 class UserController extends Controller
 {
+    /**
+     * Shows all users.
+     *
+     * @return void
+     */
     public function index(): void
     {
         $users = User::orderBy('id', 'desc')->get();
@@ -19,6 +24,12 @@ class UserController extends Controller
         $this->view('userIndex', ['users' => $users]);
     }
     
+    /**
+     * Shows the user with the given id.
+     *
+     * @param string $id
+     * @return void
+     */
     public function show(string $id): void
     {
         $user = User::find($id);
@@ -29,25 +40,42 @@ class UserController extends Controller
 
     /**
      * Only returns the form for creating, it does not actually creates a user. 
+     * Currently, the user can be created only from the register page. So the create() and store()
+     * methods are commented out.
      *
      * @return void
      */
-    public function create(): void
-    {
-        $desiredView = 'create';
-        $this->view('user', ['desiredView' => $desiredView]);
+    // public function create(): void
+    // {
+    //     $desiredView = 'create';
+    //     $this->view('user', ['desiredView' => $desiredView]);
 
-    }   
+    // }   
 
-    public function store(RequestInterface $request): void
-    {
-        $requestDataArray = $request->getAllRequestData();
-        User::create($requestDataArray);
-        $savedUserId = User::orderBy('id', 'desc')->first()->id;
+    /**
+     * Saves the user to the database.
+     * Currently, the user can be created only from the register page. So the create() and store()
+     * methods are commented out.
+     *
+     * @param RequestInterface $request
+     * @return void
+     */
+    // public function store(RequestInterface $request): void
+    // {
+    //     $requestDataArray = $request->getAllRequestData();
+    //     User::create($requestDataArray);
+    //     $savedUserId = User::orderBy('id', 'desc')->first()->id;
 
-        redirect('users');
-    }   
+    //     redirect('users');
+    // }   
 
+    /**
+     * Updates the user in the database.
+     *
+     * @param [type] $id
+     * @param RequestInterface $request
+     * @return void
+     */
     public function update($id, RequestInterface $request): void
     {
         $user = User::find($id);
