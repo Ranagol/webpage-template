@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "98be8adf86adc7658dface89017e9e28",
-=======
-    "content-hash": "9fa3be7c7e16b3ddb28093202e9b6748",
->>>>>>> debugbar
+    "content-hash": "6773dc5d851e40f3d5b1b713552046a3",
     "packages": [
         {
             "name": "bramus/router",
@@ -607,7 +603,6 @@
                 }
             ],
             "time": "2024-07-18T11:15:46+00:00"
-<<<<<<< HEAD
         },
         {
             "name": "illuminate/bus",
@@ -661,8 +656,6 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2022-03-07T15:02:42+00:00"
-=======
->>>>>>> debugbar
         },
         {
             "name": "illuminate/collections",
@@ -1165,7 +1158,6 @@
             "time": "2022-09-21T21:30:03+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "illuminate/view",
             "version": "v8.83.27",
             "source": {
@@ -1189,54 +1181,16 @@
                 "illuminate/macroable": "^8.0",
                 "illuminate/support": "^8.0",
                 "php": "^7.3|^8.0"
-=======
-            "name": "maximebf/debugbar",
-            "version": "v1.23.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "687400043d77943ef95e8417cb44e1673ee57844"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/687400043d77943ef95e8417cb44e1673ee57844",
-                "reference": "687400043d77943ef95e8417cb44e1673ee57844",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2|^8",
-                "psr/log": "^1|^2|^3",
-                "symfony/var-dumper": "^4|^5|^6|^7"
-            },
-            "require-dev": {
-                "dbrekelmans/bdi": "^1",
-                "phpunit/phpunit": "^8|^9",
-                "symfony/panther": "^1|^2.1",
-                "twig/twig": "^1.38|^2.7|^3.0"
-            },
-            "suggest": {
-                "kriswallsmith/assetic": "The best way to manage assets",
-                "monolog/monolog": "Log using Monolog",
-                "predis/predis": "Redis storage"
->>>>>>> debugbar
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
                     "dev-master": "8.x-dev"
-=======
-                    "dev-master": "1.23-dev"
->>>>>>> debugbar
                 }
             },
             "autoload": {
                 "psr-4": {
-<<<<<<< HEAD
                     "Illuminate\\View\\": ""
-=======
-                    "DebugBar\\": "src/DebugBar/"
->>>>>>> debugbar
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1245,7 +1199,6 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
                     "name": "Taylor Otwell",
                     "email": "taylor@laravel.com"
                 }
@@ -1319,7 +1272,54 @@
                 }
             ],
             "time": "2020-09-17T08:25:26+00:00"
-=======
+        },
+        {
+            "name": "maximebf/debugbar",
+            "version": "v1.23.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maximebf/php-debugbar.git",
+                "reference": "687400043d77943ef95e8417cb44e1673ee57844"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/687400043d77943ef95e8417cb44e1673ee57844",
+                "reference": "687400043d77943ef95e8417cb44e1673ee57844",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2|^8",
+                "psr/log": "^1|^2|^3",
+                "symfony/var-dumper": "^4|^5|^6|^7"
+            },
+            "require-dev": {
+                "dbrekelmans/bdi": "^1",
+                "phpunit/phpunit": "^8|^9",
+                "symfony/panther": "^1|^2.1",
+                "twig/twig": "^1.38|^2.7|^3.0"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "The best way to manage assets",
+                "monolog/monolog": "Log using Monolog",
+                "predis/predis": "Redis storage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.23-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DebugBar\\": "src/DebugBar/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
                     "name": "Maxime Bouroumeau-Fuseau",
                     "email": "maxime.bouroumeau@gmail.com",
                     "homepage": "http://maximebf.com"
@@ -1340,7 +1340,6 @@
                 "source": "https://github.com/maximebf/php-debugbar/tree/v1.23.3"
             },
             "time": "2024-10-29T12:24:25+00:00"
->>>>>>> debugbar
         },
         {
             "name": "nesbot/carbon",
@@ -2092,7 +2091,6 @@
             "time": "2024-04-18T09:32:20+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "symfony/finder",
             "version": "v5.4.45",
             "source": {
@@ -2170,22 +2168,6 @@
                 "shasum": ""
             },
             "require": {
-=======
-            "name": "symfony/polyfill-ctype",
-            "version": "v1.31.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "a3cc8b044a6ea513310cbd48ef7333b384945638"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/a3cc8b044a6ea513310cbd48ef7333b384945638",
-                "reference": "a3cc8b044a6ea513310cbd48ef7333b384945638",
-                "shasum": ""
-            },
-            "require": {
->>>>>>> debugbar
                 "php": ">=7.2"
             },
             "provide": {
@@ -2988,17 +2970,6 @@
             "time": "2024-04-18T09:32:20+00:00"
         },
         {
-<<<<<<< HEAD
-            "name": "vlucas/phpdotenv",
-            "version": "v5.6.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "a59a13791077fe3d44f90e7133eb68e7d22eaff2"
-            },
-            "dist": {
-                "type": "zip",
-=======
             "name": "symfony/var-dumper",
             "version": "v6.4.15",
             "source": {
@@ -3093,7 +3064,6 @@
             },
             "dist": {
                 "type": "zip",
->>>>>>> debugbar
                 "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/a59a13791077fe3d44f90e7133eb68e7d22eaff2",
                 "reference": "a59a13791077fe3d44f90e7133eb68e7d22eaff2",
                 "shasum": ""
@@ -4879,10 +4849,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }

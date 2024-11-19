@@ -1,14 +1,5 @@
 <?php
 
-// Here we do dotenv boostraping, to load variables from .env file into $_ENV superglobal
-require __DIR__ . '/bootDotenv.php';
-
-//Here we do Eloquent setup: we use Eloquent the same way is it is used in Laravel
-require __DIR__ . '/bootEloquent.php';
-
-//router setup: we use bramus router in order to activate with url's the controllers
-require __DIR__ . '/../routes/routes.php';
-
 /**
  * A little explanation here: this bootstrap.php file is directly connected with a 'require' to the
  * main index.php. This means, that these functions from bootstrap.php will be available everywhere
@@ -18,26 +9,14 @@ require __DIR__ . '/../routes/routes.php';
  * These two functions will be used by controllers, similar like in Laravel.
  */
 
-use Dotenv\Dotenv;
-
-/**
- * dotenv setup: we use dotenv to load all .env variables into the $_ENV superglobal, from where it 
- * will be available for further actions.
- * Create a new immutable dotenv instance with default repository, 
- * it's path must point to the app root dir
- * loads all .env variables into the $_ENV superglobal, from where they will be available to us
- */
-$dotenv = Dotenv::createImmutable(__DIR__  . '/../');
-$dotenv->load();
-
-//Here we do Blade template engine setup
-require __DIR__ . '/../bootstrap/bootBlade.php';
-
 //Here we do Eloquent setup: we use Eloquent the same way is it is used in Laravel
 require __DIR__ . '/../bootstrap/bootEloquent.php';
 
 //router setup: we use bramus router in order to activate with url's the controllers
 require __DIR__ . '/../routes/routes.php';
+
+//Here we do dotenv setup
+require __DIR__ . '/../bootstrap/bootDotenv.php';
 
 /**
  * This function will be used for returning views in the PageController.

@@ -46,7 +46,7 @@ class Controller
         $this->views = $rootDir . '/resources/views';
 
         // The blade cache is at the bootstrap/cache directory.
-        $this->cache = $rootDir . '/bootstrap/cache';
+        $this->cache = $rootDir . '/cache';
         
         $this->blade = new Blade($this->views, $this->cache);
     }
