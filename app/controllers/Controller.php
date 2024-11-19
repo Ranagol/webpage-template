@@ -11,7 +11,9 @@ use Illuminate\View\Compilers\BladeCompiler;
 class Controller
 {
     /**
-     * The Blade instance.
+     * The Blade instance. The full Blade setup is happening here in the Controller class. Any class
+     * that inherits this class will have access to the Blade instance. So all controllers that need
+     * to display blade views will inherit this class.
      *
      * @var Blade
      */

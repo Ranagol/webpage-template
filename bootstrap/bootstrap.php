@@ -19,6 +19,7 @@ require __DIR__ . '/../routes/routes.php';
 require __DIR__ . '/../bootstrap/bootDotenv.php';
 
 /**
+ * THIS FUNCTION IS BEING REPLACED BY BLADE VIEWS.
  * This function will be used for returning views in the PageController.
  * It is similar to Laravel's view().
  * 
