@@ -62,11 +62,9 @@ require_once __DIR__ . '/routesAuthentication.php';//everything regarding login 
 
 require_once __DIR__ . '/routesUser.php';//'normal' web page requests for user CRUD
 
-require_once __DIR__ . '/routesUpload.php';//for uploading (images and csv files)
+require_once __DIR__ . '/routesUploadDownloadCsv.php';//for uploading (images and csv files) and downloading (csv files)
 
 require_once __DIR__ . '/routesGuzzle.php';//for Guzzle stuff
-
-require_once __DIR__ . '/routesDownload.php';//for donwloading a calculated .csv file
 
 require_once __DIR__ . '/routesStudent.php';//for the Quantox/Student task. Unfinished.
 

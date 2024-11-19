@@ -142,19 +142,14 @@ class Upload extends Model
             \unlink($path);
         }
 
-        $t = 8;
-
         //place the uploaded file into the new dir
         try {
-            $t = 8;
             $report = move_uploaded_file(
                 $_FILES["file"]["tmp_name"],
                 __DIR__ . '/../../storage/upload/' . $email . '/' . $this->getFileName()
             );
         } catch (Exception $error) {
-
-            $t = 8;
-            echo $error->getErrorMessage();
+            echo $error->getMessage();
         }
     }
 
@@ -193,7 +188,6 @@ class Upload extends Model
     private function validateFileType(): void
     {
         if (!in_array($this->getFileType(), $this->getAllowedFileFormats())) {
-            $t = 8;
             throw new Exception('Error: Please select a valid file format.');
         }
     }
@@ -214,7 +208,7 @@ class Upload extends Model
             $this->setFileType($uploadData["file"]["type"]);
             $this->setFileSize($uploadData["file"]["size"]);
         } else {
-            throw new Exception('Error with uploading: ' . $uploadData['file']['error']);
+            throw new Exception('Error with uploading.');
         }
     }
 

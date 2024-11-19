@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\DownloadControllers;
+namespace App\Controllers\UploadDownloadCsv;
 
 use System\request\RequestInterface;
 use System\response\downloadResponse\DownloadResponse;
@@ -18,7 +18,7 @@ class DownloadController
      * 
      * @return void
      */
-    public static function download(RequestInterface $request): void
+    public function download(RequestInterface $request): void
     {
         $dataToDownload = $request->getAllRequestData();
         $dowloadResponse = new DownloadResponse($dataToDownload);
