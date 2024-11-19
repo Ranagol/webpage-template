@@ -201,7 +201,10 @@ in the $_SUPERGLOBAL, if the user is logged in.
 
 
 ## 3.9 Student - Quantox task
-This task is not finished yet.
+This code challenge was from Quantox company. The task was:
+if an API request is sent to this app's url, for example /webpage-template/students/1,
+then the response must had the details of this student, with calculated averages and passed/not passed
+final decision. This is just a very simple description of the task, for more details see the task.
 
 ## 4.0 Train - Antiloop task
 This was a code challenge from Antiloop company. There are two train stations, A and B. This is an
