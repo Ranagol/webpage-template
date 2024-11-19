@@ -3,7 +3,6 @@
 use App\Controllers\HomeController;
 use App\Controllers\AboutController;
 use App\Controllers\ContactController;
-use App\controllers\webControllers\PageController;
 
 //WEBPAGE ROUTES**********************
 

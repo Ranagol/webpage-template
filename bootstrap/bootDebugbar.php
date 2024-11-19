@@ -18,11 +18,3 @@ $debugbar["messages"]->addMessage("Hello world!");
 $debugbar['messages']->addMessage('This is a warning', 'warning');
 $debugbar['messages']->addMessage('This is an error', 'error');
 
-// Measuring time
-// Enable the time collector
-$debugbar['time']->startMeasure('operation_name', 'Operation Description');
-sleep(2);
-$debugbar['time']->stopMeasure('operation_name');//How and where to see the time measurement?
-
-// Memory usage
-// $debugbar['memory']->addMessage('Memory usage at this point');//not working, what is the problem?
