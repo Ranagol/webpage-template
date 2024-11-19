@@ -98,3 +98,31 @@ The exception was created on this line: 175.
 /srv/www/vendor/symfony/console/Application.php on line 301
 /srv/www/vendor/symfony/console/Application.php on line 171
 /srv/www/console.php on line 16
+
+2024-11-19 18:15:21 - Error message: {"firstnameError":"Please enter a firstname.","lastNameError":"Please enter a lastname.","emailError":"Please enter an email."}.
+The exceptions was created in this file: /srv/www/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/srv/www/app/validators/RegisterValidator.php on line 43
+/srv/www/app/controllers/authControllers/RegisterController.php on line 154
+/srv/www/app/controllers/authControllers/RegisterController.php on line 58
+/srv/www/routes/routesAuthentication.php on line 16
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/routes/routes.php on line 87
+/srv/www/bootstrap/bootstrap.php on line 31
+/srv/www/public/index.php on line 13
+
+2024-11-19 18:16:44 - Error message: {"emailError":"Please enter an email."}.
+The exceptions was created in this file: /srv/www/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/srv/www/app/Validators/LoginValidator.php on line 27
+/srv/www/app/controllers/authControllers/LoginController.php on line 176
+/srv/www/app/controllers/authControllers/LoginController.php on line 57
+/srv/www/routes/routesAuthentication.php on line 28
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/routes/routes.php on line 87
+/srv/www/bootstrap/bootstrap.php on line 31
+/srv/www/public/index.php on line 13

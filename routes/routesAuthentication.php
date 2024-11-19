@@ -6,27 +6,30 @@ use App\controllers\authControllers\RegisterController;
 
 //register page loading
 $router->get('/register', function () {
-    RegisterController::loadRegisterPage();
+    $registerController = new RegisterController();
+    $registerController->loadRegisterPage();
 });
 
 //registering the user
 $router->post('/register', function () {
-    RegisterController::register(new WebPageRequest());
+    $registerController = new RegisterController();
+    $registerController->register(new WebPageRequest());
 });
 
 //login page loading
 $router->get('/login', function () {
-    LoginController::loadLoginPage();
+    $loginController = new LoginController();
+    $loginController->loadLoginPage();
 });
 
 //logging in a user
 $router->post('/login', function () {
-    // var_dump('login post form activated');
-    LoginController::login(new WebPageRequest());
+    $loginController = new LoginController();
+    $loginController->login(new WebPageRequest());
 });
 
 //logout
 $router->get('/logout', function () {
-    // var_dump('logout route activated');
-    LoginController::logout();
+    $loginController = new LoginController();
+    $loginController->logout();
 });
