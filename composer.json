@@ -21,8 +21,8 @@
     },
     "scripts": {
 		"test-logger": "App\\Testing::displayMessage",
-        "migrate": "@php Database/migrations/createTablesInDatabase.php",
-        "seed": "@php Database/seeders/seedDatabase.php"
+        "migrate": "@php database/migrations/createTablesInDatabase.php",
+        "seed": "@php database/seeders/seedDatabase.php"
 	},
     "scripts-descriptions": {
         "test-logger": "This is just a test to see how basic php script activation is working. Just write composer test-logger into the terminal.",
