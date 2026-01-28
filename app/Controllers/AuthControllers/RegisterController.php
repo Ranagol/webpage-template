@@ -2,7 +2,7 @@
 
 namespace App\Controllers\AuthControllers;
 
-use App\controllers\Controller;
+use App\Controllers\Controller;
 use App\models\User;
 use System\request\RequestInterface;
 use App\validators\RegisterValidator;

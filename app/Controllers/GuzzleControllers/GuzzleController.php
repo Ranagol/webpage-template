@@ -2,7 +2,7 @@
 
 namespace App\Controllers\GuzzleControllers;
 
-use App\controllers\Controller;
+use App\Controllers\Controller;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 

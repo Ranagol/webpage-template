@@ -2,7 +2,7 @@
 
 namespace App\Controllers\UploadDownloadCsv;
 
-use App\controllers\Controller;
+use App\Controllers\Controller;
 use Exception;
 use App\Models\Upload;
 use System\request\RequestInterface;

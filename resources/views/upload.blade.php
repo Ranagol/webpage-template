@@ -3,7 +3,7 @@
 @section('content')
 
 @php
-    use App\models\User;
+    use App\Models\User;
 
     if(!isset($_SESSION)){ 
         session_start(); 

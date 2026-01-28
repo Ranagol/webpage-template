@@ -2,9 +2,9 @@
 
 namespace App\Controllers\ApiControllers;
 
-use App\models\User;//This is an Eloquent modell
+use App\Models\User;//This is an Eloquent modell
 use System\request\RequestInterface;
-use App\controllers\apiControllers\ApiController;
+use App\Controllers\ApiControllers\ApiController;
 use System\response\apiResponse\userResponse\UserApiResponse;
 
 /**
