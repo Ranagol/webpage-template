@@ -80,8 +80,10 @@ The navbar displays always, if the user is logged in or not. If the user is logg
 - Login: http://localhost:8889/login
 - Register: http://localhost:8889/register
 
-## 3.2 Views
+## 3.2 Blade views
 
+The app uses Blade views, exactly like Laravel. The /cache dir is used to 'remember' the already
+compiled Blade views, so next time they are loaded faster.
 Every view has a header, footer and a navbar. These are reusable components. Views are here: 
 resources\views.
 The navbar displays always, if the user is logged in or not. If the user is logged in, then a 'Hi, ...' is displayed in navbar.
