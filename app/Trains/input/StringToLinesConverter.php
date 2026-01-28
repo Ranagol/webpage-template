@@ -1,6 +1,6 @@
 <?php
 
-namespace App\trains\input;
+namespace App\Trains\Input;
 
 
 /**

@@ -3,9 +3,9 @@
 namespace App\Controllers\AuthControllers;
 
 use App\Controllers\Controller;
-use App\models\User;
+use App\Models\User;
 use System\request\RequestInterface;
-use App\validators\RegisterValidator;
+use App\Validators\RegisterValidator;
 use App\Exceptions\ValidationException;
 
 /**

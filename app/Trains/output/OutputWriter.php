@@ -1,6 +1,6 @@
 <?php
 
-namespace App\trains\output;
+namespace App\Trains\Output;
 
 class OutputWriter
 {

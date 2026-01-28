@@ -1,8 +1,8 @@
 <?php
 
-namespace App\trains\calculation;
+namespace App\Trains\Calculation;
 
-use App\trains\input\Schedule;
+use App\Trains\Input\Schedule;
 
 class TrainCalculator
 {

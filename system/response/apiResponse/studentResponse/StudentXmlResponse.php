@@ -4,7 +4,7 @@ namespace System\response\apiResponse\studentResponse;
 
 use App\Models\Student;
 use System\response\apiResponse\studentResponse\AbstractStudentResponse;
-use App\student\SchoolCSMB;
+use App\Student\SchoolCSMB;
 
 /**
  * When we student is from CSMB school, we send a xml response. This xml response is created in this

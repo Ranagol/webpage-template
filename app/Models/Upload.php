@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Exception;
-use App\models\User;
+use App\Models\User;
 use App\Report\CsvReader\CsvReader;
 use Illuminate\Database\Eloquent\Model;
 use App\Report\ReportDomain\CsvFile;

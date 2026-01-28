@@ -1,8 +1,8 @@
 <?php
 
-namespace App\student;
+namespace App\Student;
 
-use App\models\Student;
+use App\Models\Student;
 
 class SchoolCSMB extends School
 {

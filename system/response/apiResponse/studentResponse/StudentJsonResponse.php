@@ -4,7 +4,7 @@ namespace System\response\apiResponse\studentResponse;
 
 use App\Models\Student;
 use System\response\apiResponse\studentResponse\AbstractStudentResponse;
-use App\student\SchoolCSM;
+use App\Student\SchoolCSM;
 
 /**
  * When we student is from CSM school, we send a json response. This json response is created in this

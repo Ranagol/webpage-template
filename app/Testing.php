@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\logger\Logger;
+use App\Logger\Logger;
 
 /**
  * This class is used, to test the composer scripts. 

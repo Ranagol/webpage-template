@@ -1,11 +1,11 @@
 <?php
 
-namespace App\trains;
+namespace App\Trains;
 
-use App\trains\input\ScheduleMaker;
-use App\trains\output\OutputWriter;
-use App\trains\input\StringToLinesConverter;
-use App\trains\calculation\TrainCalculator;
+use App\Trains\Input\ScheduleMaker;
+use App\Trains\Output\OutputWriter;
+use App\Trains\Input\StringToLinesConverter;
+use App\Trains\Calculation\TrainCalculator;
 
 /**
  * This is the main service class. It is responsible for handling the whole train task.

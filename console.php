@@ -2,8 +2,8 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
-use App\console\HelloCommand;
-use App\console\TrainCommand;
+use App\Console\HelloCommand;
+use App\Console\TrainCommand;
 
 // Create a new Symfony Console application
 $application = new Application();

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\trains\input;
+namespace App\Trains\Input;
 
 use App\Trains\Input\TripAb;
 use App\Trains\Input\TripBa;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\student;
+namespace App\Student;
 
 use App\Models\Student;
 abstract class School

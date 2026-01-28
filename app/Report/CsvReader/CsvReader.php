@@ -3,7 +3,7 @@
 namespace App\Report\CsvReader;
 
 use Exception;
-use App\logger\Logger;
+use App\Logger\Logger;
 use App\Report\ReportDomain\Line;
 use App\Report\ReportDomain\Price;
 use App\Report\ReportDomain\Amount;

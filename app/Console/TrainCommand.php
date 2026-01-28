@@ -1,11 +1,11 @@
 <?php
-namespace App\console;
+namespace App\Console;
 
-use App\trains\TrainService;
-use App\trains\input\ScheduleMaker;
-use App\trains\output\OutputWriter;
-use App\trains\calculation\TrainCalculator;
-use App\trains\input\StringToLinesConverter;
+use App\Trains\TrainService;
+use App\Trains\Input\ScheduleMaker;
+use App\Trains\Output\OutputWriter;
+use App\Trains\Calculation\TrainCalculator;
+use App\Trains\Input\StringToLinesConverter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
