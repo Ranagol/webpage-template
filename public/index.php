@@ -1,5 +1,12 @@
 <?php 
 /**
+ * Suppress deprecation warnings from older packages not fully compatible with PHP 8.5
+ * This is an old app, with some old (not upgradable packages), so to avoid flooding the logs
+ * with deprecation warnings, we suppress them here.
+ */
+error_reporting(E_ALL & ~E_DEPRECATED);
+
+/**
  * This will start autoload.
  */
 require __DIR__ . '/../vendor/autoload.php';
