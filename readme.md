@@ -21,7 +21,7 @@ the sums of costs, and then it will create a downloadable .csv file report with 
 - send API request to https://dummyapi.io/, and display the received response
 - logging errors with exceptions
 - env variables are in .env file like in Laravel
-- works through Docker too, and from local Xampp + MySQL database too
+- works through Docker
 - uses xdebug for debugging (fully set, works when app runs through Docker)
 
 All these features will be explained in details, below.
@@ -65,13 +65,6 @@ Database (HeidiSQL/DBeaver): localhost:13306
 Xdebug is set to work. It works when the app runs through Docker, it will not work for your local
 Xammp + MySQL enviroment.
 
-
-## 2.2 Run this app with PHP server for the first time
-- start your xampp and sql (apache is not needed)
-- connect the app to your database. Use the .env file for sensitive database credentials. Of course, this db must be created first.
-- in the terminal, run 'composer migrate'. This will create a users table in the db, necesary for user login and registration.
-- Go to webpage-template/public dir. With terminal. Type 'php -S localhost:8889'
-- Then just go to http://localhost:8889
 
 
 
@@ -191,6 +184,11 @@ All future models should inherit Illuminate\Database\Eloquent\Model; like it was
 app\models\User.php. After this setup we can use models like in Laravel.
 illuminate/database composer package is used for this feature.
 The users and the seeders table is created by migrations, and seeded by a seeder.
+
+(Enter into the php container with: docker-compose exec -it php-container bash )
+Migration command: composer migrate
+Seeding command: composer seed
+
 
 ## 3.8 Routes
 
