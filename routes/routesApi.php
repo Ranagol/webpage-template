@@ -1,7 +1,7 @@
 <?php
 
 use System\request\ApiRequest;
-use App\controllers\apiControllers\UserApiController;
+use App\Controllers\ApiControllers\UserApiController;
 
 // API ROUTES******************************************
 

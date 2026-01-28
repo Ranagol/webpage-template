@@ -1,7 +1,7 @@
 <?php
 
 use System\request\WebPageRequest;
-use App\controllers\UserController;
+use App\Controllers\UserController;
 
 //show all users
 $router->get('/users', function () {

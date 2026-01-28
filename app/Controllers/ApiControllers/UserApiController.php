@@ -1,6 +1,6 @@
 <?php
 
-namespace App\controllers\apiControllers;
+namespace App\Controllers\ApiControllers;
 
 use App\models\User;//This is an Eloquent modell
 use System\request\RequestInterface;

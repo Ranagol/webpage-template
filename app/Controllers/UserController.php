@@ -1,10 +1,10 @@
 <?php
 
-namespace App\controllers;
+namespace App\Controllers;
 
-use App\models\User;
+use App\Models\User;
 use System\request\RequestInterface;
-use App\controllers\Controller;
+use App\Controllers\Controller;
 
 /**
  * Handles all User related requests coming from the web page. API User requests are handled by the

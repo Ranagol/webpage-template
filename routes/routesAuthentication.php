@@ -1,8 +1,8 @@
 <?php
 
 use System\request\WebPageRequest;
-use App\controllers\authControllers\LoginController;
-use App\controllers\authControllers\RegisterController;
+use App\Controllers\AuthControllers\LoginController;
+use App\Controllers\AuthControllers\RegisterController;
 
 //register page loading
 $router->get('/register', function () {

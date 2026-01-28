@@ -76,6 +76,7 @@ This app has a hand-made vanilla registering and login system. The app 'remember
 login status.
 Both for registering and for login there is a fairly complex validation process, with error displaying.
 The navbar displays always, if the user is logged in or not. If the user is logged in, then a 'Hi, ...' is displayed in navbar.
+By default, the app does not allow unknown users to see the webpages (except the home page).
 
 - Login: http://localhost:8889/login
 - Register: http://localhost:8889/register

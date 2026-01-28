@@ -1,9 +1,9 @@
 <?php
 
-namespace App\controllers\authControllers;
+namespace App\Controllers\AuthControllers;
 
-use App\models\User;
-use App\controllers\Controller;
+use App\Models\User;
+use App\Controllers\Controller;
 use App\Validators\LoginValidator;
 use System\request\RequestInterface;
 use App\Exceptions\ValidationException;
