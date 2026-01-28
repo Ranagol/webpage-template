@@ -6,6 +6,9 @@ FROM php:apache
 # Copy docker/vhost.conf file from our host pc to etc/apache2/... location in the php container.
 COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
+# Set ServerName globally to suppress Apache warning
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 #The WORKDIR instruction sets the working directory for several commands 
 # such as RUN, CMD, ENTRYPOINT, COPY and ADD instructions.
 # this is the working directory inside docker system

@@ -57,6 +57,10 @@ If you want to connect your DBeaver to the Docker database container, connect li
 - Password: your password defined in your .env
 - Port: 13306   <---- don't forget this!!
 
+Web application: http://localhost:8088
+phpMyAdmin: http://localhost:8081
+Database (HeidiSQL/DBeaver): localhost:13306
+
 ### xdebug
 Xdebug is set to work. It works when the app runs through Docker, it will not work for your local
 Xammp + MySQL enviroment.

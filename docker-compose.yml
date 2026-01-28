@@ -55,8 +55,8 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
-      # so, the phpadmin will be available to us in the browser on localhost:8080
-      - '8080:80'
+      # so, the phpadmin will be available to us in the browser on localhost:8081
+      - '8081:80'
     restart: always
     environment:
       # PMA here simply means phpmyadmin
