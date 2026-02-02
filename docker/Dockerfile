@@ -1,7 +1,7 @@
 # docker, start from here. We will need this php: image, with that version. Pulls in Linux, ads PHP.
 # To always use the latest stable PHP version in your Dockerfile, you can use the php:apache tag. 
 # This tag will pull the latest stable version of PHP with Apache.
-FROM php:apache
+FROM php:8.3-apache
 
 # Copy docker/vhost.conf file from our host pc to etc/apache2/... location in the php container.
 COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
@@ -22,7 +22,7 @@ RUN docker-php-ext-install pdo pdo_mysql \
     && apt-get -y update \
     && apt-get -y install dialog apt-utils nano curl libxml2-dev net-tools libfontconfig1 libxrender1 libxext6 git zip unzip libpng-dev libonig-dev \
     libzip-dev libmagickwand-dev \
-    && docker-php-ext-install soap calendar zip gd \
+    && docker-php-ext-install soap calendar zip gd mbstring dom xml xmlwriter \
     && yes | pecl install xdebug
 
 
