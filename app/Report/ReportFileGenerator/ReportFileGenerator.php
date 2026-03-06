@@ -6,7 +6,7 @@ use App\Models\User;
 
 class ReportFileGenerator
 {
-    private string $reportFilePath;
+    private ?string $reportFilePath = null;
 
     private function getUserEmail(): string
     {
@@ -24,6 +24,10 @@ class ReportFileGenerator
      */ 
     public function getReportFilePath(): string
     {
+        if ($this->reportFilePath === null) {
+            $this->reportFilePath = __DIR__ . '/../../../storage/upload/' . $this->getUserEmail() . '/report.csv';
+        }
+
         return $this->reportFilePath;
     }
 }

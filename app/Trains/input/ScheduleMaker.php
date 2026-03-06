@@ -28,8 +28,8 @@ class ScheduleMaker {
     /**
      * Makes Schedule objects from the input lines.
      *
-     * @param array $lines
-     * @return array
+        * @param array<int, string> $lines
+        * @return array<int, Schedule>
      */
     public function handle(array $lines): array
     {
@@ -71,6 +71,8 @@ class ScheduleMaker {
      * Set the number of schedules, and removes them form the task data.
      * The $lines are is used by reference, so the original array will be changed. Notice the '&' sign.
      * array_shift returns the first element of the array and removes it from the array.
+        *
+        * @param array<int, string> $lines
      */
     private function getNumberOfSchedules(array &$lines): int
     {
@@ -89,7 +91,7 @@ class ScheduleMaker {
      * The $lines are is used by reference, so the original array will be changed. Notice the '&' sign.
      * array_shift returns the first element of the array and removes it from the array.
      *
-     * @param array $lines
+        * @param array<int, string> $lines
      * @return integer
      */
     private function extractTurnaroundTime(array &$lines): int
@@ -105,8 +107,8 @@ class ScheduleMaker {
      * The $lines are is used by reference, so the original array will be changed. Notice the '&' sign.
      * array_shift returns the first element of the array and removes it from the array.
      *
-     * @param array $lines
-     * @return array
+        * @param array<int, string> $lines
+        * @return array{0: int, 1: int}
      */
     private function extractNumberOfTrains(array &$lines): array
     {
@@ -122,10 +124,10 @@ class ScheduleMaker {
     /**
      * Creates trains from the extracted travel times.
      *
-     * @param array $lines
+     * @param array<int, string> $lines
      * @param integer $numberOfTrains
      * @param float $turnaroundTime
-     * @return array
+     * @return array<int, Train>
      */
     private function createTrains(
         array &$lines, // Notice that here use array by reference: whatever we change here, it will be changed in the original array.
@@ -162,8 +164,8 @@ class ScheduleMaker {
      * Creates a schedule from the extracted data.
      *
      * @param integer $turnaroundTime
-     * @param array $trainsAtoB
-     * @param array $trainsBtoA
+        * @param array<int, Train> $trainsAtoB
+        * @param array<int, Train> $trainsBtoA
      * @return Schedule
      */
     private function createSchedule(

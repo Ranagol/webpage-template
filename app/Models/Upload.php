@@ -17,17 +17,17 @@ class Upload extends Model
     /**
      *  this is = to $_FILES now, we can treat $uploadData as the $_FILES
      *
-     * @var array
+     * @var array<string, mixed>
      */
-    private $uploadData;
+    private array $uploadData;
 
     /**
      * All the allowed upload formats are stored here.
      * The 'application/vnd.ms-excel' or 'text/csv' means .csv file.
      *
-     * @var array
+     * @var array<int, string>
      */
-    private $allowedFileFormats = [
+    private array $allowedFileFormats = [
         'image/jpg',
         'image/jpeg',
         'image/gif',
@@ -64,6 +64,7 @@ class Upload extends Model
      */
     private $maxFileSize = 5 * 1024 * 1024;
 
+    /** @param array<string, mixed> $uploadData */
     public function __construct(array $uploadData)
     {
         $this->uploadData = $uploadData;
@@ -227,7 +228,7 @@ class Upload extends Model
      *
      * @return  self
      */
-    public function setFileName($fileName): self
+    public function setFileName(string $fileName): self
     {
         $this->fileName = $fileName;
 
@@ -249,7 +250,7 @@ class Upload extends Model
      *
      * @return  self
      */
-    public function setFileType($fileType): self
+    public function setFileType(string $fileType): self
     {
         $this->fileType = $fileType;
 
@@ -259,9 +260,9 @@ class Upload extends Model
     /**
      * Get the value of fileSize
      * 
-     * @return string
+     * @return float
      */
-    public function getFileSize(): string
+    public function getFileSize(): float
     {
         return $this->fileSize;
     }
@@ -271,7 +272,7 @@ class Upload extends Model
      *
      * @return  self
      */
-    public function setFileSize($fileSize): self
+    public function setFileSize(float $fileSize): self
     {
         $this->fileSize = $fileSize;
 
@@ -281,7 +282,7 @@ class Upload extends Model
     /**
      * Get this is = to $_FILES now, we can treat $uploadData as the $_FILES
      *
-     * @return array
+     * @return array<string, mixed>
      */
     public function getUploadData(): array
     {
@@ -291,7 +292,7 @@ class Upload extends Model
     /**
      * Get the value of allowedFileFormats
      * 
-     * @return array
+     * @return array<int, string>
      */
     public function getAllowedFileFormats(): array
     {

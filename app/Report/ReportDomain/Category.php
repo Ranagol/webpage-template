@@ -24,7 +24,7 @@ class Category
      *
      * @return  self
      */ 
-    public function setCategory($category)
+    public function setCategory(string $category): self
     {
         $this->category = $category;
 

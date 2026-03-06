@@ -54,7 +54,7 @@ class Controller
      * Displays the Blade view.
      *
      * @param string $view
-     * @param array $data
+        * @param array<string, mixed> $data
      * @return void
      */
     public function view(string $view, array $data = []): void

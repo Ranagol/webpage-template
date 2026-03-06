@@ -3,6 +3,7 @@
 namespace App\Report\ReportDomain;
 
 use App\Report\ReportDomain\Reportable;
+use App\Report\ReportDomain\Line;
 
 class CsvFile implements Reportable
 {
@@ -17,17 +18,18 @@ class CsvFile implements Reportable
      * These are the raw lines freshly arrived from the CsvReader.php. This means that some of
      * these lines are duplicates, some of these lines have the same category.
      *
-     * @var array
+        * @var array<int, Line>
      */
     private array $lines = [];
 
     /**
      * Will contain the final report data in array, that we want to display for the user.
      *
-     * @var array
+     * @var array<string, float>
      */
-    private array $report;
+    private array $report = [];
 
+    /** @param array<int, Line> $lines */
     public function __construct(string $path, array $lines = [])
     {
         $this->path = $path;
@@ -78,7 +80,7 @@ class CsvFile implements Reportable
      *
      * @return  self
      */ 
-    public function setPath($path)
+    public function setPath(string $path): self
     {
         $this->path = $path;
 
@@ -88,7 +90,7 @@ class CsvFile implements Reportable
     /**
      * Get the value of lines
      * 
-     * @return array
+     * @return array<int, Line>
      */ 
     public function getLines(): array
     {
@@ -98,7 +100,7 @@ class CsvFile implements Reportable
     /**
      * Will get the final report data in array, that we want to display for the user.
      *
-     * @return  array
+     * @return  array<string, float>
      */ 
     public function getReport(): array
     {

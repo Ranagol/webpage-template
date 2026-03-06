@@ -10,7 +10,7 @@ class HelloCommand extends Command
     // Configure the command
     protected static $defaultName = 'hello';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Says Hello')
@@ -18,7 +18,7 @@ class HelloCommand extends Command
     }
 
     // Execute the command
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('Hello, World! Command was executed!');
         return Command::SUCCESS;

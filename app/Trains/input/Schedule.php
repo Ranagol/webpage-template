@@ -15,14 +15,14 @@ class Schedule {
     /**
      * Contains all TripAtoB objects in an array, that belong to this schedule.
      *
-     * @var array
+        * @var array<int, Train>
      */
     private array $trainsAtoB;
 
     /**
      * Contains all TripBtoA objects in an array, that belong to this schedule.
      *
-     * @var array
+        * @var array<int, Train>
      */
     private array $trainsBtoA;
 
@@ -44,6 +44,10 @@ class Schedule {
      */
     private int $numberOfTrainsInB = 0;
 
+    /**
+     * @param array<int, Train> $trainsAtoB
+     * @param array<int, Train> $trainsBtoA
+     */
     public function __construct(
         float $turnaroundTime, 
         array $trainsAtoB, 
@@ -59,6 +63,8 @@ class Schedule {
 
     /**
      * Get the value of trainsAtoB
+     *
+     * @return array<int, Train>
      */ 
     public function getTripsAtoB(): array
     {
@@ -67,10 +73,20 @@ class Schedule {
 
     /**
      * Get the value of trainsBtoA
+     *
+     * @return array<int, Train>
      */ 
     public function getTripsBtoA(): array
     {
         return $this->trainsBtoA;
+    }
+
+    /**
+     * Get the value of turnaroundTime
+     */
+    public function getTurnaroundTime(): float
+    {
+        return $this->turnaroundTime;
     }
 
     /**

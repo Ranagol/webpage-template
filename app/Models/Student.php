@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property array<int, int|float>|null $grades
  * @property string $board
- * @method static Student|null find(mixed $id, array $columns = ['*'])
- * @method static Student create(array $attributes = [])
+ * @method static Student|null find(mixed $id, array<int, string> $columns = ['*'])
+ * @method static Student create(array<string, mixed> $attributes = [])
  */
 class Student extends Model
 {
@@ -18,7 +18,7 @@ class Student extends Model
      * The student grades are stored as a json in db. We must cast it to an array, this is what
      * the $casts property does.
      *
-     * @var array
+     * @var array<string, string>
      */
     protected $casts = [
         'grades' => 'array',
@@ -27,7 +27,7 @@ class Student extends Model
     /**
      * We do not want to show the created_at and updated_at fields in the response.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $hidden = [
         'created_at',

@@ -34,9 +34,9 @@ class GuzzleController extends Controller
     /**
      * It is required to set app-id Header for each request.
      *
-     * @var array
+        * @var array<string, string>
      */
-    private $headers = ['app-id' => '612de3a4265d8631fe1d0028'];
+        private array $headers = ['app-id' => '612de3a4265d8631fe1d0028'];
 
     /**
      * Loads guzzle page
@@ -61,7 +61,7 @@ class GuzzleController extends Controller
          * This ['verify' => false] is a must, without this there will be some SSL error.
          */
         $client = new Client(['verify' => false]);
-        $url = $this->baseUri . $this->postsUri;
+        $url = $this->getBaseUri() . $this->getPostsUri();
         $headers = $this->getHeaders();
         $request = new Request(
             'GET', 
@@ -90,7 +90,7 @@ class GuzzleController extends Controller
     /**
      * Returns the headers.
      *
-     * @return array
+     * @return array<string, string>
      */
     private function getHeaders(): array
     {

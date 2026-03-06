@@ -24,7 +24,7 @@ class Price
      *
      * @return  self
      */ 
-    public function setPrice($price)
+    public function setPrice(float $price): self
     {
         $this->price = $price;
 

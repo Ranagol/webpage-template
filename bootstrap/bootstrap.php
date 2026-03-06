@@ -41,7 +41,7 @@ require __DIR__ . '/../bootstrap/bootDotenv.php';
  * actually expects a $data variable, and wants to display it.
  *
  * @param string $name  Example: 'home' or 'contact' or 'about'
- * @param array $data   The data that we want to send to the views.
+ * @param array<string, mixed> $data   The data that we want to send to the views.
  *
  * @return void
  */

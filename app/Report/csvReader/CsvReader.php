@@ -51,9 +51,16 @@ class CsvReader
             while (($lineFromCsv = fgetcsv($this->getFilePointer())) !== false) {
             //$lineFromCsv is an array of the csv elements
                 // print_r($lineFromCsv);
-                $category = new Category($lineFromCsv[0]);
-                $price = new Price($lineFromCsv[1]);
-                $amount = new Amount($lineFromCsv[2]);
+                $priceValue = $lineFromCsv[1] ?? null;
+                $amountValue = $lineFromCsv[2] ?? null;
+
+                if (!is_numeric($priceValue) || !is_numeric($amountValue)) {
+                    continue;
+                }
+
+                $category = new Category((string) ($lineFromCsv[0] ?? ''));
+                $price = new Price((float) $priceValue);
+                $amount = new Amount((float) $amountValue);
                 $line = new Line($category, $price, $amount);
                 $lines[] = $line;
             }
@@ -67,7 +74,11 @@ class CsvReader
             var_dump($e->getLine() . PHP_EOL);//gets the line in which the exception was created
 
             // Here we log the error in our logs
-            Logger::getInstance()->logError($e);
+            if ($e instanceof Exception) {
+                Logger::getInstance()->logError($e);
+            } else {
+                Logger::getInstance()->logError(new Exception($e->getMessage(), 0, $e));
+            }
 
 
         } finally {
@@ -96,7 +107,7 @@ class CsvReader
         }
     }
 
-    private function createFilePath(string $email, string $fileName)
+    private function createFilePath(string $email, string $fileName): void
     {
         $path = __DIR__ . '/../../../storage/upload/' . $email . '/' . $fileName;
 
@@ -106,7 +117,7 @@ class CsvReader
     /**
      * Get the value of fileNameWithPath
      */ 
-    public function getFileNameWithPath()
+    public function getFileNameWithPath(): string
     {
         return $this->fileNameWithPath;
     }
@@ -114,7 +125,7 @@ class CsvReader
     /**
      * Get the value of filePointer
      */ 
-    public function getFilePointer()
+    public function getFilePointer(): mixed
     {
         return $this->filePointer;
     }
@@ -122,7 +133,7 @@ class CsvReader
     /**
      * Get the value of csvFile
      */ 
-    public function getCsvFile()
+    public function getCsvFile(): CsvFile
     {
         return $this->csvFile;
     }

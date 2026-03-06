@@ -25,7 +25,7 @@ class TrainService
      * more details.
      *
      * @param string $taskData
-     * @return array
+        * @return array<int, string>
      */
     public function handle(string $taskData): array
     {

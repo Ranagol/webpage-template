@@ -2,15 +2,17 @@
 
 namespace App\Trains\Output;
 
+use App\Trains\Input\Schedule;
+
 class OutputWriter
 {
     /**
      * Returns an array, that contains the outputs in a string. One string output for every schedule.
      *
-     * @param array $schedules  Contains full schedules with the number of trains needed. All data is here. The number of trains too.
-     * @return array
+        * @param array<int, Schedule> $schedules  Contains full schedules with the number of trains needed. All data is here. The number of trains too.
+        * @return array<int, string>
      */
-    public function makeResponse(array $schedules)
+        public function makeResponse(array $schedules): array
     {
         /**
          * Contains the outputs in a string. One string output for every schedule. This is what will be

@@ -12,10 +12,10 @@ class TrainCalculator
      * We simply loop through every Schedule object, calculate the number of trains needed for every schedule,
      * add this result to the Schedule object, and return the array of Schedule objects.
      * 
-     * @param array $schedules
-     * @return array
+     * @param array<int, Schedule> $schedules
+     * @return array<int, Schedule>
      */
-    public function handle(array $schedules)
+    public function handle(array $schedules): array
     {
         foreach ($schedules as $schedule) {
             $this->calculate($schedule);

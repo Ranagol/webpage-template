@@ -9,10 +9,12 @@ namespace App\Trains\Input;
  */
 class StringToLinesConverter
 {
+    /** @return array<int, string> */
     public function transformStringToLines(string $taskData): array
     {
         // Split the string into an array of lines
         $lines = explode(PHP_EOL, $taskData);
+        $formattedLines = [];
 
         // Process each line
         foreach ($lines as $line) {

@@ -15,7 +15,7 @@ class TrainCommand extends Command
     // Configure the command
     protected static $defaultName = 'trains';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Solves the trains problem')
@@ -56,9 +56,9 @@ class TrainCommand extends Command
      * 
      * @param InputInterface $input
      * @param OutputInterface $output
-     * @return void
+    * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         // Start measuring the execution time
         $startTime = microtime(true);

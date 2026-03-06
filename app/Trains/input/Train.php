@@ -62,7 +62,7 @@ class Train
      */
     public function getArrivalTurnaroundSum(): CarbonImmutable
     {
-        return $this->arrivalTime->addMinutes($this->turnaroundTime);
+        return $this->arrivalTime->addMinutes((int) $this->turnaroundTime);
     }
 
     /**
@@ -100,7 +100,7 @@ class Train
      *
      * @return  void
      */ 
-    public function setIsReused($isReused): void
+    public function setIsReused(bool $isReused): void
     {
         $this->isReused = $isReused;
     }

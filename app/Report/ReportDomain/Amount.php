@@ -24,7 +24,7 @@ class Amount
      *
      * @return  self
      */ 
-    public function setAmount($amount)
+    public function setAmount(float $amount): self
     {
         $this->amount = $amount;
 
