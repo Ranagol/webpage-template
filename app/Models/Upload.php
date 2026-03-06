@@ -169,7 +169,7 @@ class Upload extends Model
      *
      * @throws Exception
      *
-     * @return mixed
+        * @return void
      */
     private function validateFileSize(): void
     {
@@ -183,7 +183,7 @@ class Upload extends Model
      *
      * @throws Exception if the file format is not allowed.
      *
-     * @return mixed
+        * @return void
      */
     private function validateFileType(): void
     {
@@ -198,7 +198,7 @@ class Upload extends Model
      *
      * @throws Exception
      *
-     * @return mixed
+        * @return void
      */
     private function setFileSizeNameType(): void
     {

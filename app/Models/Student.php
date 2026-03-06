@@ -4,6 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property array<int, int|float>|null $grades
+ * @property string $board
+ * @method static Student|null find(mixed $id, array $columns = ['*'])
+ * @method static Student create(array $attributes = [])
+ */
 class Student extends Model
 {
     protected $guarded = ['id'];

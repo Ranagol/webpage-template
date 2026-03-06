@@ -45,12 +45,12 @@ class UserController extends Controller
      *
      * @return void
      */
-    // public function create(): void
-    // {
-    //     $desiredView = 'create';
-    //     $this->view('user', ['desiredView' => $desiredView]);
+    public function create(): void
+    {
+        $desiredView = 'create';
+        $this->view('user', ['desiredView' => $desiredView]);
 
-    // }   
+    }   
 
     /**
      * Saves the user to the database.
@@ -60,23 +60,22 @@ class UserController extends Controller
      * @param RequestInterface $request
      * @return void
      */
-    // public function store(RequestInterface $request): void
-    // {
-    //     $requestDataArray = $request->getAllRequestData();
-    //     User::create($requestDataArray);
-    //     $savedUserId = User::orderBy('id', 'desc')->first()->id;
+    public function store(RequestInterface $request): void
+    {
+        $requestDataArray = $request->getAllRequestData();
+        User::create($requestDataArray);
 
-    //     redirect('users');
-    // }   
+        redirect('users');
+    }   
 
     /**
      * Updates the user in the database.
      *
-     * @param [type] $id
+        * @param string $id
      * @param RequestInterface $request
      * @return void
      */
-    public function update($id, RequestInterface $request): void
+        public function update(string $id, RequestInterface $request): void
     {
         $user = User::find($id);
         $data = $request->getAllRequestData();

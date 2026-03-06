@@ -4,6 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property string $username
+ * @property string $firstname
+ * @property string $lastname
+ * @property string $email
+ * @property string $password
+ * @method static User|null find(mixed $id, array $columns = ['*'])
+ * @method static User findOrFail(mixed $id, array $columns = ['*'])
+ * @method static User create(array $attributes = [])
+ * @method static \Illuminate\Database\Eloquent\Builder where(string $column, mixed $operator = null, mixed $value = null, string $boolean = 'and')
+ * @method static \Illuminate\Database\Eloquent\Builder orderBy(string $column, string $direction = 'asc')
+ */
 class User extends Model
 {
     protected $guarded = ['id'];

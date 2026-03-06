@@ -1,0 +1,13 @@
+parameters:
+    #level: 6
+
+    # Reduce docblock strictness
+    treatPhpDocTypesAsCertain: false
+
+    # Don't report unmatched ignored errors
+    reportUnmatchedIgnoredErrors: false
+
+    ignoreErrors:
+
+        # Stop complaining about missing iterable generics
+        - '#missingType\.iterableValue#'

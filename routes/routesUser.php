@@ -3,6 +3,10 @@
 use System\request\WebPageRequest;
 use App\Controllers\UserController;
 
+if (!isset($router) || !($router instanceof \Bramus\Router\Router)) {
+    throw new \RuntimeException('$router is not initialized.');
+}
+
 //show all users
 $router->get('/users', function () {
     $userController = new UserController();

@@ -4,6 +4,10 @@ use System\request\WebPageRequest;
 use App\Controllers\AuthControllers\LoginController;
 use App\Controllers\AuthControllers\RegisterController;
 
+if (!isset($router) || !($router instanceof \Bramus\Router\Router)) {
+    throw new \RuntimeException('$router is not initialized.');
+}
+
 //register page loading
 $router->get('/register', function () {
     $registerController = new RegisterController();

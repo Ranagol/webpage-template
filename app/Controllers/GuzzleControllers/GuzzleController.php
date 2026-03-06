@@ -51,7 +51,7 @@ class GuzzleController extends Controller
     /**
      * Gets hardcoded 10 post data, by sending a GET request to the predefined url.
      * 
-     * @throws Exception
+        * @throws \Throwable
      *
      * @return void
      */

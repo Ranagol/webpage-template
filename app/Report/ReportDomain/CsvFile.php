@@ -65,17 +65,6 @@ class CsvFile implements Reportable
         $this->report = $categories;
     }
 
-    public function getFileSum(): int
-    {
-        $sum = 0;
-        $lines = $this->getProcessedLines();
-        foreach ($lines as $line) {
-            $sum = $sum + $line->getLineSum();
-        }
-
-        return $sum;
-    }
-
     /**
      * Get the value of path
      */ 

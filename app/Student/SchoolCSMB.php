@@ -11,7 +11,7 @@ class SchoolCSMB extends School
      * 
      * @param Student $student
      * 
-     * @return bool
+        * @return string
      */
     public function checkIfStudentPassed(Student $student): string
     {

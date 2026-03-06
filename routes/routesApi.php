@@ -3,6 +3,10 @@
 use System\request\ApiRequest;
 use App\Controllers\ApiControllers\UserApiController;
 
+if (!isset($router) || !($router instanceof \Bramus\Router\Router)) {
+    throw new \RuntimeException('$router is not initialized.');
+}
+
 // API ROUTES******************************************
 
 /**

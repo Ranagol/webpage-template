@@ -2,6 +2,10 @@
 
 use App\Controllers\GuzzleControllers\GuzzleController;
 
+if (!isset($router) || !($router instanceof \Bramus\Router\Router)) {
+    throw new \RuntimeException('$router is not initialized.');
+}
+
 //loading the page
 $router->get('/guzzle', function () {
     $guzzleController = new GuzzleController();

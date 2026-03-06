@@ -5,6 +5,10 @@ use App\Controllers\UploadDownloadCsv\DownloadController;
 use System\request\FileUploadRequest;
 use App\Controllers\UploadDownloadCsv\UploadController;
 
+if (!isset($router) || !($router instanceof \Bramus\Router\Router)) {
+    throw new \RuntimeException('$router is not initialized.');
+}
+
 
 /**
  * Simply displays the upload page

@@ -109,7 +109,7 @@ class RegisterController extends Controller
      * a newly registered user gets automatically logged in.
      *
      * @param string $email
-     * @param string $password
+        * @param string $hash
      * 
      * @return void
      */

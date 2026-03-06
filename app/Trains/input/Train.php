@@ -58,7 +58,7 @@ class Train
     /**
      * Get the sum of turnaroundTime + arrivalTime.
      * 
-     * @return  float
+        * @return  CarbonImmutable
      */
     public function getArrivalTurnaroundSum(): CarbonImmutable
     {

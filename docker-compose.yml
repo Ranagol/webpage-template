@@ -21,6 +21,7 @@ services:
       # we are connecting, linking (and not copying) the current dir (note the '.') from host pc
       # with the /srv/www in the php docker container. This is a bind mount
       - .:/srv/www
+      - ./docker/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
     environment:
       # with the ${} we access the data from the .env file. Php needs this data to connect to the db
       DB_HOST: ${DB_HOST}

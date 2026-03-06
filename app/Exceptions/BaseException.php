@@ -3,7 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
-use App\logger\Logger;
+use App\Logger\Logger;
 
 /**
  * This class is the parent of all exceptions in this app. 

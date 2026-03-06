@@ -4,6 +4,10 @@ use App\Controllers\HomeController;
 use App\Controllers\AboutController;
 use App\Controllers\ContactController;
 
+if (!isset($router) || !($router instanceof \Bramus\Router\Router)) {
+    throw new \RuntimeException('$router is not initialized.');
+}
+
 //WEBPAGE ROUTES**********************
 
 //home page
