@@ -126,3 +126,341 @@ The exception was created on this line: 39.
 /srv/www/routes/routes.php on line 87
 /srv/www/bootstrap/bootstrap.php on line 31
 /srv/www/public/index.php on line 13
+
+2026-03-06 14:04:42 - Error message: {"emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /srv/www/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/srv/www/app/Validators/LoginValidator.php on line 27
+/srv/www/app/Controllers/AuthControllers/LoginController.php on line 176
+/srv/www/app/Controllers/AuthControllers/LoginController.php on line 57
+/srv/www/routes/routesAuthentication.php on line 32
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 458
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 440
+/srv/www/vendor/bramus/router/src/Bramus/Router/Router.php on line 287
+/srv/www/routes/routes.php on line 87
+/srv/www/bootstrap/bootstrap.php on line 16
+/srv/www/public/index.php on line 20
+
+2026-03-06 14:09:32 - Error message: {"emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /home/andor/webpage-template/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/home/andor/webpage-template/app/Validators/LoginValidator.php on line 27
+/home/andor/webpage-template/tests/App/Validators/ValidatorsTest.php on line 23
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:09:32 - Error message: {"usernameError":"Please enter a username.","firstnameError":"Please enter a firstname.","lastNameError":"Please enter a lastname.","emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /home/andor/webpage-template/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/home/andor/webpage-template/app/Validators/RegisterValidator.php on line 43
+/home/andor/webpage-template/tests/App/Validators/ValidatorsTest.php on line 47
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:10:24 - Error message: {"emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /home/andor/webpage-template/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/home/andor/webpage-template/app/Validators/LoginValidator.php on line 27
+/home/andor/webpage-template/tests/App/Validators/ValidatorsTest.php on line 23
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:10:24 - Error message: {"usernameError":"Please enter a username.","firstnameError":"Please enter a firstname.","lastNameError":"Please enter a lastname.","emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /home/andor/webpage-template/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/home/andor/webpage-template/app/Validators/RegisterValidator.php on line 43
+/home/andor/webpage-template/tests/App/Validators/ValidatorsTest.php on line 47
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:13:30 - Error message: {"emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /home/andor/webpage-template/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/home/andor/webpage-template/app/Validators/LoginValidator.php on line 27
+/home/andor/webpage-template/tests/App/Validators/ValidatorsTest.php on line 23
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:13:30 - Error message: {"usernameError":"Please enter a username.","firstnameError":"Please enter a firstname.","lastNameError":"Please enter a lastname.","emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /home/andor/webpage-template/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/home/andor/webpage-template/app/Validators/RegisterValidator.php on line 43
+/home/andor/webpage-template/tests/App/Validators/ValidatorsTest.php on line 47
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:17:20 - Error message: {"emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /home/andor/webpage-template/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/home/andor/webpage-template/app/Validators/LoginValidator.php on line 27
+/home/andor/webpage-template/tests/App/Validators/LoginValidatorTest.php on line 24
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:17:20 - Error message: {"usernameError":"Please enter a username.","firstnameError":"Please enter a firstname.","lastNameError":"Please enter a lastname.","emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /home/andor/webpage-template/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/home/andor/webpage-template/app/Validators/RegisterValidator.php on line 43
+/home/andor/webpage-template/tests/App/Validators/RegisterValidatorTest.php on line 24
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:20:12 - Error message: base-error.
+The exceptions was created in this file: /home/andor/webpage-template/tests/App/Exceptions/BaseExceptionTest.php.
+The exception was created on this line: 13.
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:20:12 - Error message: user-not-found.
+The exceptions was created in this file: /home/andor/webpage-template/tests/App/Exceptions/CantFindUserExceptionTest.php.
+The exception was created on this line: 13.
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:20:12 - Error message: schedule-error.
+The exceptions was created in this file: /home/andor/webpage-template/tests/App/Exceptions/ScheduleMakerExceptionTest.php.
+The exception was created on this line: 13.
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:20:12 - Error message: validation-failed.
+The exceptions was created in this file: /home/andor/webpage-template/tests/App/Exceptions/ValidationExceptionTest.php.
+The exception was created on this line: 13.
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:20:12 - Error message: {"emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /home/andor/webpage-template/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/home/andor/webpage-template/app/Validators/LoginValidator.php on line 27
+/home/andor/webpage-template/tests/App/Validators/LoginValidatorTest.php on line 24
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:20:12 - Error message: {"usernameError":"Please enter a username.","firstnameError":"Please enter a firstname.","lastNameError":"Please enter a lastname.","emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /home/andor/webpage-template/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/home/andor/webpage-template/app/Validators/RegisterValidator.php on line 43
+/home/andor/webpage-template/tests/App/Validators/RegisterValidatorTest.php on line 24
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/home/andor/webpage-template/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/home/andor/webpage-template/vendor/phpunit/phpunit/phpunit on line 104
+/home/andor/webpage-template/vendor/bin/phpunit on line 122
+
+2026-03-06 14:21:03 - Error message: base-error.
+The exceptions was created in this file: /srv/www/tests/App/Exceptions/BaseExceptionTest.php.
+The exception was created on this line: 13.
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122
+
+2026-03-06 14:21:03 - Error message: user-not-found.
+The exceptions was created in this file: /srv/www/tests/App/Exceptions/CantFindUserExceptionTest.php.
+The exception was created on this line: 13.
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122
+
+2026-03-06 14:21:03 - Error message: schedule-error.
+The exceptions was created in this file: /srv/www/tests/App/Exceptions/ScheduleMakerExceptionTest.php.
+The exception was created on this line: 13.
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122
+
+2026-03-06 14:21:03 - Error message: validation-failed.
+The exceptions was created in this file: /srv/www/tests/App/Exceptions/ValidationExceptionTest.php.
+The exception was created on this line: 13.
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122
+
+2026-03-06 14:21:03 - Error message: {"emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /srv/www/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/srv/www/app/Validators/LoginValidator.php on line 27
+/srv/www/tests/App/Validators/LoginValidatorTest.php on line 24
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122
+
+2026-03-06 14:21:03 - Error message: {"usernameError":"Please enter a username.","firstnameError":"Please enter a firstname.","lastNameError":"Please enter a lastname.","emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /srv/www/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/srv/www/app/Validators/RegisterValidator.php on line 43
+/srv/www/tests/App/Validators/RegisterValidatorTest.php on line 24
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122
