@@ -8,7 +8,7 @@
     <a href="https://dummyapi.io/">DummyApi</a> page.
 </p>
 
-<div class='container d-flex flex-row'>
+<div class='d-flex flex-wrap gap-2'>
     <form action="getPosts" method='GET'>
         <button class='btn btn-success'>GET 10 posts from DummyApi</button>
     </form>
@@ -26,7 +26,11 @@
     </p>
 
     @if(isset($posts))
-        {{ var_dump($posts) }}
+        <pre>
+@php
+print_r($posts);
+@endphp
+        </pre>
     @endif
 </div>
 

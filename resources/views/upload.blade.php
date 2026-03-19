@@ -54,20 +54,22 @@ This is the report that can be downloaded. -->
     <h2 class='mt-3'>Report</h2>
 
     <!-- DISPLAY THE REPORT IN A TABLE FOR THE USER -->
-    <table class='table'>
-        <tr>
-            <th>Category</th>
-            <th>Cost</th>
-        </tr>
+    <div class="table-responsive">
+        <table class='table'>
+            <tr>
+                <th>Category</th>
+                <th>Cost</th>
+            </tr>
 
-        <!-- This is the fancy version of the foreach loop. The ':' is needed -->
-        @foreach ($report as $category => $cost)
-        <tr>
-            <td>{{ $category }}</td>
-            <td>{{ $cost }}</td>
-        </tr>
-        @endforeach
-    </table>
+            <!-- This is the fancy version of the foreach loop. The ':' is needed -->
+            @foreach ($report as $category => $cost)
+            <tr>
+                <td>{{ $category }}</td>
+                <td>{{ $cost }}</td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
 
     <!-- DOWNLOADING THE REPORT AS A .CSV FILE -->
     @php
