@@ -375,6 +375,19 @@ label {
 	background: #f2f8fb;
 }
 
+.user-details-link {
+	color: #0d6f7b;
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	text-decoration-thickness: 2px;
+}
+
+.user-details-link:hover,
+.user-details-link:focus {
+	color: #084d58;
+}
+
 .table tr:hover td {
 	background: #f8fbfd;
 }

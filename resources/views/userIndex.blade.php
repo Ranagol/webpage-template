@@ -22,7 +22,7 @@
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>
-                    <a href='/users/{{ $user->id }}'>
+                    <a href='/users/{{ $user->id }}' class='user-details-link'>
                         {{ $user->username }} 
                     </a>
                 </td>
