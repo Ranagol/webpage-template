@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Controllers\AboutController;
 use App\Controllers\ContactController;
 use App\Controllers\HomeController;
+use App\Controllers\TrainTaskController;
 
 if (!isset($router) || !($router instanceof Bramus\Router\Router)) {
     throw new RuntimeException('$router is not initialized.');
@@ -28,4 +29,10 @@ $router->get('/about', function () {
 $router->get('/contact', function () {
     $contactController = new ContactController();
     $contactController->contact();
+});
+
+// train task page
+$router->get('/train-task', function () {
+    $trainTaskController = new TrainTaskController();
+    $trainTaskController->trainTask();
 });

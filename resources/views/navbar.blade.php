@@ -40,6 +40,9 @@
 					<a class="nav-link {{ $isActive('/upload') ? 'active' : '' }}" href="/upload">Upload</a>
 				</li>
 				<li class="nav-item">
+					<a class="nav-link {{ $isActive('/train-task') ? 'active' : '' }}" href="/train-task">Train task</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link {{ $isActive('/guzzle') ? 'active' : '' }}" href="/guzzle">Guzzle</a>
 				</li>
 				@if(!$isLoggedIn)

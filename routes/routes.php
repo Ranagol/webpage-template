@@ -47,6 +47,7 @@ $router->before('GET', '/.*', function () {
         || '/users' === $_SERVER['REQUEST_URI']
         || '/users/create' === $_SERVER['REQUEST_URI']
         || '/upload' === $_SERVER['REQUEST_URI']
+        || '/train-task' === $_SERVER['REQUEST_URI']
         || '/guzzle' === $_SERVER['REQUEST_URI']) {
 
             // redirect to login page
