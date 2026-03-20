@@ -7,7 +7,7 @@
         <h1>Vanilla PHP MVC app with web, API, file processing, and CLI features</h1>
         <p class="hero-lead">
             The goal of this project was to build a Vanilla PHP MVC app without framework 
-            (like Laravel or Symfony). Composer package usage was allowed. For more details, see 
+            (like Laravel or Symfony). So, raw PHP only. Composer package usage was allowed. For more details, see 
             the readme.md in the root directory.
         </p>
         <div class="hero-actions">
