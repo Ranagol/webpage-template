@@ -62,10 +62,7 @@ phpMyAdmin: http://localhost:8081
 Database (HeidiSQL/DBeaver): localhost:13306
 
 ### xdebug
-Xdebug is set to work. It works when the app runs through Docker, it will not work for your local
-Xammp + MySQL enviroment.
-
-
+Xdebug is set to work. It works when the app runs through Docker.
 
 
 # 3. Features
@@ -153,7 +150,7 @@ Once the summary data has been calculated and displayed in the app, it should be
 
 Use this file: ./csvFile.csv
 When a .csv file is uploaded, the same process will happen as with the images. But, here we will 
-have an additional process. This is the task that the app must do:
+have an additional process.
 
 
 ## 3.5 Send API request to another webpage
@@ -205,12 +202,6 @@ MIDDLEWARE: Only the login, register, logout views are accessible for a not-logg
 in the $_SUPERGLOBAL, if the user is logged in.
 
 
-## 3.9 Student - Quantox task
-This code challenge was from Quantox company. The task was:
-if an API request is sent to this app's url, for example /webpage-template/students/1,
-then the response must had the details of this student, with calculated averages and passed/not passed
-final decision. This is just a very simple description of the task, for more details see the task.
-
 ## 4.0 Train - Antiloop task
 This was a code challenge from Antiloop company. There are two train stations, A and B. This is an
 example train schedule for one day:
@@ -232,3 +223,5 @@ This app uses PHP Debugbar.
 ## Phpstan
 Example for a cli command:
 vendor/bin/phpstan analyse app bootstrap database public resources routes storage system tests --memory-limit=512M -l 3
+
+

@@ -67,7 +67,6 @@ require_once __DIR__ . '/routesUploadDownloadCsv.php'; // for uploading (images 
 
 require_once __DIR__ . '/routesGuzzle.php'; // for Guzzle stuff
 
-require_once __DIR__ . '/routesStudent.php'; // for the Quantox/Student task. Unfinished.
 
 // Custom 404 Handler
 $router->set404(function () {

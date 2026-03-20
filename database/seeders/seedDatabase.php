@@ -13,7 +13,6 @@ declare(strict_types=1);
 require __DIR__ . '/../../vendor/autoload.php';
 require __DIR__ . '/../../bootstrap/bootstrap.php';
 
-use App\Models\Student;
 use App\Models\User;
 
 /*
@@ -40,50 +39,4 @@ User::create([
 
 echo 'Users table seeded!' . PHP_EOL;
 
-/**
- * Student data.
- */
-$students = [
-    [
-        'name' => 'John Doe',
-        'board' => 'CSM',
-        'grades' => json_encode([8, 9, 10]),
-    ],
-    [
-        'name' => 'Jane Doe',
-        'board' => 'CSM',
-        'grades' => json_encode([6]),
-    ],
-    [
-        'name' => 'John Smith',
-        'board' => 'CSMB',
-        'grades' => json_encode([6]),
-    ],
-    [
-        'name' => 'Jane Smith',
-        'board' => 'CSMB',
-        'grades' => json_encode([5, 6, 7]),
-    ],
-    [
-        'name' => 'John Johnson',
-        'board' => 'CSMB',
-        'grades' => json_encode([8, 9, 10]),
-    ],
-    [
-        'name' => 'Jane Johnson',
-        'board' => 'CSMB',
-        'grades' => json_encode([5, 10, 10]),
-    ],
 
-];
-
-/*
- * STUDENT SEEDER
- *
- * Seed the students table.
- */
-foreach ($students as $student) {
-    Student::create($student);
-}
-
-echo 'Students table seeded!' . PHP_EOL;

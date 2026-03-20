@@ -7,7 +7,8 @@
         <h1>Vanilla PHP MVC app with web, API, file processing, and CLI features</h1>
         <p class="hero-lead">
             The goal of this project was to build a Vanilla PHP MVC app without framework 
-            (like Laravel or Symfony). Composer package usage was allowed.
+            (like Laravel or Symfony). Composer package usage was allowed. For more details, see 
+            the readme.md in the root directory.
         </p>
         <div class="hero-actions">
             <a class="btn btn-primary" href="/users">Explore Users</a>
@@ -41,7 +42,6 @@
             <ul>
                 <li>Provides user CRUD through REST-style API routes</li>
                 <li>Calls external API data from dummyapi.io using Guzzle and displays posts</li>
-                <li>Exposes a student endpoint that returns JSON or XML depending on board</li>
             </ul>
         </article>
 
