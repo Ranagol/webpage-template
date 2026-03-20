@@ -40,3 +40,4 @@ $router->get('/download-report', function () {
     $downloadController = new DownloadController();
     $downloadController->download(new FileDownloadRequest());
 });
+

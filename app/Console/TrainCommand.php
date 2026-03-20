@@ -15,7 +15,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class TrainCommand extends Command
 {
-    // Configure the command
     protected static $defaultName = 'trains';
 
     protected function configure(): void
