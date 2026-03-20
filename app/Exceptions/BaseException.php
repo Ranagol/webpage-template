@@ -17,11 +17,11 @@ class BaseException extends Exception
      * In this constructor we set up that for every exception when it is created,
      * it will be logged immediatelly into the logs.
      *
-     * @param string $message
+    * @param string|null $message
      * @param integer $code
-     * @param \Throwable $previous
+    * @param \Throwable|null $previous
      */
-    public function __construct(string $message = null, int $code = 0, \Throwable $previous = null)
+    public function __construct(?string $message = null, int $code = 0, ?\Throwable $previous = null)
     {
         /**
          * If a class extends the built-in Exception class and re-defines the constructor, it is 

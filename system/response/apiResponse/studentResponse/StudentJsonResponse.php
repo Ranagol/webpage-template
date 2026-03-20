@@ -31,7 +31,7 @@ class StudentJsonResponse extends AbstractStudentResponse
      * according to the CSM rules.
      *
      * @param Student $student
-     * @return array
+        * @return array<string, mixed>
      */
     private static function evaluateStudent(Student $student): array
     {
@@ -46,12 +46,12 @@ class StudentJsonResponse extends AbstractStudentResponse
     /**
      * Send a json response.
      * 
-     * @param Student $student
+        * @param array<string, mixed> $data
      * @param int $code
      * 
      * @return void
      */
-    private static function sendResponse($data, int $code = 200): void
+    private static function sendResponse(array $data, int $code = 200): void
     {
         $serverProtocol = $_SERVER['SERVER_PROTOCOL'];//here we create server protocoll. Example HTTP/1.1
 		$statusCode = self::STATUS_CODE[$code];

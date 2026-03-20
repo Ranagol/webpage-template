@@ -14,8 +14,8 @@ final class LoginControllerTest extends TestCase
         $controller = new LoginController();
 
         $this->assertInstanceOf(LoginController::class, $controller);
-        $this->assertTrue(method_exists($controller, 'loadLoginPage'));
-        $this->assertTrue(method_exists($controller, 'login'));
-        $this->assertTrue(method_exists($controller, 'logout'));
+        $this->assertContains('loadLoginPage', get_class_methods($controller));
+        $this->assertContains('login', get_class_methods($controller));
+        $this->assertContains('logout', get_class_methods($controller));
     }
 }

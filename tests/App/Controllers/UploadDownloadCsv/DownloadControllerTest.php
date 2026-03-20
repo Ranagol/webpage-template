@@ -14,6 +14,6 @@ final class DownloadControllerTest extends TestCase
         $controller = new DownloadController();
 
         $this->assertInstanceOf(DownloadController::class, $controller);
-        $this->assertTrue(method_exists($controller, 'download'));
+        $this->assertContains('download', get_class_methods($controller));
     }
 }

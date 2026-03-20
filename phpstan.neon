@@ -1,5 +1,28 @@
 parameters:
-    #level: 6
+    level: 1
+
+    # Analyze the actual source directories by default
+    paths:
+        - app
+        - bootstrap
+        - database
+        - resources
+        - routes
+        - system
+        - tests
+
+    # Avoid analyzing generated/cache artifacts that cause noise and memory bloat
+    excludePaths:
+        analyse:
+            - cache/*
+            - public/cache/*
+            - storage/*
+            - vendor/*
+            - docker
+
+    # Keep worker count modest to reduce per-run memory spikes
+    parallel:
+        maximumNumberOfProcesses: 2
 
     # Reduce docblock strictness
     treatPhpDocTypesAsCertain: false

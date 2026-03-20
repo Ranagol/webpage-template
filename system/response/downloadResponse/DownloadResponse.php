@@ -12,10 +12,13 @@ class DownloadResponse
     /**
      * Contains the data, which will be used to create a csv download response.
      *
-     * @var array
+     * @var array<string, mixed>
      */
     private array $dataToDownload;
 
+    /**
+     * @param array<string, mixed> $dataToDownload
+     */
     public function __construct(array $dataToDownload)
     {
         $this->dataToDownload = $dataToDownload;
@@ -51,6 +54,8 @@ class DownloadResponse
 
     /**
      * Get the value of dataToDownload
+     *
+     * @return array<string, mixed>
      */ 
     public function getDataToDownload(): array
     {

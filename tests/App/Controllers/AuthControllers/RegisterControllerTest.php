@@ -14,7 +14,7 @@ final class RegisterControllerTest extends TestCase
         $controller = new RegisterController();
 
         $this->assertInstanceOf(RegisterController::class, $controller);
-        $this->assertTrue(method_exists($controller, 'loadRegisterPage'));
-        $this->assertTrue(method_exists($controller, 'register'));
+        $this->assertContains('loadRegisterPage', get_class_methods($controller));
+        $this->assertContains('register', get_class_methods($controller));
     }
 }

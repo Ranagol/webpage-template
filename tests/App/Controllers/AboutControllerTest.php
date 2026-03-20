@@ -14,6 +14,6 @@ final class AboutControllerTest extends TestCase
         $controller = new AboutController();
 
         $this->assertInstanceOf(AboutController::class, $controller);
-        $this->assertTrue(method_exists($controller, 'about'));
+        $this->assertContains('about', get_class_methods($controller));
     }
 }

@@ -15,6 +15,6 @@ final class UserModelTest extends TestCase
         $this->assertInstanceOf(Model::class, $user);
         $this->assertContains('id', $user->getGuarded());
         $this->assertContains('password', $user->getHidden());
-        $this->assertTrue(method_exists(User::class, 'getCurrentUser'));
+        $this->assertContains('getCurrentUser', get_class_methods(User::class));
     }
 }

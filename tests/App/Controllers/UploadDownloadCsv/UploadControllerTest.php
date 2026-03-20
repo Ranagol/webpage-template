@@ -14,7 +14,7 @@ final class UploadControllerTest extends TestCase
         $controller = new UploadController();
 
         $this->assertInstanceOf(UploadController::class, $controller);
-        $this->assertTrue(method_exists($controller, 'displayUploadPage'));
-        $this->assertTrue(method_exists($controller, 'store'));
+        $this->assertContains('displayUploadPage', get_class_methods($controller));
+        $this->assertContains('store', get_class_methods($controller));
     }
 }

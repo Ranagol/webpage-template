@@ -10,6 +10,6 @@ final class StudentControllerTest extends TestCase
     public function testStudentControllerIsLoadableAndExposesShowMethod(): void
     {
         $this->assertTrue(class_exists(StudentController::class));
-        $this->assertTrue(method_exists(StudentController::class, 'show'));
+        $this->assertContains('show', get_class_methods(StudentController::class));
     }
 }

@@ -14,6 +14,6 @@ final class ControllerBaseTest extends TestCase
         $controller = new Controller();
 
         $this->assertInstanceOf(Controller::class, $controller);
-        $this->assertTrue(method_exists($controller, 'view'));
+        $this->assertContains('view', get_class_methods($controller));
     }
 }

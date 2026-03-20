@@ -21,7 +21,7 @@ interface RequestInterface
     /**
      * Returns all request data.
      *
-     * @return array
+        * @return array<string, mixed>
      */
     public function getAllRequestData(): array;
 

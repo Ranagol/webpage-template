@@ -14,6 +14,6 @@ final class ContactControllerTest extends TestCase
         $controller = new ContactController();
 
         $this->assertInstanceOf(ContactController::class, $controller);
-        $this->assertTrue(method_exists($controller, 'contact'));
+        $this->assertContains('contact', get_class_methods($controller));
     }
 }

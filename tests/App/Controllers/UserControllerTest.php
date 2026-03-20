@@ -14,11 +14,11 @@ final class UserControllerTest extends TestCase
         $controller = new UserController();
 
         $this->assertInstanceOf(UserController::class, $controller);
-        $this->assertTrue(method_exists($controller, 'index'));
-        $this->assertTrue(method_exists($controller, 'show'));
-        $this->assertTrue(method_exists($controller, 'create'));
-        $this->assertTrue(method_exists($controller, 'store'));
-        $this->assertTrue(method_exists($controller, 'update'));
-        $this->assertTrue(method_exists($controller, 'delete'));
+        $this->assertContains('index', get_class_methods($controller));
+        $this->assertContains('show', get_class_methods($controller));
+        $this->assertContains('create', get_class_methods($controller));
+        $this->assertContains('store', get_class_methods($controller));
+        $this->assertContains('update', get_class_methods($controller));
+        $this->assertContains('delete', get_class_methods($controller));
     }
 }

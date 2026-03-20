@@ -18,7 +18,7 @@ abstract class AbstractApiResponse
 	 * Notice that this property is a constant!
 	 * This data will be used to create a response status code with a message.
 	 * 
-	 * @var array
+	 * @var array<int, string>
 	 */
     protected const STATUS_CODE = [
 		100 => "100 Continue",

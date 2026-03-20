@@ -10,10 +10,13 @@ final class UserApiControllerTest extends TestCase
     public function testUserApiControllerIsLoadableAndExposesCrudMethods(): void
     {
         $this->assertTrue(class_exists(UserApiController::class));
-        $this->assertTrue(method_exists(UserApiController::class, 'index'));
-        $this->assertTrue(method_exists(UserApiController::class, 'show'));
-        $this->assertTrue(method_exists(UserApiController::class, 'store'));
-        $this->assertTrue(method_exists(UserApiController::class, 'update'));
-        $this->assertTrue(method_exists(UserApiController::class, 'delete'));
+
+        $methods = get_class_methods(UserApiController::class);
+
+        $this->assertContains('index', $methods);
+        $this->assertContains('show', $methods);
+        $this->assertContains('store', $methods);
+        $this->assertContains('update', $methods);
+        $this->assertContains('delete', $methods);
     }
 }

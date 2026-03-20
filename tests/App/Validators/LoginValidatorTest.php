@@ -13,7 +13,7 @@ final class LoginValidatorTest extends TestCase
         $validator = new LoginValidator();
         $validator->validate('test@example.com', 'secret123');
 
-        $this->assertTrue(true);
+        $this->expectNotToPerformAssertions();
     }
 
     public function testInvalidInputThrowsValidationException(): void

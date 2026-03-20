@@ -31,7 +31,7 @@ class StudentXmlResponse extends AbstractStudentResponse
      * according to the CSMB rules.
      *
      * @param Student $student
-     * @return array
+        * @return array<string, mixed>
      */
     private static function evaluateStudent(Student $student): array
     {
@@ -46,12 +46,12 @@ class StudentXmlResponse extends AbstractStudentResponse
     /**
      * Send a xml response.
      * 
-     * @param Student $student
+        * @param array<string, mixed> $data
      * @param int $code
      * 
      * @return void
      */
-    private static function sendResponse($data, int $code = 200): void
+    private static function sendResponse(array $data, int $code = 200): void
     {
         $serverProtocol = $_SERVER['SERVER_PROTOCOL'];
         $statusCode = self::STATUS_CODE[$code];
@@ -66,12 +66,12 @@ class StudentXmlResponse extends AbstractStudentResponse
     /**
      * Convert a php array to xml.
      * 
-     * @param array $data
-     * @param \SimpleXMLElement $xmlData
+        * @param array<string, mixed> $data
+        * @param \SimpleXMLElement|null $xmlData
      * 
      * @return string
      */
-    private static function arrayToXml(array $data, \SimpleXMLElement $xmlData = null): string
+    private static function arrayToXml(array $data, ?\SimpleXMLElement $xmlData = null): string
     {
         if ($xmlData === null) {
             $xmlData = new \SimpleXMLElement('<?xml version="1.0"?><student></student>');

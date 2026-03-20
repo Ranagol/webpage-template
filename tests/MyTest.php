@@ -4,7 +4,8 @@ use PHPUnit\Framework\TestCase;//Every test class must be a child of TestCase cl
 
 class MyTest extends TestCase {
 
-    public function testFirstAssertion(){
-        $this->assertTrue(true);
+    public function testFirstAssertion(): void
+    {
+        $this->assertIsString(phpversion());
     }
 }

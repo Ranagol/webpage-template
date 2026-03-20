@@ -12,14 +12,14 @@ abstract class AbstractRequest implements RequestInterface
     /**
      * We store all request data here, once the child __construct() is activated.
      * 
-     * @var array
+        * @var array<string, mixed>
      */
     protected $requestData;
 
     /**
      * Returns all request data.
      *
-     * @return array
+        * @return array<string, mixed>
      */
     public function getAllRequestData(): array
     {

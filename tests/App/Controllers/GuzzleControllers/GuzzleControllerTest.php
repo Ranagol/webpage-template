@@ -14,7 +14,7 @@ final class GuzzleControllerTest extends TestCase
         $controller = new GuzzleController();
 
         $this->assertInstanceOf(GuzzleController::class, $controller);
-        $this->assertTrue(method_exists($controller, 'loadGuzzlePage'));
-        $this->assertTrue(method_exists($controller, 'getPosts'));
+        $this->assertContains('loadGuzzlePage', get_class_methods($controller));
+        $this->assertContains('getPosts', get_class_methods($controller));
     }
 }

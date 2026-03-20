@@ -13,7 +13,7 @@ final class RegisterValidatorTest extends TestCase
         $validator = new RegisterValidator();
         $validator->validate('test@example.com', 'secret123', 'user123', 'John', 'Doe');
 
-        $this->assertTrue(true);
+        $this->expectNotToPerformAssertions();
     }
 
     public function testInvalidInputThrowsValidationException(): void
