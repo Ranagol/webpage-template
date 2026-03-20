@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Controllers\AuthControllers\LoginController;
 use App\Controllers\AuthControllers\RegisterController;
 use System\request\WebPageRequest;

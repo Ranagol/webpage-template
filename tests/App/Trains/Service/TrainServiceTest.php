@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\App\Trains\Service;
 
 require_once dirname(__DIR__) . '/TrainsClassLoader.php';

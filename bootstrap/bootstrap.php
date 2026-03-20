@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * A little explanation here: this bootstrap.php file is directly connected with a 'require' to the
  * main index.php. This means, that these functions from bootstrap.php will be available everywhere

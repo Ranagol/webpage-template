@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use PHPUnit\Framework\TestCase; // Every test class must be a child of TestCase class for testing
 
 class MyTest extends TestCase

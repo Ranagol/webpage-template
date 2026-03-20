@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\StudentControllers;
 
 use App\Models\Student;

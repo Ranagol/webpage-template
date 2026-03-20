@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace System\request;
 
 /**
@@ -32,6 +34,8 @@ interface RequestInterface
      * in case of 'update', we might need the id of the User that we want to update.
      *
      * Then, we do this: $id = $request->get('id');
+     *
+     * @return mixed
      */
-    public function get(string $key);
+    public function get(string $key): mixed;
 }

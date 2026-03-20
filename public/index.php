@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Suppress deprecation warnings from older packages not fully compatible with PHP 8.5
  * This is an old app, with some old (not upgradable packages), so to avoid flooding the logs

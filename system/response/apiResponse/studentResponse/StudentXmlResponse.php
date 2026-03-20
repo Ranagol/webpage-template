@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace System\response\apiResponse\studentResponse;
 
 use App\Models\Student;

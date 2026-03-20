@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Trains;
 
 use App\Trains\Calculation\TrainCalculator;

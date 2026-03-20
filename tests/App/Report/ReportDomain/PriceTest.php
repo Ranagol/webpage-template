@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\App\Report\ReportDomain;
 
 use App\Report\ReportDomain\Price;

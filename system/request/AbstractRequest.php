@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace System\request;
 
 /**
@@ -32,7 +34,7 @@ abstract class AbstractRequest implements RequestInterface
      * in case of 'update', we might need the id of the User that we want to update.
      * Then, we do this: $id = $request->get('id');.
      */
-    public function get(string $key): string
+    public function get(string $key): mixed
     {
         return $this->requestData[$key];
     }

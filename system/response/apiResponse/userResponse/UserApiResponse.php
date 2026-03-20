@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace System\response\apiResponse\userResponse;
 
 use System\response\apiResponse\AbstractApiResponse;

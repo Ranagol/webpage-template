@@ -1,4 +1,6 @@
-<?php
+<?php 
+
+declare(strict_types=1);
 
 /**
  * Here we set up the Eloquent, so we can use it to interact with the database, just like in Laravel.

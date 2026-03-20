@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers\GuzzleControllers;
 
 use App\Controllers\Controller;
@@ -71,7 +73,7 @@ class GuzzleController extends Controller
              * The request is send, and the response is received here.
              */
             $response = $client->send($request); // itt van a probléma
-            $response = json_decode($response->getBody(), true);
+            $response = json_decode((string) $response->getBody(), true);
             $posts = $response['data'];
 
             $this->view('guzzle', ['posts' => $posts]);

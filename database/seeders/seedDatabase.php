@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * When 'composer seed' will by typed into the terminal
  * we will directly activate this php file only. That means that the dotennv package (what we need
