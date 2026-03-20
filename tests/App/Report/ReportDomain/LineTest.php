@@ -2,11 +2,11 @@
 
 namespace Tests\App\Report\ReportDomain;
 
+use App\Report\ReportDomain\Amount;
+use App\Report\ReportDomain\Category;
 use App\Report\ReportDomain\Line;
 use App\Report\ReportDomain\Price;
-use App\Report\ReportDomain\Amount;
 use PHPUnit\Framework\TestCase;
-use App\Report\ReportDomain\Category;
 
 final class LineTest extends TestCase
 {

@@ -2,14 +2,10 @@
 
 namespace App\Trains\Input;
 
-use App\Trains\Input\TripAb;
-use App\Trains\Input\TripBa;
-use App\Exceptions\ScheduleMakerException;
-
 /**
  * This class will create schedules from the input lines.
  * Here is a taskData sample, from which we need to create two schedules:
- * 2        
+ * 2
  * 5
  * 3 2
  * 09:00 12:00
@@ -20,28 +16,28 @@ use App\Exceptions\ScheduleMakerException;
  * 2
  * 2 0
  * 09:00 09:01
- * 12:00 12:02
+ * 12:00 12:02.
  */
-class ScheduleMaker {
-
-
+class ScheduleMaker
+{
     /**
      * Makes Schedule objects from the input lines.
      *
-        * @param array<int, string> $lines
-        * @return array<int, Schedule>
+     * @param array<int, string> $lines
+     *
+     * @return array<int, Schedule>
      */
     public function handle(array $lines): array
     {
         $numberOfSchedules = $this->getNumberOfSchedules($lines);
 
         $schedules = [];
-        
-        /**
-         * For every schedule, we need to extract the turnaround time, the number of trips, and the 
+
+        /*
+         * For every schedule, we need to extract the turnaround time, the number of trips, and the
          * times from the task data. So we can createa Schedule object from them.
          */
-        for ($i = 0; $i < $numberOfSchedules; $i++) {
+        for ($i = 0; $i < $numberOfSchedules; ++$i) {
 
             // Turnaround time extracting
             $turnaroundTime = $this->extractTurnaroundTime($lines);
@@ -61,7 +57,7 @@ class ScheduleMaker {
                 $trainsBtoA
             );
 
-            $schedules[] = $schedule;   
+            $schedules[] = $schedule;
         }
 
         return $schedules;
@@ -71,8 +67,8 @@ class ScheduleMaker {
      * Set the number of schedules, and removes them form the task data.
      * The $lines are is used by reference, so the original array will be changed. Notice the '&' sign.
      * array_shift returns the first element of the array and removes it from the array.
-        *
-        * @param array<int, string> $lines
+     *
+     * @param array<int, string> $lines
      */
     private function getNumberOfSchedules(array &$lines): int
     {
@@ -87,12 +83,11 @@ class ScheduleMaker {
 
     /**
      * Extracts the turnaround time.
-     * 
+     *
      * The $lines are is used by reference, so the original array will be changed. Notice the '&' sign.
      * array_shift returns the first element of the array and removes it from the array.
      *
-        * @param array<int, string> $lines
-     * @return integer
+     * @param array<int, string> $lines
      */
     private function extractTurnaroundTime(array &$lines): int
     {
@@ -102,13 +97,14 @@ class ScheduleMaker {
     }
 
     /**
-     * Extracts the number of trains 
-     * 
+     * Extracts the number of trains.
+     *
      * The $lines are is used by reference, so the original array will be changed. Notice the '&' sign.
      * array_shift returns the first element of the array and removes it from the array.
      *
-        * @param array<int, string> $lines
-        * @return array{0: int, 1: int}
+     * @param array<int, string> $lines
+     *
+     * @return array{0: int, 1: int}
      */
     private function extractNumberOfTrains(array &$lines): array
     {
@@ -125,19 +121,17 @@ class ScheduleMaker {
      * Creates trains from the extracted travel times.
      *
      * @param array<int, string> $lines
-     * @param integer $numberOfTrains
-     * @param float $turnaroundTime
+     *
      * @return array<int, Train>
      */
     private function createTrains(
         array &$lines, // Notice that here use array by reference: whatever we change here, it will be changed in the original array.
-        int $numberOfTrains, 
-        float $turnaroundTime
-    ): array
-    {
+        int $numberOfTrains,
+        float $turnaroundTime,
+    ): array {
         $trains = [];
 
-        for ($i = 0; $i < $numberOfTrains; $i++) {
+        for ($i = 0; $i < $numberOfTrains; ++$i) {
             $line = array_shift($lines);
             $times = explode(' ', $line);
 
@@ -163,18 +157,15 @@ class ScheduleMaker {
     /**
      * Creates a schedule from the extracted data.
      *
-     * @param integer $turnaroundTime
-        * @param array<int, Train> $trainsAtoB
-        * @param array<int, Train> $trainsBtoA
-     * @return Schedule
+     * @param array<int, Train> $trainsAtoB
+     * @param array<int, Train> $trainsBtoA
      */
     private function createSchedule(
         int $turnaroundTime,
         array $trainsAtoB,
-        array $trainsBtoA
-    ): Schedule
-    {
-    
+        array $trainsBtoA,
+    ): Schedule {
+
         // Create a schedule
         $schedule = new Schedule(
             $turnaroundTime,

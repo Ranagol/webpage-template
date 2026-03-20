@@ -1,16 +1,15 @@
 <?php
 
-use System\request\FileDownloadRequest;
 use App\Controllers\UploadDownloadCsv\DownloadController;
-use System\request\FileUploadRequest;
 use App\Controllers\UploadDownloadCsv\UploadController;
+use System\request\FileDownloadRequest;
+use System\request\FileUploadRequest;
 
-if (!isset($router) || !($router instanceof \Bramus\Router\Router)) {
-    throw new \RuntimeException('$router is not initialized.');
+if (!isset($router) || !($router instanceof Bramus\Router\Router)) {
+    throw new RuntimeException('$router is not initialized.');
 }
 
-
-/**
+/*
  * Simply displays the upload page
  */
 $router->get('/upload', function () {
@@ -18,7 +17,7 @@ $router->get('/upload', function () {
     $uploadController->displayUploadPage();
 });
 
-/**
+/*
  * Saves the uploaded image or .csv file into the app
  */
 $router->post('/upload', function () {
@@ -28,11 +27,11 @@ $router->post('/upload', function () {
      * as soon as it is created as an object. So this object (has the uploaded file) is then sent
      * as an argument to the store() method.
      */
-    $uploadController = new UploadController;
+    $uploadController = new UploadController();
     $uploadController->store(new FileUploadRequest());
 });
 
-/**
+/*
  * Downloads the  csv report that was created from the uploaded .csv file
  */
 $router->get('/download-report', function () {

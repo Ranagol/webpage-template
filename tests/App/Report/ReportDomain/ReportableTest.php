@@ -3,8 +3,8 @@
 namespace Tests\App\Report\ReportDomain;
 
 use App\Report\ReportDomain\CsvFile;
-use PHPUnit\Framework\TestCase;
 use App\Report\ReportDomain\Reportable;
+use PHPUnit\Framework\TestCase;
 
 final class ReportableTest extends TestCase
 {

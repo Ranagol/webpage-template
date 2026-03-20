@@ -13,10 +13,6 @@ class DownloadController
      * to write into a csv file.
      * The DownloadResponse class creates a csv file, writes the data from the $request into the
      * csv file, and then sends the csv file to the browser and force a download there.
-     *
-     * @param RequestInterface $request
-     * 
-     * @return void
      */
     public function download(RequestInterface $request): void
     {

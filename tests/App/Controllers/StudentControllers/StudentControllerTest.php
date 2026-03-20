@@ -2,8 +2,8 @@
 
 namespace Tests\App\Controllers\StudentControllers;
 
-use PHPUnit\Framework\TestCase;
 use App\Controllers\StudentControllers\StudentController;
+use PHPUnit\Framework\TestCase;
 
 final class StudentControllerTest extends TestCase
 {

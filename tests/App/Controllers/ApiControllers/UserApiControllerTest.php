@@ -2,8 +2,8 @@
 
 namespace Tests\App\Controllers\ApiControllers;
 
-use PHPUnit\Framework\TestCase;
 use App\Controllers\ApiControllers\UserApiController;
+use PHPUnit\Framework\TestCase;
 
 final class UserApiControllerTest extends TestCase
 {

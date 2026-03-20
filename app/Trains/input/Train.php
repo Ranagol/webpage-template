@@ -2,7 +2,7 @@
 
 namespace App\Trains\Input;
 
-/**
+/*
  * We use CarbonImmutable, because we do not want to alow the change of the departure and arrival times,
  * when we are adding or comparing these times. If we would use Carbon only, then we could unintentionally
  * change the departure and arrival times.
@@ -16,40 +16,31 @@ class Train
      * to A station at 10:00, and the next trip starts at 10:30 from station A, then this train can be reused for the
      * next trip. But, if there is another, third trip from station A, lets say at 12:00, then for this time
      * this train can't be reused again, since it is reused already for the 10:30 trip.
-     *
-     * @var boolean
      */
     private bool $isReused = false;
-    
+
     /**
-     * Train turnaround time in minutes
-     *
-     * @var float
+     * Train turnaround time in minutes.
      */
     private float $turnaroundTime;
 
     /**
-     * Departure time. The hour and minute values are both two digits, zero-padded, and are on a 
+     * Departure time. The hour and minute values are both two digits, zero-padded, and are on a
      * 24-hour clock (00:00 through 23:59). Every time is on the same day. Because of this, we can
      * use any default date for the CarbonImmutable object. Since only the hours and the minutes matter.
-     *
-     * @var CarbonImmutable
      */
     private CarbonImmutable $departureTime;
 
     /**
-     * Arrival time
-     *
-     * @var CarbonImmutable
+     * Arrival time.
      */
     private CarbonImmutable $arrivalTime;
 
     public function __construct(
-        float $turnaroundTime, 
-        string $departureTime, 
-        string $arrivalTime
-    )
-    {
+        float $turnaroundTime,
+        string $departureTime,
+        string $arrivalTime,
+    ) {
         $this->turnaroundTime = $turnaroundTime;
         $this->departureTime = CarbonImmutable::createFromFormat('H:i', $departureTime);
         $this->arrivalTime = CarbonImmutable::createFromFormat('H:i', $arrivalTime);
@@ -57,8 +48,6 @@ class Train
 
     /**
      * Get the sum of turnaroundTime + arrivalTime.
-     * 
-        * @return  CarbonImmutable
      */
     public function getArrivalTurnaroundSum(): CarbonImmutable
     {
@@ -66,19 +55,15 @@ class Train
     }
 
     /**
-     * Get the value of departureTime
-     * 
-     * @return  CarbonImmutable
-     */ 
+     * Get the value of departureTime.
+     */
     public function getDepartureTime(): CarbonImmutable
     {
         return $this->departureTime;
     }
 
     /**
-     * Get the value of arrivalTime
-     * 
-     * @return  CarbonImmutable
+     * Get the value of arrivalTime.
      */
     public function getArrivalTime(): CarbonImmutable
     {
@@ -86,24 +71,18 @@ class Train
     }
 
     /**
-     * Get the value of isReused
-     * 
-     * @return  bool
-     */ 
+     * Get the value of isReused.
+     */
     public function getIsReused(): bool
     {
         return $this->isReused;
     }
 
     /**
-     * Set the value of isReused
-     *
-     * @return  void
-     */ 
+     * Set the value of isReused.
+     */
     public function setIsReused(bool $isReused): void
     {
         $this->isReused = $isReused;
     }
 }
-
-

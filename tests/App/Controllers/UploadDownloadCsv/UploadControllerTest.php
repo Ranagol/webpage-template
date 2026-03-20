@@ -2,8 +2,8 @@
 
 namespace Tests\App\Controllers\UploadDownloadCsv;
 
-use PHPUnit\Framework\TestCase;
 use App\Controllers\UploadDownloadCsv\UploadController;
+use PHPUnit\Framework\TestCase;
 
 final class UploadControllerTest extends TestCase
 {

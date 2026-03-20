@@ -4,10 +4,10 @@ namespace Tests\App\Trains\Output;
 
 require_once dirname(__DIR__) . '/TrainsClassLoader.php';
 
-use PHPUnit\Framework\TestCase;
 use App\Trains\Input\Schedule;
 use App\Trains\Input\Train;
 use App\Trains\Output\OutputWriter;
+use PHPUnit\Framework\TestCase;
 
 final class OutputWriterTest extends TestCase
 {

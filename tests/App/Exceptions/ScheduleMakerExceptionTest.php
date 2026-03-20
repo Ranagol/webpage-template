@@ -2,9 +2,9 @@
 
 namespace Tests\App\Exceptions;
 
-use PHPUnit\Framework\TestCase;
 use App\Exceptions\BaseException;
 use App\Exceptions\ScheduleMakerException;
+use PHPUnit\Framework\TestCase;
 
 final class ScheduleMakerExceptionTest extends TestCase
 {

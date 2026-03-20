@@ -3,7 +3,6 @@
 namespace System\response\apiResponse\studentResponse;
 
 use App\Models\Student;
-use System\response\apiResponse\studentResponse\AbstractStudentResponse;
 use App\Student\SchoolCSM;
 
 /**
@@ -14,11 +13,6 @@ class StudentJsonResponse extends AbstractStudentResponse
 {
     /**
      * Send a json response.
-     * 
-     * @param Student $student
-     * @param int $code
-     * 
-     * @return void
      */
     public static function send(Student $student, int $code = 200): void
     {
@@ -27,11 +21,10 @@ class StudentJsonResponse extends AbstractStudentResponse
     }
 
     /**
-     * This is the place where we calculate the average grade and check if the student passed, 
+     * This is the place where we calculate the average grade and check if the student passed,
      * according to the CSM rules.
      *
-     * @param Student $student
-        * @return array<string, mixed>
+     * @return array<string, mixed>
      */
     private static function evaluateStudent(Student $student): array
     {
@@ -45,20 +38,17 @@ class StudentJsonResponse extends AbstractStudentResponse
 
     /**
      * Send a json response.
-     * 
-        * @param array<string, mixed> $data
-     * @param int $code
-     * 
-     * @return void
+     *
+     * @param array<string, mixed> $data
      */
     private static function sendResponse(array $data, int $code = 200): void
     {
-        $serverProtocol = $_SERVER['SERVER_PROTOCOL'];//here we create server protocoll. Example HTTP/1.1
-		$statusCode = self::STATUS_CODE[$code];
+        $serverProtocol = $_SERVER['SERVER_PROTOCOL']; // here we create server protocoll. Example HTTP/1.1
+        $statusCode = self::STATUS_CODE[$code];
         $response['status_code_header'] = $serverProtocol . ' ' . $statusCode;
         $response['body'] = json_encode($data);
 
-        /**
+        /*
          * This is the way to send a json response in vanilla php.
          */
         header('Content-Type: application/json');

@@ -2,8 +2,6 @@
 
 namespace System\request;
 
-use System\request\AbstractRequest;
-
 class FileDownloadRequest extends AbstractRequest
 {
     /**

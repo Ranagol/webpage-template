@@ -3,19 +3,10 @@
 namespace App\Student;
 
 use App\Models\Student;
+
 abstract class School
 {
-    /**
-     * @param Student $student
-     * 
-        * @return string
-     */
     abstract public function checkIfStudentPassed(Student $student): string;
 
-    /**
-     * @param Student $student
-     * 
-     * @return float
-     */
     abstract public function calculateAverageGrade(Student $student): float;
 }

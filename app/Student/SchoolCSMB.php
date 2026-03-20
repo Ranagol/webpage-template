@@ -8,10 +8,6 @@ class SchoolCSMB extends School
 {
     /**
      * Check if student passed by CSMB rules.
-     * 
-     * @param Student $student
-     * 
-        * @return string
      */
     public function checkIfStudentPassed(Student $student): string
     {
@@ -27,10 +23,6 @@ class SchoolCSMB extends School
 
     /**
      * Calculate average grade by CSMB rules.
-     * 
-     * @param Student $student
-     * 
-     * @return float
      */
     public function calculateAverageGrade(Student $student): float
     {
@@ -39,17 +31,17 @@ class SchoolCSMB extends School
 
         if ($numberOfGrades > 2) {
             $lowestGrade = min($allGrades);
-            //Remove the lowest grade from grades array
+            // Remove the lowest grade from grades array
             $modifiedGrades = array_diff($allGrades, [$lowestGrade]);
             $sum = array_sum($modifiedGrades);
             $count = count($modifiedGrades);
             $averageGrade = $sum / $count;
 
             return $averageGrade;
-        } else {
-            $averageGrade = $student->calculcateAverageGrade();
-
-            return $averageGrade;
         }
+        $averageGrade = $student->calculcateAverageGrade();
+
+        return $averageGrade;
+
     }
 }

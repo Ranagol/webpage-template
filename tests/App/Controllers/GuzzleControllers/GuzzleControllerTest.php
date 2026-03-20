@@ -2,8 +2,8 @@
 
 namespace Tests\App\Controllers\GuzzleControllers;
 
-use PHPUnit\Framework\TestCase;
 use App\Controllers\GuzzleControllers\GuzzleController;
+use PHPUnit\Framework\TestCase;
 
 final class GuzzleControllerTest extends TestCase
 {

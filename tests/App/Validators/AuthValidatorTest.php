@@ -2,8 +2,8 @@
 
 namespace Tests\App\Validators;
 
-use PHPUnit\Framework\TestCase;
 use App\Validators\AuthValidator;
+use PHPUnit\Framework\TestCase;
 
 final class AuthValidatorTest extends TestCase
 {

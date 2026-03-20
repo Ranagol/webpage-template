@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Console;
 
 use Symfony\Component\Console\Command\Command;
@@ -21,6 +22,7 @@ class HelloCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('Hello, World! Command was executed!');
+
         return Command::SUCCESS;
     }
 }

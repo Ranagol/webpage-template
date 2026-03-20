@@ -1,11 +1,12 @@
 <?php
+
 namespace App\Console;
 
-use App\Trains\TrainService;
-use App\Trains\Input\ScheduleMaker;
-use App\Trains\Output\OutputWriter;
 use App\Trains\Calculation\TrainCalculator;
+use App\Trains\Input\ScheduleMaker;
 use App\Trains\Input\StringToLinesConverter;
+use App\Trains\Output\OutputWriter;
+use App\Trains\TrainService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -22,20 +23,19 @@ class TrainCommand extends Command
             ->setHelp('This command allows you to solve the trains problem');
     }
 
-    
     /**
-     * Execute the command
-     * 
-     * Start the terminal in docker container: 
+     * Execute the command.
+     *
+     * Start the terminal in docker container:
      * docker-compose exec -it php-container bash
-     * 
+     *
      * Run the app and input the train timetable:
      *  - Below is the command for the original task data
      * cat app/trains/taskDataOriginal | php console.php trains
      * Expected output:
      * Case #1: 2 2
      * Case #2: 2 0
-     * 
+     *
      *  - Below is the command for the big task data created by me
      * cat app/trains/taskDataBig | php console.php trains
      * Expected output:
@@ -47,27 +47,24 @@ class TrainCommand extends Command
      * Case #6: 2 0
      * Case #7: 2 2
      * Case #8: 2 0
-     * 
+     *
      * - Below is the command for the double reusability problem by Losi
      * cat app/trains/taskDataWithLosiDoubleReusabilityProblem | php console.php trains
      * Expected output:
      * Case #1: 3 2
      * Case #2: 2 0
-     * 
-     * @param InputInterface $input
-     * @param OutputInterface $output
-    * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         // Start measuring the execution time
         $startTime = microtime(true);
 
-        //this will get everything, the whole data from STDIN
+        // this will get everything, the whole data from STDIN
         $taskData = stream_get_contents(STDIN);
 
         if (!$taskData) {
             $output->writeln('No input file provided or input file is empty.');
+
             return Command::FAILURE;
         }
 
@@ -84,7 +81,7 @@ class TrainCommand extends Command
             $trainCalculator,
             $outputWriter
         );
-        
+
         $responses = $trainService->handle($taskData);
 
         // Output the responses
@@ -93,7 +90,7 @@ class TrainCommand extends Command
         }
 
         /**
-         * Here we measure the max memory usage
+         * Here we measure the max memory usage.
          */
         // Get peak memory usage
         $peakMemoryUsage = memory_get_peak_usage(true); // true for real memory usage
@@ -102,7 +99,7 @@ class TrainCommand extends Command
         $output->writeln("Peak memory usage: $peakMemoryUsage");
 
         /**
-         * Here we have the logic for execution time measuring and displaying in cli
+         * Here we have the logic for execution time measuring and displaying in cli.
          */
         // End measuring the execution time
         $endTime = microtime(true);
@@ -112,7 +109,7 @@ class TrainCommand extends Command
         $output->writeln("Execution time: $executionTime seconds");
 
         $output->writeln('Command was executed!');
+
         return Command::SUCCESS;
     }
 }
-

@@ -2,10 +2,6 @@
 
 namespace App\Report\ReportDomain;
 
-use App\Report\ReportDomain\Price;
-use App\Report\ReportDomain\Amount;
-use App\Report\ReportDomain\Category;
-
 class Line
 {
     private Category $category;
@@ -28,29 +24,29 @@ class Line
         $amount = $this->getAmount()->getAmount();
         $result = $price * $amount;
         $c = 8;
-        
+
         return $result;
     }
 
     /**
-     * Get the value of category
-     */ 
+     * Get the value of category.
+     */
     public function getCategory(): Category
     {
         return $this->category;
     }
 
     /**
-     * Get the value of price
-     */ 
+     * Get the value of price.
+     */
     public function getPrice(): Price
     {
         return $this->price;
     }
 
     /**
-     * Get the value of amount
-     */ 
+     * Get the value of amount.
+     */
     public function getAmount(): Amount
     {
         return $this->amount;

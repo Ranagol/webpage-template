@@ -1,9 +1,9 @@
 <?php
 
-use PHPUnit\Framework\TestCase;//Every test class must be a child of TestCase class for testing
+use PHPUnit\Framework\TestCase; // Every test class must be a child of TestCase class for testing
 
-class MyTest extends TestCase {
-
+class MyTest extends TestCase
+{
     public function testFirstAssertion(): void
     {
         $this->assertIsString(phpversion());

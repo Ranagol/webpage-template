@@ -2,8 +2,8 @@
 
 namespace Tests\App\Controllers\AuthControllers;
 
-use PHPUnit\Framework\TestCase;
 use App\Controllers\AuthControllers\RegisterController;
+use PHPUnit\Framework\TestCase;
 
 final class RegisterControllerTest extends TestCase
 {

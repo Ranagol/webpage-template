@@ -13,7 +13,7 @@ use GuzzleHttp\Psr7\Request;
 class GuzzleController extends Controller
 {
     /**
-     * This is the base uri for the dummyApi page. 
+     * This is the base uri for the dummyApi page.
      * We will send our requests here.
      *
      * @var string
@@ -23,8 +23,8 @@ class GuzzleController extends Controller
     /**
      * This is the additional uri that we need to make a get request regarding the posts.
      * page=0   give me only the first page
-     * limit=10 give just 10 posts
-     * 
+     * limit=10 give just 10 posts.
+     *
      * Basically here we state that we want to get 10 posts.
      *
      * @var string
@@ -34,14 +34,12 @@ class GuzzleController extends Controller
     /**
      * It is required to set app-id Header for each request.
      *
-        * @var array<string, string>
+     * @var array<string, string>
      */
-        private array $headers = ['app-id' => '612de3a4265d8631fe1d0028'];
+    private array $headers = ['app-id' => '612de3a4265d8631fe1d0028'];
 
     /**
-     * Loads guzzle page
-     *
-     * @return void
+     * Loads guzzle page.
      */
     public function loadGuzzlePage(): void
     {
@@ -50,13 +48,11 @@ class GuzzleController extends Controller
 
     /**
      * Gets hardcoded 10 post data, by sending a GET request to the predefined url.
-     * 
-        * @throws \Throwable
      *
-     * @return void
+     * @throws \Throwable
      */
     public function getPosts(): void
-    {   
+    {
         /**
          * This ['verify' => false] is a must, without this there will be some SSL error.
          */
@@ -64,7 +60,7 @@ class GuzzleController extends Controller
         $url = $this->getBaseUri() . $this->getPostsUri();
         $headers = $this->getHeaders();
         $request = new Request(
-            'GET', 
+            'GET',
             $url,
             $headers
         );
@@ -74,16 +70,16 @@ class GuzzleController extends Controller
             /**
              * The request is send, and the response is received here.
              */
-            $response = $client->send($request);//itt van a probléma
+            $response = $client->send($request); // itt van a probléma
             $response = json_decode($response->getBody(), true);
             $posts = $response['data'];
 
             $this->view('guzzle', ['posts' => $posts]);
-            
+
         } catch (\Throwable $error) {
             echo 'My error message: ' . $error->getMessage() . '<br>';
-            echo 'The error was triggered in this file: ' . $error->getFile(). '<br>';
-            echo 'The error was triggered on this line: ' . $error->getLine(). '<br>';
+            echo 'The error was triggered in this file: ' . $error->getFile() . '<br>';
+            echo 'The error was triggered on this line: ' . $error->getLine() . '<br>';
         }
     }
 
@@ -96,21 +92,17 @@ class GuzzleController extends Controller
     {
         return $this->headers;
     }
-    
+
     /**
      * Returns the posts uri.
-     *
-     * @return string
      */
     private function getPostsUri(): string
     {
         return $this->postsUri;
     }
-    
+
     /**
      * Returns the base uri.
-     *
-     * @return string
      */
     private function getBaseUri(): string
     {

@@ -2,15 +2,10 @@
 
 namespace App\Report\ReportDomain;
 
-use App\Report\ReportDomain\Reportable;
-use App\Report\ReportDomain\Line;
-
 class CsvFile implements Reportable
 {
     /**
-     * Path of the csv file
-     *
-     * @var string
+     * Path of the csv file.
      */
     private string $path;
 
@@ -18,7 +13,7 @@ class CsvFile implements Reportable
      * These are the raw lines freshly arrived from the CsvReader.php. This means that some of
      * these lines are duplicates, some of these lines have the same category.
      *
-        * @var array<int, Line>
+     * @var array<int, Line>
      */
     private array $lines = [];
 
@@ -39,27 +34,25 @@ class CsvFile implements Reportable
 
     /**
      * Will create the final report, by merging the same categories into one category.
-     *
-     * @return void
      */
     private function mergeDuplicateLines(): void
     {
         $lines = $this->getLines();
         $processedLines = [];
 
-        //HERE WE ARE CREATING SUBARAYS BY CATEGORY, AND GIVE EVERY SUBARAY ITS VALUE.
+        // HERE WE ARE CREATING SUBARAYS BY CATEGORY, AND GIVE EVERY SUBARAY ITS VALUE.
         $categories = [];
 
         foreach ($lines as $key => $line) {
             $categoryName = $line->getCategory()->getCategory();
 
-            //if there is already a category with this $categoryName... Then is has a (previous) value. We need to add the new value to the previous value.
+            // if there is already a category with this $categoryName... Then is has a (previous) value. We need to add the new value to the previous value.
             if (array_key_exists($categoryName, $categories)) {
                 $previousCategoryValue = $categories[$categoryName];
                 $newCategoryValue = $previousCategoryValue + $line->getLineSum();
                 $categories[$categoryName] = $newCategoryValue;
             } else {
-                //if categoryName does not exist, just simply add this value to the newly created category
+                // if categoryName does not exist, just simply add this value to the newly created category
                 $categories[$categoryName] = $line->getLineSum();
             }
         }
@@ -68,18 +61,16 @@ class CsvFile implements Reportable
     }
 
     /**
-     * Get the value of path
-     */ 
+     * Get the value of path.
+     */
     public function getPath(): string
     {
         return $this->path;
     }
 
     /**
-     * Set the value of path
-     *
-     * @return  self
-     */ 
+     * Set the value of path.
+     */
     public function setPath(string $path): self
     {
         $this->path = $path;
@@ -88,10 +79,10 @@ class CsvFile implements Reportable
     }
 
     /**
-     * Get the value of lines
-     * 
+     * Get the value of lines.
+     *
      * @return array<int, Line>
-     */ 
+     */
     public function getLines(): array
     {
         return $this->lines;
@@ -100,8 +91,8 @@ class CsvFile implements Reportable
     /**
      * Will get the final report data in array, that we want to display for the user.
      *
-     * @return  array<string, float>
-     */ 
+     * @return array<string, float>
+     */
     public function getReport(): array
     {
         return $this->report;

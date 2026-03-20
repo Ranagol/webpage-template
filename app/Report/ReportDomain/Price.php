@@ -12,18 +12,16 @@ class Price
     }
 
     /**
-     * Get the value of price
-     */ 
+     * Get the value of price.
+     */
     public function getPrice(): float
     {
         return $this->price;
     }
 
     /**
-     * Set the value of price
-     *
-     * @return  self
-     */ 
+     * Set the value of price.
+     */
     public function setPrice(float $price): self
     {
         $this->price = $price;

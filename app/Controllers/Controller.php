@@ -38,24 +38,22 @@ class Controller
     public function __construct()
     {
         /**
-         * This is how we can get into the root dir. Which is needed to get the absolute path to the 
+         * This is how we can get into the root dir. Which is needed to get the absolute path to the
          * views and cache directories. Here we say: navigate 2 levels up from the current directory.
          * So, this does not get us automatically to root dir, we tell it to go 2 levels up.
          */
-        $rootDir = dirname(__DIR__, 2); 
+        $rootDir = dirname(__DIR__, 2);
 
         // The blade views are at the resources/views directory.
         $this->views = $rootDir . '/resources/views';
-        $this->cache = $rootDir . '/cache';// The blade cache is at the bootstrap/cache directory.
+        $this->cache = $rootDir . '/cache'; // The blade cache is at the bootstrap/cache directory.
         $this->blade = new Blade($this->views, $this->cache);
     }
 
     /**
      * Displays the Blade view.
      *
-     * @param string $view
-        * @param array<string, mixed> $data
-     * @return void
+     * @param array<string, mixed> $data
      */
     public function view(string $view, array $data = []): void
     {

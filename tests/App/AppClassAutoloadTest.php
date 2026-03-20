@@ -16,7 +16,7 @@ final class AppClassAutoloadTest extends TestCase
         $tests = [];
 
         foreach ($iterator as $file) {
-            if (!$file->isFile() || $file->getExtension() !== 'php') {
+            if (!$file->isFile() || 'php' !== $file->getExtension()) {
                 continue;
             }
 
@@ -64,23 +64,23 @@ final class AppClassAutoloadTest extends TestCase
     private static function extractSymbol(string $content): array
     {
         $namespace = '';
-        if (preg_match('/^\s*namespace\s+([^;]+);/m', $content, $namespaceMatch) === 1) {
+        if (1 === preg_match('/^\s*namespace\s+([^;]+);/m', $content, $namespaceMatch)) {
             $namespace = trim($namespaceMatch[1]);
         }
 
         if (
-            preg_match(
+            1 !== preg_match(
                 '/^\s*(?:abstract\s+|final\s+)?(class|interface|trait)\s+([A-Za-z_][A-Za-z0-9_]*)\b/m',
                 $content,
                 $symbolMatch
-            ) !== 1
+            )
         ) {
             return ['', ''];
         }
 
         $type = trim($symbolMatch[1]);
         $name = trim($symbolMatch[2]);
-        $fqcn = $namespace !== '' ? $namespace . '\\' . $name : $name;
+        $fqcn = '' !== $namespace ? $namespace . '\\' . $name : $name;
 
         return [$type, $fqcn];
     }

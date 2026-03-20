@@ -12,18 +12,16 @@ class Category
     }
 
     /**
-     * Get the value of category
-     */ 
+     * Get the value of category.
+     */
     public function getCategory(): string
     {
         return $this->category;
     }
 
     /**
-     * Set the value of category
-     *
-     * @return  self
-     */ 
+     * Set the value of category.
+     */
     public function setCategory(string $category): self
     {
         $this->category = $category;

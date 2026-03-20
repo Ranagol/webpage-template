@@ -228,3 +228,7 @@ To handle this task, just open app\console\TrainCommand.php, there you will have
 ## 4.1 PHP DebugBar
 This app uses PHP Debugbar.
 
+
+## Phpstan
+Example for a cli command:
+vendor/bin/phpstan analyse app bootstrap database public resources routes storage system tests --memory-limit=512M -l 3

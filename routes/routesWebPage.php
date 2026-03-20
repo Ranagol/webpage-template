@@ -1,28 +1,28 @@
 <?php
 
-use App\Controllers\HomeController;
 use App\Controllers\AboutController;
 use App\Controllers\ContactController;
+use App\Controllers\HomeController;
 
-if (!isset($router) || !($router instanceof \Bramus\Router\Router)) {
-    throw new \RuntimeException('$router is not initialized.');
+if (!isset($router) || !($router instanceof Bramus\Router\Router)) {
+    throw new RuntimeException('$router is not initialized.');
 }
 
-//WEBPAGE ROUTES**********************
+// WEBPAGE ROUTES**********************
 
-//home page
+// home page
 $router->get('/', function () {
     $homeController = new HomeController();
     $homeController->home();
-}); 
+});
 
-//about page
+// about page
 $router->get('/about', function () {
     $aboutController = new AboutController();
     $aboutController->about();
 });
 
-//contact page 
+// contact page
 $router->get('/contact', function () {
     $contactController = new ContactController();
     $contactController->contact();

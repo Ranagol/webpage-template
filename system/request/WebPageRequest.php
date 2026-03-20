@@ -2,8 +2,6 @@
 
 namespace System\request;
 
-use System\request\AbstractRequest;
-
 /**
  * This class gets the request data sent from the webpage (and not api).
  * The request data (for example, a user registration data) will be collected from the $_REQUEST

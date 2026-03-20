@@ -2,8 +2,8 @@
 
 namespace Tests\App\Controllers\AuthControllers;
 
-use PHPUnit\Framework\TestCase;
 use App\Controllers\AuthControllers\LoginController;
+use PHPUnit\Framework\TestCase;
 
 final class LoginControllerTest extends TestCase
 {

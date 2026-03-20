@@ -2,9 +2,9 @@
 
 namespace Tests\App\Validators;
 
+use App\Exceptions\ValidationException;
 use App\Validators\LoginValidator;
 use PHPUnit\Framework\TestCase;
-use App\Exceptions\ValidationException;
 
 final class LoginValidatorTest extends TestCase
 {

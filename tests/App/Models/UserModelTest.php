@@ -3,8 +3,8 @@
 namespace Tests\App\Models;
 
 use App\Models\User;
-use PHPUnit\Framework\TestCase;
 use Illuminate\Database\Eloquent\Model;
+use PHPUnit\Framework\TestCase;
 
 final class UserModelTest extends TestCase
 {

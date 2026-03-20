@@ -4,9 +4,9 @@ namespace Tests\App\Trains\Input;
 
 require_once dirname(__DIR__) . '/TrainsClassLoader.php';
 
-use PHPUnit\Framework\TestCase;
 use App\Trains\Input\Schedule;
 use App\Trains\Input\ScheduleMaker;
+use PHPUnit\Framework\TestCase;
 
 final class ScheduleMakerTest extends TestCase
 {

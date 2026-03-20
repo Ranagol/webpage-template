@@ -3,7 +3,6 @@
 namespace System\response\apiResponse\studentResponse;
 
 use App\Models\Student;
-use System\response\apiResponse\studentResponse\AbstractStudentResponse;
 use App\Student\SchoolCSMB;
 
 /**
@@ -14,11 +13,6 @@ class StudentXmlResponse extends AbstractStudentResponse
 {
     /**
      * Send a xml response.
-     * 
-     * @param Student $student
-     * @param int $code
-     * 
-     * @return void
      */
     public static function send(Student $student, int $code = 200): void
     {
@@ -27,11 +21,10 @@ class StudentXmlResponse extends AbstractStudentResponse
     }
 
     /**
-     * This is the place where we calculate the average grade and check if the student passed, 
+     * This is the place where we calculate the average grade and check if the student passed,
      * according to the CSMB rules.
      *
-     * @param Student $student
-        * @return array<string, mixed>
+     * @return array<string, mixed>
      */
     private static function evaluateStudent(Student $student): array
     {
@@ -45,11 +38,8 @@ class StudentXmlResponse extends AbstractStudentResponse
 
     /**
      * Send a xml response.
-     * 
-        * @param array<string, mixed> $data
-     * @param int $code
-     * 
-     * @return void
+     *
+     * @param array<string, mixed> $data
      */
     private static function sendResponse(array $data, int $code = 200): void
     {
@@ -65,15 +55,12 @@ class StudentXmlResponse extends AbstractStudentResponse
 
     /**
      * Convert a php array to xml.
-     * 
-        * @param array<string, mixed> $data
-        * @param \SimpleXMLElement|null $xmlData
-     * 
-     * @return string
+     *
+     * @param array<string, mixed> $data
      */
     private static function arrayToXml(array $data, ?\SimpleXMLElement $xmlData = null): string
     {
-        if ($xmlData === null) {
+        if (null === $xmlData) {
             $xmlData = new \SimpleXMLElement('<?xml version="1.0"?><student></student>');
         }
 

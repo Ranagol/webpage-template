@@ -4,22 +4,22 @@ namespace System\request;
 
 /**
  * The request classes are ment to get the request data. Because that is not the controllers job.
- * They will get the request data as soon as they are created (through the __construct(), 
- * which is actually happening in the child classes). 
+ * They will get the request data as soon as they are created (through the __construct(),
+ * which is actually happening in the child classes).
  */
 abstract class AbstractRequest implements RequestInterface
 {
     /**
      * We store all request data here, once the child __construct() is activated.
-     * 
-        * @var array<string, mixed>
+     *
+     * @var array<string, mixed>
      */
     protected $requestData;
 
     /**
      * Returns all request data.
      *
-        * @return array<string, mixed>
+     * @return array<string, mixed>
      */
     public function getAllRequestData(): array
     {
@@ -28,16 +28,12 @@ abstract class AbstractRequest implements RequestInterface
 
     /**
      * Returns individual key - value pair from the request data.
-     * Example when to use this function: 
+     * Example when to use this function:
      * in case of 'update', we might need the id of the User that we want to update.
-     * Then, we do this: $id = $request->get('id');
-     *
-     * @param string $key
+     * Then, we do this: $id = $request->get('id');.
      */
     public function get(string $key): string
     {
         return $this->requestData[$key];
     }
 }
-
-

@@ -2,8 +2,8 @@
 
 namespace Tests\App\Console;
 
-use PHPUnit\Framework\TestCase;
 use App\Console\TrainCommand;
+use PHPUnit\Framework\TestCase;
 
 final class TrainCommandTest extends TestCase
 {

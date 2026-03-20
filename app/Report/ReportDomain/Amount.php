@@ -12,18 +12,16 @@ class Amount
     }
 
     /**
-     * Get the value of amount
-     */ 
+     * Get the value of amount.
+     */
     public function getAmount(): float
     {
         return $this->amount;
     }
 
     /**
-     * Set the value of amount
-     *
-     * @return  self
-     */ 
+     * Set the value of amount.
+     */
     public function setAmount(float $amount): self
     {
         $this->amount = $amount;

@@ -2,30 +2,29 @@
 
 namespace App\Trains;
 
-use App\Trains\Input\ScheduleMaker;
-use App\Trains\Output\OutputWriter;
-use App\Trains\Input\StringToLinesConverter;
 use App\Trains\Calculation\TrainCalculator;
+use App\Trains\Input\ScheduleMaker;
+use App\Trains\Input\StringToLinesConverter;
+use App\Trains\Output\OutputWriter;
 
 /**
  * This is the main service class. It is responsible for handling the whole train task.
  */
-class TrainService 
+class TrainService
 {
-
     public function __construct(
         private StringToLinesConverter $converter,
         private ScheduleMaker $scheduleMaker,
         private TrainCalculator $trainCalculator,
-        private OutputWriter $outputWriter
-    ) {}
+        private OutputWriter $outputWriter,
+    ) {
+    }
 
     /**
      * This is the main method of the service. It handles the whole task. See the comments below for
      * more details.
      *
-     * @param string $taskData
-        * @return array<int, string>
+     * @return array<int, string>
      */
     public function handle(string $taskData): array
     {

@@ -4,12 +4,12 @@ namespace Tests\App\Trains\Service;
 
 require_once dirname(__DIR__) . '/TrainsClassLoader.php';
 
+use App\Trains\Calculation\TrainCalculator;
+use App\Trains\Input\ScheduleMaker;
+use App\Trains\Input\StringToLinesConverter;
+use App\Trains\Output\OutputWriter;
 use App\Trains\TrainService;
 use PHPUnit\Framework\TestCase;
-use App\Trains\Input\ScheduleMaker;
-use App\Trains\Output\OutputWriter;
-use App\Trains\Calculation\TrainCalculator;
-use App\Trains\Input\StringToLinesConverter;
 
 final class TrainServiceTest extends TestCase
 {

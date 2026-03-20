@@ -2,8 +2,8 @@
 
 namespace Tests\App\Console;
 
-use PHPUnit\Framework\TestCase;
 use App\Console\HelloCommand;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Tester\CommandTester;
 

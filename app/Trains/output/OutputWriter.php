@@ -9,15 +9,15 @@ class OutputWriter
     /**
      * Returns an array, that contains the outputs in a string. One string output for every schedule.
      *
-        * @param array<int, Schedule> $schedules  Contains full schedules with the number of trains needed. All data is here. The number of trains too.
-        * @return array<int, string>
+     * @param array<int, Schedule> $schedules Contains full schedules with the number of trains needed. All data is here. The number of trains too.
+     *
+     * @return array<int, string>
      */
-        public function makeResponse(array $schedules): array
+    public function makeResponse(array $schedules): array
     {
         /**
          * Contains the outputs in a string. One string output for every schedule. This is what will be
          * displayed on the console screen.
-         *
          */
         $outputs = [];
 
@@ -28,7 +28,7 @@ class OutputWriter
          */
         $caseNumber = 1;
 
-        /**
+        /*
          * We must loop through every schedule, and prepare the result or response for displaying in
          * the terminal.
          */
@@ -41,10 +41,10 @@ class OutputWriter
             $numberOfTrainsB = $schedule->getNumberOfTrainsB();
 
             // This will be displayed in the terminal, for every schedule.
-            $output = 'Case #'  . $caseNumber . ': ' . $numberOfTrainsA . ' ' . $numberOfTrainsB;
-            
+            $output = 'Case #' . $caseNumber . ': ' . $numberOfTrainsA . ' ' . $numberOfTrainsB;
+
             $outputs[] = $output;
-            $caseNumber++;
+            ++$caseNumber;
         }
 
         return $outputs;

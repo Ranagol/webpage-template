@@ -4,8 +4,8 @@ namespace Tests\App\Trains\Input;
 
 require_once dirname(__DIR__) . '/TrainsClassLoader.php';
 
-use PHPUnit\Framework\TestCase;
 use App\Trains\Input\StringToLinesConverter;
+use PHPUnit\Framework\TestCase;
 
 final class StringToLinesConverterTest extends TestCase
 {

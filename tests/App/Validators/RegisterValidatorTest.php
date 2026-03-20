@@ -2,9 +2,9 @@
 
 namespace Tests\App\Validators;
 
-use PHPUnit\Framework\TestCase;
-use App\Validators\RegisterValidator;
 use App\Exceptions\ValidationException;
+use App\Validators\RegisterValidator;
+use PHPUnit\Framework\TestCase;
 
 final class RegisterValidatorTest extends TestCase
 {

@@ -11,7 +11,7 @@ class ReportFileGenerator
     private function getUserEmail(): string
     {
         $user = User::getCurrentUser();
-        if (!($user instanceof User)) {
+        if (!$user instanceof User) {
             throw new \Exception('User is not logged in.');
         }
         $email = $user->email;
@@ -20,11 +20,11 @@ class ReportFileGenerator
     }
 
     /**
-     * Get the value of reportFilePath
-     */ 
+     * Get the value of reportFilePath.
+     */
     public function getReportFilePath(): string
     {
-        if ($this->reportFilePath === null) {
+        if (null === $this->reportFilePath) {
             $this->reportFilePath = __DIR__ . '/../../../storage/upload/' . $this->getUserEmail() . '/report.csv';
         }
 
