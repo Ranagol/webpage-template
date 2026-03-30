@@ -25,7 +25,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Webpage Template</title>
+    <title>Challenges</title>
 
     <!-- This below is a solution for the 'favicon.ico not found -->
     <link rel="shortcut icon" href="#">

@@ -28,10 +28,10 @@ class Upload extends Model
      * @var array<int, string>
      */
     private array $allowedFileFormats = [
-        'image/jpg',
-        'image/jpeg',
-        'image/gif',
-        'image/png',
+        // 'image/jpg',
+        // 'image/jpeg',
+        // 'image/gif',
+        // 'image/png',
         'application/vnd.ms-excel',
         'text/csv',
     ];
@@ -97,9 +97,7 @@ class Upload extends Model
         if ('application/vnd.ms-excel' === $this->getFileType() || 'text/csv' === $this->getFileType()) {
             $csvReader = new CsvReader($this->getUserEmail(), $this->getFileName());
             $csvFile = $csvReader->getCsvFile();
-
-            $t = 8;
-
+            
             return $csvFile;
         }
 

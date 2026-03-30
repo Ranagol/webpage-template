@@ -122,7 +122,6 @@ class LoginController extends Controller
             $_SESSION['loggedin'] = true;
             $_SESSION['id'] = $user->id;
             $_SESSION['username'] = $user->username;
-            $t = 8;
 
             redirect('users');
         }
