@@ -26,27 +26,25 @@
     <article class="feature-card" style="text-align:justify">
         <h3><i class="bi bi-upload"></i> Challenge 2: File Upload & Processing</h3>
         <p>
-            A custom file upload and download system built in raw PHP. The application supports uploading specific file types and stores them under user accounts.
-
-            If a CSV file follows a defined format (including costs and categories), the system processes the data and generates a downloadable result file. This challenge demonstrates practical PHP file handling and data processing.
+            A custom file upload and download system built in raw PHP. The app will process the
+            uploaded CSV file, perform calculations, and generate a downloadable report.
         </p>
     </article>
 
     <article class="feature-card" style="text-align:justify">
         <h3><i class="bi bi-train-front"></i> Challenge 3: Train Schedule Calculator</h3>
         <p>
-            A scheduling problem that calculates train timetables based on given inputs. This challenge demonstrates object-oriented programming in PHP and uses the Symfony Console component.
-
-            The task is executed via the command line, and results are displayed directly in the console output.
+            A scheduling problem that calculates train timetables based on given inputs. The task is 
+            executed via the command line, and results are displayed directly in the console output.
         </p>
     </article>
 
     <article class="feature-card" style="text-align:justify">
-        <h3><i class="bi bi-shield-shaded"></i>Challenge 4: Heroes and Monsters Simulation</h3>
+        <h3><i class="bi bi-shield-shaded"></i>Challenge 4: Heroes and Monsters</h3>
         <p>
-            A fantasy simulation inspired by role-playing games like Advanced Dungeons & Dragons. The system models a world of heroes and monsters using object-oriented PHP.
-
-            Characters can perform actions and engage in simulated battles, demonstrating game logic design and OOP principles.
+            A fantasy simulation inspired by role-playing games like Advanced Dungeons & Dragons. 
+            The system models a world of heroes and monsters using object-oriented PHP. Characters 
+            can perform actions and engage in simulated battles.
         </p>
     </article>
 

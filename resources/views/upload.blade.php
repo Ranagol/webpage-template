@@ -12,14 +12,53 @@
     $user = User::getCurrentUser();
 @endphp
 
-<section class="upload-page-header" aria-labelledby="upload-page-title">
-    <p class="hero-kicker">Upload workflow</p>
-    <h1 id="upload-page-title">Upload files and generate CSV reports</h1>
-    <p class="hero-lead upload-page-lead">
-        Upload a JPG, PNG, or CSV file. When you upload an expenses CSV, the app calculates
-        the summary by category, shows the result in a table, and lets you download the report.
-    </p>
+<h1>Challenge 2: File Upload & Processing</h1>
+
+<section class="upload-task-brief feature-card mt-4" aria-labelledby="claromentis-task-title">
+    <h2 id="claromentis-task-title">Challenge description</h2>
+
+    <div class="upload-task-copy">
+        <p style="text-align:justify;">
+            The task is to run some calculations and display results based on data from an uploaded CSV file.
+            CSV stands for comma separated values - a format supported by Excel or any other spreadsheets software.
+            The source data is an imaginary expenses report and the goal of the program is to display
+            total cost per expense category.
+            Once the summary data has been calculated and displayed, it should be possible to generate
+            and download a report CSV file with the same data as displayed in the table.
+            An example of a possible page layout is shown on below.
+        </p>
+
+        <h3>File format</h3>
+        <p>
+            The expected source file does not have any headers, and contains the following three columns:
+        </p>
+        <ul class="upload-task-list">
+            <li><strong>category.</strong> String. May be one of a few values, not defined in advance 
+                (the set of available values can be different in different CSV files).
+            </li>
+            <li><strong>price.</strong> Numeric. Cost per item.</li>
+            <li><strong>amount.</strong> Numeric. Number of items.</li>
+            <li>Some categories may be repeated in the file, and the program should sum up the costs 
+                for these categories. For example, if there are two rows with category "Hotel", then 
+                the total cost for "Hotel" should be calculated as sum of these two categories.
+            </li>
+        </ul>
+    </div>
+
+    <h3>Example .csv file for uploading</h3>
+    
+    <div>
+        <div>Hotel, 10, 2</div>
+        <div>Hotel, 70, 3</div>
+        <div>Fuel, 1.21, 24</div>
+        <div>Food, 31, 6</div>
+        <div>Fuel, 1.18, 10</div>
+    </div>
+
+    
+
 </section>
+
 
 <!-- Success message OR warning message if something is wrong with the upload. In the controller
 there is a validation logic, that can - if needed - create error messages. -->
@@ -31,6 +70,26 @@ there is a validation logic, that can - if needed - create error messages. -->
 >
     {{ $message }}
 </div>
+
+
+{{-- How to test the upload functionality --}}
+<section class="upload-main-card feature-card mt-3">
+
+    <h2>How to test the upload functionality?</h2>
+
+    {{-- Download sample CSV file  --}}
+    <a class="btn btn-primary mt-3 btn-sm upload-sample-download" href="/downloads/csvFile.csv" download>
+        Download the example csv file
+    </a>
+
+    <p>
+
+        Simply click on the 'Download the example csv file' button. Then, in the 'Upload file' section
+        upload this downloaded file back to the server. The app will process the data, and it will show the 
+        calculated summary in a table. You can also download the report as a .csv file, by clicking on the
+        'Download report' button.
+    </p>
+</section>
 
 <!-- UPLOAD CSV FILE. This form will be displayed only if the user is logged in -->
 <section class="upload-main-card feature-card {{ $user ? '' : 'd-none' }}">
@@ -44,21 +103,22 @@ there is a validation logic, that can - if needed - create error messages. -->
             <div>
                 <h2 class='mt-0'>Upload file</h2>
                 <p class="upload-section-text mb-0">
-                    Choose an image or CSV file to store or process. CSV uploads are summarized into a downloadable report.
+                    Choose a CSV file to process. CSV uploads are summarized into a downloadable report.
                 </p>
             </div>
         </div>
         <div class='mt-3'>
             <label for="fileSelect">Filename:</label>
+
             <input type="file" name="file" id="fileSelect" class='form-control-file'>
         </div>
+
         <div class='mt-3'>
             <input type="submit" name="submit" value="Upload" class='btn btn-warning'>
         </div>
+
         <p class="upload-note mb-0">
-            <strong>Note: max allowed file size is 5 MB. Only .jpg, .png, and .csv
-                    files can be uploaded.
-            </strong>
+            Note: max allowed file size is 5 MB. Only .csv files can be uploaded.
         </p>
     </form>
 </section>
@@ -128,92 +188,7 @@ This is the report that can be downloaded. -->
     Please log in, if you want to upload a file.
 </div>
 
-<section class="upload-task-brief feature-card mt-4" aria-labelledby="claromentis-task-title">
-    <p class="hero-kicker">Challenge brief</p>
-    <h2 id="claromentis-task-title">Claromentis PHP Developer Test Task</h2>
 
-    <div class="upload-task-copy">
-        <p>
-            The task is to run some calculations and display results based on data from an uploaded CSV file.
-            CSV stands for comma separated values - a format supported by Excel or any other spreadsheets software.
-        </p>
-        <p>
-            The source data is an imaginary expenses report and the goal of the programme is to display
-            total cost per expense category.
-        </p>
-        <p>
-            Once the summary data has been calculated and displayed, it should be possible to generate
-            and download a report CSV file with the same data as displayed in the table.
-        </p>
-        <p>
-            An example of a possible page layout is shown on the screenshot, but how you lay it out is up to you.
-        </p>
-    </div>
-
-    <div class="upload-task-grid">
-        <article class="upload-task-panel">
-            <h3>File format</h3>
-            <p>
-                The expected source file does not have any headers, and contains the following three columns:
-            </p>
-            <ul class="upload-task-list">
-                <li><strong>category.</strong> String. May be one of a few values, not defined in advance (the set of available values can be different in different CSV files)</li>
-                <li><strong>price.</strong> Numeric. Cost per item</li>
-                <li><strong>amount.</strong> Numeric. Number of items</li>
-            </ul>
-        </article>
-
-        <article class="upload-task-panel">
-            <h3>Example file</h3>
-            <a class="btn btn-primary btn-sm upload-sample-download" href="/downloads/csvFile.csv" download>
-                Download sample csvFile.csv
-            </a>
-            <div class="upload-task-examples">
-                <div class="upload-task-sample">
-                    <p class="upload-task-label">Example file in Excel:</p>
-                    <table class="table upload-task-table mb-0">
-                        <tbody>
-                            <tr>
-                                <td>Hotel</td>
-                                <td>10</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>Hotel</td>
-                                <td>70</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>Fuel</td>
-                                <td>1.21</td>
-                                <td>24</td>
-                            </tr>
-                            <tr>
-                                <td>Food</td>
-                                <td>31</td>
-                                <td>6</td>
-                            </tr>
-                            <tr>
-                                <td>Fuel</td>
-                                <td>1.18</td>
-                                <td>10</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="upload-task-sample">
-                    <p class="upload-task-label">Plain text:</p>
-                    <pre class="upload-task-pre">Hotel,10,2
-Hotel,70,3
-Fuel,1.21,24
-Food,31,6
-Fuel,1.18,10</pre>
-                </div>
-            </div>
-        </article>
-    </div>
-</section>
 
 @endsection
 
