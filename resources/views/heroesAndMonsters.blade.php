@@ -20,7 +20,6 @@
         src="images/heroes.png" 
         alt="Illustration of the heroes and monsters game" 
         style="width: 50%; max-width: 100%; height: auto; margin-top: 20px; margin-bottom: 20px;"
-        
     >
 </section>
 
@@ -99,5 +98,13 @@
 
 </section>
 
+<section class="upload-main-card feature-card mt-3">
+    <h2>Start the action!</h2>
+
+    
+
+    
+
+</section>
 
 @endsection
