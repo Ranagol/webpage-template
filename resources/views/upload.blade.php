@@ -8,6 +8,7 @@
     if(!isset($_SESSION)){ 
         session_start(); 
     }
+
     // Here we check if the user is logged in
     $user = User::getCurrentUser();
 @endphp
@@ -66,8 +67,7 @@
         Download the example csv file
     </a>
 
-    <p>
-
+    <p style="text-align:justify;">
         Simply click on the 'Download the example csv file' button. Then, in the 'Upload file' section
         upload this downloaded file back to the server. The app will process the data, and it will show the 
         calculated summary in a table. You can also download the report as a .csv file, by clicking on the
@@ -97,11 +97,12 @@ there is a validation logic, that can - if needed - create error messages. -->
         <div class="upload-section-head">
             <div>
                 <h2 class='mt-0'>Upload file</h2>
-                <p class="upload-section-text mb-0" style="text-align:justify; color: var(--text-soft);">
+                <p class="mb-0" style="color: var(--text-soft);">
                     Choose a CSV file to process. CSV uploads are summarized into a downloadable report.
                 </p>
             </div>
         </div>
+        
         <div class='mt-3'>
             <label for="fileSelect">Filename:</label>
 
@@ -131,6 +132,8 @@ This is the report that can be downloaded. -->
                 Calculated totals grouped by category from the uploaded expenses CSV.
             </p>
         </div>
+
+        {{-- Display the number of categories in the report --}}
         <span class="upload-stat-pill">{{ isset($report) ? count($report) : 0 }} categories</span>
     </div>
 

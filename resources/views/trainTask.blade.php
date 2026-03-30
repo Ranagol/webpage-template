@@ -2,15 +2,9 @@
 
 @section('content')
 
-<section class="hero-panel" aria-labelledby="train-task-title">
-    <p class="hero-kicker">Code challenge</p>
-    <h1 id="train-task-title">Train task</h1>
-    <p class="hero-lead">
-        Train Timetable
-    </p>
-</section>
+<h1>Challenge 3: Train task (in terminal)</h1>
 
-<section class="feature-grid" aria-label="Train task details">
+<section  aria-label="Train task details">
     <article class="feature-card">
         <h3>Problem</h3>
         <p>
