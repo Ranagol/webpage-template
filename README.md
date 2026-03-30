@@ -12,13 +12,10 @@ The goal was to deeply understand how modern PHP frameworks work internally by r
 
 - Building an MVC architecture from scratch
 - Designing authentication and middleware systems
-- Creating RESTful APIs
 - Working with databases using an ORM (Eloquent)
 - Handling file uploads and processing (CSV parsing)
-- Integrating third-party APIs (Guzzle)
 - Using Docker for a complete development environment
 - Debugging with Xdebug
-- Writing maintainable, structured backend code
 
 ---
 
@@ -26,7 +23,7 @@ The goal was to deeply understand how modern PHP frameworks work internally by r
 
 - 🔐 User authentication (login & registration with validation)
 - 🧩 Middleware-based route protection
-- 🗂️ Full CRUD operations (web + API)
+- 🗂️ Full CRUD operations
 - 📊 CSV upload, processing, and report generation
 - 🖼️ User-specific image uploads
 - 🌐 External API integration

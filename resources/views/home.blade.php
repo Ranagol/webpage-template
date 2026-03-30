@@ -5,9 +5,12 @@
 <section class="hero-panel" style="text-align:justify">
     <h1>PHP MVC Web Application (Vanilla PHP, No Framework)</h1>
     <p class="hero-lead">
-        This project is a fully custom-built MVC web application created using <strong>vanilla PHP</strong>, without frameworks like Laravel or Symfony. I started building it about five years ago with the goal of understanding how modern PHP frameworks work under the hood by implementing core concepts from scratch—such as routing, middleware, templating, controllers, and the MVC architecture.
-
-        Composer packages were allowed, but everything else was implemented manually. This was originally my first major challenge project. Over time, I added more challenges, many of which were inspired by real-world technical assessments used in software engineering interviews.
+        This project is a fully custom-built MVC web application created using <strong>vanilla PHP</strong>, 
+        without frameworks like Laravel or Symfony. I started building it about five years ago with 
+        the goal of understanding how modern PHP frameworks work under the hood.
+        This was originally my first challenge project. Over time, I added more challenges, 
+        some of which were inspired by real-world technical assessments used in software engineering 
+        interviews.
     </p>
 </section>
 
@@ -16,9 +19,7 @@
     <article class="feature-card" style="text-align:justify">
         <h3><i class="bi bi-code-slash"></i> Challenge 1: Raw PHP MVC Application</h3>
         <p>
-            A fully custom MVC web application built with vanilla PHP, without using any frameworks. The goal was to deeply understand how frameworks like Laravel work internally by recreating essential components such as routing, middleware, templating, controllers, and an MVC structure from scratch.
-
-            The project includes a session-based authentication system for user authorization.
+            A custom MVC web application built with vanilla PHP, without using any frameworks. 
         </p>
     </article>
 
@@ -41,7 +42,7 @@
     </article>
 
     <article class="feature-card" style="text-align:justify">
-        <h3><i class="bi bi-shield-shaded"></i> Challenge 4: Heroes and Monsters Simulation</h3>
+        <h3><i class="bi bi-shield-shaded"></i>Challenge 4: Heroes and Monsters Simulation</h3>
         <p>
             A fantasy simulation inspired by role-playing games like Advanced Dungeons & Dragons. The system models a world of heroes and monsters using object-oriented PHP.
 
