@@ -6,7 +6,7 @@
 
 <section  aria-label="Train task details">
     <article class="feature-card">
-        <h3>Problem</h3>
+        <h3>Challenge description</h3>
         <p>
             A train line has two stations on it, A and B. Trains can take trips from A to B or
             from B to A multiple times during a day. When a train arrives at B from A (or arrives
@@ -25,9 +25,7 @@
             trains do not necessarily arrive in the same order that they leave. Trains may not
             travel on trips that do not appear on the schedule.
         </p>
-    </article>
 
-    <article class="feature-card">
         <h3>Input</h3>
         <p>
             The first line of input gives the number of cases, N. N test cases follow.
@@ -49,26 +47,18 @@
             After these NA lines, there are NB lines giving the departure and arrival times for
             the trips from B to A.
         </p>
-    </article>
 
-    <article class="feature-card">
         <h3>Output</h3>
         <p>
             For each test case, output one line containing "Case #x: " followed by the number of
             trains that must start at A and the number of trains that must start at B.
         </p>
-    </article>
 
-    <article class="feature-card">
         <h3>Limits</h3>
         <p>Time limit: 30 seconds per test set.</p>
         <p>Memory limit: 1GB.</p>
-        
-    </article>
 
-    <article class="feature-card">
-        <h3>Sample</h3>
-        <p><strong>Sample Input</strong></p>
+        <h3>Sample input</h3>
         <pre>25
 3 2
 09:00 12:00
@@ -80,9 +70,10 @@
 2 0
 09:00 09:01
 12:00 12:02</pre>
-        <p><strong>Sample Output</strong></p>
+        <h3>Sample output</h3>
         <pre>Case #1: 2 2
 Case #2: 2 0</pre>
+
     </article>
 
     <article class="feature-card">
