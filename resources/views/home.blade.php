@@ -4,7 +4,7 @@
 
 <section class="hero-panel" style="text-align:justify">
     <h1>PHP MVC Web Application (Vanilla PHP, No Framework)</h1>
-    <p class="hero-lead">
+    <p>
         This project is a fully custom-built MVC web application created using <strong>vanilla PHP</strong>, 
         without frameworks like Laravel or Symfony. I started building it about five years ago with 
         the goal of understanding how modern PHP frameworks work under the hood.

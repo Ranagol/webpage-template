@@ -10,8 +10,8 @@
     <h2>Challenge description</h2>
     
     <ul>
-        <li>No frameworks allowed (like Laravel, Symfony, etc.)</li>
-        <li>Composer packages were allowed, but everything else had to be implemented manually</li>
+        <li>No frameworks allowed (like Laravel, Symfony, etc.), only raw, vanilla PHP</li>
+        <li>Composer packages were allowed, but everything else must be implemented manually</li>
         <li>Implement a session-based authentication system for user authorization, with middleware,
             from scratch, without using any pre-built authentication packages or libraries
         </li>
