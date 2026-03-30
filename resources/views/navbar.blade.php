@@ -34,7 +34,7 @@
 					<a class="nav-link {{ $isActive('/contact') ? 'active' : '' }}" href="/contact">Contact</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link {{ $isActive('/users') ? 'active' : '' }}" href="/users">Users</a>
+					{{-- <a class="nav-link {{ $isActive('/users') ? 'active' : '' }}" href="/users">Users</a> --}}
 				</li>
 				<li class="nav-item">
 					<a class="nav-link {{ $isActive('/upload') ? 'active' : '' }}" href="/upload">Upload</a>

@@ -17,16 +17,6 @@
         </div>
     </section>
 
-    <section class="quick-start">
-        <h2>Quick Start</h2>
-        <p>If you are testing the app, these pages provide the best feature walkthrough:</p>
-        <ul>
-            <li>Users: view, edit, and remove user records through web routes</li>
-            <li>Upload: upload images or CSV files and generate a downloadable summary report</li>
-            <li>Guzzle: fetch and display sample data from an external API</li>
-        </ul>
-    </section>
-
     <section class="feature-grid" aria-label="Technical capabilities">
         <article class="feature-card">
             <h3>Web + Auth</h3>
@@ -37,32 +27,7 @@
             </ul>
         </article>
 
-        <article class="feature-card">
-            <h3>API + Integration</h3>
-            <ul>
-                <li>Provides user CRUD through REST-style API routes</li>
-                <li>Calls external API data from dummyapi.io using Guzzle and displays posts</li>
-            </ul>
-        </article>
-
-        <article class="feature-card">
-            <h3>Files + Reporting</h3>
-            <ul>
-                <li>Uploads user images and stores them per user</li>
-                <li>Processes uploaded CSV expense files and generates a downloadable CSV report</li>
-                <li>Keeps upload workflows integrated with validation and user feedback</li>
-            </ul>
-        </article>
-
-        <article class="feature-card">
-            <h3>Tooling + Architecture</h3>
-            <ul>
-                <li>Uses MySQL via Eloquent with dotenv-based configuration</li>
-                <li>Runs in Docker and includes custom exception logging</li>
-                <li>Includes Symfony Console commands, including a train-schedule challenge command</li>
-            </ul>
-        </article>
-    </section>
+        
 @endsection
 
 
