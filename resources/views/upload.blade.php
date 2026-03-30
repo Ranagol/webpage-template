@@ -18,7 +18,7 @@
     <h2 id="claromentis-task-title">Challenge description</h2>
 
     <div class="upload-task-copy">
-        <p style="text-align:justify;">
+        <p style="text-align:justify; color: var(--text-soft);">
             The task is to run some calculations and display results based on data from an uploaded CSV file.
             CSV stands for comma separated values - a format supported by Excel or any other spreadsheets software.
             The source data is an imaginary expenses report and the goal of the program is to display
@@ -29,7 +29,7 @@
         </p>
 
         <h3>File format</h3>
-        <p>
+        <p class="upload-task-list" style="color: var(--text-soft);">
             The expected source file does not have any headers, and contains the following three columns:
         </p>
         <ul class="upload-task-list">
@@ -47,30 +47,14 @@
 
     <h3>Example .csv file for uploading</h3>
     
-    <div>
+    <div style="text-align:justify; color: var(--text-soft);">
         <div>Hotel, 10, 2</div>
         <div>Hotel, 70, 3</div>
         <div>Fuel, 1.21, 24</div>
         <div>Food, 31, 6</div>
         <div>Fuel, 1.18, 10</div>
     </div>
-
-    
-
 </section>
-
-
-<!-- Success message OR warning message if something is wrong with the upload. In the controller
-there is a validation logic, that can - if needed - create error messages. -->
-<div 
-    class="alert upload-feedback 
-        {{ isset($alertType) && ($alertType === 'alert-success') ? 'alert-success' : 'alert-warning' }}
-        {{ isset($message) && (!empty($message)) ? '' : 'd-none' }}
-    "
->
-    {{ $message }}
-</div>
-
 
 {{-- How to test the upload functionality --}}
 <section class="upload-main-card feature-card mt-3">
@@ -91,6 +75,17 @@ there is a validation logic, that can - if needed - create error messages. -->
     </p>
 </section>
 
+<!-- Success message OR warning message if something is wrong with the upload. In the controller
+there is a validation logic, that can - if needed - create error messages. -->
+<div 
+    class="alert upload-feedback 
+        {{ isset($alertType) && ($alertType === 'alert-success') ? 'alert-success' : 'alert-warning' }}
+        {{ isset($message) && (!empty($message)) ? '' : 'd-none' }}
+    "
+>
+    {{ $message }}
+</div>
+
 <!-- UPLOAD CSV FILE. This form will be displayed only if the user is logged in -->
 <section class="upload-main-card feature-card {{ $user ? '' : 'd-none' }}">
     <form 
@@ -102,7 +97,7 @@ there is a validation logic, that can - if needed - create error messages. -->
         <div class="upload-section-head">
             <div>
                 <h2 class='mt-0'>Upload file</h2>
-                <p class="upload-section-text mb-0">
+                <p class="upload-section-text mb-0" style="text-align:justify; color: var(--text-soft);">
                     Choose a CSV file to process. CSV uploads are summarized into a downloadable report.
                 </p>
             </div>

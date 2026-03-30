@@ -529,6 +529,7 @@ label {
 .upload-task-list {
 	margin-bottom: 0;
 	padding-left: 1.1rem;
+	color: var(--text-soft);
 }
 
 .upload-task-list li {
