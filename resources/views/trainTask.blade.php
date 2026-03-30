@@ -2,11 +2,13 @@
 
 @section('content')
 
-<h1>Challenge 3: Train task (in terminal)</h1>
+<article class="feature-card mb-3">
+    <h1>Challenge 3: Train task (in terminal)</h1>
+</article>
 
 <section  aria-label="Train task details">
     <article class="feature-card">
-        <h3>Challenge description</h3>
+        <h2>Challenge description</h2>
         <p>
             A train line has two stations on it, A and B. Trains can take trips from A to B or
             from B to A multiple times during a day. When a train arrives at B from A (or arrives
@@ -48,17 +50,7 @@
             the trips from B to A.
         </p>
 
-        <h3>Output</h3>
-        <p>
-            For each test case, output one line containing "Case #x: " followed by the number of
-            trains that must start at A and the number of trains that must start at B.
-        </p>
-
-        <h3>Limits</h3>
-        <p>Time limit: 30 seconds per test set.</p>
-        <p>Memory limit: 1GB.</p>
-
-        <h3>Sample input</h3>
+        <p>Sample input</p>
         <pre>25
 3 2
 09:00 12:00
@@ -70,40 +62,27 @@
 2 0
 09:00 09:01
 12:00 12:02</pre>
-        <h3>Sample output</h3>
+
+        <h3>Output</h3>
+        <p>
+            For each test case, output one line containing "Case #x: " followed by the number of
+            trains that must start at A and the number of trains that must start at B.
+        </p>
+        <p>Sample output</p>
         <pre>Case #1: 2 2
 Case #2: 2 0</pre>
-
     </article>
 
-    <article class="feature-card">
-        <h3>Run in this app</h3>
-        <p>
-            Start the terminal in docker container:
-        </p>
+    {{-- How to test this feature --}}
+    <article class="feature-card mt-3">
+        <h2>How to test this feature?</h2>
+        <p>Type this command into terminal:</p>
         <pre>docker-compose exec -it php-container bash</pre>
-        <p>
-            Run the app and input the train timetable.
-        </p>
-        <p>
-            On Linux, folder names are case-sensitive. Use <strong>app/Trains</strong> exactly as shown.
-        </p>
-        <p><strong>Original task data</strong></p>
+        <p>Run the app with this command:</p>
         <pre>cat app/Trains/taskDataOriginal | php console.php trains</pre>
         <p><strong>Expected output</strong></p>
         <pre>Case #1: 2 2
 Case #2: 2 0</pre>
-        <p><strong>Big task data created in this project</strong></p>
-        <pre>cat app/Trains/taskDataBig | php console.php trains</pre>
-        <p><strong>Expected output</strong></p>
-        <pre>Case #1: 2 2
-Case #2: 2 0
-Case #3: 2 2
-Case #4: 2 0
-Case #5: 2 2
-Case #6: 2 0
-Case #7: 2 2
-Case #8: 2 0</pre>
     </article>
 </section>
 

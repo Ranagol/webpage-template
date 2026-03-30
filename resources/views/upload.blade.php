@@ -13,7 +13,9 @@
     $user = User::getCurrentUser();
 @endphp
 
-<h1>Challenge 2: File Upload & Processing</h1>
+<article class="feature-card mb-3">
+    <h1>Challenge 2: File Upload & Processing</h1>
+</article>
 
 <section class="upload-task-brief feature-card mt-4" aria-labelledby="claromentis-task-title">
     <h2 id="claromentis-task-title">Challenge description</h2>
