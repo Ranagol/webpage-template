@@ -43,11 +43,13 @@ $router->before('GET', '/.*', function () {
          * Pages that can be visited by the not-logged-in user: /, login, register, logout.
          */
         if ('/about' === $_SERVER['REQUEST_URI']
-        || '/contact' === $_SERVER['REQUEST_URI']
-        || '/users' === $_SERVER['REQUEST_URI']
+        // || '/contact' === $_SERVER['REQUEST_URI']
+        // || '/users' === $_SERVER['REQUEST_URI']
         || '/users/create' === $_SERVER['REQUEST_URI']
+        || '/raw-php-mvc' === $_SERVER['REQUEST_URI']
         || '/upload' === $_SERVER['REQUEST_URI']
         || '/train-task' === $_SERVER['REQUEST_URI']
+        || '/heroes-and-monsters' === $_SERVER['REQUEST_URI']
         || '/guzzle' === $_SERVER['REQUEST_URI']) {
 
             // redirect to login page
@@ -56,7 +58,7 @@ $router->before('GET', '/.*', function () {
     }
 });
 
-require_once __DIR__ . '/routesApi.php'; // API requests and responses for user CRUD
+// require_once __DIR__ . '/routesApi.php'; // API requests and responses for user CRUD
 
 require_once __DIR__ . '/routesWebPage.php'; // pages-views like /, about, contact...
 

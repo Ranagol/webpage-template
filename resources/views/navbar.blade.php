@@ -27,24 +27,32 @@
 				<li class="nav-item">
 					<a class="nav-link {{ $isActive('/') ? 'active' : '' }}" href="/">Home</a>
 				</li>
-				<li class="nav-item">
+				{{-- <li class="nav-item">
 					<a class="nav-link {{ $isActive('/about') ? 'active' : '' }}" href="/about">About</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link {{ $isActive('/contact') ? 'active' : '' }}" href="/contact">Contact</a>
-				</li>
-				<li class="nav-item">
-					{{-- <a class="nav-link {{ $isActive('/users') ? 'active' : '' }}" href="/users">Users</a> --}}
+				</li> --}}
+				{{-- <li class="nav-item">
+					<a class="nav-link {{ $isActive('/users') ? 'active' : '' }}" href="/users">Users</a>
+				</li> --}}
+                <li class="nav-item">
+					<a class="nav-link {{ $isActive('/raw-php-mvc') ? 'active' : '' }}" href="/raw-php-mvc">MVC</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link {{ $isActive('/upload') ? 'active' : '' }}" href="/upload">Upload</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link {{ $isActive('/train-task') ? 'active' : '' }}" href="/train-task">Train task</a>
+					<a class="nav-link {{ $isActive('/train-task') ? 'active' : '' }}" href="/train-task">Trains</a>
 				</li>
-				<li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link {{ $isActive('/heroes-and-monsters') ? 'active' : '' }}" href="/heroes-and-monsters">Heroes</a>
+				</li>
+
+				{{-- <li class="nav-item">
 					<a class="nav-link {{ $isActive('/guzzle') ? 'active' : '' }}" href="/guzzle">Guzzle</a>
-				</li>
+				</li> --}}
+
 				@if(!$isLoggedIn)
 					<li class="nav-item">
 						<a class="nav-link {{ $isActive('/register') ? 'active' : '' }}" href="/register">Register</a>
@@ -59,15 +67,18 @@
 						<a class="nav-link {{ $isActive('/logout') ? 'active' : '' }}" href="/logout">Logout</a>
 					</li>
 				@endif
+
 			</ul>
 
 			{{-- Here we display the username in the navbar, if the user is logged in. --}}
 			<div class="navbar-text user-state">
+
 				@if(isset($_SESSION['username']))
 					Hi, {{ $_SESSION['username'] }}
 				@else
 					You are not logged in.
 				@endif
+                
 			</div>
 		</div>
 	</nav>
