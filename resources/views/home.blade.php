@@ -30,7 +30,7 @@
             </p>
         </article>
         <article class="feature-card" style="text-align:justify">
-            <h3><i class="bi bi-emoji-smile"></i> Challenge 4: heroes and monsters</h3>
+            <h3><i class="bi bi-shield-shaded"></i> Challenge 4: heroes and monsters</h3>
             <p>
                 Have you heard of Advanced Dragons & Dungeons? Then you might like this challenge. The task was to simulate a fantasy world with PHP OOP, with heroes and monsters, simulate their actions and their fight. See details.
             </p>
