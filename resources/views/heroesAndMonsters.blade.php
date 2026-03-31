@@ -18,9 +18,11 @@
 {{-- Display the events --}}
 @if($events)
     <section class="upload-main-card feature-card mt-3">
-        @foreach($events as $event)
-            <div>{{ $event }}</div>
-        @endforeach
+        <ol>
+            @foreach($events as $event)
+                <li>{{ $event }}</li>
+            @endforeach
+        </ol>
     </section>
 @endif
 
@@ -58,8 +60,8 @@
 <section>
     <h5>Heroes</h5>
     <p style="text-align: justify;">
-        There are two types of heroes in the game. The first type is the Wizard, who starts with 150 
-        health points, and the second type is the Swordsman, who starts with 100 health points. Each 
+        There are two types of heroes in the game. The first type is the Wizard, who starts with 50 
+        health points, and the second type is the Swordsman, who starts with also 50 health points. Each 
         hero is capable of picking up weapons, dropping weapons, and storing weapons in a backpack. 
         However, only one weapon can be active at any given time.
     </p>
@@ -140,7 +142,7 @@
 <section>
     <h5>Logging</h5>
     <p style="text-align: justify;">
-        The system must log all important events to a file. Every attack must be recorded, including 
+        The system must display all important events. Every attack must be recorded, including 
         the attacker, the victim, and the weapon used, following the format similar like this: 
         [attacker] attacked [victim] using [weapon]. Whenever a hero picks up a weapon, it must be 
         logged in a format similar like this: [hero] picked up weapon [weapon]. Finally, when a winner 
@@ -149,8 +151,5 @@
 </section>
 
 </section>
-
-
-
 
 @endsection

@@ -26,7 +26,11 @@ class FightManager {
 
     public function fight(): void
     {
-        Logger::getInstance()->log("The fight begins between Hero and Monster!");
+        Logger::getInstance()->log("The fight begins between " 
+            . $this->hero->getClassName() 
+            . " and " 
+            . $this->monster->getClassName() 
+            . "!" . $this->displayHealthPoints());
 
         while($this->hero->isAlive() && $this->monster->isAlive()) {
 
@@ -73,6 +77,7 @@ class FightManager {
             . " damage to " 
             . $this->monster->getClassName() 
             . "."
+            . $this->displayHealthPoints()
         );
     }
 
@@ -91,7 +96,27 @@ class FightManager {
             . " damage to " 
             . $this->hero->getClassName() 
             . "."
+            . $this->displayHealthPoints()
         );
+    }
+
+    /**
+     * Warrior HP: 100 - Dragon HP: 120
+     *
+     * @return string
+     */
+    private function displayHealthPoints(): string
+    {
+        return " "
+            . $this->hero->getClassName() 
+            . " HP: " 
+            . $this->hero->getHealth() 
+            . " - "
+            . $this->monster->getClassName() 
+            . " HP: " 
+            . $this->monster->getHealth() 
+            . ".";
+        
     }
 
     /**

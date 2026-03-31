@@ -14,7 +14,7 @@ use App\HeroesAndMonsters\Logs\Logger;
 
 class Warrior extends Hero {
 
-    protected int $health = 100;
+    protected int $health = 50;
 
     private string|null $heroClassName = null;
 
@@ -33,7 +33,7 @@ class Warrior extends Hero {
             $this->weaponBag->addWeapon($weapon);
             $heroClassName = $this->getClassName();
             $weaponName = $weapon->getWeaponClassName();
-            Logger::getInstance()->log($heroClassName . " picked up a " . $weaponName);
+            Logger::getInstance()->log($heroClassName . " picked up a " . $weaponName . ".");
         } catch (MaxWeaponNrExceededException $e) {
             Logger::getInstance()->log("Cannot pick up weapon: bag is full!");
         }
@@ -43,7 +43,7 @@ class Warrior extends Hero {
     {
         try {
             $removedActiveWeapon = $this->weaponBag->removeActiveWeapon();
-            Logger::getInstance()->log($this->heroClassName . " dropped his " . $removedActiveWeapon->getWeaponClassName());
+            Logger::getInstance()->log($this->heroClassName . " dropped his " . $removedActiveWeapon->getWeaponClassName() . ".");
             return $removedActiveWeapon;
         } catch (\Throwable $th) {
             Logger::getInstance()->log($this->heroClassName . " cannot drop weapon: no weapons in the bag.");
@@ -72,7 +72,7 @@ class Warrior extends Hero {
             return;
         }
         $weaponName = $activeWeapon->getWeaponClassName();
-        Logger::getInstance()->log($this->heroClassName . "'s active weapon is a " . $weaponName);
+        Logger::getInstance()->log($this->heroClassName . "'s active weapon is a " . $weaponName . ".");
     }
 
     /**
@@ -121,6 +121,3 @@ class Warrior extends Hero {
         }
     }
 }
-
-
-

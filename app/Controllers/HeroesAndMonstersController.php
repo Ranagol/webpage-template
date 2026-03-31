@@ -37,41 +37,40 @@ class HeroesAndMonstersController extends Controller
             [
                 'events' => $events,
             ]
-        
         );
     }
 
     private function startHeroesAndMonsters(): array
     {
-        Logger::getInstance()->log('Game started');
+        Logger::getInstance()->log('Game started!');
 
         /**
          * creating characters and game objects
          */
-        Logger::getInstance()->log('Creating characters and game objects');
+        // Logger::getInstance()->log('Creating characters and game objects');
         $warrior = new Warrior();
         $wizard = new Wizard();
 
         $sword = new Sword();
         $lance = new Lance();
         $magic = new Magic();
-        $sword2 = new Sword();
+        // $sword2 = new Sword();
 
         $dragon = new Dragon();
-        $spider = new Spider();
+        // $spider = new Spider();
 
         /**
          * Warrior actions: picking up weapons, showing active weapon, switching weapon, dropping weapon
          */
-        Logger::getInstance()->log('Warrior actions');
+        // Logger::getInstance()->log('Warrior actions');
         $warrior->pickUpWeapon($sword);
         $warrior->pickUpWeapon($lance);
         $warrior->showActiveWeapon();
         $warrior->switchWeapon();
-        $warrior->showActiveWeapon();
-        $warrior->switchWeapon();
-        $warrior->showActiveWeapon();
-        $warrior->showAllWeapons();
+        // $warrior->showActiveWeapon();
+        // $warrior->switchWeapon();
+        // $warrior->showActiveWeapon();
+        // $warrior->showAllWeapons();
 
         $droppedWeapon = $warrior->dropWeapon();
         $warrior->showAllWeapons();
@@ -79,26 +78,25 @@ class HeroesAndMonstersController extends Controller
         /**
          * Wizard learns new magic
          */
-        Logger::getInstance()->log('Wizard actions');
+        // Logger::getInstance()->log('Wizard actions');
         $wizard->learnMagic($magic);
         $wizard->pickUpWeapon($sword); 
 
         /**
          * Fight 1
          */
-        Logger::getInstance()->log('The epic fight Wizard vs Spider');
-        $fightManager = new FightManager($wizard, $spider);
-        $fightManager->fight();
-
+        // Logger::getInstance()->log('The epic fight Wizard vs Spider');
+        // $fightManager = new FightManager($wizard, $spider);
+        // $fightManager->fight();
 
         /**
          * Fight 2
          */
-        Logger::getInstance()->log('The epic fight Warrior vs Dragon');
+        // Logger::getInstance()->log('The epic fight Warrior vs Dragon');
         $fightManager = new FightManager($warrior, $dragon);
         $fightManager->fight();
 
-        Logger::getInstance()->log('Game ended');
+        Logger::getInstance()->log('Game ended.');
         $events = Logger::getInstance()->getEvents();
 
         return $events;

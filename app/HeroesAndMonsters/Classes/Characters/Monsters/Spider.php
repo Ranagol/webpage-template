@@ -6,7 +6,7 @@ namespace App\HeroesAndMonsters\Classes\Characters\Monsters;
 
 class Spider extends Monster {
 
-    protected int $health = 150;
+    protected int $health = 50;
 
     /** @var array{attackType: string, damage: int} */
     public array $attack1 = [

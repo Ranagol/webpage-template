@@ -12,7 +12,7 @@ use App\HeroesAndMonsters\Logs\Logger;
 
 class Wizard extends Hero {
 
-    protected int $health = 150;
+    protected int $health = 50;
 
     /**
      * When a Wizard learns a magic, it is stored here
