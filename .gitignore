@@ -8,3 +8,5 @@
 /storage/upload
 /cache/*
 !/cache/.gitkeep
+# Ignore PHP CS Fixer cache file
+.php-cs-fixer.cache
