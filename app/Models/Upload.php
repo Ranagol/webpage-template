@@ -97,7 +97,7 @@ class Upload extends Model
         if ('application/vnd.ms-excel' === $this->getFileType() || 'text/csv' === $this->getFileType()) {
             $csvReader = new CsvReader($this->getUserEmail(), $this->getFileName());
             $csvFile = $csvReader->getCsvFile();
-            
+
             return $csvFile;
         }
 

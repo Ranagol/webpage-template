@@ -4,22 +4,19 @@ declare(strict_types=1);
 
 namespace App\HeroesAndMonsters\Classes\Characters\Heroes;
 
-use App\HeroesAndMonsters\Classes\Characters\Heroes\Hero;
 use App\HeroesAndMonsters\Classes\GameObjects\Magic;
 use App\HeroesAndMonsters\Classes\GameObjects\Weapon;
 use App\HeroesAndMonsters\Exceptions\WizardCanNotUseWeaponException;
 use App\HeroesAndMonsters\Logs\Logger;
 
-class Wizard extends Hero {
-
+class Wizard extends Hero
+{
     protected int $health = 50;
 
     /**
-     * When a Wizard learns a magic, it is stored here
-     *
-     * @var Magic|null
+     * When a Wizard learns a magic, it is stored here.
      */
-    private Magic|null $magic = null;
+    private ?Magic $magic = null;
 
     public function __construct()
     {
@@ -29,7 +26,7 @@ class Wizard extends Hero {
     public function learnMagic(Magic $magic): void
     {
         $this->magic = $magic;
-        Logger::getInstance()->log("Wizard learned new magic.");
+        Logger::getInstance()->log('Wizard learned new magic.');
     }
 
     /**
@@ -42,37 +39,32 @@ class Wizard extends Hero {
      */
     public function getAttackType(): array
     {
-        if ($this->magic === null) {
+        if (null === $this->magic) {
             return [
                 'attackType' => 'Bare hands',
-                'damage' => 1
-            ];
-        } else {
-            $attackType = $this->magic->getClassName();
-            $damage = $this->magic->getDamage();
-            return [
-                'attackType' => $attackType,
-                'damage' => $damage
+                'damage' => 1,
             ];
         }
+        $attackType = $this->magic->getClassName();
+        $damage = $this->magic->getDamage();
+
+        return [
+            'attackType' => $attackType,
+            'damage' => $damage,
+        ];
+
     }
 
     /**
      * This is here only because of the task. It was stated, that and exception must be thrown, when
      * the Wizard tries to pick up a weapon.
-     *
-     * @param Weapon $weapon
-     * @return void
      */
     public function pickUpWeapon(Weapon $weapon): void
     {
         try {
             throw new WizardCanNotUseWeaponException();
         } catch (WizardCanNotUseWeaponException $e) {
-            Logger::getInstance()->log("Wizard tried to pick up a weapon, which is forbidden.");
+            Logger::getInstance()->log('Wizard tried to pick up a weapon, which is forbidden.');
         }
     }
-
-    
-
 }

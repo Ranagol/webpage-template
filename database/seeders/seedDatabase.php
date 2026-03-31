@@ -38,5 +38,3 @@ User::create([
 ]);
 
 echo 'Users table seeded!' . PHP_EOL;
-
-

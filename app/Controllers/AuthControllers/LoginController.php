@@ -122,7 +122,7 @@ class LoginController extends Controller
             $_SESSION['loggedin'] = true;
             $_SESSION['id'] = $user->id;
             $_SESSION['username'] = $user->username;
-            
+
             // We leave this empty, because the home page url is just '/', and that is already the default url
             redirect('');
         }

@@ -7,10 +7,10 @@ namespace App\HeroesAndMonsters\Classes\Characters;
 use App\HeroesAndMonsters\Classes\GameObjects\GameObject;
 
 /**
- * Characters can be Heroes and Monsters (living beings, not objects)
+ * Characters can be Heroes and Monsters (living beings, not objects).
  */
-class Character extends GameObject {
-
+class Character extends GameObject
+{
     protected int $health;
 
     public function getHealth(): int
@@ -32,5 +32,4 @@ class Character extends GameObject {
     {
         return $this->health > 0;
     }
-
 }

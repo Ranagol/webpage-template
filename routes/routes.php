@@ -70,7 +70,6 @@ require_once __DIR__ . '/routesUploadDownloadCsv.php'; // for uploading (images 
 
 require_once __DIR__ . '/routesGuzzle.php'; // for Guzzle stuff
 
-
 // Custom 404 Handler
 $router->set404(function () {
     header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');

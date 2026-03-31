@@ -30,5 +30,3 @@ Capsule::schema()->create('users', function ($table) {
 });
 
 echo 'Users migration was successfull' . PHP_EOL;
-
-

@@ -10,32 +10,29 @@ use App\HeroesAndMonsters\Logs\Logger;
  * Everything in this game is by definiton a GameObject. This is the major base class for all things
  * in the game. All Characters, Monsters, Heroes, Weapons... etc inherit from this class.
  */
-class GameObject {
-
+class GameObject
+{
     /**
-     * This is the ultimate parent class. Every time when a child object is created, this creation 
+     * This is the ultimate parent class. Every time when a child object is created, this creation
      * needs to be logged, with the child class name.
      */
     public function __construct()
     {
         $className = $this->getClassName();
-        Logger::getInstance()->log("A new " . $className . " has been created.");
+        Logger::getInstance()->log('A new ' . $className . ' has been created.');
     }
 
     /**
-     * we use late static binding, so we can always get the relevant, actual child class name. 
+     * we use late static binding, so we can always get the relevant, actual child class name.
      * So the end result is something like this: 'A new Warrior has been created.'
-     * This gives the ability to every child class, to state its name. Which is necesary for the 
+     * This gives the ability to every child class, to state its name. Which is necesary for the
      * storytelling, which is happening through logging.
      * Instead of this:
      * app/Classes/Characters/Heroes/Warrior.php
-     * The function will return this: Warrior
-     *
-     * @return string
+     * The function will return this: Warrior.
      */
     public function getClassName(): string
     {
         return basename(str_replace('\\', '/', static::class));
     }
-
 }

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 // use App\Controllers\AboutController;
 // use App\Controllers\ContactController;
-use App\Controllers\HomeController;
-use App\Controllers\TrainTaskController;
 use App\Controllers\HeroesAndMonstersController;
+use App\Controllers\HomeController;
 use App\Controllers\RawPhpMvcController;
+use App\Controllers\TrainTaskController;
 
 if (!isset($router) || !($router instanceof Bramus\Router\Router)) {
     throw new RuntimeException('$router is not initialized.');
@@ -21,19 +21,19 @@ $router->get('/', function () {
     $homeController->home();
 });
 
-//raw php mvc page
+// raw php mvc page
 $router->get('/raw-php-mvc', function () {
     $rawPhpMvcController = new RawPhpMvcController();
     $rawPhpMvcController->rawPhpMvc();
 });
 
-//train task page
+// train task page
 $router->get('/train-task', function () {
     $trainTaskController = new TrainTaskController();
     $trainTaskController->trainTask();
 });
 
-//heroes and monsters page
+// heroes and monsters page
 $router->get('/heroes-and-monsters', function () {
     $heroesAndMonstersController = new HeroesAndMonstersController();
     $heroesAndMonstersController->heroesAndMonsters();
@@ -44,8 +44,6 @@ $router->get('/demonstrate', function () {
     $heroesAndMonstersController = new HeroesAndMonstersController();
     $heroesAndMonstersController->demonstrate();
 });
-
-
 
 // // about page
 // $router->get('/about', function () {

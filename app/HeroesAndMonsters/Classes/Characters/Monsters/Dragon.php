@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace App\HeroesAndMonsters\Classes\Characters\Monsters;
 
-class Dragon extends Monster {
-
+class Dragon extends Monster
+{
     protected int $health = 50;
 
     /** @var array{attackType: string, damage: int} */
     public array $attack1 = [
-        'attackType' => 'Fire Breath', 
-        'damage' => 30
+        'attackType' => 'Fire Breath',
+        'damage' => 30,
     ];
 
     /** @var array{attackType: string, damage: int} */
     public array $attack2 = [
         'attackType' => 'Hitting',
-        'damage' => 20
+        'damage' => 20,
     ];
 
     /**
@@ -32,11 +32,11 @@ class Dragon extends Monster {
     {
         $attackType = $this->randomGenerator();
 
-        if ($attackType === 1) {
+        if (1 === $attackType) {
             return $this->attack1;
-        } else {
-            return $this->attack2;
         }
-    }
 
+        return $this->attack2;
+
+    }
 }

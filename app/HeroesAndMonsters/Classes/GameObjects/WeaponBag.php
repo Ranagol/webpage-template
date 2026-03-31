@@ -12,8 +12,8 @@ use App\HeroesAndMonsters\Exceptions\NoWeaponException;
  * All Heroes have a WeaponBag. They can store here max 2 weapons.
  * Sidenote: Wizzard is not able to pick up weapons.
  */
-class WeaponBag extends GameObject {
-
+class WeaponBag extends GameObject
+{
     /**
      * @var Weapon[]
      */
@@ -25,17 +25,15 @@ class WeaponBag extends GameObject {
 
     public function __construct()
     {
-        //this is deliberatly empty, we don't want to log every WeaponBag creation
+        // this is deliberatly empty, we don't want to log every WeaponBag creation
     }
 
     /**
      * Adds a weapon to the bag.
-     * 
+     *
      * @throws MaxWeaponNrExceededException
-     * @param Weapon $weapon
-     * @return void
      */
-    public function addWeapon(Weapon $weapon): void 
+    public function addWeapon(Weapon $weapon): void
     {
         if (count($this->weapons) < $this->maxNumberOfWeapons) {
             $this->weapons[] = $weapon;
@@ -47,19 +45,18 @@ class WeaponBag extends GameObject {
     /**
      * Removes and returns the active weapon from the bag.
      *
-     * @return Weapon
      * @throws NoWeaponException
      */
     public function removeActiveWeapon(): Weapon
     {
-        if (count($this->weapons) == 0) {
+        if (0 == count($this->weapons)) {
             throw new NoWeaponException();
         }
 
-        //Get the active weapon
+        // Get the active weapon
         $activeWeapon = $this->weapons[$this->activeWeaponIndex];
 
-        //Remove the active weapon from the weapons array
+        // Remove the active weapon from the weapons array
         array_splice($this->weapons, $this->activeWeaponIndex, 1);
 
         return $activeWeapon;
@@ -67,37 +64,34 @@ class WeaponBag extends GameObject {
     }
 
     /**
-     * Returns active weapon or null (if there is no weapon in WeaponBag)
-     *
-     * @return Weapon | null
+     * Returns active weapon or null (if there is no weapon in WeaponBag).
      */
-    public function getActiveWeapon(): Weapon | null 
+    public function getActiveWeapon(): ?Weapon
     {
-        if (count($this->weapons) == 0) {
+        if (0 == count($this->weapons)) {
             return null;
         }
-    
+
         return $this->weapons[$this->activeWeaponIndex];
     }
 
     /**
      * Hero can with this function switch to the next weapon in the bag.
-     * 
+     *
      * @throws NoWeaponException
      * @throws CantSwitchOneWeaponException
-     * @return void
      */
-    public function switchWeapon(): void 
+    public function switchWeapon(): void
     {
-        if (count($this->weapons) == 0) {
+        if (0 == count($this->weapons)) {
             throw new NoWeaponException();
         }
 
-        if(count($this->weapons) == 1) {
+        if (1 == count($this->weapons)) {
             throw new CantSwitchOneWeaponException();
         }
-        
-        /**
+
+        /*
          * This will reverse items in array. ['apple', 'orange'] will become ['orange', 'apple']
          * We need to do this, because the active weapon is always at index 0 in the weapons array.
          */
@@ -109,11 +103,8 @@ class WeaponBag extends GameObject {
      *
      * @return Weapon[]
      */
-    public function getWeapons(): array 
+    public function getWeapons(): array
     {
         return $this->weapons;
     }
-
-
 }
-

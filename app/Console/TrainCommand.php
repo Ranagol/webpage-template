@@ -32,13 +32,13 @@ class TrainCommand extends Command
      *
      * Run the app and input the train timetable:
      *  - Below is the command for the original task data
-    * cat app/Trains/taskDataOriginal | php console.php trains
+     * cat app/Trains/taskDataOriginal | php console.php trains
      * Expected output:
      * Case #1: 2 2
      * Case #2: 2 0
      *
      *  - Below is the command for the big task data created by me
-    * cat app/Trains/taskDataBig | php console.php trains
+     * cat app/Trains/taskDataBig | php console.php trains
      * Expected output:
      * Case #1: 2 2
      * Case #2: 2 0
@@ -48,7 +48,6 @@ class TrainCommand extends Command
      * Case #6: 2 0
      * Case #7: 2 2
      * Case #8: 2 0
-     *
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {

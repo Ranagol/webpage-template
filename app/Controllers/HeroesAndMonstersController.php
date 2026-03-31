@@ -23,7 +23,8 @@ class HeroesAndMonstersController extends Controller
     public function heroesAndMonsters(): void
     {
         // Always pass $events (empty array) to avoid undefined variable in view
-        $this->view('heroesAndMonsters', 
+        $this->view(
+            'heroesAndMonsters',
             [
                 'events' => [],
             ]
@@ -32,8 +33,6 @@ class HeroesAndMonstersController extends Controller
 
     /**
      * Displays the Heroes and Monsters page, with the fight event demonstration.
-     *
-     * @return void
      */
     public function demonstrate(): void
     {
@@ -49,15 +48,13 @@ class HeroesAndMonstersController extends Controller
     /**
      * This is where everything happens regarding the heroes and monster. This is where we set up
      * all the actions, or the fights.
-     *
-     * @return array
      */
     private function startHeroesAndMonsters(): array
     {
         Logger::getInstance()->log('Game started!');
 
         /**
-         * creating characters and game objects
+         * creating characters and game objects.
          */
         // Logger::getInstance()->log('Creating characters and game objects');
         $warrior = new Warrior();
@@ -71,7 +68,7 @@ class HeroesAndMonstersController extends Controller
         $dragon = new Dragon();
         $spider = new Spider();
 
-        /**
+        /*
          * Warrior actions: picking up weapons, showing active weapon, switching weapon, dropping weapon
          */
         // Logger::getInstance()->log('Warrior actions');
@@ -87,21 +84,21 @@ class HeroesAndMonstersController extends Controller
         $droppedWeapon = $warrior->dropWeapon();
         $warrior->showAllWeapons();
 
-        /**
+        /*
          * Wizard learns new magic
          */
         // Logger::getInstance()->log('Wizard actions');
         $wizard->learnMagic($magic);
-        $wizard->pickUpWeapon($sword); 
+        $wizard->pickUpWeapon($sword);
 
         /**
-         * Fight 1
+         * Fight 1.
          */
         $fightManager = new FightManager($wizard, $spider);
         $fightManager->fight();
 
         /**
-         * Fight 2
+         * Fight 2.
          */
         $fightManager = new FightManager($warrior, $dragon);
         $fightManager->fight();
