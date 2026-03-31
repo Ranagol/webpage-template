@@ -38,7 +38,11 @@ class ApiRequest extends AbstractRequest
          * strange not-really-json format (so json_decode will not work!), and with this line we
          * make the data to be json format. Basically we transform the data here.
          */
-        $rawJsonData = str_replace([PHP_EOL, ',}'], ['', '}'], $rawJsonData);
+        if ($rawJsonData !== false) {
+            $rawJsonData = str_replace([PHP_EOL, ',}'], ['', '}'], $rawJsonData);
+        } else {
+            $rawJsonData = '';
+        }
 
         /*
          * this will be an array. $this->requestData is not in this class, it is inherited from the

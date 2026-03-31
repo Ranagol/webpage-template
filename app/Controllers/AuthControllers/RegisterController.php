@@ -111,16 +111,18 @@ class RegisterController extends Controller
          */
         $user = User::where('email', '=', $email)->where('password', '=', $hash)->first();
 
-        if (!isset($_SESSION)) {
-            session_start();
-        }
+        if ($user !== null) {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
 
-        /*
-         * We store the users login status in the $_SESSION superglobal.
-         */
-        $_SESSION['loggedin'] = true;
-        $_SESSION['id'] = $user->id;
-        $_SESSION['username'] = $user->username;
+            /*
+             * We store the users login status in the $_SESSION superglobal.
+             */
+            $_SESSION['loggedin'] = true;
+            $_SESSION['id'] = property_exists($user, 'id') ? $user->id : null;
+            $_SESSION['username'] = property_exists($user, 'username') ? $user->username : null;
+        }
     }
 
     /**

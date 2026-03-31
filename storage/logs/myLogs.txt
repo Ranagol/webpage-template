@@ -2168,3 +2168,97 @@ The exception was created on this line: 39.
 /srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
 /srv/www/vendor/phpunit/phpunit/phpunit on line 104
 /srv/www/vendor/bin/phpunit on line 122
+
+2026-03-31 06:24:59 - Error message: base-error.
+The exceptions was created in this file: /srv/www/tests/App/Exceptions/BaseExceptionTest.php.
+The exception was created on this line: 14.
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122
+
+2026-03-31 06:24:59 - Error message: user-not-found.
+The exceptions was created in this file: /srv/www/tests/App/Exceptions/CantFindUserExceptionTest.php.
+The exception was created on this line: 15.
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122
+
+2026-03-31 06:24:59 - Error message: schedule-error.
+The exceptions was created in this file: /srv/www/tests/App/Exceptions/ScheduleMakerExceptionTest.php.
+The exception was created on this line: 15.
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122
+
+2026-03-31 06:24:59 - Error message: validation-failed.
+The exceptions was created in this file: /srv/www/tests/App/Exceptions/ValidationExceptionTest.php.
+The exception was created on this line: 15.
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122
+
+2026-03-31 06:24:59 - Error message: {"emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /srv/www/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/srv/www/app/Validators/LoginValidator.php on line 24
+/srv/www/tests/App/Validators/LoginValidatorTest.php on line 26
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122
+
+2026-03-31 06:24:59 - Error message: {"usernameError":"Please enter a username.","firstnameError":"Please enter a firstname.","lastNameError":"Please enter a lastname.","emailError":"Please enter an email.","passwordError":"Please enter a password."}.
+The exceptions was created in this file: /srv/www/app/Validators/AuthValidator.php.
+The exception was created on this line: 39.
+/srv/www/app/Validators/RegisterValidator.php on line 37
+/srv/www/tests/App/Validators/RegisterValidatorTest.php on line 26
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 1667
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 519
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestRunner/TestRunner.php on line 87
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestCase.php on line 365
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/Framework/TestSuite.php on line 369
+/srv/www/vendor/phpunit/phpunit/src/TextUI/TestRunner.php on line 64
+/srv/www/vendor/phpunit/phpunit/src/TextUI/Application.php on line 211
+/srv/www/vendor/phpunit/phpunit/phpunit on line 104
+/srv/www/vendor/bin/phpunit on line 122

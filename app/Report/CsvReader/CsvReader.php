@@ -79,8 +79,9 @@ class CsvReader
             }
 
         } finally {
-            if ($this->getFilePointer()) {
-                fclose($this->getFilePointer());
+            $fp = $this->getFilePointer();
+            if (is_resource($fp)) {
+                fclose($fp);
             }
         }
 
@@ -95,7 +96,12 @@ class CsvReader
             clearstatcache(); // deleting cached stuff
             if (file_exists($this->getFileNameWithPath())) {
                 // echo 'file exists';
-                $this->filePointer = fopen($this->getFileNameWithPath(), 'r'); // opening a file
+                $fp = fopen($this->getFileNameWithPath(), 'r'); // opening a file
+                if ($fp !== false) {
+                    $this->filePointer = $fp;
+                } else {
+                    $this->filePointer = null;
+                }
             } else {
                 throw new \Exception('We have issue with the filePointer, we cant find the file...' . __FILE__ . __LINE__);
             }

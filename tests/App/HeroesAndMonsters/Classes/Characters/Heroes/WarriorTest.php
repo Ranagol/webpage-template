@@ -30,16 +30,17 @@ class WarriorTest extends TestCase
     public function testPickUpWeapon(): void
     {
         $this->warrior->pickUpWeapon($this->sword);
-        $this->assertTrue(true); // No output check, just ensure no exception
+        $bag = $this->getWeaponBag($this->warrior);
+        $this->assertContains($this->sword, $bag->getWeapons());
     }
 
     public function testThirdWeaponPickUp(): void
     {
         $this->warrior->pickUpWeapon($this->sword);
         $this->warrior->pickUpWeapon($this->lance);
-        // Should not throw, just log internally
         $this->warrior->pickUpWeapon(new Sword());
-        $this->assertTrue(true);
+        $bag = $this->getWeaponBag($this->warrior);
+        $this->assertCount(2, $bag->getWeapons());
     }
 
     public function testDropWeapon(): void
@@ -51,41 +52,43 @@ class WarriorTest extends TestCase
 
     public function testShowAllWeaponsEmptyBag(): void
     {
-        $this->warrior->showAllWeapons();
-        $this->assertTrue(true);
+        $bag = $this->getWeaponBag($this->warrior);
+        $this->assertEmpty($bag->getWeapons());
     }
 
     public function testShowAllWeaponsWhenHasSword(): void
     {
         $this->warrior->pickUpWeapon($this->sword);
-        $this->warrior->showAllWeapons();
-        $this->assertTrue(true);
+        $bag = $this->getWeaponBag($this->warrior);
+        $this->assertContains($this->sword, $bag->getWeapons());
     }
 
     public function testShowActiveWeaponButNoWeapon(): void
     {
-        $this->warrior->showActiveWeapon();
-        $this->assertTrue(true);
+        $bag = $this->getWeaponBag($this->warrior);
+        $this->assertNull($bag->getActiveWeapon());
     }
 
     public function testShowActiveWeaponWithWeapon(): void
     {
         $this->warrior->pickUpWeapon($this->sword);
-        $this->warrior->showActiveWeapon();
-        $this->assertTrue(true);
+        $bag = $this->getWeaponBag($this->warrior);
+        $this->assertEquals($this->sword, $bag->getActiveWeapon());
     }
 
     public function testSwitchWeaponWhenNoWeapons(): void
     {
         $this->warrior->switchWeapon();
-        $this->assertTrue(true);
+        $bag = $this->getWeaponBag($this->warrior);
+        $this->assertNull($bag->getActiveWeapon());
     }
 
     public function testSwitchWeaponWhenOneWeapon(): void
     {
         $this->warrior->pickUpWeapon($this->sword);
         $this->warrior->switchWeapon();
-        $this->assertTrue(true);
+        $bag = $this->getWeaponBag($this->warrior);
+        $this->assertEquals($this->sword, $bag->getActiveWeapon());
     }
 
     public function testSwitchWeaponSuccessfully(): void
@@ -93,7 +96,15 @@ class WarriorTest extends TestCase
         $this->warrior->pickUpWeapon($this->sword);
         $this->warrior->pickUpWeapon($this->lance);
         $this->warrior->switchWeapon();
-        $this->assertTrue(true);
+        $bag = $this->getWeaponBag($this->warrior);
+        $this->assertEquals($this->lance, $bag->getActiveWeapon());
+    }
+    private function getWeaponBag(Warrior $warrior): \App\HeroesAndMonsters\Classes\GameObjects\WeaponBag
+    {
+        $ref = new \ReflectionClass($warrior);
+        $prop = $ref->getProperty('weaponBag');
+        $prop->setAccessible(true);
+        return $prop->getValue($warrior);
     }
 
     public function testGetAttackTypeWhenUnarmed(): void

@@ -17,12 +17,13 @@ class FightManagerTest extends TestCase
         $dragon = new Dragon();
         $fightManager = new FightManager($warrior, $dragon);
 
-        // Check if both the warrior or the dragon are alive before the fight
-        $this->assertTrue($warrior->isAlive() && $dragon->isAlive());
+        // Check if both the warrior and the dragon are alive before the fight
+        $this->assertEquals(50, $warrior->getHealth());
+        $this->assertEquals(50, $dragon->getHealth());
 
         $fightManager->fight();
 
         // Check if either the warrior or the dragon is dead at the end of the fight
-        $this->assertTrue(!$warrior->isAlive() || !$dragon->isAlive());
+        $this->assertFalse($warrior->isAlive() && $dragon->isAlive());
     }
 }

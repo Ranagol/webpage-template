@@ -134,15 +134,17 @@ class LoginController extends Controller
      *
      * @throws CantFindUserException
      */
-    private function findUser(string $email): User
+    /**
+     * @return \App\Models\User|null
+     */
+    private function findUser(string $email): ?\App\Models\User
     {
         // check if there is a user with the validated email and password
         $user = User::where('email', '=', $email)->first();
-        if (null === $user) {
-            throw new CantFindUserException('Can not find the user in the db during authentication. Users email is: ' . $email);
+        if ($user instanceof \App\Models\User) {
+            return $user;
         }
-
-        return $user;
+        return null;
     }
 
     /**

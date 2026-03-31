@@ -38,9 +38,11 @@ class HomeControllerTest extends TestCase
         $output = ob_get_clean();
 
         // Suppress long output in test results by truncating output in failure message
+        $contains = is_string($output) ? str_contains($output, 'Challenges') : false;
+        $truncated = is_string($output) ? substr($output, 0, 300) : '';
         $this->assertTrue(
-            str_contains($output, 'Challenges'),
-            'Output does not contain expected string. Output (truncated): ' . substr($output, 0, 300) . '...'
+            $contains,
+            'Output does not contain expected string. Output (truncated): ' . $truncated . '...'
         );
     }
 }

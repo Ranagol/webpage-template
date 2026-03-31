@@ -44,8 +44,16 @@ class Train
         string $arrivalTime,
     ) {
         $this->turnaroundTime = $turnaroundTime;
-        $this->departureTime = CarbonImmutable::createFromFormat('H:i', $departureTime);
-        $this->arrivalTime = CarbonImmutable::createFromFormat('H:i', $arrivalTime);
+        $dep = CarbonImmutable::createFromFormat('H:i', $departureTime);
+        $arr = CarbonImmutable::createFromFormat('H:i', $arrivalTime);
+        if ($dep === false) {
+            throw new \InvalidArgumentException('Invalid departure time format: ' . $departureTime);
+        }
+        if ($arr === false) {
+            throw new \InvalidArgumentException('Invalid arrival time format: ' . $arrivalTime);
+        }
+        $this->departureTime = $dep;
+        $this->arrivalTime = $arr;
     }
 
     /**

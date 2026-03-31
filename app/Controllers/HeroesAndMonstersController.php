@@ -49,6 +49,9 @@ class HeroesAndMonstersController extends Controller
      * This is where everything happens regarding the heroes and monster. This is where we set up
      * all the actions, or the fights.
      */
+    /**
+     * @return string[]
+     */
     private function startHeroesAndMonsters(): array
     {
         Logger::getInstance()->log('Game started!');

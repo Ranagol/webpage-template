@@ -38,9 +38,9 @@ class WizardTest extends TestCase
     {
         $wizard = new Wizard();
         $weapon = $this->createMock(App\HeroesAndMonsters\Classes\GameObjects\Weapon::class);
-        // Should not throw, just log internally
+        // No weapons property or bag, just ensure no exception is thrown
         $wizard->pickUpWeapon($weapon);
-        $this->assertTrue(true);
+        $this->addToAssertionCount(1); // Mark as checked for exception
     }
 
     public function testIsHero(): void

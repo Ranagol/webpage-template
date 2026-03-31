@@ -58,8 +58,10 @@ class Logger
         $date = PHP_EOL . date('Y-m-d H:i:s');
         $string = $date . ' - ' . $string . PHP_EOL;
         $filePointer = fopen($this->getPath(), 'a+');
-        fwrite($filePointer, $string); // writing into a file
-        fclose($filePointer); // closing a file
+        if ($filePointer !== false) {
+            fwrite($filePointer, $string); // writing into a file
+            fclose($filePointer); // closing a file
+        }
     }
 
     /**
@@ -83,14 +85,16 @@ class Logger
         $firstLine = $date . ' - ' . $errorMessage . $file . $line;
 
         $filePointer = fopen($this->getPath(), 'a+');
-        fwrite($filePointer, $firstLine); // writing into a file
+        if ($filePointer !== false) {
+            fwrite($filePointer, $firstLine); // writing into a file
 
-        foreach ($trace as $item) {
-            if (isset($item['file'])) {
-                fwrite($filePointer, $item['file'] . ' on line ' . $item['line'] . PHP_EOL);
+            foreach ($trace as $item) {
+                if (isset($item['file'])) {
+                    fwrite($filePointer, $item['file'] . ' on line ' . ($item['line'] ?? 'unknown') . PHP_EOL);
+                }
             }
+            fclose($filePointer); // closing a file
         }
-        fclose($filePointer); // closing a file
     }
 
     /**

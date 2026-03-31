@@ -22,7 +22,7 @@ class CsvReader
     /**
      * We store here the opened file. This will be used for further file manage operations.
      *
-     * @var resource|null
+     * @var resource|null|false
      */
     private $filePointer;
 

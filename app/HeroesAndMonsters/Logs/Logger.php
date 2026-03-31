@@ -6,6 +6,9 @@ namespace App\HeroesAndMonsters\Logs;
 
 class Logger
 {
+    /**
+     * @var string[]
+     */
     private static array $events = [];
 
     /**
@@ -38,6 +41,9 @@ class Logger
         self::$events[] = $text;
     }
 
+    /**
+     * @return string[]
+     */
     public function getEvents(): array
     {
         return self::$events;
