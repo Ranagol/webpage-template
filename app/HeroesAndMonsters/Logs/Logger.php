@@ -6,12 +6,7 @@ namespace App\HeroesAndMonsters\Logs;
 
 class Logger {
 
-    /**
-     * Path for the log file.
-     *
-     * @var string
-     */
-    private static $pathForLogs = __DIR__ . '/logs.txt';
+    private static array $events = [];
 
     /**
      * This will store the instance of this class.
@@ -42,22 +37,11 @@ class Logger {
 
     public function log(String $text): void
     {
-        self::displayOnMonitor($text);
-        self::writeToFile($text);
+        self::$events[] = $text;
     }
 
-    private function displayOnMonitor(String $text): void
+    public function getEvents(): array
     {
-        echo '<br>' . $text . '<br>';
-    }
-
-    private function writeToFile(String $text): void
-    {
-        file_put_contents(self::getPathForLogs(), $text . PHP_EOL, FILE_APPEND);
-    }
-
-    public static function getPathForLogs(): string
-    {
-        return self::$pathForLogs;
+        return self::$events;
     }
 }

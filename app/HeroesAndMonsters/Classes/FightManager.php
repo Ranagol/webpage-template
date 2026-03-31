@@ -26,7 +26,7 @@ class FightManager {
 
     public function fight(): void
     {
-        echo "The fight begins between Hero and Monster!" . PHP_EOL;
+        Logger::getInstance()->log("The fight begins between Hero and Monster!");
 
         while($this->hero->isAlive() && $this->monster->isAlive()) {
 
@@ -118,7 +118,7 @@ class FightManager {
             );
         }
 
-        echo "The fight has ended." . PHP_EOL;
+        Logger::getInstance()->log("The fight has ended.");
     }
     
 }
