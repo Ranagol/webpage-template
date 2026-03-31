@@ -7,7 +7,7 @@ namespace App\Controllers;
 use App\HeroesAndMonsters\Classes\Characters\Heroes\Warrior;
 use App\HeroesAndMonsters\Classes\Characters\Heroes\Wizard;
 use App\HeroesAndMonsters\Classes\Characters\Monsters\Dragon;
-use App\HeroesAndMonsters\Classes\Characters\Monsters\Spider;
+// use App\HeroesAndMonsters\Classes\Characters\Monsters\Spider;
 use App\HeroesAndMonsters\Classes\FightManager;
 use App\HeroesAndMonsters\Classes\GameObjects\Lance;
 use App\HeroesAndMonsters\Classes\GameObjects\Magic;

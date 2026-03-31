@@ -61,7 +61,7 @@
     <h5>Heroes</h5>
     <p style="text-align: justify;">
         There are two types of heroes in the game. The first type is the Wizard, who starts with 50 
-        health points, and the second type is the Swordsman, who starts with also 50 health points. Each 
+        health points, and the second type is the Warrior, who starts with also 50 health points. Each 
         hero is capable of picking up weapons, dropping weapons, and storing weapons in a backpack. 
         However, only one weapon can be active at any given time.
     </p>
@@ -124,8 +124,8 @@
     <h5>Hero Attacks</h5>
     <p style="text-align: justify;">
         Heroes deal damage to monsters depending on their type and the weapon they are using. A 
-        Wizard using a Spell deals 20 damage. A Swordsman using a Sword deals 10 damage, while a 
-        Swordsman using a Spear deals 15 damage.
+        Wizard using a Spell deals 20 damage. A Warrior using a Sword deals 10 damage, while a 
+        Warrior using a Spear deals 15 damage.
     </p>
 </section>
 

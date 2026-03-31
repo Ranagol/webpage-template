@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function home(): void
     {
-        $this->testDebugBar();
+        // $this->testDebugBar();
 
         // Use this line to check if xdebug is installed and the step debugger is enabled.
         // xdebug_info();

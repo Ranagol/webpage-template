@@ -16,7 +16,7 @@
      * Here we actually state, that the Debugbar stuff needed to the browser so the Debugbar page could
      * be shown, is in the /public/debugbar folder. 
      */
-    $debugbarRenderer->setBaseUrl('/debugbar');
+    // $debugbarRenderer->setBaseUrl('/debugbar');
 @endphp
 
 
