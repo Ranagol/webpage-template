@@ -39,6 +39,12 @@ $router->get('/heroes-and-monsters', function () {
     $heroesAndMonstersController->heroesAndMonsters();
 });
 
+// starts the heroes and monsters battle, and shows the events on the heroes and monsters page
+$router->get('/demonstrate', function () {
+    $heroesAndMonstersController = new HeroesAndMonstersController();
+    $heroesAndMonstersController->demonstrate();
+});
+
 
 
 // // about page

@@ -6,6 +6,29 @@
     <h1>Challenge 4: Heroes and Monsters</h1>
 </article>
 
+{{-- Start the action section --}}
+<section class="upload-main-card feature-card mt-3">
+    <h2>Start the action!</h2>
+
+    <form method="get" action="/demonstrate">
+        <button type="submit" class="btn btn-primary">Start the battle</button>
+    </form>
+</section>
+
+{{-- Display the events --}}
+
+    
+@if($events)
+    
+    <section class="upload-main-card feature-card mt-3">
+        <p>Events exist!</p>
+        @foreach($events as $event)
+            <div>{{ $event }}</div>
+        @endforeach
+    </section>
+    
+@endif
+
 <section class="upload-main-card feature-card mt-3">
 
 <section>
@@ -98,13 +121,7 @@
 
 </section>
 
-<section class="upload-main-card feature-card mt-3">
-    <h2>Start the action!</h2>
 
-    
 
-    
-
-</section>
 
 @endsection
