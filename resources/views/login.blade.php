@@ -15,8 +15,11 @@
         <div class="form-group">
             <label>Email</label>
             <input 
-                type="text" 
+                type="email" 
                 name="email" 
+                required
+                minlength="6"
+                maxlength="50"
                 class="form-control"
                 value="{{ isset($email) ? $email : '' }}"
             >
@@ -33,6 +36,10 @@
             <input 
                 type="password" 
                 name="password" 
+                required 
+                minlength="6"
+                maxlength="50"
+                autocomplete="current-password"
                 class="form-control"
                 value="{{ isset($password) ? $password : '' }}"
             >

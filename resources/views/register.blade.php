@@ -20,6 +20,9 @@
             <input 
                 type="text" 
                 name="firstname" 
+                required
+                minlength="3"
+                maxlength="50"
                 class="form-control"
                 value="{{ isset($firstname) ? $firstname : '' }}"
             >
@@ -40,6 +43,9 @@
             <input 
                 type="text" 
                 name="lastname" 
+                required
+                minlength="3"
+                maxlength="50"
                 class="form-control"
                 value="{{ isset($lastname) ? $lastname : '' }}"
             >
@@ -60,6 +66,9 @@
             <input 
                 type="text" 
                 name="username" 
+                required
+                minlength="3"
+                maxlength="50"
                 class="form-control"
                 value="{{ isset($username) ? $username : '' }}"
             >
@@ -79,6 +88,9 @@
             <input 
                 type="email" 
                 name="email" 
+                required
+                minlength="6"
+                maxlength="50"
                 class="form-control"
                 value="{{ isset($email) ? $email : '' }}"
             >
@@ -98,6 +110,9 @@
             <input 
                 type="password" 
                 name="password" 
+                required
+                minlength="6"
+                maxlength="50"
                 class="form-control"
                 value="{{ isset($password) ? $password : '' }}"
             >

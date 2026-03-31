@@ -46,6 +46,12 @@ class HeroesAndMonstersController extends Controller
         );
     }
 
+    /**
+     * This is where everything happens regarding the heroes and monster. This is where we set up
+     * all the actions, or the fights.
+     *
+     * @return array
+     */
     private function startHeroesAndMonsters(): array
     {
         Logger::getInstance()->log('Game started!');
@@ -91,14 +97,12 @@ class HeroesAndMonstersController extends Controller
         /**
          * Fight 1
          */
-        Logger::getInstance()->log('The epic fight Wizard vs Spider');
         $fightManager = new FightManager($wizard, $spider);
         $fightManager->fight();
 
         /**
          * Fight 2
          */
-        // Logger::getInstance()->log('The epic fight Warrior vs Dragon');
         $fightManager = new FightManager($warrior, $dragon);
         $fightManager->fight();
 
