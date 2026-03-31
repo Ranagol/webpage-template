@@ -1,0 +1,1619 @@
+Test log entry
+Test log entry
+Test log entry
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior switched weapon.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+A new Sword has been created.
+Maximum number of weapons in bag is two weapons!
+Cannot pick up weapon: bag is full!
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Lance
+Warrior dropped his Lance
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior has no weapons in the bag.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+Warrior has a Sword in the bag.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior has no active weapon.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+Warrior's active weapon is a Sword
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+No weapon found for this hero, in his bag!
+Warrior cannot switch weapon: no weapons in the bag.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+Can't switch weapon: only one weapon in bag!
+Warrior cannot switch weapon: only one weapon in the bag.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+Test log entry
+A new Warrior has been created.
+A new Warrior has been created.
+A new Warrior has been created.
+A new Dragon has been created.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+Test log entry
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior switched weapon.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+A new Sword has been created.
+Maximum number of weapons in bag is two weapons!
+Cannot pick up weapon: bag is full!
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Lance
+Warrior dropped his Lance
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior has no weapons in the bag.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+Warrior has a Sword in the bag.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior has no active weapon.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+Warrior's active weapon is a Sword
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+No weapon found for this hero, in his bag!
+Warrior cannot switch weapon: no weapons in the bag.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+Can't switch weapon: only one weapon in bag!
+Warrior cannot switch weapon: only one weapon in the bag.
+A new Warrior has been created.
+A new Sword has been created.
+A new Lance has been created.
+Warrior picked up a Sword
+A new Warrior has been created.
+A new Dragon has been created.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon defeated Warrior!
+A new Warrior has been created.
+A new Dragon has been created.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+A new Warrior has been created.
+A new Dragon has been created.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+A new Warrior has been created.
+A new Dragon has been created.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+A new Warrior has been created.
+A new Dragon has been created.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+A new Warrior has been created.
+A new Dragon has been created.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Unarmed and caused 1 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon defeated Warrior!
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior defeated Dragon!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior defeated Dragon!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior defeated Dragon!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior defeated Dragon!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior defeated Dragon!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior defeated Dragon!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior defeated Dragon!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior defeated Dragon!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior defeated Dragon!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior defeated Dragon!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Dragon defeated Warrior!
+Game ended
+Game started
+A new Warrior has been created.
+A new Wizard has been created.
+A new Sword has been created.
+A new Lance has been created.
+A new Magic has been created.
+A new Sword has been created.
+A new Dragon has been created.
+A new Spider has been created.
+Warrior picked up a Sword
+Warrior picked up a Lance
+Warrior's active weapon is a Sword
+Warrior switched weapon.
+Warrior's active weapon is a Lance
+Warrior switched weapon.
+Warrior's active weapon is a Sword
+Warrior has a Sword in the bag.
+Warrior has a Lance in the bag.
+Warrior dropped his Sword
+Warrior has a Lance in the bag.
+Wizard learned new magic.
+Wizard tried to pick up a weapon, which is forbidden.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard used Magic and caused 20 damage to Spider.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Biting and caused 8 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Spider used Hitting and caused 5 damage to Wizard.
+Wizard used Magic and caused 20 damage to Spider.
+Wizard defeated Spider!
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Hitting and caused 5 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Dragon used Fire Breath and caused 20 damage to Warrior.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior used Lance and caused 15 damage to Dragon.
+Warrior defeated Dragon!
+Game ended

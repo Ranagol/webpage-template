@@ -16,19 +16,17 @@
 </section>
 
 {{-- Display the events --}}
-
-    
 @if($events)
-    
     <section class="upload-main-card feature-card mt-3">
         <p>Events exist!</p>
         @foreach($events as $event)
             <div>{{ $event }}</div>
         @endforeach
     </section>
-    
 @endif
 
+
+{{-- Description of the task --}}
 <section class="upload-main-card feature-card mt-3">
 
 <section>
