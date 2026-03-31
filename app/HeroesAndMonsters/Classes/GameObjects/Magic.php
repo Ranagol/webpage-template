@@ -8,7 +8,7 @@ use App\HeroesAndMonsters\Classes\GameObjects\GameObject;
 
 class Magic extends GameObject {
 
-    private int $damage = 20;
+    private int $damage = 30;
 
     public function getDamage(): int
     {

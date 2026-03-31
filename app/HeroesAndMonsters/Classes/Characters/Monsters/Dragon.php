@@ -11,13 +11,13 @@ class Dragon extends Monster {
     /** @var array{attackType: string, damage: int} */
     public array $attack1 = [
         'attackType' => 'Fire Breath', 
-        'damage' => 20
+        'damage' => 30
     ];
 
     /** @var array{attackType: string, damage: int} */
     public array $attack2 = [
         'attackType' => 'Hitting',
-        'damage' => 5
+        'damage' => 20
     ];
 
     /**

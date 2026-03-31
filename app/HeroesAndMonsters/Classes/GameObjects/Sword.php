@@ -8,7 +8,7 @@ use App\HeroesAndMonsters\Classes\GameObjects\Weapon;
 
 class Sword extends Weapon {
 
-    private int $damage = 10;
+    private int $damage = 20;
 
     public function getDamage(): int
     {

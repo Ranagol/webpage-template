@@ -7,7 +7,7 @@ namespace App\Controllers;
 use App\HeroesAndMonsters\Classes\Characters\Heroes\Warrior;
 use App\HeroesAndMonsters\Classes\Characters\Heroes\Wizard;
 use App\HeroesAndMonsters\Classes\Characters\Monsters\Dragon;
-// use App\HeroesAndMonsters\Classes\Characters\Monsters\Spider;
+use App\HeroesAndMonsters\Classes\Characters\Monsters\Spider;
 use App\HeroesAndMonsters\Classes\FightManager;
 use App\HeroesAndMonsters\Classes\GameObjects\Lance;
 use App\HeroesAndMonsters\Classes\GameObjects\Magic;
@@ -17,7 +17,8 @@ use App\HeroesAndMonsters\Logs\Logger;
 class HeroesAndMonstersController extends Controller
 {
     /**
-     * Displays the Heroes and Monsters page.
+     * Displays the Heroes and Monsters page. Without the fight event demonstration. This is the
+     * default.
      */
     public function heroesAndMonsters(): void
     {
@@ -29,6 +30,11 @@ class HeroesAndMonstersController extends Controller
         );
     }
 
+    /**
+     * Displays the Heroes and Monsters page, with the fight event demonstration.
+     *
+     * @return void
+     */
     public function demonstrate(): void
     {
         $events = $this->startHeroesAndMonsters();
@@ -57,7 +63,7 @@ class HeroesAndMonstersController extends Controller
         // $sword2 = new Sword();
 
         $dragon = new Dragon();
-        // $spider = new Spider();
+        $spider = new Spider();
 
         /**
          * Warrior actions: picking up weapons, showing active weapon, switching weapon, dropping weapon
@@ -85,9 +91,9 @@ class HeroesAndMonstersController extends Controller
         /**
          * Fight 1
          */
-        // Logger::getInstance()->log('The epic fight Wizard vs Spider');
-        // $fightManager = new FightManager($wizard, $spider);
-        // $fightManager->fight();
+        Logger::getInstance()->log('The epic fight Wizard vs Spider');
+        $fightManager = new FightManager($wizard, $spider);
+        $fightManager->fight();
 
         /**
          * Fight 2

@@ -8,7 +8,7 @@ use App\HeroesAndMonsters\Classes\GameObjects\Weapon;
 
 class Lance extends Weapon {
 
-    private int $damage = 15;
+    private int $damage = 25;
 
     public function getDamage(): int
     {

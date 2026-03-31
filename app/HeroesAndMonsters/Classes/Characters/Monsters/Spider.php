@@ -11,13 +11,13 @@ class Spider extends Monster {
     /** @var array{attackType: string, damage: int} */
     public array $attack1 = [
         'attackType' => 'Biting', 
-        'damage' => 8
+        'damage' => 20
     ];
 
     /** @var array{attackType: string, damage: int} */
     public array $attack2 = [
         'attackType' => 'Hitting',
-        'damage' => 5
+        'damage' => 15
     ];
 
     /**
