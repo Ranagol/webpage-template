@@ -37,10 +37,10 @@ abstract class AuthValidator
     {
         if (count($this->errors) > 0) {
             $msg = json_encode($this->errors);
-            if ($msg === false) {
+            if (false === $msg) {
                 $msg = 'Validation error.';
             }
-            throw new ValidationException((string)$msg, 422);
+            throw new ValidationException((string) $msg, 422);
         }
 
         return true;

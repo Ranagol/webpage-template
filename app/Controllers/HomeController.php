@@ -21,7 +21,7 @@ class HomeController extends Controller
         $this->view('home');
     }
 
-    /**
+    /*
      * This function is not needed at all for displaying the home page. We use it to check the
      * Debugbar, to learn about it and test it.
      */

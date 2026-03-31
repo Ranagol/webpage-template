@@ -33,12 +33,12 @@ class ApiRequest extends AbstractRequest
          */
         $rawJsonData = file_get_contents('php://input');
 
-        /**
+        /*
          * this line is needed here, because during the data extraction above, there will be an
          * strange not-really-json format (so json_decode will not work!), and with this line we
          * make the data to be json format. Basically we transform the data here.
          */
-        if ($rawJsonData !== false) {
+        if (false !== $rawJsonData) {
             $rawJsonData = str_replace([PHP_EOL, ',}'], ['', '}'], $rawJsonData);
         } else {
             $rawJsonData = '';

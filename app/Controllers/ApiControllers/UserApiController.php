@@ -45,7 +45,7 @@ class UserApiController extends ApiController
         $arrayRequestData = $apiRequest->getAllRequestData();
         User::create($arrayRequestData);
         $savedUser = User::orderBy('id', 'desc')->first();
-        $savedUserId = ($savedUser !== null && property_exists($savedUser, 'id')) ? $savedUser->id : null;
+        $savedUserId = (null !== $savedUser && property_exists($savedUser, 'id')) ? $savedUser->id : null;
         UserApiResponse::send($savedUserId); // send back the id of the newly created user
     }
 
@@ -55,7 +55,7 @@ class UserApiController extends ApiController
         $user = User::find($id);
         $data = $request->getAllRequestData();
         unset($data['id']); // because we don't want to update the user id...
-        if ($user !== null) {
+        if (null !== $user) {
             $user->update($data);
             UserApiResponse::send('id ' . $id . ' was updated.');
         } else {

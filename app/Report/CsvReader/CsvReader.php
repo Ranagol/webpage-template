@@ -97,7 +97,7 @@ class CsvReader
             if (file_exists($this->getFileNameWithPath())) {
                 // echo 'file exists';
                 $fp = fopen($this->getFileNameWithPath(), 'r'); // opening a file
-                if ($fp !== false) {
+                if (false !== $fp) {
                     $this->filePointer = $fp;
                 } else {
                     $this->filePointer = null;

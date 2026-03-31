@@ -10,7 +10,7 @@ class LoggerTest extends TestCase
     protected function setUp(): void
     {
         // Reset Logger events for isolation
-        $ref = new \ReflectionClass(Logger::class);
+        $ref = new ReflectionClass(Logger::class);
         $eventsProp = $ref->getProperty('events');
         $eventsProp->setAccessible(true);
         $eventsProp->setValue([]);

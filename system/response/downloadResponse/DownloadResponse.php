@@ -41,7 +41,7 @@ class DownloadResponse
 
         // create a file pointer connected to the output stream. So we create the csv file in the output, so it does not need a storage directory
         $output = fopen('php://output', 'w');
-        if ($output !== false) {
+        if (false !== $output) {
             // creates csv file, and writes into csv file the column names, which are Category and Cost.
             fputcsv($output, ['Category', 'Cost']);
 

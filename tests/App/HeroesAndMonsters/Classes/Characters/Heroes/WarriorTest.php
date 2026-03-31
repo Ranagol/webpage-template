@@ -99,11 +99,13 @@ class WarriorTest extends TestCase
         $bag = $this->getWeaponBag($this->warrior);
         $this->assertEquals($this->lance, $bag->getActiveWeapon());
     }
+
     private function getWeaponBag(Warrior $warrior): \App\HeroesAndMonsters\Classes\GameObjects\WeaponBag
     {
         $ref = new \ReflectionClass($warrior);
         $prop = $ref->getProperty('weaponBag');
         $prop->setAccessible(true);
+
         return $prop->getValue($warrior);
     }
 
