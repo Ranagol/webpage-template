@@ -4,6 +4,10 @@ on:
     push:
         branches: [master]
 
+env:
+    # It tells the runner: execute JavaScript-based actions using Node.js 24.
+    FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
     install-composer-dependencies:
         runs-on: ubuntu-latest
@@ -110,6 +114,9 @@ jobs:
               with:
                   php-version: "8.3"
                   extensions: mbstring, intl, pdo, pdo_mysql, dom, xml, xmlwriter, gd, zip, soap, calendar
+
+            - name: Copy .env
+              run: cp .env.example .env
 
             - name: Make PHPUnit executable
               run: chmod +x vendor/bin/phpunit
