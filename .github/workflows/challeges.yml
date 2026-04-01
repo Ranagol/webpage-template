@@ -111,6 +111,9 @@ jobs:
                   php-version: "8.3"
                   extensions: mbstring, intl, pdo, pdo_mysql, dom, xml, xmlwriter, gd, zip, soap, calendar
 
+            - name: Make PHPUnit executable
+              run: chmod +x vendor/bin/phpunit
+
             - name: Run PHPUnit
               run: vendor/bin/phpunit
 
