@@ -114,6 +114,9 @@ jobs:
             - name: Make PHPUnit executable
               run: chmod +x vendor/bin/phpunit
 
+            - name: Ensure storage logs directory exists
+              run: mkdir -p storage/logs
+
             - name: Run PHPUnit
               run: vendor/bin/phpunit
 

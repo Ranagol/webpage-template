@@ -3,9 +3,11 @@
 .vscode
 .idea
 .phpunit.cache
-/storage
+/storage/*
+!/storage/upload/
+/storage/upload/**
+!/storage/upload/.gitkeep
 /storage/logs/myLogs.txt
-/storage/upload
 /cache/*
 !/cache/.gitkeep
 # Ignore PHP CS Fixer cache file

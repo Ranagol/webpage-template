@@ -32,6 +32,14 @@ class Logger
      */
     private function __construct()
     {
+        /**
+         * This makes sure, that the storage/logs dir will be created, if for some reason
+         * is not there. Better safe than sorry.
+         */
+        $dir = dirname($this->path);
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        }
     }
 
     /**
