@@ -139,14 +139,18 @@ jobs:
                   username: ${{ secrets.ORACLE_USER }}
                   key: ${{ secrets.ORACLE_CHALLENGES_SSH_PRIVATE_KEY }}
                   script: |
+                      set -e
                       cd /var/www/webpage-template
                       echo "Pull latest code"
-                      git pull origin main
+                      git pull origin master
                       echo "Rebuild containers"
                       docker compose down
                       docker compose up -d --build
+                      echo "Configure git safe directory in php container"
+                      docker compose exec -T php git config --global --add safe.directory /srv/www || true
                       echo "Install dependencies"
-                      docker compose exec -T php composer install --no-interaction --prefer-dist --optimize-autoloader
+                      docker compose exec -T php sh -lc 'XDEBUG_MODE=off composer install --no-interaction --prefer-dist --optimize-autoloader'
                       echo "Fix permissions"
-                      chmod -R 777 cache
+                      find cache -type d -exec chmod 775 {} + || true
+                      find cache -type f -exec chmod 664 {} + || true
        
