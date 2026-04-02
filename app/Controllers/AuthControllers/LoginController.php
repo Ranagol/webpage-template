@@ -59,7 +59,17 @@ class LoginController extends Controller
             $user = $this->findUser($email);
 
             // authenticate the user - compare data from form with data from db
-            $this->authenticateUser($user, $email, $password);
+            $isAuthenticated = $this->authenticateUser($user, $email, $password);
+
+            if (false === $isAuthenticated) {
+                $this->view(
+                    'login',
+                    [
+                        'isAuthenticated' => false,
+                        'email' => $email,
+                    ]
+                );
+            }
 
         } catch (ValidationException $errors) {
 
@@ -97,7 +107,7 @@ class LoginController extends Controller
         User $user,
         string $email,
         string $password,
-    ): void {
+    ): bool {
         $emailFromDb = $user->email;
         $hashFromDb = $user->password;
 
@@ -125,7 +135,11 @@ class LoginController extends Controller
 
             // We leave this empty, because the home page url is just '/', and that is already the default url
             redirect('');
+
+            return true;
         }
+
+        return false;
     }
 
     /**
@@ -134,7 +148,7 @@ class LoginController extends Controller
      *
      * @throws CantFindUserException
      */
-    private function findUser(string $email): ?User
+    private function findUser(string $email): User
     {
         // check if there is a user with the validated email and password
         $user = User::where('email', '=', $email)->first();
@@ -142,7 +156,7 @@ class LoginController extends Controller
             return $user;
         }
 
-        return null;
+        throw new CantFindUserException('User not found.');
     }
 
     /**
