@@ -67,7 +67,7 @@ The goal was to deeply understand how modern PHP frameworks work internally by r
 ```bash
 docker-compose build
 docker-compose up
-docker-compose exec -it php-container bash
+docker-compose exec -it php bash
 ```
 
 Inside the container:

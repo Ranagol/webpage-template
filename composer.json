@@ -23,16 +23,22 @@
 		"test-logger": "App\\Testing::displayMessage",
         "migrate": "@php database/migrations/createTablesInDatabase.php",
 		"seed": "@php database/seeders/seedDatabase.php",
-        "phpstan": "XDEBUG_MODE=off php -d memory_limit=512M vendor/bin/phpstan analyse app bootstrap database resources routes -l 1",
-        "phpstan-l2": "XDEBUG_MODE=off php -d memory_limit=512M vendor/bin/phpstan analyse app bootstrap database resources routes system tests -l 2"
+
+
+        "cs-fixer": "php-cs-fixer fix --config=.php-cs-fixer.php",
+        "phpstan": "./vendor/bin/phpstan analyse",
+        "phpunit": "./vendor/bin/phpunit",
+        "full-check": [
+            "@cs-fixer",
+            "@phpstan",
+            "@phpunit"
+        ],
+        "enter-docker": "docker-compose exec -it php bash"
 	},
     "scripts-descriptions": {
         "test-logger": "This is just a test to see how basic php script activation is working. Just write composer test-logger into the terminal.",
         "migrate": "This should start the migration, and create tables in the db. Just write 'composer migrate'.",
-        "seed": "This should seed the database with some data. Just write 'composer seed'.",
-        "phpstan": "Run PHPStan level 1 with increased memory and Xdebug disabled to prevent memory-limit crashes.",
-        "phpstan-l2": "Run PHPStan level 2 with increased memory and Xdebug disabled to prevent parallel worker memory-limit crashes.",
-        "question": "//TODO Losi miert composeron keresztul aktivaltad a migrate parancsot? Miert nem siman php Database/migrations/createTablesInDatabase.php?"
+        "seed": "This should seed the database with some data. Just write 'composer seed'."
     },
     "require-dev": {
         "phpunit/phpunit": "^11.4",
