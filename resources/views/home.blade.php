@@ -3,7 +3,6 @@
 @section('content')
 
 <section class="hero-panel" style="text-align:justify">
-    <h1>ORACLE</h1>
     <h1>PHP MVC Web Application (Vanilla PHP, No Framework)</h1>
     <p>
         This project is a fully custom-built MVC web application created using <strong>vanilla PHP</strong>, 

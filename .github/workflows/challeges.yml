@@ -133,11 +133,22 @@ jobs:
         needs: [cs-fixer, phpstan, phpunit]
         steps:
             - name: Deploy via SSH
+# Below is a prebuilt GitHub Action to connect to a remote server via SSH.
               uses: appleboy/ssh-action@v1.0.3
               with:
                   host: ${{ secrets.ORACLE_HOST }}
                   username: ${{ secrets.ORACLE_USER }}
                   key: ${{ secrets.ORACLE_CHALLENGES_SSH_PRIVATE_KEY }}
+# Everything below runs on Oracle server.
+# set -e = If any command fails → stop execution immediately (fail fast behavior).
+# cd /var/www/webpage-template = Change directory to the project folder on the remote server.
+# git pull origin master = Fetch and merge the latest changes from the master branch.
+# docker compose down = Stop and remove existing Docker containers, networks
+# docker compose up -d --build = Rebuild images if needed and start containers in detached mode.
+# docker compose exec -T php git config --global --add safe.directory /srv/www || true = Run Git config inside php container to mark directory as safe; ignore errors if it fails.
+# docker compose exec -T php sh -lc 'XDEBUG_MODE=off composer install --no-interaction --prefer-dist --optimize-autoloader' = Run Composer install inside php container with optimizations and no prompts; disable Xdebug for speed.
+# find cache -type d -exec chmod 775 {} + || true = Set directory permissions (rwxrwxr-x) for cache folders; ignore errors.
+# find cache -type f -exec chmod 664 {} + || true = Set file permissions (rw-rw-r--) for cache files; ignore errors.
                   script: |
                       set -e
                       cd /var/www/webpage-template
