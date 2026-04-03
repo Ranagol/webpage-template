@@ -13,6 +13,9 @@ class FileDownloadRequest extends AbstractRequest
      */
     public function __construct()
     {
-        $this->requestData = $_SESSION['downloadRequest'];
+        $this->requestData = [
+            'downloadRequest' => $_SESSION['downloadRequest'] ?? [],
+            'csrf_token' => $_POST['csrf_token'] ?? null,
+        ];
     }
 }

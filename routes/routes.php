@@ -58,6 +58,15 @@ $router->before('GET', '/.*', function () {
     }
 });
 
+/*
+ * Protect state-changing upload/report routes for not-logged-in users as well.
+ */
+$router->before('POST', '/(upload|download-report)', function () {
+    if (!isset($_SESSION['username'])) {
+        redirect('login');
+    }
+});
+
 // require_once __DIR__ . '/routesApi.php'; // API requests and responses for user CRUD
 
 require_once __DIR__ . '/routesWebPage.php'; // pages-views like /, about, contact...

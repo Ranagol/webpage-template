@@ -16,6 +16,9 @@ class FileUploadRequest extends AbstractRequest
 {
     public function __construct()
     {
-        $this->requestData = $_FILES;
+        $this->requestData = [
+            'file' => $_FILES['file'] ?? null,
+            'csrf_token' => $_POST['csrf_token'] ?? null,
+        ];
     }
 }

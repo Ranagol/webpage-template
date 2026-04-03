@@ -34,9 +34,9 @@ $router->post('/upload', function () {
 });
 
 /*
- * Downloads the  csv report that was created from the uploaded .csv file
+ * Downloads the csv report that was created from the uploaded .csv file
  */
-$router->get('/download-report', function () {
+$router->post('/download-report', function () {
     $downloadController = new DownloadController();
     $downloadController->download(new FileDownloadRequest());
 });

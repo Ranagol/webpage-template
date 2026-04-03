@@ -28,10 +28,7 @@ class Upload extends Model
      * @var array<int, string>
      */
     private array $allowedFileFormats = [
-        // 'image/jpg',
-        // 'image/jpeg',
-        // 'image/gif',
-        // 'image/png',
+        'text/plain',
         'application/vnd.ms-excel',
         'text/csv',
     ];
@@ -117,32 +114,35 @@ class Upload extends Model
     {
         // get user email - this will be the name of his private storage
         $email = $this->getUserEmail();
+        $uploadedFile = $this->getUploadedFile();
+        $tmpName = (string) ($uploadedFile['tmp_name'] ?? '');
+
+        if (!is_uploaded_file($tmpName)) {
+            throw new \Exception('Invalid upload source.');
+        }
+
+        $baseUploadPath = realpath(__DIR__ . '/../../storage/upload');
+        if (false === $baseUploadPath) {
+            throw new \Exception('Upload directory is not available.');
+        }
+
+        $userUploadPath = $baseUploadPath . '/' . $email;
 
         // create directory for the upload if there is none yet
         clearstatcache(); // deleting cached stuff
-        if (!file_exists(__DIR__ . '/../../storage/upload/' . $email)) {
-            $boolean = mkdir(__DIR__ . '/../../storage/upload/' . $email);
+        if (!file_exists($userUploadPath)) {
+            $boolean = mkdir($userUploadPath, 0755, true);
             if (!$boolean) {
                 throw new \Exception('We could not make a new directory for the uploaded file.');
             }
         }
 
-        // check if there is already a same file uploaded, and if so delete the previous file
-        clearstatcache(); // deleting cached stuff
-        $path = __DIR__ . '/../../storage/upload/' . $this->getUserEmail() . '/' . $this->getFileName();
-        if (file_exists($path)) {
-            // echo 'file exists';
-            \unlink($path);
-        }
+        $destinationPath = $userUploadPath . '/' . $this->getFileName();
 
         // place the uploaded file into the new dir
-        try {
-            $report = move_uploaded_file(
-                $_FILES['file']['tmp_name'],
-                __DIR__ . '/../../storage/upload/' . $email . '/' . $this->getFileName()
-            );
-        } catch (\Exception $error) {
-            echo $error->getMessage();
+        $stored = move_uploaded_file($tmpName, $destinationPath);
+        if (false === $stored) {
+            throw new \Exception('Failed to store uploaded file.');
         }
     }
 
@@ -176,9 +176,28 @@ class Upload extends Model
      */
     private function validateFileType(): void
     {
-        if (!in_array($this->getFileType(), $this->getAllowedFileFormats())) {
+        $uploadedFile = $this->getUploadedFile();
+        $tmpName = (string) ($uploadedFile['tmp_name'] ?? '');
+        $originalName = (string) ($uploadedFile['name'] ?? '');
+        $extension = strtolower((string) pathinfo($originalName, PATHINFO_EXTENSION));
+
+        if ('csv' !== $extension) {
+            throw new \Exception('Error: Please upload a CSV file.');
+        }
+
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        if (false === $finfo) {
+            throw new \Exception('Error: Unable to validate file type.');
+        }
+
+        $detectedType = finfo_file($finfo, $tmpName);
+        finfo_close($finfo);
+
+        if (!is_string($detectedType) || !in_array($detectedType, $this->getAllowedFileFormats(), true)) {
             throw new \Exception('Error: Please select a valid file format.');
         }
+
+        $this->setFileType($detectedType);
     }
 
     /**
@@ -190,13 +209,38 @@ class Upload extends Model
     private function setFileSizeNameType(): void
     {
         $uploadData = $this->getUploadData();
-        if (isset($uploadData['file']) && 0 == $uploadData['file']['error']) {
-            $this->setFileName($uploadData['file']['name']);
-            $this->setFileType($uploadData['file']['type']);
-            $this->setFileSize($uploadData['file']['size']);
+        if (isset($uploadData['file']) && is_array($uploadData['file']) && 0 == $uploadData['file']['error']) {
+            $originalName = (string) ($uploadData['file']['name'] ?? 'upload.csv');
+            $this->setFileName($this->createSafeFileName($originalName));
+            $this->setFileType((string) ($uploadData['file']['type'] ?? ''));
+            $this->setFileSize((float) ($uploadData['file']['size'] ?? 0));
         } else {
             throw new \Exception('Error with uploading.');
         }
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function getUploadedFile(): array
+    {
+        $uploadData = $this->getUploadData();
+        $file = $uploadData['file'] ?? null;
+        if (!is_array($file)) {
+            throw new \Exception('No file payload found.');
+        }
+
+        return $file;
+    }
+
+    private function createSafeFileName(string $originalName): string
+    {
+        $extension = strtolower((string) pathinfo($originalName, PATHINFO_EXTENSION));
+        if ('' === $extension) {
+            $extension = 'csv';
+        }
+
+        return sprintf('%s_%s.%s', date('YmdHis'), bin2hex(random_bytes(8)), $extension);
     }
 
     /**

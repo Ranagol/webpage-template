@@ -47,11 +47,24 @@ class DownloadResponse
 
             // writes into csv file, line by line.
             foreach ($this->getDataToDownload() as $category => $cost) {
-                $line = [$category, $cost];
+                $line = [
+                    $this->escapeCsvCell((string) $category),
+                    $this->escapeCsvCell((string) $cost),
+                ];
                 fputcsv($output, $line);
             }
             fclose($output);
         }
+    }
+
+    private function escapeCsvCell(string $value): string
+    {
+        $dangerousPrefixes = ['=', '+', '-', '@'];
+        if ('' !== $value && in_array($value[0], $dangerousPrefixes, true)) {
+            return "'" . $value;
+        }
+
+        return $value;
     }
 
     /**

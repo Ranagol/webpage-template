@@ -91,11 +91,12 @@ there is a validation logic, that can - if needed - create error messages. -->
 <!-- UPLOAD CSV FILE. This form will be displayed only if the user is logged in -->
 <section class="upload-main-card feature-card {{ $user ? '' : 'd-none' }}">
     <form 
-        action="upload" 
+        action="/upload" 
         method="post" 
         enctype="multipart/form-data" 
         class="form-group upload-form mb-0"
     >
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="upload-section-head">
             <div>
                 <h2 class='mt-0'>Upload file</h2>
@@ -108,7 +109,7 @@ there is a validation logic, that can - if needed - create error messages. -->
         <div class='mt-3'>
             <label for="fileSelect">Filename:</label>
 
-            <input type="file" name="file" id="fileSelect" class='form-control-file'>
+            <input type="file" name="file" id="fileSelect" class='form-control-file' accept=".csv,text/csv" required>
         </div>
 
         <div class='mt-3'>
@@ -170,10 +171,11 @@ This is the report that can be downloaded. -->
 
     <!-- DOWNLOAD REPORT BUTTON -->
     <form 
-        action="download-report" 
-        method="GET"
+        action="/download-report" 
+        method="POST"
         class="upload-report-actions"
     >
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <button 
             class='btn btn-success'
         >Download report</button>

@@ -39,6 +39,13 @@ class UploadController extends Controller
          */
         $uploadData = $request->getAllRequestData();
 
+        if (!validate_csrf_token($uploadData['csrf_token'] ?? null)) {
+            header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+            echo 'Invalid CSRF token.';
+
+            return;
+        }
+
         /**
          * The Upload model has all the logic to handle the upload process.
          */
@@ -69,8 +76,7 @@ class UploadController extends Controller
             $alertType = 'alert-success';
 
         } catch (\Exception $error) {
-
-            $message = $error->getMessage();
+            $message = 'Upload failed. Please verify the file and try again.';
             $alertType = 'alert-warning';
             $report = null;
         }

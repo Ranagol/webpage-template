@@ -10,10 +10,11 @@ use App\Report\ReportDomain\Category;
 use App\Report\ReportDomain\CsvFile;
 use App\Report\ReportDomain\Line;
 use App\Report\ReportDomain\Price;
-use Exception;
 
 class CsvReader
 {
+    private const MAX_CSV_ROWS = 10000;
+
     /**
      * Stores the file path.
      */
@@ -41,12 +42,18 @@ class CsvReader
     private function readCsvFile(): void
     {
         $lines = [];
+        $rowCount = 0;
 
         try {
             // $file = fopen($this->getFileNameWithPath(), 'r');
 
             // this is how we can read csv file line by line. The result will be an array o arrays.
             while (($lineFromCsv = fgetcsv($this->getFilePointer())) !== false) {
+                ++$rowCount;
+                if ($rowCount > self::MAX_CSV_ROWS) {
+                    throw new \Exception('CSV file is too large to process safely.');
+                }
+
                 // $lineFromCsv is an array of the csv elements
                 // print_r($lineFromCsv);
                 $priceValue = $lineFromCsv[1] ?? null;
@@ -64,19 +71,14 @@ class CsvReader
             }
 
         } catch (\Throwable $e) {
-            var_dump($e->getMessage() . PHP_EOL); // will shjow the actual error message, aka what is the issue
-            var_dump($e->getTrace()); // will show where could be the error. This function will return an array. This array will have values. These values will be the parts of the apps that were activated during/before this current exception was thrown. We need to ignore all values, that are in the vendor, and we need to find the first value (part of the app, that is not in the vendor)
-
-            // where the exception was created (where the actual error is and where the exeption was created are not the same! If we can’t find the first, the latter may be useful)
-            var_dump($e->getFile() . PHP_EOL); // gets the file in which the exception was created
-            var_dump($e->getLine() . PHP_EOL); // gets the line in which the exception was created
-
-            // Here we log the error in our logs
+            // Log detailed internals, but do not dump them to users.
             if ($e instanceof \Exception) {
                 Logger::getInstance()->logError($e);
             } else {
                 Logger::getInstance()->logError(new \Exception($e->getMessage(), 0, $e));
             }
+
+            throw new \Exception('Could not process uploaded CSV file.', 0, $e);
 
         } finally {
             $fp = $this->getFilePointer();
@@ -92,27 +94,23 @@ class CsvReader
 
     private function createFilePointer(): void
     {
-        try {
-            clearstatcache(); // deleting cached stuff
-            if (file_exists($this->getFileNameWithPath())) {
-                // echo 'file exists';
-                $fp = fopen($this->getFileNameWithPath(), 'r'); // opening a file
-                if (false !== $fp) {
-                    $this->filePointer = $fp;
-                } else {
-                    $this->filePointer = null;
-                }
+        clearstatcache(); // deleting cached stuff
+        if (file_exists($this->getFileNameWithPath())) {
+            $fp = fopen($this->getFileNameWithPath(), 'r'); // opening a file
+            if (false !== $fp) {
+                $this->filePointer = $fp;
             } else {
-                throw new \Exception('We have issue with the filePointer, we cant find the file...' . __FILE__ . __LINE__);
+                throw new \Exception('Could not open uploaded CSV file.');
             }
-        } catch (\Throwable $th) {
-            var_dump($th->getMessage());
+        } else {
+            throw new \Exception('Uploaded CSV file not found.');
         }
     }
 
     private function createFilePath(string $email, string $fileName): void
     {
-        $path = __DIR__ . '/../../../storage/upload/' . $email . '/' . $fileName;
+        $safeFileName = basename($fileName);
+        $path = __DIR__ . '/../../../storage/upload/' . $email . '/' . $safeFileName;
 
         $this->fileNameWithPath = $path;
     }

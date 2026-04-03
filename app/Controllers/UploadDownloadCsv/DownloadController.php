@@ -18,7 +18,29 @@ class DownloadController
      */
     public function download(RequestInterface $request): void
     {
-        $dataToDownload = $request->getAllRequestData();
+        if (!isset($_SESSION['username'])) {
+            redirect('login');
+
+            return;
+        }
+
+        $requestData = $request->getAllRequestData();
+
+        if (!validate_csrf_token($requestData['csrf_token'] ?? null)) {
+            header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+            echo 'Invalid CSRF token.';
+
+            return;
+        }
+
+        $dataToDownload = $requestData['downloadRequest'] ?? null;
+        if (!is_array($dataToDownload)) {
+            header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+            echo 'Invalid download request.';
+
+            return;
+        }
+
         $dowloadResponse = new DownloadResponse($dataToDownload);
         $dowloadResponse->sendResponse();
     }
