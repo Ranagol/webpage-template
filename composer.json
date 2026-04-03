@@ -27,7 +27,7 @@
 
         "cs-fixer": "php-cs-fixer fix --config=.php-cs-fixer.php",
         "phpstan": "./vendor/bin/phpstan analyse",
-        "phpunit": "./vendor/bin/phpunit",
+        "phpunit": "php -d error_reporting=\"E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED\" ./vendor/bin/phpunit",
         "full-check": [
             "@cs-fixer",
             "@phpstan",

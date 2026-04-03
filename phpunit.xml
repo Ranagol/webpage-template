@@ -2,7 +2,7 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
-         cacheDirectory=".phpunit.cache"
+         cacheDirectory="/tmp/webpage-template-phpunit-cache"
          executionOrder="depends,defects"
          shortenArraysForExportThreshold="10"
          beStrictAboutCoverageMetadata="false"
@@ -26,4 +26,8 @@
             <directory>app</directory>
         </include>
     </source>
+
+    <php>
+        <ini name="error_reporting" value="E_ALL &amp; ~E_DEPRECATED &amp; ~E_USER_DEPRECATED"/>
+    </php>
 </phpunit>
