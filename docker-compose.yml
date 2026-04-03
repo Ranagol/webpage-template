@@ -21,7 +21,7 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "80:80"
+      - "127.0.0.1:8001:80"
     volumes:
       - .:/srv/www
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
@@ -48,22 +48,6 @@ services:
       # dbdata: This is the name of the volume
       # /var/lib/mysql: This is the path in the container where the data will be stored
       - dbdata:/var/lib/mysql
-  
-  # PHPMYADMIN SETUP
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    ports:
-      # so, the phpadmin will be available to us in the browser on localhost:8081
-      - '8081:80'
-    restart: always
-    environment:
-      # PMA here simply means phpmyadmin
-      PMA_HOST: database
-      PMA_USER: ${DB_USERNAME}
-      PMA_PASSWORD: ${DB_PASSWORD}
-    # Ensures that the my-database-service is started before the phpmyadmin service.
-    depends_on:
-      - database
 
 # The volumes section defines named volumes, that can be shared between containers and are persisted on the host pc.
 # In this case, there is only one named volume, called dbdata. This 'dbdata' must be declared in the volumes section too.
