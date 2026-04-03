@@ -112,7 +112,7 @@
                 type="password" 
                 name="password" 
                 required
-                minlength="6"
+                minlength="8"
                 maxlength="50"
                 class="form-control"
             >

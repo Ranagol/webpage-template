@@ -8,6 +8,7 @@ use App\Controllers\Controller;
 use App\Exceptions\ValidationException;
 use App\Models\User;
 use App\Validators\RegisterValidator;
+use Illuminate\Database\QueryException;
 use System\request\RequestInterface;
 
 /**
@@ -42,10 +43,10 @@ class RegisterController extends Controller
     {
         // Extracting the registering data from the request
         $request = $request->getAllRequestData();
-        $username = $request['username'] ?? '';
-        $firstname = $request['firstname'] ?? '';
-        $lastname = $request['lastname'] ?? '';
-        $email = $request['email'] ?? '';
+        $username = trim((string) ($request['username'] ?? ''));
+        $firstname = trim((string) ($request['firstname'] ?? ''));
+        $lastname = trim((string) ($request['lastname'] ?? ''));
+        $email = strtolower(trim((string) ($request['email'] ?? '')));
         $password = $request['password'] ?? '';
 
         if (!validate_csrf_token($request['csrf_token'] ?? null)) {
@@ -97,6 +98,22 @@ class RegisterController extends Controller
                 'register',
                 [
                     'errors' => $errors,
+                    'username' => $username,
+                    'firstname' => $firstname,
+                    'lastname' => $lastname,
+                    'email' => $email,
+                ]
+            );
+
+        } catch (QueryException $exception) {
+
+            // Gracefully handle duplicate email attempts without exposing DB internals.
+            $this->view(
+                'register',
+                [
+                    'errors' => [
+                        'emailError' => 'This email is already registered.',
+                    ],
                     'username' => $username,
                     'firstname' => $firstname,
                     'lastname' => $lastname,

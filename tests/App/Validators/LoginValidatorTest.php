@@ -33,4 +33,19 @@ final class LoginValidatorTest extends TestCase
             $this->assertArrayHasKey('passwordError', $errors);
         }
     }
+
+    public function testInvalidEmailFormatThrowsValidationException(): void
+    {
+        $validator = new LoginValidator();
+
+        try {
+            $validator->validate('invalid-email', 'secret123');
+            $this->fail('ValidationException was not thrown for invalid email format.');
+        } catch (ValidationException $exception) {
+            $errors = json_decode($exception->getMessage(), true);
+
+            $this->assertIsArray($errors);
+            $this->assertArrayHasKey('emailError', $errors);
+        }
+    }
 }

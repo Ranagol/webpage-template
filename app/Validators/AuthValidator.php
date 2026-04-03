@@ -55,11 +55,14 @@ abstract class AuthValidator
     protected function validateEmail(string $email): void
     {
         $emailError = null;
+        $email = trim($email);
 
         if (empty($email)) {
             $emailError = 'Please enter an email.';
-        } elseif (strlen($email) <= 2) {
-            $emailError = 'Email must be longer than 2 characters.';
+        } elseif (strlen($email) > 254) {
+            $emailError = 'Email is too long.';
+        } elseif (false === filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailError = 'Please enter a valid email address.';
         }
 
         if (null !== $emailError) {

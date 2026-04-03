@@ -30,6 +30,7 @@ class RegisterValidator extends AuthValidator
         $this->validateLastname($lastname);
         $this->validateEmail($email);
         $this->validatePassword($password);
+        $this->validatePasswordStrength($password);
 
         /*
          * Here we check if there are validation errors. If so, an exception is thrown.
@@ -97,6 +98,26 @@ class RegisterValidator extends AuthValidator
 
         if (null !== $lastNameError) {
             $this->errors['lastNameError'] = $lastNameError;
+        }
+    }
+
+    /**
+     * Registration needs a stronger password policy than login.
+     */
+    private function validatePasswordStrength(string $password): void
+    {
+        if (isset($this->errors['passwordError'])) {
+            return;
+        }
+
+        $passwordError = null;
+
+        if (strlen($password) < 8) {
+            $passwordError = 'Password must be at least 8 characters long.';
+        }
+
+        if (null !== $passwordError) {
+            $this->errors['passwordError'] = $passwordError;
         }
     }
 }

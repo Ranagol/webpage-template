@@ -13,7 +13,7 @@ final class RegisterValidatorTest extends TestCase
     public function testValidInputPassesValidation(): void
     {
         $validator = new RegisterValidator();
-        $validator->validate('test@example.com', 'secret123', 'user123', 'John', 'Doe');
+        $validator->validate('test@example.com', 'Secret123', 'user123', 'John', 'Doe');
 
         $this->expectNotToPerformAssertions();
     }
@@ -34,6 +34,21 @@ final class RegisterValidatorTest extends TestCase
             $this->assertArrayHasKey('lastNameError', $errors);
             $this->assertArrayHasKey('emailError', $errors);
             $this->assertArrayHasKey('passwordError', $errors);
+        }
+    }
+
+    public function testInvalidEmailFormatThrowsValidationException(): void
+    {
+        $validator = new RegisterValidator();
+
+        try {
+            $validator->validate('invalid-email', 'StrongPass1', 'user123', 'John', 'Doe');
+            $this->fail('ValidationException was not thrown for invalid email format.');
+        } catch (ValidationException $exception) {
+            $errors = json_decode($exception->getMessage(), true);
+
+            $this->assertIsArray($errors);
+            $this->assertArrayHasKey('emailError', $errors);
         }
     }
 }
