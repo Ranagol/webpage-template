@@ -11,6 +11,7 @@
     @endif
 
     <form action="/login" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
         <div class="form-group">
             <label>Email</label>
@@ -41,7 +42,6 @@
                 maxlength="50"
                 autocomplete="current-password"
                 class="form-control"
-                value="{{ isset($password) ? $password : '' }}"
             >
             <p 
                 class="form-control alert alert-danger 

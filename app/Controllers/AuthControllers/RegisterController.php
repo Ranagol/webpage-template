@@ -42,11 +42,19 @@ class RegisterController extends Controller
     {
         // Extracting the registering data from the request
         $request = $request->getAllRequestData();
-        $username = $request['username'];
-        $firstname = $request['firstname'];
-        $lastname = $request['lastname'];
-        $email = $request['email'];
-        $password = $request['password'];
+        $username = $request['username'] ?? '';
+        $firstname = $request['firstname'] ?? '';
+        $lastname = $request['lastname'] ?? '';
+        $email = $request['email'] ?? '';
+        $password = $request['password'] ?? '';
+
+        if (!validate_csrf_token($request['csrf_token'] ?? null)) {
+            header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+            echo 'Invalid CSRF token.';
+
+            return;
+        }
+
         $hash = \password_hash($password, PASSWORD_DEFAULT);
 
         try {
@@ -93,7 +101,6 @@ class RegisterController extends Controller
                     'firstname' => $firstname,
                     'lastname' => $lastname,
                     'email' => $email,
-                    'password' => $password,
                 ]
             );
         }
@@ -115,6 +122,9 @@ class RegisterController extends Controller
             if (!isset($_SESSION)) {
                 session_start();
             }
+
+            // Regenerate session ID to prevent session fixation after auto-login.
+            session_regenerate_id(true);
 
             /*
              * We store the users login status in the $_SESSION superglobal.

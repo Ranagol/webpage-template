@@ -139,6 +139,28 @@ a:hover {
 	box-shadow: 0 8px 14px rgba(13, 111, 123, 0.24);
 }
 
+.app-navbar .logout-form {
+	margin: 0;
+}
+
+.app-navbar .logout-nav-button {
+	border: 0;
+	background: transparent;
+	line-height: inherit;
+	cursor: pointer;
+}
+
+.app-navbar .logout-nav-button:focus {
+	color: #214763;
+	background: transparent;
+	box-shadow: none;
+}
+
+.app-navbar .logout-nav-button:focus-visible {
+	outline: 2px solid rgba(15, 139, 141, 0.55);
+	outline-offset: 2px;
+}
+
 .user-state {
 	border: 1px solid rgba(15, 139, 141, 0.28);
 	border-radius: 999px;

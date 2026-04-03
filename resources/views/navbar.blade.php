@@ -64,7 +64,10 @@
 
 				@if($isLoggedIn)
 					<li class="nav-item">
-						<a class="nav-link {{ $isActive('/logout') ? 'active' : '' }}" href="/logout">Logout</a>
+						<form action="/logout" method="post" class="logout-form">
+							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+							<button type="submit" class="nav-link logout-nav-button">Logout</button>
+						</form>
 					</li>
 				@endif
 

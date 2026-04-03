@@ -35,7 +35,7 @@ $router->post('/login', function () {
 });
 
 // logout
-$router->get('/logout', function () {
+$router->post('/logout', function () {
     $loginController = new LoginController();
     $loginController->logout();
 });

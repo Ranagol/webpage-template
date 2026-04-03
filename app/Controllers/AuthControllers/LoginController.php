@@ -41,8 +41,15 @@ class LoginController extends Controller
 
         // getting email and password from the request
         $request = $request->getAllRequestData();
-        $email = $request['email'];
-        $password = $request['password'];
+        $email = $request['email'] ?? '';
+        $password = $request['password'] ?? '';
+
+        if (!validate_csrf_token($request['csrf_token'] ?? null)) {
+            header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+            echo 'Invalid CSRF token.';
+
+            return;
+        }
 
         try {
 
@@ -83,7 +90,6 @@ class LoginController extends Controller
                 [
                     'errors' => $errors,
                     'email' => $email,
-                    'password' => $password,
                 ]
             );
 
@@ -125,6 +131,9 @@ class LoginController extends Controller
             if (!isset($_SESSION)) {
                 session_start();
             }
+
+            // Regenerate session ID to prevent session fixation after login.
+            session_regenerate_id(true);
 
             /*
              * Put the users data into the session superglobal.
@@ -173,6 +182,13 @@ class LoginController extends Controller
      */
     public function logout(): void
     {
+        if (!validate_csrf_token($_POST['csrf_token'] ?? null)) {
+            header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+            echo 'Invalid CSRF token.';
+
+            return;
+        }
+
         // Initialize the session
         if (!isset($_SESSION)) {
             session_start();

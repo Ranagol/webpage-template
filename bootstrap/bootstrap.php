@@ -78,3 +78,39 @@ function redirect(string $path): void
      */
     header("Location: /{$path}");
 }
+
+/**
+ * Returns a CSRF token and stores it in the current session.
+ */
+function csrf_token(): string
+{
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
+    if (!isset($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+
+    return $_SESSION['csrf_token'];
+}
+
+/**
+ * Validates an incoming CSRF token against the one in the current session.
+ */
+function validate_csrf_token(mixed $token): bool
+{
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
+    if (!is_string($token) || '' === $token) {
+        return false;
+    }
+
+    if (!isset($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
+        return false;
+    }
+
+    return hash_equals($_SESSION['csrf_token'], $token);
+}

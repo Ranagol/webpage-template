@@ -12,6 +12,7 @@
     <h2>Sign Up</h2>
     <p>Please fill this form to create an account.</p>
     <form action="/register" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div class="form-group">
 
             <!-- FIRST NAME -->
@@ -114,7 +115,6 @@
                 minlength="6"
                 maxlength="50"
                 class="form-control"
-                value="{{ isset($password) ? $password : '' }}"
             >
 
             <!-- ERROR DISPLAY -->
