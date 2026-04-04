@@ -49,10 +49,6 @@
                     <a class="nav-link {{ $isActive('/heroes-and-monsters') ? 'active' : '' }}" href="/heroes-and-monsters">Heroes</a>
 				</li>
 
-				{{-- <li class="nav-item">
-					<a class="nav-link {{ $isActive('/guzzle') ? 'active' : '' }}" href="/guzzle">Guzzle</a>
-				</li> --}}
-
 				@if(!$isLoggedIn)
 					<li class="nav-item">
 						<a class="nav-link {{ $isActive('/register') ? 'active' : '' }}" href="/register">Register</a>

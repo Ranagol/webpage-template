@@ -49,8 +49,7 @@ $router->before('GET', '/.*', function () {
         || '/raw-php-mvc' === $_SERVER['REQUEST_URI']
         || '/upload' === $_SERVER['REQUEST_URI']
         || '/train-task' === $_SERVER['REQUEST_URI']
-        || '/heroes-and-monsters' === $_SERVER['REQUEST_URI']
-        || '/guzzle' === $_SERVER['REQUEST_URI']) {
+        || '/heroes-and-monsters' === $_SERVER['REQUEST_URI']) {
 
             // redirect to login page
             redirect('login');
@@ -76,8 +75,6 @@ require_once __DIR__ . '/routesAuthentication.php'; // everything regarding logi
 require_once __DIR__ . '/routesUser.php'; // 'normal' web page requests for user CRUD
 
 require_once __DIR__ . '/routesUploadDownloadCsv.php'; // for uploading (images and csv files) and downloading (csv files)
-
-require_once __DIR__ . '/routesGuzzle.php'; // for Guzzle stuff
 
 // Custom 404 Handler
 $router->set404(function () {
