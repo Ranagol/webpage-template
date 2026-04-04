@@ -105,7 +105,6 @@ By implementing core features manually, I strengthened my knowledge of backend a
 ## 🧪 Additional Features
 
 - Train scheduling algorithm challenge (CLI command)
-- PHP DebugBar integration
 - Static analysis using PHPStan
 
 ---

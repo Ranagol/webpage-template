@@ -47,19 +47,6 @@ require __DIR__ . '/../bootstrap/bootDotenv.php';
  */
 function returnView(string $name, array $data = []): void
 {
-
-    /**
-     * Here we do php debugbar boostrapping, to show debugbar info in the desired page. So, if we call
-     * the about page ($name = 'about'), the debugbar will be shown in the about page. The Debugbar
-     * object created in the bootDebugbar.php will be available in the view page. The view will
-     * require the header.php and footer.php. These two files will actullay trigger and use the Debugbar
-     * object.
-     * If the Debugbar object is only created in the bootDebugbar.php but would not have been required
-     * into this function, then this function would not have access to the Debugbar object. Why? Because
-     * a php function can only see things that are between the {}, or received by argument.
-     */
-    require_once __DIR__ . '/bootDebugbar.php';
-
     extract($data);
 
     // This opens the view file, and sends the data to it

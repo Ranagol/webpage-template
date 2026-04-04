@@ -15,11 +15,9 @@
         "bramus/router": "~1.5",
         "symfony/console": "^5.4",
         "nesbot/carbon": "^2.72",
-        "jenssegers/blade": "^1.4",
-        "maximebf/debugbar": "^1.23"
+        "jenssegers/blade": "^1.4"
     },
     "scripts": {
-		"test-logger": "App\\Testing::displayMessage",
         "migrate": "@php database/migrations/createTablesInDatabase.php",
 		"seed": "@php database/seeders/seedDatabase.php",
 
@@ -35,7 +33,6 @@
         "enter-docker": "docker-compose exec -it php bash"
 	},
     "scripts-descriptions": {
-        "test-logger": "This is just a test to see how basic php script activation is working. Just write composer test-logger into the terminal.",
         "migrate": "This should start the migration, and create tables in the db. Just write 'composer migrate'.",
         "seed": "This should seed the database with some data. Just write 'composer seed'."
     },
