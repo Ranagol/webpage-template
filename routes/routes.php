@@ -66,8 +66,6 @@ $router->before('POST', '/(upload|download-report)', function () {
     }
 });
 
-// require_once __DIR__ . '/routesApi.php'; // API requests and responses for user CRUD
-
 require_once __DIR__ . '/routesWebPage.php'; // pages-views like /, about, contact...
 
 require_once __DIR__ . '/routesAuthentication.php'; // everything regarding login and register

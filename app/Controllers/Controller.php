@@ -7,7 +7,7 @@ namespace App\Controllers;
 use Jenssegers\Blade\Blade;
 
 /**
- * This is the parent class for all web page diplaying (non api related) controllers.
+ * This is the parent class for all web page diplaying controllers.
  */
 class Controller
 {

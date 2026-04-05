@@ -14,9 +14,6 @@ namespace System\request;
  * other request classes are childs of the AbstractRequest, so they have
  * to implement it too. This is important, because these two funcions
  * will be constantly used in the controllers.
- *
- * Where is this interface used? It is used for type hinting, in UserApiController
- * public static function store(RequestInterface $apiRequest): void for typehinting.
  */
 interface RequestInterface
 {

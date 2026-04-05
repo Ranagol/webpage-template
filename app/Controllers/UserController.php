@@ -8,8 +8,7 @@ use App\Models\User;
 use System\request\RequestInterface;
 
 /**
- * Handles all User related requests coming from the web page. API User requests are handled by the
- * UserApiController.
+ * Handles all User related requests coming from the web page.
  */
 class UserController extends Controller
 {
