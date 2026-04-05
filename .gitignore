@@ -10,5 +10,6 @@
 /storage/logs/myLogs.txt
 /cache/*
 !/cache/.gitkeep
-# Ignore PHP CS Fixer cache file
 .php-cs-fixer.cache
+/public/cache/*
+!/public/cache/.gitkeep
