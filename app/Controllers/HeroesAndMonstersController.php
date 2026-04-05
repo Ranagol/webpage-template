@@ -107,6 +107,7 @@ class HeroesAndMonstersController extends Controller
         $fightManager->fight();
 
         Logger::getInstance()->log('Game ended.');
+        Logger::getInstance()->log('Feel free to check out in the source code the php classes like the Warrior and the Dragon. :)');
         $events = Logger::getInstance()->getEvents();
 
         return $events;
