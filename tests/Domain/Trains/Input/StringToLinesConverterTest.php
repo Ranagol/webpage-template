@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\App\Trains\Input;
+namespace Tests\Domain\Trains\Input;
 
-require_once dirname(__DIR__) . '/TrainsClassLoader.php';
-
-use App\Trains\Input\StringToLinesConverter;
+use Domain\Trains\Input\StringToLinesConverter;
 use PHPUnit\Framework\TestCase;
 
 final class StringToLinesConverterTest extends TestCase

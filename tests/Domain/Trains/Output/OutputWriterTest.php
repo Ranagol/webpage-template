@@ -2,13 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\App\Trains\Output;
+namespace Tests\Domain\Trains\Output;
 
-require_once dirname(__DIR__) . '/TrainsClassLoader.php';
-
-use App\Trains\Input\Schedule;
-use App\Trains\Input\Train;
-use App\Trains\Output\OutputWriter;
+use Domain\Trains\Input\Schedule;
+use Domain\Trains\Input\Train;
+use Domain\Trains\Output\OutputWriter;
 use PHPUnit\Framework\TestCase;
 
 final class OutputWriterTest extends TestCase

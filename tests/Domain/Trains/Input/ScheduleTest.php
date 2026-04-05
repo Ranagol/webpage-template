@@ -2,12 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\App\Trains\Input;
+namespace Tests\Domain\Trains\Input;
 
-require_once dirname(__DIR__) . '/TrainsClassLoader.php';
-
-use App\Trains\Input\Schedule;
-use App\Trains\Input\Train;
+use Domain\Trains\Input\Schedule;
+use Domain\Trains\Input\Train;
 use PHPUnit\Framework\TestCase;
 
 final class ScheduleTest extends TestCase
