@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Trains\Calculation;
+namespace Domain\Trains\Calculation;
 
-use App\Trains\Input\Schedule;
+use Domain\Trains\Input\Schedule;
 
 class TrainCalculator
 {

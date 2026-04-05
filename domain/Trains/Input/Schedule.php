@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Trains\Input;
+namespace Domain\Trains\Input;
 
 class Schedule
 {

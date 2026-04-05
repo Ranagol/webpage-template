@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Trains\Output;
+namespace Domain\Trains\Output;
 
-use App\Trains\Input\Schedule;
+use Domain\Trains\Input\Schedule;
 
 class OutputWriter
 {

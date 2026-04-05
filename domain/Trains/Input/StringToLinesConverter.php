@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Trains\Input;
+namespace Domain\Trains\Input;
 
 /**
  * Converts a a string that contains all the train timetable data into an array of lines that

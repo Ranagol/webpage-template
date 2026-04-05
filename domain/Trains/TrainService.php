@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Trains;
+namespace Domain\Trains;
 
-use App\Trains\Calculation\TrainCalculator;
-use App\Trains\Input\ScheduleMaker;
-use App\Trains\Input\StringToLinesConverter;
-use App\Trains\Output\OutputWriter;
+use Domain\Trains\Calculation\TrainCalculator;
+use Domain\Trains\Input\ScheduleMaker;
+use Domain\Trains\Input\StringToLinesConverter;
+use Domain\Trains\Output\OutputWriter;
 
 /**
  * This is the main service class. It is responsible for handling the whole train task.

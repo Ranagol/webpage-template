@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Trains\Input;
+namespace Domain\Trains\Input;
 
 /**
  * This class will create schedules from the input lines.

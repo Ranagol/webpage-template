@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Trains\Input;
+namespace Domain\Trains\Input;
 
 /*
  * We use CarbonImmutable, because we do not want to alow the change of the departure and arrival times,
