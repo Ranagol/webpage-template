@@ -113,8 +113,3 @@ By implementing core features manually, I strengthened my knowledge of backend a
 
 This project is intended as a learning and portfolio project, showcasing backend development skills and architectural understanding.
 
----
-
-## 📬 Contact
-
-Feel free to reach out or connect with me if you have feedback or opportunities!

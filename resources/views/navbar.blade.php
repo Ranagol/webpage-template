@@ -28,12 +28,6 @@
 					<a class="nav-link {{ $isActive('/') ? 'active' : '' }}" href="/">Home</a>
 				</li>
 				{{-- <li class="nav-item">
-					<a class="nav-link {{ $isActive('/about') ? 'active' : '' }}" href="/about">About</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link {{ $isActive('/contact') ? 'active' : '' }}" href="/contact">Contact</a>
-				</li> --}}
-				{{-- <li class="nav-item">
 					<a class="nav-link {{ $isActive('/users') ? 'active' : '' }}" href="/users">Users</a>
 				</li> --}}
                 <li class="nav-item">

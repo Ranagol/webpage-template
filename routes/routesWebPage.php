@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-// use App\Controllers\AboutController;
-// use App\Controllers\ContactController;
 use App\Controllers\HeroesAndMonstersController;
 use App\Controllers\HomeController;
 use App\Controllers\RawPhpMvcController;
@@ -44,15 +42,3 @@ $router->get('/demonstrate', function () {
     $heroesAndMonstersController = new HeroesAndMonstersController();
     $heroesAndMonstersController->demonstrate();
 });
-
-// // about page
-// $router->get('/about', function () {
-//     $aboutController = new AboutController();
-//     $aboutController->about();
-// });
-
-// // contact page
-// $router->get('/contact', function () {
-//     $contactController = new ContactController();
-//     $contactController->contact();
-// });

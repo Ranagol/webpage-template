@@ -42,9 +42,7 @@ $router->before('GET', '/.*', function () {
          * So, these pages are forbidden for the not-logged-in user.
          * Pages that can be visited by the not-logged-in user: /, login, register, logout.
          */
-        if ('/about' === $_SERVER['REQUEST_URI']
-        // || '/contact' === $_SERVER['REQUEST_URI']
-        // || '/users' === $_SERVER['REQUEST_URI']
+        if ('/users' === $_SERVER['REQUEST_URI']
         || '/users/create' === $_SERVER['REQUEST_URI']
         || '/raw-php-mvc' === $_SERVER['REQUEST_URI']
         || '/upload' === $_SERVER['REQUEST_URI']
@@ -66,7 +64,7 @@ $router->before('POST', '/(upload|download-report)', function () {
     }
 });
 
-require_once __DIR__ . '/routesWebPage.php'; // pages-views like /, about, contact...
+require_once __DIR__ . '/routesWebPage.php'; // pages-views
 
 require_once __DIR__ . '/routesAuthentication.php'; // everything regarding login and register
 

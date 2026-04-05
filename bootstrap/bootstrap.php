@@ -42,7 +42,7 @@ require __DIR__ . '/../bootstrap/bootDotenv.php';
  * Example: the about page. The PageController sends a $data variable to the about.php, that
  * actually expects a $data variable, and wants to display it.
  *
- * @param string               $name Example: 'home' or 'contact' or 'about'
+ * @param string               $name Example: 'home' 
  * @param array<string, mixed> $data the data that we want to send to the views
  */
 function returnView(string $name, array $data = []): void
