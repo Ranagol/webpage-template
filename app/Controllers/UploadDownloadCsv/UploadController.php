@@ -6,7 +6,7 @@ namespace App\Controllers\UploadDownloadCsv;
 
 use App\Controllers\Controller;
 use App\Models\Upload;
-use App\Report\ReportDomain\Reportable;
+use Domain\Report\ReportDomain\Reportable;
 use System\request\RequestInterface;
 
 /**

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Report\CsvReader\CsvReader;
-use App\Report\ReportDomain\CsvFile;
+use Domain\Report\CsvReader\CsvReader;
+use Domain\Report\ReportDomain\CsvFile;
 use Illuminate\Database\Eloquent\Model;
 
 /**

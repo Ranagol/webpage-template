@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Report\ReportDomain;
+namespace Domain\Report\ReportDomain;
+
+use Domain\Report\ReportDomain\Reportable;
 
 class CsvFile implements Reportable
 {

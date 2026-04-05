@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Report\ReportDomain;
+namespace Domain\Report\ReportDomain;
 
 interface Reportable
 {

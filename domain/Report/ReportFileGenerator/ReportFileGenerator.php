@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Report\ReportFileGenerator;
+namespace Domain\Report\ReportFileGenerator;
 
 use App\Models\User;
 

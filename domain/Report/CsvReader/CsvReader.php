@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Report\CsvReader;
+namespace Domain\Report\CsvReader;
 
 use App\Logger\Logger;
-use App\Report\ReportDomain\Amount;
-use App\Report\ReportDomain\Category;
-use App\Report\ReportDomain\CsvFile;
-use App\Report\ReportDomain\Line;
-use App\Report\ReportDomain\Price;
+use Domain\Report\ReportDomain\Amount;
+use Domain\Report\ReportDomain\Category;
+use Domain\Report\ReportDomain\CsvFile;
+use Domain\Report\ReportDomain\Line;
+use Domain\Report\ReportDomain\Price;
 
 class CsvReader
 {
