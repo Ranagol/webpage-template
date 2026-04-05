@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Classes;
+namespace Tests\Domain\HeroesAndMonsters;
 
-use App\HeroesAndMonsters\Classes\Characters\Heroes\Warrior;
-use App\HeroesAndMonsters\Classes\Characters\Monsters\Dragon;
-use App\HeroesAndMonsters\Classes\FightManager;
+use Domain\HeroesAndMonsters\Classes\Characters\Heroes\Warrior;
+use Domain\HeroesAndMonsters\Classes\Characters\Monsters\Dragon;
+use Domain\HeroesAndMonsters\Classes\FightManager;
 use PHPUnit\Framework\TestCase;
 
 class FightManagerTest extends TestCase

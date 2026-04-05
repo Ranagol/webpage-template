@@ -2,8 +2,11 @@
 
 declare(strict_types=1);
 
+namespace Tests\Domain\HeroesAndMonsters\Logs;
+
 use Domain\HeroesAndMonsters\Logs\Logger;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 class LoggerTest extends TestCase
 {

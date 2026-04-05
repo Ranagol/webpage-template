@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-use App\HeroesAndMonsters\Exceptions\BaseException;
+namespace Tests\Domain\HeroesAndMonsters\Exceptions;
+
+use Domain\HeroesAndMonsters\Exceptions\BaseException;
 use PHPUnit\Framework\TestCase;
 
 class BaseExceptionTest extends TestCase

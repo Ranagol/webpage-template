@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\HeroesAndMonsters\Exceptions;
+namespace Domain\HeroesAndMonsters\Exceptions;
 
 namespace Domain\HeroesAndMonsters\Exceptions;
 

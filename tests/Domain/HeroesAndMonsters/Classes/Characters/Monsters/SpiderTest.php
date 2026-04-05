@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-use App\HeroesAndMonsters\Classes\Characters\Monsters\Spider;
+namespace Tests\Domain\HeroesAndMonsters\Classes\Characters\Monsters;
+
+use Domain\HeroesAndMonsters\Classes\Characters\Monsters\Spider;
 use PHPUnit\Framework\TestCase;
 
 class SpiderTest extends TestCase

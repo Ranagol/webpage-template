@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Classes\Characters\Heroes;
+namespace Tests\Domain\HeroesAndMonsters\Classes\Characters\Heroes;
 
-use App\HeroesAndMonsters\Classes\Characters\Heroes\Warrior;
-use App\HeroesAndMonsters\Classes\GameObjects\Lance;
-use App\HeroesAndMonsters\Classes\GameObjects\Sword;
+use Domain\HeroesAndMonsters\Classes\Characters\Heroes\Warrior;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Lance;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Sword;
 use PHPUnit\Framework\TestCase;
 
 class WarriorTest extends TestCase
@@ -100,7 +100,7 @@ class WarriorTest extends TestCase
         $this->assertEquals($this->lance, $bag->getActiveWeapon());
     }
 
-    private function getWeaponBag(Warrior $warrior): \App\HeroesAndMonsters\Classes\GameObjects\WeaponBag
+    private function getWeaponBag(Warrior $warrior): \Domain\HeroesAndMonsters\Classes\GameObjects\WeaponBag
     {
         $ref = new \ReflectionClass($warrior);
         $prop = $ref->getProperty('weaponBag');

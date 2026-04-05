@@ -2,8 +2,14 @@
 
 declare(strict_types=1);
 
-use App\HeroesAndMonsters\Classes\GameObjects\Sword;
-use App\HeroesAndMonsters\Classes\GameObjects\WeaponBag;
+namespace Tests\Domain\HeroesAndMonsters\Classes\GameObjects;
+
+use Domain\HeroesAndMonsters\Classes\GameObjects\Lance;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Sword;
+use Domain\HeroesAndMonsters\Classes\GameObjects\WeaponBag;
+use Domain\HeroesAndMonsters\Exceptions\CantSwitchOneWeaponException;
+use Domain\HeroesAndMonsters\Exceptions\MaxWeaponNrExceededException;
+use Domain\HeroesAndMonsters\Exceptions\NoWeaponException;
 use PHPUnit\Framework\TestCase;
 
 class WeaponBagTest extends TestCase
@@ -22,7 +28,7 @@ class WeaponBagTest extends TestCase
         $bag = new WeaponBag();
         $bag->addWeapon(new Sword());
         $bag->addWeapon(new Sword());
-        $this->expectException(App\HeroesAndMonsters\Exceptions\MaxWeaponNrExceededException::class);
+        $this->expectException(MaxWeaponNrExceededException::class);
         $bag->addWeapon(new Sword());
     }
 
@@ -39,14 +45,14 @@ class WeaponBagTest extends TestCase
     public function testRemoveActiveWeaponThrowsIfEmpty(): void
     {
         $bag = new WeaponBag();
-        $this->expectException(App\HeroesAndMonsters\Exceptions\NoWeaponException::class);
+        $this->expectException(NoWeaponException::class);
         $bag->removeActiveWeapon();
     }
 
     public function testSwitchWeaponThrowsIfEmpty(): void
     {
         $bag = new WeaponBag();
-        $this->expectException(App\HeroesAndMonsters\Exceptions\NoWeaponException::class);
+        $this->expectException(NoWeaponException::class);
         $bag->switchWeapon();
     }
 
@@ -54,7 +60,7 @@ class WeaponBagTest extends TestCase
     {
         $bag = new WeaponBag();
         $bag->addWeapon(new Sword());
-        $this->expectException(App\HeroesAndMonsters\Exceptions\CantSwitchOneWeaponException::class);
+        $this->expectException(CantSwitchOneWeaponException::class);
         $bag->switchWeapon();
     }
 
@@ -62,7 +68,7 @@ class WeaponBagTest extends TestCase
     {
         $bag = new WeaponBag();
         $sword = new Sword();
-        $lance = new App\HeroesAndMonsters\Classes\GameObjects\Lance();
+        $lance = new Lance();
         $bag->addWeapon($sword);
         $bag->addWeapon($lance);
         $this->assertSame($sword, $bag->getActiveWeapon());

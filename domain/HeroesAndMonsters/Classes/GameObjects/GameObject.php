@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\HeroesAndMonsters\Classes\GameObjects;
+namespace Domain\HeroesAndMonsters\Classes\GameObjects;
 
 namespace Domain\HeroesAndMonsters\Classes\GameObjects;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\HeroesAndMonsters\Logs;
+namespace Domain\HeroesAndMonsters\Logs;
 
 namespace Domain\HeroesAndMonsters\Logs;
 

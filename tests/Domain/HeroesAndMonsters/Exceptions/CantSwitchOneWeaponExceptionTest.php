@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-use App\HeroesAndMonsters\Exceptions\CantSwitchOneWeaponException;
+namespace Tests\Domain\HeroesAndMonsters\Exceptions;
+
+use Domain\HeroesAndMonsters\Exceptions\CantSwitchOneWeaponException;
 use PHPUnit\Framework\TestCase;
 
 class CantSwitchOneWeaponExceptionTest extends TestCase

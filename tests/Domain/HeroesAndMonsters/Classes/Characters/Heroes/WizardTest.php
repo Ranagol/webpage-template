@@ -2,8 +2,12 @@
 
 declare(strict_types=1);
 
-use App\HeroesAndMonsters\Classes\Characters\Heroes\Wizard;
-use App\HeroesAndMonsters\Classes\GameObjects\Magic;
+namespace Tests\Domain\HeroesAndMonsters\Classes\Characters\Heroes;
+
+use Domain\HeroesAndMonsters\Classes\Characters\Heroes\Hero;
+use Domain\HeroesAndMonsters\Classes\Characters\Heroes\Wizard;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Magic;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Weapon;
 use PHPUnit\Framework\TestCase;
 
 class WizardTest extends TestCase
@@ -37,7 +41,7 @@ class WizardTest extends TestCase
     public function testPickUpWeaponLogsException(): void
     {
         $wizard = new Wizard();
-        $weapon = $this->createMock(App\HeroesAndMonsters\Classes\GameObjects\Weapon::class);
+        $weapon = $this->createMock(Weapon::class);
         // No weapons property or bag, just ensure no exception is thrown
         $wizard->pickUpWeapon($weapon);
         $this->addToAssertionCount(1); // Mark as checked for exception
@@ -46,6 +50,6 @@ class WizardTest extends TestCase
     public function testIsHero(): void
     {
         $wizard = new Wizard();
-        $this->assertInstanceOf(App\HeroesAndMonsters\Classes\Characters\Heroes\Hero::class, $wizard);
+        $this->assertInstanceOf(Hero::class, $wizard);
     }
 }
