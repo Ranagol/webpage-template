@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\HeroesAndMonsters\Classes\GameObjects;
+namespace Domain\HeroesAndMonsters\Classes\GameObjects;
 
-use App\HeroesAndMonsters\Exceptions\CantSwitchOneWeaponException;
-use App\HeroesAndMonsters\Exceptions\MaxWeaponNrExceededException;
-use App\HeroesAndMonsters\Exceptions\NoWeaponException;
+use Domain\HeroesAndMonsters\Classes\GameObjects\GameObject;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Weapon;
+use Domain\HeroesAndMonsters\Exceptions\CantSwitchOneWeaponException;
+use Domain\HeroesAndMonsters\Exceptions\MaxWeaponNrExceededException;
+use Domain\HeroesAndMonsters\Exceptions\NoWeaponException;
 
 /**
  * All Heroes have a WeaponBag. They can store here max 2 weapons.

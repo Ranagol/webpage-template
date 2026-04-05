@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Logs\Logger;
 use PHPUnit\Framework\TestCase;
 
 class LoggerTest extends TestCase

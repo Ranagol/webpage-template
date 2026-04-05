@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\HeroesAndMonsters\Classes;
+namespace Domain\HeroesAndMonsters\Classes;
 
-use App\HeroesAndMonsters\Classes\Characters\Heroes\Hero;
-use App\HeroesAndMonsters\Classes\Characters\Monsters\Monster;
-use App\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Classes\Characters\Heroes\Hero;
+use Domain\HeroesAndMonsters\Classes\Characters\Monsters\Monster;
+use Domain\HeroesAndMonsters\Logs\Logger;
 
 /**
  * This class manages the fight between a Hero and a Monster. The fight lasts, till the Hero or Monster

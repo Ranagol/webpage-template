@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\HeroesAndMonsters\Classes\Characters;
+namespace Domain\HeroesAndMonsters\Classes\Characters;
 
-use App\HeroesAndMonsters\Classes\GameObjects\GameObject;
+use Domain\HeroesAndMonsters\Classes\GameObjects\GameObject;
 
 /**
  * Characters can be Heroes and Monsters (living beings, not objects).

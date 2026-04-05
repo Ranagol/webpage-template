@@ -3,10 +3,11 @@
 declare(strict_types=1);
 
 namespace App\HeroesAndMonsters\Classes\GameObjects;
+namespace Domain\HeroesAndMonsters\Classes\GameObjects;
 
-class Magic extends GameObject
+class Sword extends Weapon
 {
-    private int $damage = 30;
+    private int $damage = 20;
 
     public function getDamage(): int
     {

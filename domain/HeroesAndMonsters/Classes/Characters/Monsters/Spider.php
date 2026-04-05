@@ -3,21 +3,22 @@
 declare(strict_types=1);
 
 namespace App\HeroesAndMonsters\Classes\Characters\Monsters;
+namespace Domain\HeroesAndMonsters\Classes\Characters\Monsters;
 
-class Dragon extends Monster
+class Spider extends Monster
 {
     protected int $health = 50;
 
     /** @var array{attackType: string, damage: int} */
     public array $attack1 = [
-        'attackType' => 'Fire Breath',
-        'damage' => 30,
+        'attackType' => 'Biting',
+        'damage' => 20,
     ];
 
     /** @var array{attackType: string, damage: int} */
     public array $attack2 = [
         'attackType' => 'Hitting',
-        'damage' => 20,
+        'damage' => 15,
     ];
 
     /**

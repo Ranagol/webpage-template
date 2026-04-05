@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 namespace App\HeroesAndMonsters\Exceptions;
+namespace Domain\HeroesAndMonsters\Exceptions;
 
-class NoWeaponException extends BaseException
+class WizardCanNotUseWeaponException extends \Exception
 {
     public function __construct(
-        string $message = 'No weapon found for this hero, in his bag!',
+        string $message = 'Wizards can not use weapons!',
         int $code = 0,
         ?\Throwable $previous = null,
     ) {

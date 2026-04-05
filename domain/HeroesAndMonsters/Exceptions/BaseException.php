@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\HeroesAndMonsters\Exceptions;
+namespace Domain\HeroesAndMonsters\Exceptions;
 
-use App\HeroesAndMonsters\Logs\Logger;
-use Exception;
+use Domain\HeroesAndMonsters\Logs\Logger;
 
 class BaseException extends \Exception
 {

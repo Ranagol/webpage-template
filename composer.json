@@ -4,7 +4,7 @@
             "App\\": "app/",
             "System\\": "system/",
             "Database\\": "database/",
-            "Domain\\Trains\\": "domain/Trains/"
+            "Domain\\": "domain/"
         },
         "classmap": [
             "tests"

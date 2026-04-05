@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\HeroesAndMonsters\Classes\Characters\Monsters;
+namespace Domain\HeroesAndMonsters\Classes\Characters\Monsters;
 
-use App\HeroesAndMonsters\Classes\Characters\Character;
+use Domain\HeroesAndMonsters\Classes\Characters\Character;
 
 /**
  * All Dragons and Spider must be childs of the Monster class.

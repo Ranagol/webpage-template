@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 namespace App\HeroesAndMonsters\Exceptions;
+namespace Domain\HeroesAndMonsters\Exceptions;
 
-class WizardCanNotUseWeaponException extends \Exception
+class MaxWeaponNrExceededException extends BaseException
 {
     public function __construct(
-        string $message = 'Wizards can not use weapons!',
+        string $message = 'Maximum number of weapons in bag is two weapons!',
         int $code = 0,
         ?\Throwable $previous = null,
     ) {

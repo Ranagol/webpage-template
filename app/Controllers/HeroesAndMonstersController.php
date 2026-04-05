@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\HeroesAndMonsters\Classes\Characters\Heroes\Warrior;
-use App\HeroesAndMonsters\Classes\Characters\Heroes\Wizard;
-use App\HeroesAndMonsters\Classes\Characters\Monsters\Dragon;
-use App\HeroesAndMonsters\Classes\Characters\Monsters\Spider;
-use App\HeroesAndMonsters\Classes\FightManager;
-use App\HeroesAndMonsters\Classes\GameObjects\Lance;
-use App\HeroesAndMonsters\Classes\GameObjects\Magic;
-use App\HeroesAndMonsters\Classes\GameObjects\Sword;
-use App\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Classes\Characters\Heroes\Warrior;
+use Domain\HeroesAndMonsters\Classes\Characters\Heroes\Wizard;
+use Domain\HeroesAndMonsters\Classes\Characters\Monsters\Dragon;
+use Domain\HeroesAndMonsters\Classes\Characters\Monsters\Spider;
+use Domain\HeroesAndMonsters\Classes\FightManager;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Lance;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Magic;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Sword;
+use Domain\HeroesAndMonsters\Logs\Logger;
 
 class HeroesAndMonstersController extends Controller
 {

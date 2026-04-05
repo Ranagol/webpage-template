@@ -3,8 +3,9 @@
 declare(strict_types=1);
 
 namespace App\HeroesAndMonsters\Classes\GameObjects;
+namespace Domain\HeroesAndMonsters\Classes\GameObjects;
 
-use App\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Logs\Logger;
 
 /**
  * Everything in this game is by definiton a GameObject. This is the major base class for all things

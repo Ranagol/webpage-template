@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\HeroesAndMonsters\Classes\Characters\Heroes;
+namespace Domain\HeroesAndMonsters\Classes\Characters\Heroes;
 
-use App\HeroesAndMonsters\Classes\Characters\Character;
-use App\HeroesAndMonsters\Classes\GameObjects\Weapon;
+use Domain\HeroesAndMonsters\Classes\Characters\Character;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Weapon;
 
 /**
  * All Warriors and Wizards must extend this class, and must have these abstract methods.

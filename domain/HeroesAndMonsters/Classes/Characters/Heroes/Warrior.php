@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\HeroesAndMonsters\Classes\Characters\Heroes;
+namespace Domain\HeroesAndMonsters\Classes\Characters\Heroes;
 
-use App\HeroesAndMonsters\Classes\GameObjects\Weapon;
-use App\HeroesAndMonsters\Classes\GameObjects\WeaponBag;
-use App\HeroesAndMonsters\Exceptions\CantSwitchOneWeaponException;
-use App\HeroesAndMonsters\Exceptions\MaxWeaponNrExceededException;
-use App\HeroesAndMonsters\Exceptions\NoWeaponException;
-use App\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Weapon;
+use Domain\HeroesAndMonsters\Classes\GameObjects\WeaponBag;
+use Domain\HeroesAndMonsters\Exceptions\CantSwitchOneWeaponException;
+use Domain\HeroesAndMonsters\Exceptions\MaxWeaponNrExceededException;
+use Domain\HeroesAndMonsters\Exceptions\NoWeaponException;
+use Domain\HeroesAndMonsters\Logs\Logger;
 
 class Warrior extends Hero
 {

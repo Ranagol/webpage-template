@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 namespace App\HeroesAndMonsters\Classes\Characters\Heroes;
+namespace Domain\HeroesAndMonsters\Classes\Characters\Heroes;
 
-use App\HeroesAndMonsters\Classes\GameObjects\Magic;
-use App\HeroesAndMonsters\Classes\GameObjects\Weapon;
-use App\HeroesAndMonsters\Exceptions\WizardCanNotUseWeaponException;
-use App\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Magic;
+use Domain\HeroesAndMonsters\Classes\GameObjects\Weapon;
+use Domain\HeroesAndMonsters\Exceptions\WizardCanNotUseWeaponException;
+use Domain\HeroesAndMonsters\Logs\Logger;
 
 class Wizard extends Hero
 {
