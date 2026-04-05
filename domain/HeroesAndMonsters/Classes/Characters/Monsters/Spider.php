@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace App\HeroesAndMonsters\Classes\Characters\Monsters;
+
 namespace Domain\HeroesAndMonsters\Classes\Characters\Monsters;
 
 class Spider extends Monster

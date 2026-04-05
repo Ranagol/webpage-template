@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Domain\HeroesAndMonsters\Classes\GameObjects;
 
-use Domain\HeroesAndMonsters\Classes\GameObjects\GameObject;
-use Domain\HeroesAndMonsters\Classes\GameObjects\Weapon;
 use Domain\HeroesAndMonsters\Exceptions\CantSwitchOneWeaponException;
 use Domain\HeroesAndMonsters\Exceptions\MaxWeaponNrExceededException;
 use Domain\HeroesAndMonsters\Exceptions\NoWeaponException;

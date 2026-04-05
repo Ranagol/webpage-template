@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Domain\HeroesAndMonsters\Classes\Characters\Monsters;
 
-use Domain\HeroesAndMonsters\Classes\Characters\Monsters\Monster;
-
 class Dragon extends Monster
 {
     protected int $health = 50;
