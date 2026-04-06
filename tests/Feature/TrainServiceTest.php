@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Domain\Trains\Service;
+namespace Tests\Feature;
 
 use Domain\Trains\Calculation\TrainCalculator;
 use Domain\Trains\Input\ScheduleMaker;
