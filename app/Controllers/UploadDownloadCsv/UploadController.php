@@ -7,6 +7,7 @@ namespace App\Controllers\UploadDownloadCsv;
 use App\Controllers\Controller;
 use App\Exceptions\BaseException;
 use App\Models\Upload;
+use Domain\Report\Service\UploadService;
 use System\request\RequestInterface;
 
 /**
@@ -46,7 +47,8 @@ class UploadController extends Controller
             /**
              * The Upload model has all the logic to handle the upload process.
              */
-            $upload = new Upload($uploadData);
+            // $upload = new Upload($uploadData);
+            $upload = new UploadService($uploadData);
 
             $file = $upload->storeFile();
 

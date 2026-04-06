@@ -36,8 +36,11 @@ class LoginController extends Controller
      */
     public function login(RequestInterface $request): void
     {
+        // getting all the request data, and storing it in $requestData variable.
+        $requestData = $request->getAllRequestData();
+
         // Check CSRF token validity
-        if (!validateCsrfToken($request['csrf_token'] ?? null)) {
+        if (!validateCsrfToken($requestData['csrf_token'] ?? null)) {
             if (!headers_sent()) {
                 header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
             }

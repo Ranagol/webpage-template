@@ -41,8 +41,9 @@ class RegisterController extends Controller
      */
     public function register(RequestInterface $request): void
     {
+        $requestData = $request->getAllRequestData();
         // Check CSRF token validity
-        if (!validateCsrfToken($request['csrf_token'] ?? null)) {
+        if (!validateCsrfToken($requestData['csrf_token'] ?? null)) {
             if (!headers_sent()) {
                 header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
             }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Exceptions\BaseException;
 use Domain\Report\CsvReader\CsvReader;
 use Domain\Report\ReportDomain\CsvFile;
 use Illuminate\Database\Eloquent\Model;
@@ -88,7 +89,7 @@ class Upload extends Model
 
             return $csvFile;
         }
-        throw new \Exception('Error: Uploaded file is not a CSV file.');
+        throw new BaseException('Error: Uploaded file is not a CSV file.');
     }
 
     /**
@@ -108,12 +109,12 @@ class Upload extends Model
         $tmpName = (string) ($uploadedFile['tmp_name'] ?? '');
 
         if (!is_uploaded_file($tmpName)) {
-            throw new \Exception('Invalid upload source.');
+            throw new BaseException('Invalid upload source.');
         }
 
         $baseUploadPath = realpath(__DIR__ . '/../../storage/upload');
         if (false === $baseUploadPath) {
-            throw new \Exception('Upload directory is not available.');
+            throw new BaseException('Upload directory is not available.');
         }
 
         $userUploadPath = $baseUploadPath . '/' . $email;
@@ -123,7 +124,7 @@ class Upload extends Model
         if (!file_exists($userUploadPath)) {
             $boolean = mkdir($userUploadPath, 0755, true);
             if (!$boolean) {
-                throw new \Exception('We could not make a new directory for the uploaded file.');
+                throw new BaseException('We could not make a new directory for the uploaded file.');
             }
         }
 
@@ -132,7 +133,7 @@ class Upload extends Model
         // place the uploaded file into the new dir
         $stored = move_uploaded_file($tmpName, $destinationPath);
         if (false === $stored) {
-            throw new \Exception('Failed to store uploaded file.');
+            throw new BaseException('Failed to store uploaded file.');
         }
     }
 
@@ -140,7 +141,7 @@ class Upload extends Model
     {
         $user = User::getCurrentUser();
         if (!$user instanceof User) {
-            throw new \Exception('User is not logged in.');
+            throw new BaseException('User is not logged in.');
         }
         $email = $user->email;
 
@@ -150,19 +151,19 @@ class Upload extends Model
     /**
      * Validates the uploaded file size. It has to be smaller than 5MB.
      *
-     * @throws \Exception
+     * @throws BaseException
      */
     private function validateFileSize(): void
     {
         if ($this->getFileSize() > $this->getMaxFileSize()) {
-            throw new \Exception('Error: File size is larger than the allowed limit.');
+            throw new BaseException('Error: File size is larger than the allowed limit.');
         }
     }
 
     /**
      * Checks if the uploaded file type (example: jpg) is in the $allowedFileFormats[].
      *
-     * @throws \Exception if the file format is not allowed
+     * @throws BaseException if the file format is not allowed
      */
     private function validateFileType(): void
     {
@@ -172,19 +173,19 @@ class Upload extends Model
         $extension = strtolower((string) pathinfo($originalName, PATHINFO_EXTENSION));
 
         if ('csv' !== $extension) {
-            throw new \Exception('Error: Please upload a CSV file.');
+            throw new BaseException('Error: Please upload a CSV file.');
         }
 
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         if (false === $finfo) {
-            throw new \Exception('Error: Unable to validate file type.');
+            throw new BaseException('Error: Unable to validate file type.');
         }
 
         $detectedType = finfo_file($finfo, $tmpName);
         finfo_close($finfo);
 
         if (!is_string($detectedType) || !in_array($detectedType, $this->getAllowedFileFormats(), true)) {
-            throw new \Exception('Error: Please select a valid file format.');
+            throw new BaseException('Error: Please select a valid file format.');
         }
 
         $this->setFileType($detectedType);
@@ -194,7 +195,7 @@ class Upload extends Model
      * We set the uploaded files name, type, size - so these
      * parameters can be validated.
      *
-     * @throws \Exception
+     * @throws BaseException
      */
     private function setFileSizeNameType(): void
     {
@@ -205,7 +206,7 @@ class Upload extends Model
             $this->setFileType((string) ($uploadData['file']['type'] ?? ''));
             $this->setFileSize((float) ($uploadData['file']['size'] ?? 0));
         } else {
-            throw new \Exception('Error with uploading.');
+            throw new BaseException('Error with uploading.');
         }
     }
 
@@ -217,7 +218,7 @@ class Upload extends Model
         $uploadData = $this->getUploadData();
         $file = $uploadData['file'] ?? null;
         if (!is_array($file)) {
-            throw new \Exception('No file payload found.');
+            throw new BaseException('No file payload found.');
         }
 
         return $file;
