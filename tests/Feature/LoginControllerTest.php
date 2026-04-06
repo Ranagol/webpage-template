@@ -8,18 +8,18 @@ use PHPUnit\Framework\TestCase;
 use App\Application;
 use App\Controllers\AuthControllers\LoginController;
 
-final class LoginPageControllerTest extends TestCase
+final class LoginControllerTest extends TestCase
 {
-    public function testLoginPageLoadsView(): void
+    public function testLoadPage(): void
     {
         // Bootstrap the app (no session, no output)
         Application::bootstrap();
 
-        $controller = new LoginController();
+        $loginController = new LoginController();
 
         // Capture output
         ob_start();
-        $controller->loadLoginPage();
+        $loginController->loadPage();
         $output = ob_get_clean();
 
         // Assert that the output contains expected text from the login view

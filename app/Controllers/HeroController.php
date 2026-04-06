@@ -14,13 +14,13 @@ use Domain\HeroesAndMonsters\Classes\GameObjects\Magic;
 use Domain\HeroesAndMonsters\Classes\GameObjects\Sword;
 use Domain\HeroesAndMonsters\Logs\Logger;
 
-class HeroesAndMonstersController extends Controller
+class HeroController extends Controller
 {
     /**
      * Displays the Heroes and Monsters page. Without the fight event demonstration. This is the
      * default.
      */
-    public function heroesAndMonsters(): void
+    public function loadPage(): void
     {
         // Always pass $events (empty array) to avoid undefined variable in view
         $this->view(
@@ -48,11 +48,10 @@ class HeroesAndMonstersController extends Controller
     /**
      * This is where everything happens regarding the heroes and monster. This is where we set up
      * all the actions, or the fights.
-     */
-    /**
+     * 
      * @return string[]
      */
-    private function startHeroesAndMonsters(): array
+    public function startHeroesAndMonsters(): array
     {
         Logger::getInstance()->log('Game started!');
 

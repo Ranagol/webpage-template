@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-class TrainTaskController extends Controller
+class TrainController extends Controller
 {
     /**
      * Loads the Train task page.
      */
-    public function trainTask(): void
+    public function loadPage(): void
     {
         $this->view('trainTask');
     }

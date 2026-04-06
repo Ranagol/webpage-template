@@ -9,7 +9,7 @@ class HomeController extends Controller
     /**
      * Loads the Home page.
      */
-    public function home(): void
+    public function loadPage(): void
     {
         $this->view('home');
     }

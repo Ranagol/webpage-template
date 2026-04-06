@@ -6,7 +6,7 @@ namespace Tests\Feature;
 
 use PHPUnit\Framework\TestCase;
 use App\Application;
-use App\Controllers\TrainTaskController;
+use App\Controllers\TrainController;
 
 final class TrainControllerTest extends TestCase
 {
@@ -15,14 +15,14 @@ final class TrainControllerTest extends TestCase
         // Bootstrap the app (no session, no output)
         Application::bootstrap();
 
-        $controller = new TrainTaskController();
+        $trainController = new TrainController();
 
         // Capture output
         ob_start();
-        $controller->trainTask();
+        $trainController->loadPage();
         $output = ob_get_clean();
 
-        // Assert that the output contains expected text from the login view
+        // Assert that the output contains expected text from the train view
         $this->assertStringContainsString('Challenge 3: Train task (in terminal)', $output);
     }
 }

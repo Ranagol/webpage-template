@@ -16,7 +16,7 @@ class LoginController extends Controller
     /**
      * Loads the login page view.
      */
-    public function loadLoginPage(): void
+    public function loadPage(): void
     {
         $this->view('login');
     }

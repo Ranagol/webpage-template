@@ -2,43 +2,41 @@
 
 declare(strict_types=1);
 
-use App\Controllers\HeroesAndMonstersController;
+use App\Controllers\HeroController;
 use App\Controllers\HomeController;
-use App\Controllers\RawPhpMvcController;
-use App\Controllers\TrainTaskController;
+use App\Controllers\MvcController;
+use App\Controllers\TrainController;
 
 if (!isset($router) || !($router instanceof Bramus\Router\Router)) {
     throw new RuntimeException('$router is not initialized.');
 }
 
-// WEBPAGE ROUTES**********************
-
 // home page
 $router->get('/', function () {
     $homeController = new HomeController();
-    $homeController->home();
+    $homeController->loadPage();
 });
 
 // raw php mvc page
 $router->get('/raw-php-mvc', function () {
-    $rawPhpMvcController = new RawPhpMvcController();
-    $rawPhpMvcController->rawPhpMvc();
+    $rawPhpMvcController = new MvcController();
+    $rawPhpMvcController->loadPage();
 });
 
 // train task page
 $router->get('/train-task', function () {
-    $trainTaskController = new TrainTaskController();
-    $trainTaskController->trainTask();
+    $trainTaskController = new TrainController();
+    $trainTaskController->loadPage();
 });
 
 // heroes and monsters page
 $router->get('/heroes-and-monsters', function () {
-    $heroesAndMonstersController = new HeroesAndMonstersController();
-    $heroesAndMonstersController->heroesAndMonsters();
+    $heroesAndMonstersController = new HeroController();
+    $heroesAndMonstersController->loadPage();
 });
 
 // starts the heroes and monsters battle, and shows the events on the heroes and monsters page
 $router->get('/demonstrate', function () {
-    $heroesAndMonstersController = new HeroesAndMonstersController();
+    $heroesAndMonstersController = new HeroController();
     $heroesAndMonstersController->demonstrate();
 });

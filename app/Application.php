@@ -21,13 +21,12 @@ class Application
         // Autoload
         require_once __DIR__ . '/../vendor/autoload.php';
 
-        // Bootstrap helpers, config, routes, etc.
+        // Bootstrap helpers, config, routes, etc.Routing is triggered here.
         require_once __DIR__ . '/../bootstrap/bootstrap.php';
     }
 
     /**
-     * Run the app (for web entry point).
-     * Starts session and triggers routing/output.
+     * Starts session.
      */
     public static function run(): void
     {

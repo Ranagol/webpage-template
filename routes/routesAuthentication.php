@@ -25,7 +25,7 @@ $router->post('/register', function () {
 // login page loading
 $router->get('/login', function () {
     $loginController = new LoginController();
-    $loginController->loadLoginPage();
+    $loginController->loadPage();
 });
 
 // logging in a user

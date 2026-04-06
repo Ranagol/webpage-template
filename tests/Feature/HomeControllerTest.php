@@ -10,20 +10,19 @@ use App\Controllers\HomeController;
 
 final class HomeControllerTest extends TestCase
 {
-    public function testHomeLoadsView(): void
+    public function testLoadPage(): void
     {
         // Bootstrap the app (no session, no output)
         Application::bootstrap();
 
-        $controller = new HomeController();
+        $homeController = new HomeController();
 
         // Capture output
         ob_start();
-        $controller->home();
+        $homeController->loadPage();
         $output = ob_get_clean();
 
         // Assert that the output contains expected text from the home view
         $this->assertStringContainsString('PHP MVC Web Application', $output);
-        // $this->assertStringContainsString('csrf_token', $output);
     }
 }
