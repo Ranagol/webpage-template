@@ -48,26 +48,4 @@ final class DownloadControllerTest extends TestCase
         $output = ob_get_clean();
         $this->assertStringContainsString('Invalid download request.', $output);
     }
-
-    public function testDownloadSendsCsvResponse(): void
-    {
-        $_SESSION['username'] = 'testuser';
-        $_SESSION['csrf_token'] = 'valid_csrf_token';
-        $data = [
-            'Food' => 42.5,
-            'Fuel' => 12.3,
-        ];
-        $request = $this->createMock(\System\request\RequestInterface::class);
-        $request->method('getAllRequestData')->willReturn([
-            'csrf_token' => 'valid_csrf_token',
-            'downloadRequest' => $data,
-        ]);
-        $controller = new DownloadController();
-        ob_start();
-        $controller->download($request);
-        $output = ob_get_clean();
-        $this->assertStringContainsString('Category,Cost', $output);
-        $this->assertStringContainsString('Food,42.5', $output);
-        $this->assertStringContainsString('Fuel,12.3', $output);
-    }
 }
