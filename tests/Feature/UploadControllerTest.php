@@ -102,9 +102,17 @@ final class UploadControllerTest extends TestCase
 		$request = $this->createMock(\System\request\RequestInterface::class);
 		$request->method('getAllRequestData')->willReturn($uploadData);
 		$uploadController = new UploadController();
+		$obLevel = ob_get_level();
 		ob_start();
-		$uploadController->store($request);
-		$output = ob_get_clean();
+		try {
+			$uploadController->store($request);
+			$output = ob_get_clean();
+		} finally {
+			// Only close the buffer we opened
+			while (ob_get_level() > $obLevel) {
+				@ob_end_clean();
+			}
+		}
 		@unlink($tmpFile);
 		$this->assertStringContainsString('Calculated totals grouped by category from the uploaded expenses CSV.', $output);
     }
