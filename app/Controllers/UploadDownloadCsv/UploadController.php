@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Controllers\UploadDownloadCsv;
 
 use App\Controllers\Controller;
+use App\Exceptions\BaseException;
 use App\Models\Upload;
-use Domain\Report\ReportDomain\Reportable;
 use System\request\RequestInterface;
 
 /**
@@ -39,37 +39,19 @@ class UploadController extends Controller
          */
         $uploadData = $request->getAllRequestData();
 
-        if (!validateCsrfToken($uploadData['csrf_token'] ?? null)) {
-            if (!headers_sent()) {
-                header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-            }
-            echo 'Invalid CSRF token.';
-
-            return;
-        }
-
-        /**
-         * The Upload model has all the logic to handle the upload process.
-         */
-        $upload = new Upload($uploadData);
+        $this->checkCsrfToken($uploadData);
 
         try {
 
+            /**
+             * The Upload model has all the logic to handle the upload process.
+             */
+            $upload = new Upload($uploadData);
+
             $file = $upload->storeFile();
 
-            /*
-             * Now, here we have two cases. If the uploaded file is an image, then nothing should
-             * be returned to the upload page. But, if the uploaded file is a .csv file, then a
-             * specific report should be returned to the user, that will be downloadable.
-             *
-             * If the uploaded file is a .csv file, then the created CsvFile object (that will
-             * contain the .csv file) will have implemented a Reportable interface.
-             */
-            if ($file instanceof Reportable) {
-                $report = $file->getReport();
-            } else {
-                $report = null;
-            }
+            // This is the report that we want to display for the user, after the upload is successfull.
+            $report = $file->getReport();
 
             /**
              * Feedback message for the user, display in the upload view.
@@ -78,11 +60,17 @@ class UploadController extends Controller
             $alertType = 'alert-success';
 
         } catch (\Exception $error) {
-            $message = 'Upload failed. Please verify the file and try again.';
+            $additionalInfo = $error->getMessage();
+            $message = 'Upload failed. Please verify the file and try again. ' . $additionalInfo;
             $alertType = 'alert-warning';
+
+            // In case of an error, there is no report to show to the user.
             $report = null;
         }
 
+        /*
+         * Return view.
+         */
         $this->view(
             'upload',
             [
@@ -91,5 +79,24 @@ class UploadController extends Controller
                 'report' => $report,
             ]
         );
+    }
+
+    /**
+     * This function checks the CSRF token, if it is not valid, then an exception will be thrown.
+     *
+     * @param array<string, mixed> $uploadData
+     *
+     * @throws BaseException
+     */
+    private function checkCsrfToken(array $uploadData): void
+    {
+        if (!validateCsrfToken($uploadData['csrf_token'] ?? null)) {
+            if (!headers_sent()) {
+                header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+            }
+            echo 'Invalid CSRF token.';
+
+            exit;
+        }
     }
 }

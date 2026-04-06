@@ -65,13 +65,12 @@ class Upload extends Model
      * only difference is, that if we are uploading a csv file, then we need to process it, once the
      * upload is successfull.
      */
-    public function storeFile(): ?CsvFile
+    public function storeFile(): CsvFile
     {
         $this->setFileSizeNameType();
         $this->validateFileType();
         $this->validateFileSize();
         $this->putFileIntoStorage();
-        // from here this code is only in case of uploaded .csv files
         $csvFile = $this->activateCsvProcessing();
 
         return $csvFile;
@@ -80,7 +79,7 @@ class Upload extends Model
     /**
      * When a .csv file is uploaded, then we need not just to store this file, but to process it too.
      */
-    public function activateCsvProcessing(): ?CsvFile
+    public function activateCsvProcessing(): CsvFile
     {
         // finds and reads the uploaded .csv file
         if ('application/vnd.ms-excel' === $this->getFileType() || 'text/csv' === $this->getFileType()) {
@@ -89,8 +88,7 @@ class Upload extends Model
 
             return $csvFile;
         }
-
-        return null;
+        throw new \Exception('Error: Uploaded file is not a CSV file.');
     }
 
     /**
