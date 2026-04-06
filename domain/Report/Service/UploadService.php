@@ -72,90 +72,27 @@ class UploadService
     }
 
     /**
-     * When a .csv file is uploaded, then we need not just to store this file, but to process it too.
-     */
-    public function activateCsvProcessing(): CsvFile
-    {
-        // finds and reads the uploaded .csv file
-        if ('application/vnd.ms-excel' === $this->getFileType() || 'text/csv' === $this->getFileType()) {
-            $csvReader = new CsvReader($this->getUserEmail(), $this->getFileName());
-            $csvFile = $csvReader->getCsvFile();
-
-            return $csvFile;
-        }
-        throw new BaseException('Error: Uploaded file is not a CSV file.');
-    }
-
-    /**
-     * We need to get the user here, because we will use the
-     * users email address to create the user's individual directory
-     * inside the storage folder. Every user will upload his files into
-     * his own directory.
-     * What we do here: if the user does not have alredy his directory, then
-     * we make him one, and then we move the uploaded file from the temporary
-     * $_FILES place to the user's own directory.
-     */
-    private function putFileIntoStorage(): void
-    {
-        // get user email - this will be the name of his private storage
-        $email = $this->getUserEmail();
-        $uploadedFile = $this->getUploadedFile();
-        $tmpName = (string) ($uploadedFile['tmp_name'] ?? '');
-
-        if (!is_uploaded_file($tmpName)) {
-            throw new BaseException('Invalid upload source.');
-        }
-
-        $baseUploadPath = realpath(__DIR__ . '/../../storage/upload');
-        if (false === $baseUploadPath) {
-            throw new BaseException('Upload directory is not available.');
-        }
-
-        $userUploadPath = $baseUploadPath . '/' . $email;
-
-        // create directory for the upload if there is none yet
-        clearstatcache(); // deleting cached stuff
-        if (!file_exists($userUploadPath)) {
-            $boolean = mkdir($userUploadPath, 0755, true);
-            if (!$boolean) {
-                throw new BaseException('We could not make a new directory for the uploaded file.');
-            }
-        }
-
-        $destinationPath = $userUploadPath . '/' . $this->getFileName();
-
-        // place the uploaded file into the new dir
-        $stored = move_uploaded_file($tmpName, $destinationPath);
-        if (false === $stored) {
-            throw new BaseException('Failed to store uploaded file.');
-        }
-    }
-
-    private function getUserEmail(): string
-    {
-        $user = User::getCurrentUser();
-        if (!$user instanceof User) {
-            throw new BaseException('User is not logged in.');
-        }
-        $email = $user->email;
-
-        return $email;
-    }
-
-    /**
-     * Validates the uploaded file size. It has to be smaller than 5MB.
+     * We set the uploaded file name, type, size - so these parameters can be validated.
+     * Name, type and size are set in the class variables on the top.
      *
      * @throws BaseException
      */
-    private function validateFileSize(): void
+    private function setFileSizeNameType(): void
     {
-        if ($this->getFileSize() > $this->getMaxFileSize()) {
-            throw new BaseException('Error: File size is larger than the allowed limit.');
+        $uploadData = $this->getUploadData();
+
+        if (isset($uploadData['file']) && is_array($uploadData['file']) && 0 == $uploadData['file']['error']) {
+            $originalName = (string) ($uploadData['file']['name'] ?? 'upload.csv');
+            $this->setFileName($this->createSafeFileName($originalName));
+            $this->setFileType((string) ($uploadData['file']['type'] ?? ''));
+            $this->setFileSize((float) ($uploadData['file']['size'] ?? 0));
+        } else {
+            throw new BaseException('Error with uploading.');
         }
     }
 
     /**
-     * Checks if the uploaded file type (example: jpg) is in the $allowedFileFormats[].
+     * Checks if the uploaded file type (example: csv) is in the $allowedFileFormats[].
      *
      * @throws BaseException if the file format is not allowed
      */
@@ -186,22 +123,91 @@ class UploadService
     }
 
     /**
-     * We set the uploaded files name, type, size - so these
-     * parameters can be validated.
+     * Validates the uploaded file size. It has to be smaller than 5MB.
      *
      * @throws BaseException
      */
-    private function setFileSizeNameType(): void
+    private function validateFileSize(): void
     {
-        $uploadData = $this->getUploadData();
-        if (isset($uploadData['file']) && is_array($uploadData['file']) && 0 == $uploadData['file']['error']) {
-            $originalName = (string) ($uploadData['file']['name'] ?? 'upload.csv');
-            $this->setFileName($this->createSafeFileName($originalName));
-            $this->setFileType((string) ($uploadData['file']['type'] ?? ''));
-            $this->setFileSize((float) ($uploadData['file']['size'] ?? 0));
-        } else {
-            throw new BaseException('Error with uploading.');
+        if ($this->getFileSize() > $this->getMaxFileSize()) {
+            throw new BaseException('Error: File size is larger than the allowed limit.');
         }
+    }
+
+    /**
+     * We need to get the user here, because we will use the
+     * users email address to create the user's individual directory
+     * inside the storage folder. Every user will upload his files into
+     * his own directory.
+     * What we do here: if the user does not have alredy his directory, then
+     * we make him one, and then we move the uploaded file from the temporary
+     * $_FILES place to the user's own directory.
+     */
+    private function putFileIntoStorage(): void
+    {
+        // get user email - this will be the name of his private storage
+        $email = $this->getUserEmail();
+        $uploadedFile = $this->getUploadedFile();
+        $tmpName = (string) ($uploadedFile['tmp_name'] ?? '');
+
+        if (!is_uploaded_file($tmpName)) {
+            throw new BaseException('Invalid upload source.');
+        }
+
+        $baseUploadPath = realpath(__DIR__ . '/../../../storage/upload');
+        if (false === $baseUploadPath) {
+            throw new BaseException('Upload directory is not available.');
+        }
+
+        $userUploadPath = $baseUploadPath . '/' . $email;
+
+        // create directory for the upload if there is none yet
+        clearstatcache(); // deleting cached stuff
+        if (!file_exists($userUploadPath)) {
+            $boolean = mkdir($userUploadPath, 0755, true);
+            if (!$boolean) {
+                throw new BaseException('We could not make a new directory for the uploaded file.');
+            }
+        }
+
+        $destinationPath = $userUploadPath . '/' . $this->getFileName();
+
+        // place the uploaded file into the new dir
+        $stored = move_uploaded_file($tmpName, $destinationPath);
+        if (false === $stored) {
+            throw new BaseException('Failed to store uploaded file.');
+        }
+    }
+
+    /**
+     * When a .csv file is uploaded, then we need not just to store this file, but to process it too.
+     */
+    public function activateCsvProcessing(): CsvFile
+    {
+        // finds and reads the uploaded .csv file
+        if ('application/vnd.ms-excel' === $this->getFileType() || 'text/csv' === $this->getFileType()) {
+            $csvReader = new CsvReader($this->getUserEmail(), $this->getFileName());
+            $csvFile = $csvReader->getCsvFile();
+
+            return $csvFile;
+        }
+        throw new BaseException('Error: Uploaded file is not a CSV file.');
+    }
+
+    private function getUserEmail(): string
+    {
+        $user = User::getCurrentUser();
+        if (!$user instanceof User) {
+            throw new BaseException('There is a problem with the user authorization.');
+        }
+
+        if (!isset($user->email) || !is_string($user->email)) {
+            throw new BaseException('User email is not available.');
+        }
+
+        $email = $user->email;
+
+        return $email;
     }
 
     /**

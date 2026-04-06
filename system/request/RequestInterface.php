@@ -18,7 +18,8 @@ namespace System\request;
 interface RequestInterface
 {
     /**
-     * Returns all request data.
+     * Returns all request data. Use it in controllers to get all the request data at once.
+     * Example: $requestData = $request->getAllRequestData();.
      *
      * @return array<string, mixed>
      */
