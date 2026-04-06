@@ -73,8 +73,6 @@ a:hover {
 }
 
 .nav-wrap {
-	position: sticky;
-	top: 0;
 	z-index: 1040;
 	padding-top: 1rem;
 }
