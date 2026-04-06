@@ -55,7 +55,7 @@
 				@if($isLoggedIn)
 					<li class="nav-item">
 						<form action="/logout" method="post" class="logout-form">
-							<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+							<input type="hidden" name="csrf_token" value="{{ csrfToken() }}">
 							<button type="submit" class="nav-link logout-nav-button">Logout</button>
 						</form>
 					</li>

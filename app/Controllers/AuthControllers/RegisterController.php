@@ -49,8 +49,10 @@ class RegisterController extends Controller
         $email = strtolower(trim((string) ($request['email'] ?? '')));
         $password = $request['password'] ?? '';
 
-        if (!validate_csrf_token($request['csrf_token'] ?? null)) {
-            header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+        if (!validateCsrfToken($request['csrf_token'] ?? null)) {
+            if (!headers_sent()) {
+                header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+            }
             echo 'Invalid CSRF token.';
 
             return;

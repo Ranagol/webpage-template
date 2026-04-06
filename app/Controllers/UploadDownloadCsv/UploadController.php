@@ -39,8 +39,10 @@ class UploadController extends Controller
          */
         $uploadData = $request->getAllRequestData();
 
-        if (!validate_csrf_token($uploadData['csrf_token'] ?? null)) {
-            header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+        if (!validateCsrfToken($uploadData['csrf_token'] ?? null)) {
+            if (!headers_sent()) {
+                header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+            }
             echo 'Invalid CSRF token.';
 
             return;

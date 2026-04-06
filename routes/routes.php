@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Controllers\PageNotFoundController;
 
-/**
+/*
  * This is where all the stuff regarding routing starts. The entry point for the routes.
  * The request from a user's browser will reach the $_SERVER superglobal. Now the Bramus router
  * package will have to extract the request method (GET, POST...), the requested url, and a bunch

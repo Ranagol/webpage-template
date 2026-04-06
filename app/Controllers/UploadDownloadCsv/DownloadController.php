@@ -28,7 +28,7 @@ class DownloadController
 
         $requestData = $request->getAllRequestData();
 
-        if (!validate_csrf_token($requestData['csrf_token'] ?? null)) {
+        if (!validateCsrfToken($requestData['csrf_token'] ?? null)) {
             if (!headers_sent()) {
                 header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
             }

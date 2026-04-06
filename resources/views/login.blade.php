@@ -11,7 +11,9 @@
     @endif
 
     <form action="/login" method="post">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        {{-- A hidden input for csrf. If no csrf token is present, one will be generated --}}
+        <input type="hidden" name="csrf_token" value="{{ csrfToken() }}">
 
         <div class="form-group">
             <label>Email</label>

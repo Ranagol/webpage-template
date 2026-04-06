@@ -12,7 +12,7 @@
     <h2>Sign Up</h2>
     <p>Please fill this form to create an account.</p>
     <form action="/register" method="post">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="csrf_token" value="{{ csrfToken() }}">
         <div class="form-group">
 
             <!-- FIRST NAME -->
