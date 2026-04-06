@@ -28,7 +28,7 @@ class TrainCommand extends Command
      * Execute the command.
      *
      * Start the terminal in docker container:
-     * docker-compose exec -it php-container bash
+     * docker-compose exec -it php bash
      *
      * Run the app and input the train timetable:
      *  - Below is the command for the original task data

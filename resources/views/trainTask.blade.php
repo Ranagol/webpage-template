@@ -92,7 +92,7 @@ Case #2: 2 0     // For case #2, two trains must start from Station A, and no tr
     <article class="feature-card mt-3">
         <h2>How to test this feature?</h2>
         <p>Type this command into terminal:</p>
-        <pre>docker-compose exec -it php-container bash</pre>
+        <pre>docker-compose exec -it php bash</pre>
         <p>Run the app with this command:</p>
         <pre>cat domain/Trains/taskDataOriginal | php console.php trains</pre>
         <p><strong>Expected output</strong></p>
