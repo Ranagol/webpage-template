@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Domain\Report\ReportDomain;
 
-use Domain\Report\ReportDomain\Category;
-use Domain\Report\ReportDomain\Price;
-
 class Line
 {
     private Category $category;

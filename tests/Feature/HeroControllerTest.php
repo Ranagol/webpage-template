@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-use PHPUnit\Framework\TestCase;
 use App\Application;
 use App\Controllers\HeroController;
+use PHPUnit\Framework\TestCase;
 
 final class HeroControllerTest extends TestCase
 {

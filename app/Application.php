@@ -34,6 +34,6 @@ class Application
         if (!isset($_SESSION) && (!defined('PHPUNIT_COMPOSER_INSTALL') && !getenv('PHPUNIT_RUNNING'))) {
             session_start();
         }
-        // Routing and output is handled by the router in bootstrap/bootstrap.php, in $this->bootstrap() 
+        // Routing and output is handled by the router in bootstrap/bootstrap.php, in $this->bootstrap()
     }
 }

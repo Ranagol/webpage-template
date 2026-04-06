@@ -41,8 +41,10 @@ class User extends Model
         if (isset($_SESSION) && isset($_SESSION['id'])) {
             $userId = $_SESSION['id'];
             $user = User::findOrFail($userId);
+
             return $user;
         }
+
         return false;
     }
 }

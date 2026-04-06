@@ -24,7 +24,7 @@
 
 
         "cs-fixer": "php-cs-fixer fix --config=.php-cs-fixer.php",
-        "phpstan": "./vendor/bin/phpstan analyse",
+        "phpstan": "php -d memory_limit=1G ./vendor/bin/phpstan analyse",
         "phpunit": "php -d error_reporting=\"E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED\" ./vendor/bin/phpunit",
         "full-check": [
             "@cs-fixer",
@@ -42,5 +42,11 @@
         "phpunit/phpunit": "^11.4",
         "phpstan/phpstan": "^2.1",
         "friendsofphp/php-cs-fixer": "^3.94"
+    }
+    ,
+    "config": {
+        "platform": {
+            "php": "8.1.0"
+        }
     }
 }

@@ -22,6 +22,7 @@ class DownloadController
             if (!headers_sent()) {
                 redirect('login');
             }
+
             return;
         }
 
@@ -32,6 +33,7 @@ class DownloadController
                 header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
             }
             echo 'Invalid CSRF token.';
+
             return;
         }
 
@@ -41,6 +43,7 @@ class DownloadController
                 header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
             }
             echo 'Invalid download request.';
+
             return;
         }
 

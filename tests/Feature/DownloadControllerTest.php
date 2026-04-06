@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-use PHPUnit\Framework\TestCase;
 use App\Application;
 use App\Controllers\UploadDownloadCsv\DownloadController;
+use PHPUnit\Framework\TestCase;
 
 final class DownloadControllerTest extends TestCase
 {

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 /**
  * This is where all the stuff regarding routing starts. The entry point for the routes.
  * The request from a user's browser will reach the $_SERVER superglobal. Now the Bramus router

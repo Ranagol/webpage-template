@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Domain\Report\ReportDomain;
 
-use Domain\Report\ReportDomain\Reportable;
-
 class CsvFile implements Reportable
 {
     /**

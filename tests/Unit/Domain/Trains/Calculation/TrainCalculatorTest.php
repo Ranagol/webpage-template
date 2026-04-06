@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tests\Domain\Trains\Calculation;
 
-
 use Domain\Trains\Calculation\TrainCalculator;
 use Domain\Trains\Input\ScheduleMaker;
 use PHPUnit\Framework\TestCase;

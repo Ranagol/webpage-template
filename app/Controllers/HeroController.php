@@ -48,7 +48,7 @@ class HeroController extends Controller
     /**
      * This is where everything happens regarding the heroes and monster. This is where we set up
      * all the actions, or the fights.
-     * 
+     *
      * @return string[]
      */
     public function startHeroesAndMonsters(): array
