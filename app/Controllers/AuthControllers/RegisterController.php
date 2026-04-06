@@ -41,14 +41,7 @@ class RegisterController extends Controller
      */
     public function register(RequestInterface $request): void
     {
-        // Extracting the registering data from the request
-        $request = $request->getAllRequestData();
-        $username = trim((string) ($request['username'] ?? ''));
-        $firstname = trim((string) ($request['firstname'] ?? ''));
-        $lastname = trim((string) ($request['lastname'] ?? ''));
-        $email = strtolower(trim((string) ($request['email'] ?? '')));
-        $password = $request['password'] ?? '';
-
+        // Check CSRF token validity
         if (!validateCsrfToken($request['csrf_token'] ?? null)) {
             if (!headers_sent()) {
                 header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
@@ -57,6 +50,14 @@ class RegisterController extends Controller
 
             return;
         }
+
+        // Extracting the registering data from the request
+        $request = $request->getAllRequestData();
+        $username = trim((string) ($request['username'] ?? ''));
+        $firstname = trim((string) ($request['firstname'] ?? ''));
+        $lastname = trim((string) ($request['lastname'] ?? ''));
+        $email = strtolower(trim((string) ($request['email'] ?? '')));
+        $password = $request['password'] ?? '';
 
         $hash = \password_hash($password, PASSWORD_DEFAULT);
 

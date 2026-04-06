@@ -36,14 +36,7 @@ class LoginController extends Controller
      */
     public function login(RequestInterface $request): void
     {
-        // check if the user is already logged in. If so, the user will be redirected to home page.
-        $this->isUserAlreadyLoggedIn();
-
-        // getting email and password from the request
-        $request = $request->getAllRequestData();
-        $email = $request['email'] ?? '';
-        $password = $request['password'] ?? '';
-
+        // Check CSRF token validity
         if (!validateCsrfToken($request['csrf_token'] ?? null)) {
             if (!headers_sent()) {
                 header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
@@ -52,6 +45,14 @@ class LoginController extends Controller
 
             return;
         }
+
+        // check if the user is already logged in. If so, the user will be redirected to home page.
+        $this->isUserAlreadyLoggedIn();
+
+        // getting email and password from the request
+        $request = $request->getAllRequestData();
+        $email = $request['email'] ?? '';
+        $password = $request['password'] ?? '';
 
         try {
 
