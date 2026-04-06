@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 require __DIR__ . '/vendor/autoload.php';
 
-use App\Console\HelloCommand;
 use App\Console\TrainCommand;
 use Symfony\Component\Console\Application;
 
@@ -12,7 +11,6 @@ use Symfony\Component\Console\Application;
 $application = new Application();
 
 // This is where we register our custom commands.
-$application->add(new HelloCommand());
 $application->add(new TrainCommand());
 
 // Run the console application

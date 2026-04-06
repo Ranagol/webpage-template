@@ -103,7 +103,7 @@ class TrainCommand extends Command
         $executionTime = number_format($executionTime, 6);
         $output->writeln("Execution time: $executionTime seconds");
 
-        $output->writeln('Command was executed!');
+        $output->writeln('<bg=green;fg=black> Trains command was executed! </>');
 
         return Command::SUCCESS;
     }

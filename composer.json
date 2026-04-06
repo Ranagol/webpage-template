@@ -24,13 +24,14 @@
         "cs-fixer": "php-cs-fixer fix --config=.php-cs-fixer.php",
         "phpstan": "php -d memory_limit=1G ./vendor/bin/phpstan analyse",
         "phpunit": "php -d error_reporting=\"E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED\" ./vendor/bin/phpunit",
+        "trains": "cat domain/Trains/taskDataOriginal | php console.php trains",
         "full-check": [
             "@cs-fixer",
             "@phpstan",
-            "@phpunit"
+            "@phpunit",
+            "@trains"
         ],
         "enter-docker": "docker-compose exec -it php bash",
-        "trains": "cat domain/Trains/taskDataOriginal | php console.php trains",
         "rebuild-docker": "docker-compose up --build --force-recreate"
 	},
     "scripts-descriptions": {
