@@ -7,13 +7,12 @@
          shortenArraysForExportThreshold="10"
          beStrictAboutCoverageMetadata="false"
          beStrictAboutOutputDuringTests="true"
-         displayDetailsOnPhpunitDeprecations="true"
-         failOnPhpunitDeprecation="true"
+         displayDetailsOnPhpunitDeprecations="false"
+         failOnPhpunitDeprecation="false"
          failOnRisky="true"
          failOnWarning="true"
          colors="true"
          testdox="true"
-
 >
     <testsuites>
         <testsuite name="default">

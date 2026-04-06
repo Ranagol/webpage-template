@@ -38,13 +38,11 @@ class User extends Model
      */
     public static function getCurrentUser(): User|bool
     {
-        if (isset($_SESSION)) {
+        if (isset($_SESSION) && isset($_SESSION['id'])) {
             $userId = $_SESSION['id'];
             $user = User::findOrFail($userId);
-
             return $user;
         }
-
         return false;
     }
 }
