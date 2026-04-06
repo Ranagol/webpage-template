@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+
 /**
  * This is where all the stuff regarding routing starts. The entry point for the routes.
  * The request from a user's browser will reach the $_SERVER superglobal. Now the Bramus router
@@ -9,8 +10,8 @@ declare(strict_types=1);
  * of other data from the $_SERVER.
  */
 
-// Set a session, if there is none.
-if (!isset($_SESSION)) {
+// Set a session, if there is none, and not running under PHPUnit (to avoid header issues in tests).
+if (!isset($_SESSION) && (!defined('PHPUNIT_COMPOSER_INSTALL') && !getenv('PHPUNIT_RUNNING'))) {
     session_start();
 }
 
@@ -35,23 +36,14 @@ $router->before('GET', '/.*', function () {
 
     // if the user is NOT logged in...
     if (!isset($_SESSION['username'])) {
-        // echo 'user is not logged in';
-
-        /*
-         * The not-logged-in user can't visit the pages listed below (everything else he can).
-         * So, these pages are forbidden for the not-logged-in user.
-         * Pages that can be visited by the not-logged-in user: /, login, register, logout.
-         */
-        if ('/users' === $_SERVER['REQUEST_URI']
-        || '/users/create' === $_SERVER['REQUEST_URI']
-        || '/raw-php-mvc' === $_SERVER['REQUEST_URI']
-        || '/upload' === $_SERVER['REQUEST_URI']
-        || '/train-task' === $_SERVER['REQUEST_URI']
-        || '/heroes-and-monsters' === $_SERVER['REQUEST_URI']) {
-
+        // Allowed pages for not-logged-in users
+        $allowed = ['/', '/login', '/register', '/logout'];
+        $current = $_SERVER['REQUEST_URI'] ?? '';
+        if (!in_array($current, $allowed, true)) {
             // redirect to login page
             redirect('login');
         }
+        // If already on an allowed page, do nothing (let the route execute)
     }
 });
 
@@ -75,7 +67,7 @@ require_once __DIR__ . '/routesUploadDownloadCsv.php'; // for uploading (images 
 // Custom 404 Handler
 $router->set404(function () {
     header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-    echo '<br>404, route not found! Please check the url again.';
+    echo 'DEBUG_404_REACHED';
 });
 
 /*

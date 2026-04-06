@@ -31,7 +31,8 @@
             "@phpstan",
             "@phpunit"
         ],
-        "enter-docker": "docker-compose exec -it php bash"
+        "enter-docker": "docker-compose exec -it php bash",
+        "trains": "cat domain/Trains/taskDataOriginal | php console.php trains"
 	},
     "scripts-descriptions": {
         "migrate": "This should start the migration, and create tables in the db. Just write 'composer migrate'.",
