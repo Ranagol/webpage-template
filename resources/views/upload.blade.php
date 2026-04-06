@@ -192,6 +192,21 @@ This is the report that can be downloaded. -->
 
 
 
+
+@if(isset($alertType) && $alertType === 'alert-success' && isset($message) && !empty($message))
+    <script>
+        
+        /**
+         * After a successful upload, the page will automatically scroll to the bottom when the 
+         * upload view reloads and shows a success message. This will only happen after a successful 
+         * upload, not on every page load
+         */
+        window.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
+    </script>
+@endif
+
 @endsection
 
 
