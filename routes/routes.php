@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Controllers\PageNotFoundController;
+
 /**
  * This is where all the stuff regarding routing starts. The entry point for the routes.
  * The request from a user's browser will reach the $_SERVER superglobal. Now the Bramus router
@@ -59,14 +61,20 @@ require_once __DIR__ . '/routesWebPage.php'; // pages-views
 
 require_once __DIR__ . '/routesAuthentication.php'; // everything regarding login and register
 
-require_once __DIR__ . '/routesUser.php'; // 'normal' web page requests for user CRUD
+/**
+ * Web page requests for user CRUD. However, for the current purpose of this project, these routes
+ * are actually a security risk. Because of this, the user routes are not active. This logic is not
+ * deleted, because we might need it in the future.
+ */
+// require_once __DIR__ . '/routesUser.php';
 
 require_once __DIR__ . '/routesUploadDownloadCsv.php'; // for uploading (images and csv files) and downloading (csv files)
 
 // Custom 404 Handler
 $router->set404(function () {
     header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
-    echo 'DEBUG_404_REACHED';
+    $pageNotFoundController = new PageNotFoundController();
+    $pageNotFoundController->loadPage();
 });
 
 /*

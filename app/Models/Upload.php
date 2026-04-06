@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Now this Upload model is not really used as a model in Laravel/Eloquent sense. This model is used
- * simply just to make a skinny UploadController.
+ * simply just to make a skinny UploadController, in the sense of 'skinny controllers, fat models'.
  */
 class Upload extends Model
 {
@@ -35,31 +35,23 @@ class Upload extends Model
 
     /**
      * The name of the file is stored here.
-     *
-     * @var string
      */
-    private $fileName;
+    private string $fileName;
 
     /**
      * The type of the file is stored here.
-     *
-     * @var string
      */
-    private $fileType;
+    private string $fileType;
 
     /**
      * The size of the uploaded file.
-     *
-     * @var float
      */
-    private $fileSize;
+    private float $fileSize;
 
     /**
      * The maximum allowed size for the uploaded file.
-     *
-     * @var float
      */
-    private $maxFileSize = 5 * 1024 * 1024;
+    private float $maxFileSize = 5 * 1024 * 1024;
 
     /** @param array<string, mixed> $uploadData */
     public function __construct(array $uploadData)

@@ -50,8 +50,7 @@ $router->post('/users', function () {
 /*
  * UPDATE user
  *
- * There is no PUT in php. And in bramus router either. So we
- * fake put here with post method.
+ * There is no PUT in php. And in bramus router either. So we fake put here with post method.
  */
 $router->post('/users/{id}', function ($id) {
     $userController = new UserController();

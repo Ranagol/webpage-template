@@ -7,6 +7,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * These lines below are demanded by phpstan, because it doesn't understand the magic methods of Eloquent.
+ * Do not delete them.
+ *
  * @property int    $id
  * @property string $username
  * @property string $firstname

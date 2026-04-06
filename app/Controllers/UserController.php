@@ -42,13 +42,11 @@ class UserController extends Controller
     {
         $desiredView = 'create';
         $this->view('user', ['desiredView' => $desiredView]);
-
     }
 
     /**
      * Saves the user to the database.
-     * Currently, the user can be created only from the register page. So the create() and store()
-     * methods are commented out.
+     * Currently, the user can be created only from the register page.
      */
     public function store(RequestInterface $request): void
     {
@@ -71,9 +69,7 @@ class UserController extends Controller
     }
 
     /**
-     * Most browser do not support DELETE as method parameter for <form ...>
-     * Source: https://stackoverflow.com/questions/33785415/deleting-a-file-on-server-by-delete-form-method
-     * So instead of DELETE method, we use POST method.
+     * Deletes the user from the database.
      */
     public function delete(string $id): void
     {

@@ -77,7 +77,7 @@ class RegisterController extends Controller
             $user->lastname = $lastname;
             $user->save();
 
-            // automatic login, after a succesfull registratin
+            // automatic login, after a successful registration
             $this->loginUser($email, $hash);
 
             // returnView('home');
@@ -124,7 +124,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * When a user is succesfully authenticated, this function
+     * When a user is successfully authenticated, this function
      * automatically logs in the user, after the registration. Aka:
      * a newly registered user gets automatically logged in.
      */
