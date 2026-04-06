@@ -13,7 +13,7 @@ if (!isset($router) || !($router instanceof Bramus\Router\Router)) {
 // register page loading
 $router->get('/register', function () {
     $registerController = new RegisterController();
-    $registerController->loadRegisterPage();
+    $registerController->loadPage();
 });
 
 // registering the user

@@ -19,7 +19,7 @@ class RegisterController extends Controller
     /**
      * Loads the register page.
      */
-    public function loadRegisterPage(): void
+    public function loadPage(): void
     {
         $this->view('register');
     }

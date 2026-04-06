@@ -16,7 +16,7 @@ if (!isset($router) || !($router instanceof Bramus\Router\Router)) {
  */
 $router->get('/upload', function () {
     $uploadController = new UploadController();
-    $uploadController->displayUploadPage();
+    $uploadController->loadPage();
 });
 
 /*

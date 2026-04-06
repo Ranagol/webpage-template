@@ -17,7 +17,7 @@ class UploadController extends Controller
     /**
      * Returns the file upload view.
      */
-    public function displayUploadPage(): void
+    public function loadPage(): void
     {
         $this->view('upload');
     }
