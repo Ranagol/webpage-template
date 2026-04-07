@@ -137,7 +137,7 @@ class RegisterController extends Controller
         /**
          * The user is just freshly registered. We want to find this user in the db.
          */
-        $user = User::where('email', '=', $email)->where('password', '=', $hash)->first();
+        $user = User::where('email', '=', $email)->first();
 
         if (null !== $user) {
             if (PHP_SESSION_ACTIVE !== session_status()) {
@@ -147,12 +147,15 @@ class RegisterController extends Controller
             // Regenerate session ID to prevent session fixation after auto-login.
             session_regenerate_id(true);
 
+            $id = $user->id;
+            $username = $user->username;
+
             /*
              * We store the users login status in the $_SESSION superglobal.
              */
             $_SESSION['loggedin'] = true;
-            $_SESSION['id'] = property_exists($user, 'id') ? $user->id : null;
-            $_SESSION['username'] = property_exists($user, 'username') ? $user->username : null;
+            $_SESSION['id'] = $id;
+            $_SESSION['username'] = $username;
         }
     }
 

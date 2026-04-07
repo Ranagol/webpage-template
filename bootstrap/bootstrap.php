@@ -116,14 +116,14 @@ function validateCsrfToken(mixed $token): bool
     return hash_equals($_SESSION['csrf_token'], $token);
 }
 
-// function checkCsrfToken(mixed $token): void
-// {
-//     if (!validateCsrfToken($token)) {
-//         if (!headers_sent()) {
-//             header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-//         }
-//         echo 'Invalid CSRF token.';
+function checkCsrfToken(mixed $token): void
+{
+    if (!validateCsrfToken($token)) {
+        if (!headers_sent()) {
+            header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+        }
+        echo 'Invalid CSRF token.';
 
-//         return;
-//     }
-// }
+        return;
+    }
+}
