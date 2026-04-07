@@ -12,6 +12,9 @@ class Application
     /**
      * Bootstrap the app (autoload, config, helpers, etc).
      * Does NOT start session or output anything.
+     * We need this function, because we want to be able to bootstrap the app in both web and test
+     * environments. Reminder: the feature tests are running without triggering the index.php, so we
+     * need a way to bootstrap the app in the tests as well, and this is what this function does.
      */
     public static function bootstrap(): void
     {
@@ -23,14 +26,5 @@ class Application
 
         // Bootstrap helpers, config, routes, etc.Routing is triggered here.
         require_once __DIR__ . '/../bootstrap/bootstrap.php';
-    }
-
-    /**
-     * Starts session.
-     */
-    public static function run(): void
-    {
-        // Routing and output is handled by the router in bootstrap/bootstrap.php, in $this->bootstrap()
-        // Routing and output is handled by the router in bootstrap/bootstrap.php, in $this->bootstrap()
     }
 }
