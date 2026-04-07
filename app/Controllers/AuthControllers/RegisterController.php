@@ -84,7 +84,6 @@ class RegisterController extends Controller
             // automatic login, after a successful registration
             $this->loginUser($email, $hash);
 
-            // returnView('home');
             $this->view('home');
 
         } catch (ValidationException $errors) {
