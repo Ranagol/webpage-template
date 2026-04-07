@@ -36,7 +36,6 @@ class LoginController extends Controller
      */
     public function login(RequestInterface $request): void
     {
-        // getting all the request data, and storing it in $requestData variable.
         $requestData = $request->getAllRequestData();
 
         // Check CSRF token validity
@@ -50,28 +49,19 @@ class LoginController extends Controller
         }
 
         // check if the user is already logged in. If so, the user will be redirected to home page.
-        $this->isUserAlreadyLoggedIn();
+        $this->redirectAlreadyLoggedInUser();
 
-        // getting email and password from the request
-        $request = $request->getAllRequestData();
-        $email = $request['email'] ?? '';
-        $password = $request['password'] ?? '';
+        $email = $requestData['email'] ?? '';
+        $password = $requestData['password'] ?? '';
 
         try {
-
-            /*
-             * login data - email and password - validation.
-             * A ValidationException will be thrown if there is a validation error.
-             */
+            // Validate login data (throws ValidationException on error)
             $this->validateLoginData($email, $password);
 
-            /**
-             * finding the user in the db based on his unique email
-             * CantFindUserException will be thrown, if the app can't find the user.
-             */
+            // Find user by email (throws CantFindUserException on error)
             $user = $this->findUser($email);
 
-            // authenticate the user - compare data from form with data from db
+            // Authenticate user
             $isAuthenticated = $this->authenticateUser($user, $email, $password);
 
             if (false === $isAuthenticated) {
@@ -82,15 +72,17 @@ class LoginController extends Controller
                         'email' => $email,
                     ]
                 );
+
+                return;
             }
 
+            // If authenticated, redirect (should exit in redirect())
+            redirect('/');
+
+            return;
+
         } catch (ValidationException $errors) {
-
-            /**
-             * This is a case when we have an email or password validation error.
-             */
             $errors = json_decode($errors->getMessage(), true);
-
             $this->view(
                 'login',
                 [
@@ -99,15 +91,12 @@ class LoginController extends Controller
                 ]
             );
 
+            return;
         } catch (CantFindUserException $error) {
-
-            /**
-             * This here is a case when the app can't find the user in the db. So the user that
-             * wants to be authenticated, can't be authenticated. So, $isAuthenticated is false.
-             */
             $isAuthenticated = false;
-
             $this->view('login', ['isAuthenticated' => $isAuthenticated]);
+
+            return;
         }
     }
 
@@ -134,7 +123,7 @@ class LoginController extends Controller
             /*
              * If there is no session, then start one.
              */
-            if (!isset($_SESSION)) {
+            if (PHP_SESSION_ACTIVE !== session_status()) {
                 session_start();
             }
 
@@ -147,9 +136,6 @@ class LoginController extends Controller
             $_SESSION['loggedin'] = true;
             $_SESSION['id'] = $user->id;
             $_SESSION['username'] = $user->username;
-
-            // We leave this empty, because the home page url is just '/', and that is already the default url
-            redirect('');
 
             return true;
         }
@@ -198,7 +184,7 @@ class LoginController extends Controller
         }
 
         // Initialize the session
-        if (!isset($_SESSION)) {
+        if (PHP_SESSION_ACTIVE !== session_status()) {
             session_start();
         }
 
@@ -216,7 +202,7 @@ class LoginController extends Controller
      * Check if the user is already logged in, if yes then redirect him to home page.
      * The redirect() is my custom function, defined in bootstrap.php.
      */
-    private function isUserAlreadyLoggedIn(): void
+    private function redirectAlreadyLoggedInUser(): void
     {
         if (isset($_SESSION['loggedin']) && true === $_SESSION['loggedin']) {
             redirect('/');

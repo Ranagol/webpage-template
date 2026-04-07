@@ -30,10 +30,7 @@ class Application
      */
     public static function run(): void
     {
-        // Start session if not already started, and not running under PHPUnit (to avoid header issues in tests)
-        if (!isset($_SESSION) && (!defined('PHPUNIT_COMPOSER_INSTALL') && !getenv('PHPUNIT_RUNNING'))) {
-            session_start();
-        }
+        // Routing and output is handled by the router in bootstrap/bootstrap.php, in $this->bootstrap()
         // Routing and output is handled by the router in bootstrap/bootstrap.php, in $this->bootstrap()
     }
 }

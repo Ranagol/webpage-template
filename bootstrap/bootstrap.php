@@ -60,6 +60,7 @@ function returnView(string $name, array $data = []): void
  */
 function redirect(string $path): void
 {
+    $path = ltrim($path, '/'); // Remove leading slash if present
     /*
      * This is how redirect is done in vanilla php.
      */
@@ -75,7 +76,7 @@ function redirect(string $path): void
 function csrfToken(): string
 {
     // Check is session is started, if not, start it.
-    if (PHP_SESSION_NONE === session_status()) {
+    if (PHP_SESSION_ACTIVE !== session_status()) {
         session_start();
     }
 
@@ -96,7 +97,7 @@ function csrfToken(): string
  */
 function validateCsrfToken(mixed $token): bool
 {
-    if (PHP_SESSION_NONE === session_status()) {
+    if (PHP_SESSION_ACTIVE !== session_status()) {
         session_start();
     }
 
@@ -115,14 +116,14 @@ function validateCsrfToken(mixed $token): bool
     return hash_equals($_SESSION['csrf_token'], $token);
 }
 
-function checkCsrfToken(mixed $token): void
-{
-    if (!validateCsrfToken($token)) {
-        if (!headers_sent()) {
-            header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-        }
-        echo 'Invalid CSRF token.';
+// function checkCsrfToken(mixed $token): void
+// {
+//     if (!validateCsrfToken($token)) {
+//         if (!headers_sent()) {
+//             header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+//         }
+//         echo 'Invalid CSRF token.';
 
-        return;
-    }
-}
+//         return;
+//     }
+// }

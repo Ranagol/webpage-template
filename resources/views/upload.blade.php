@@ -5,10 +5,10 @@
 @php
     use App\Models\User;
 
-    if(!isset($_SESSION)){ 
-        session_start(); 
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
     }
-
+    
     // Here we check if the user is logged in
     $user = User::getCurrentUser();
 @endphp

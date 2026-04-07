@@ -1,7 +1,10 @@
 {{-- <!-- We must start session on every page, where we want to use the $_SESSION superglobal, othewise it won't work. --> --}}
-@if(!isset($_SESSION))
+@if(session_status() === PHP_SESSION_NONE)
     session_start(); 
 @endif
+
+
+
 
 @php
 	$currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';

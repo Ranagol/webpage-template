@@ -11,11 +11,6 @@ use App\Controllers\PageNotFoundController;
  * of other data from the $_SERVER.
  */
 
-// Set a session, if there is none, and not running under PHPUnit (to avoid header issues in tests).
-if (!isset($_SESSION) && (!defined('PHPUNIT_COMPOSER_INSTALL') && !getenv('PHPUNIT_RUNNING'))) {
-    session_start();
-}
-
 // Create Router instance
 $router = new Bramus\Router\Router();
 
@@ -32,30 +27,30 @@ $router = new Bramus\Router\Router();
  * if the user is logged in, allow him every access.
  * In every other case, redirect user to the login page.
  */
-$router->before('GET', '/.*', function () {
-    // echo 'User wants to go here: ' . $_SERVER['REQUEST_URI'] . '<br>';
+// $router->before('GET', '/.*', function () {
+//     // echo 'User wants to go here: ' . $_SERVER['REQUEST_URI'] . '<br>';
 
-    // if the user is NOT logged in...
-    if (!isset($_SESSION['username'])) {
-        // Allowed pages for not-logged-in users
-        $allowed = ['/', '/login', '/register', '/logout'];
-        $current = $_SERVER['REQUEST_URI'] ?? '';
-        if (!in_array($current, $allowed, true)) {
-            // redirect to login page
-            redirect('login');
-        }
-        // If already on an allowed page, do nothing (let the route execute)
-    }
-});
+//     // if the user is NOT logged in...
+//     if (!isset($_SESSION['username'])) {
+//         // Allowed pages for not-logged-in users
+//         $allowed = ['/', '/login', '/register', '/logout'];
+//         $current = $_SERVER['REQUEST_URI'] ?? '';
+//         if (!in_array($current, $allowed, true)) {
+//             // redirect to login page
+//             redirect('login');
+//         }
+//         // If already on an allowed page, do nothing (let the route execute)
+//     }
+// });
 
 /*
  * Protect state-changing upload/report routes for not-logged-in users as well.
  */
-$router->before('POST', '/(upload|download-report)', function () {
-    if (!isset($_SESSION['username'])) {
-        redirect('login');
-    }
-});
+// $router->before('POST', '/(upload|download-report)', function () {
+//     if (!isset($_SESSION['username'])) {
+//         redirect('login');
+//     }
+// });
 
 require_once __DIR__ . '/routesWebPage.php'; // pages-views
 

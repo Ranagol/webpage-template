@@ -140,7 +140,7 @@ class RegisterController extends Controller
         $user = User::where('email', '=', $email)->where('password', '=', $hash)->first();
 
         if (null !== $user) {
-            if (!isset($_SESSION)) {
+            if (PHP_SESSION_ACTIVE !== session_status()) {
                 session_start();
             }
 
