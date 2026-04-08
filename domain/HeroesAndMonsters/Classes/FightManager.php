@@ -6,7 +6,7 @@ namespace Domain\HeroesAndMonsters\Classes;
 
 use Domain\HeroesAndMonsters\Classes\Characters\Heroes\Hero;
 use Domain\HeroesAndMonsters\Classes\Characters\Monsters\Monster;
-use Domain\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Logs\EventLogger;
 
 /**
  * This class manages the fight between a Hero and a Monster. The fight lasts, till the Hero or Monster
@@ -26,7 +26,7 @@ class FightManager
 
     public function fight(): void
     {
-        Logger::getInstance()->log('The fight begins between '
+        EventLogger::getInstance()->log('The fight begins between '
             . $this->hero->getClassName()
             . ' and '
             . $this->monster->getClassName()
@@ -67,7 +67,7 @@ class FightManager
         $attackType = $heroAttack['attackType'];
         $damage = $heroAttack['damage'];
         $this->monster->decreaseHealth($damage);
-        Logger::getInstance()->log(
+        EventLogger::getInstance()->log(
             $this->hero->getClassName()
             . ' used '
             . $attackType
@@ -86,7 +86,7 @@ class FightManager
         $attackType = $monsterAttack['attackType'];
         $damage = $monsterAttack['damage'];
         $this->hero->decreaseHealth($damage);
-        Logger::getInstance()->log(
+        EventLogger::getInstance()->log(
             $this->monster->getClassName()
             . ' used '
             . $attackType
@@ -123,14 +123,14 @@ class FightManager
     {
         if ($this->hero->isAlive()) {
 
-            Logger::getInstance()->log(
+            EventLogger::getInstance()->log(
                 $this->hero->getClassName()
                 . ' defeated '
                 . $this->monster->getClassName()
                 . '!'
             );
         } else {
-            Logger::getInstance()->log(
+            EventLogger::getInstance()->log(
                 $this->monster->getClassName()
                 . ' defeated '
                 . $this->hero->getClassName()
@@ -138,6 +138,6 @@ class FightManager
             );
         }
 
-        Logger::getInstance()->log('The fight has ended.');
+        EventLogger::getInstance()->log('The fight has ended.');
     }
 }

@@ -7,7 +7,7 @@ namespace Domain\HeroesAndMonsters\Classes\Characters\Heroes;
 use Domain\HeroesAndMonsters\Classes\GameObjects\Magic;
 use Domain\HeroesAndMonsters\Classes\GameObjects\Weapon;
 use Domain\HeroesAndMonsters\Exceptions\WizardCanNotUseWeaponException;
-use Domain\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Logs\EventLogger;
 
 class Wizard extends Hero
 {
@@ -26,7 +26,7 @@ class Wizard extends Hero
     public function learnMagic(Magic $magic): void
     {
         $this->magic = $magic;
-        Logger::getInstance()->log('Wizard learned new magic.');
+        EventLogger::getInstance()->log('Wizard learned new magic.');
     }
 
     /**

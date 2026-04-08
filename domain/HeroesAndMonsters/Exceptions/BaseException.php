@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\HeroesAndMonsters\Exceptions;
 
-use Domain\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Logs\EventLogger;
 
 class BaseException extends \Exception
 {
@@ -22,6 +22,6 @@ class BaseException extends \Exception
         ?\Throwable $previous = null,
     ) {
         parent::__construct($message, $code, $previous);
-        Logger::getInstance()->log($message ?: 'An error occurred.');
+        EventLogger::getInstance()->log($message ?: 'An error occurred.');
     }
 }

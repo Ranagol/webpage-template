@@ -6,7 +6,7 @@ namespace Domain\HeroesAndMonsters\Classes\GameObjects;
 
 namespace Domain\HeroesAndMonsters\Classes\GameObjects;
 
-use Domain\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Logs\EventLogger;
 
 /**
  * Everything in this game is by definiton a GameObject. This is the major base class for all things
@@ -21,7 +21,7 @@ class GameObject
     public function __construct()
     {
         $className = $this->getClassName();
-        Logger::getInstance()->log('A new ' . $className . ' has been created.');
+        EventLogger::getInstance()->log('A new ' . $className . ' has been created.');
     }
 
     /**

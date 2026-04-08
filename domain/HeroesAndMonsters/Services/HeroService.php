@@ -14,7 +14,7 @@ use Domain\HeroesAndMonsters\Classes\GameObjects\Magic;
 use Domain\HeroesAndMonsters\Classes\GameObjects\Sword;
 use Domain\HeroesAndMonsters\Exceptions\WizardCanNotUseWeaponException;
 use Domain\HeroesAndMonsters\Interfaces\HeroServiceInterface;
-use Domain\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Logs\EventLogger;
 
 class HeroService implements HeroServiceInterface
 {
@@ -30,12 +30,12 @@ class HeroService implements HeroServiceInterface
      */
     public function startHeroesAndMonsters(): array
     {
-        Logger::getInstance()->log('Game started!');
+        EventLogger::getInstance()->log('Game started!');
 
         /**
          * creating characters and game objects.
          */
-        // Logger::getInstance()->log('Creating characters and game objects');
+        // EventLogger::getInstance()->log('Creating characters and game objects');
         $warrior = new Warrior();
         $wizard = new Wizard();
 
@@ -50,7 +50,7 @@ class HeroService implements HeroServiceInterface
         /*
          * Warrior actions: picking up weapons, showing active weapon, switching weapon, dropping weapon
          */
-        // Logger::getInstance()->log('Warrior actions');
+        // EventLogger::getInstance()->log('Warrior actions');
         $warrior->pickUpWeapon($sword);
         $warrior->pickUpWeapon($lance);
         $warrior->showActiveWeapon();
@@ -66,13 +66,13 @@ class HeroService implements HeroServiceInterface
         /*
          * Wizard learns new magic
          */
-        // Logger::getInstance()->log('Wizard actions');
+        // EventLogger::getInstance()->log('Wizard actions');
         $wizard->learnMagic($magic);
 
         try {
             $wizard->pickUpWeapon($sword);
         } catch (WizardCanNotUseWeaponException $e) {
-            Logger::getInstance()->log('Wizard tried to pick up a weapon, which is forbidden.');
+            EventLogger::getInstance()->log('Wizard tried to pick up a weapon, which is forbidden.');
         }
 
         /**
@@ -87,9 +87,9 @@ class HeroService implements HeroServiceInterface
         $fightManager = new FightManager($warrior, $dragon);
         $fightManager->fight();
 
-        Logger::getInstance()->log('Game ended.');
-        Logger::getInstance()->log('Feel free to check out in the source code the php classes like the Warrior and the Dragon. :)');
-        $events = Logger::getInstance()->getEvents();
+        EventLogger::getInstance()->log('Game ended.');
+        EventLogger::getInstance()->log('Feel free to check out in the source code the php classes like the Warrior and the Dragon. :)');
+        $events = EventLogger::getInstance()->getEvents();
 
         return $events;
     }

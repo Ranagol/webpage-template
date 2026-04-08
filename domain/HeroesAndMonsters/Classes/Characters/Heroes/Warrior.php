@@ -9,7 +9,7 @@ use Domain\HeroesAndMonsters\Classes\GameObjects\WeaponBag;
 use Domain\HeroesAndMonsters\Exceptions\CantSwitchOneWeaponException;
 use Domain\HeroesAndMonsters\Exceptions\MaxWeaponNrExceededException;
 use Domain\HeroesAndMonsters\Exceptions\NoWeaponException;
-use Domain\HeroesAndMonsters\Logs\Logger;
+use Domain\HeroesAndMonsters\Logs\EventLogger;
 
 class Warrior extends Hero
 {
@@ -32,9 +32,9 @@ class Warrior extends Hero
             $this->weaponBag->addWeapon($weapon);
             $heroClassName = $this->getClassName();
             $weaponName = $weapon->getWeaponClassName();
-            Logger::getInstance()->log($heroClassName . ' picked up a ' . $weaponName . '.');
+            EventLogger::getInstance()->log($heroClassName . ' picked up a ' . $weaponName . '.');
         } catch (MaxWeaponNrExceededException $e) {
-            Logger::getInstance()->log('Cannot pick up weapon: bag is full!');
+            EventLogger::getInstance()->log('Cannot pick up weapon: bag is full!');
         }
     }
 
@@ -42,11 +42,11 @@ class Warrior extends Hero
     {
         try {
             $removedActiveWeapon = $this->weaponBag->removeActiveWeapon();
-            Logger::getInstance()->log($this->heroClassName . ' dropped his ' . $removedActiveWeapon->getWeaponClassName() . '.');
+            EventLogger::getInstance()->log($this->heroClassName . ' dropped his ' . $removedActiveWeapon->getWeaponClassName() . '.');
 
             return $removedActiveWeapon;
         } catch (\Throwable $th) {
-            Logger::getInstance()->log($this->heroClassName . ' cannot drop weapon: no weapons in the bag.');
+            EventLogger::getInstance()->log($this->heroClassName . ' cannot drop weapon: no weapons in the bag.');
 
             return null;
         }
@@ -56,13 +56,13 @@ class Warrior extends Hero
     {
         $allWeapons = $this->weaponBag->getWeapons();
         if (count($allWeapons) === 0) {
-            Logger::getInstance()->log($this->heroClassName . ' has no weapons in the bag.');
+            EventLogger::getInstance()->log($this->heroClassName . ' has no weapons in the bag.');
 
             return;
         }
         foreach ($allWeapons as $weapon) {
             $weaponName = $weapon->getWeaponClassName();
-            Logger::getInstance()->log($this->heroClassName . ' has a ' . $weaponName . ' in the bag.');
+            EventLogger::getInstance()->log($this->heroClassName . ' has a ' . $weaponName . ' in the bag.');
         }
     }
 
@@ -70,12 +70,12 @@ class Warrior extends Hero
     {
         $activeWeapon = $this->weaponBag->getActiveWeapon();
         if (!$activeWeapon) {
-            Logger::getInstance()->log($this->heroClassName . ' has no active weapon.');
+            EventLogger::getInstance()->log($this->heroClassName . ' has no active weapon.');
 
             return;
         }
         $weaponName = $activeWeapon->getWeaponClassName();
-        Logger::getInstance()->log($this->heroClassName . "'s active weapon is a " . $weaponName . '.');
+        EventLogger::getInstance()->log($this->heroClassName . "'s active weapon is a " . $weaponName . '.');
     }
 
     /**
@@ -85,13 +85,13 @@ class Warrior extends Hero
     {
         try {
             $this->weaponBag->switchWeapon();
-            Logger::getInstance()->log($this->heroClassName . ' switched weapon.');
+            EventLogger::getInstance()->log($this->heroClassName . ' switched weapon.');
         } catch (NoWeaponException $e) {
-            Logger::getInstance()->log($this->heroClassName . ' cannot switch weapon: no weapons in the bag.');
+            EventLogger::getInstance()->log($this->heroClassName . ' cannot switch weapon: no weapons in the bag.');
 
             return;
         } catch (CantSwitchOneWeaponException $e) {
-            Logger::getInstance()->log($this->heroClassName . ' cannot switch weapon: only one weapon in the bag.');
+            EventLogger::getInstance()->log($this->heroClassName . ' cannot switch weapon: only one weapon in the bag.');
 
             return;
         }
