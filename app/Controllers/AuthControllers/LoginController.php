@@ -7,17 +7,28 @@ namespace App\Controllers\AuthControllers;
 use App\Controllers\Controller;
 use App\Exceptions\CantFindUserException;
 use App\Exceptions\ValidationException;
-use App\Models\User;
-use App\Validators\LoginValidator;
+use App\Services\LoginService;
 use System\request\RequestInterface;
 
 class LoginController extends Controller
 {
+    private LoginService $loginService;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->loginService = new LoginService();
+    }
+
     /**
      * Loads the login page view.
      */
     public function loadPage(): void
     {
+        // If the user is already logged in, then redirect him to home page.
+        $this->loginService->redirectAlreadyLoggedInUser();
+
+        // Display the login page view
         $this->view('login');
     }
 
@@ -39,47 +50,33 @@ class LoginController extends Controller
         $requestData = $request->getAllRequestData();
 
         // Check CSRF token validity
-        if (!validateCsrfToken($requestData['csrf_token'] ?? null)) {
-            if (!headers_sent()) {
-                header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-            }
-            echo 'Invalid CSRF token.';
-
-            return;
-        }
+        $csrfToken = $requestData['csrf_token'] ?? null;
+        $this->loginService->checkCsrf($csrfToken);
 
         // check if the user is already logged in. If so, the user will be redirected to home page.
-        $this->redirectAlreadyLoggedInUser();
+        $this->loginService->redirectAlreadyLoggedInUser();
 
         $email = $requestData['email'] ?? '';
         $password = $requestData['password'] ?? '';
 
         try {
             // Validate login data (throws ValidationException on error)
-            $this->validateLoginData($email, $password);
+            $this->loginService->validateLoginData($email, $password);
 
             // Find user by email (throws CantFindUserException on error)
-            $user = $this->findUser($email);
+            $user = $this->loginService->findUser($email);
 
             // Authenticate user
-            $isAuthenticated = $this->authenticateUser($user, $email, $password);
+            $isAuthenticated = $this->loginService->authenticateUser($user, $email, $password);
 
             if (false === $isAuthenticated) {
-                $this->view(
-                    'login',
-                    [
-                        'isAuthenticated' => false,
-                        'email' => $email,
-                    ]
-                );
+                $this->view('login', ['isAuthenticated' => false, 'email' => $email]);
 
                 return;
             }
 
-            // If authenticated, redirect (should exit in redirect())
+            // If authenticated, redirect to home page
             redirect('/');
-
-            return;
 
         } catch (ValidationException $errors) {
             $errors = json_decode($errors->getMessage(), true);
@@ -101,87 +98,12 @@ class LoginController extends Controller
     }
 
     /**
-     * Checks if the email and the password from the input fields are = to the
-     * username and password from the db.
-     */
-    private function authenticateUser(
-        User $user,
-        string $email,
-        string $password,
-    ): bool {
-        $emailFromDb = $user->email;
-        $hashFromDb = $user->password;
-
-        /*
-         * If the email from the request and email from the db...
-         * and
-         * the password from the request and password from the db...
-         * match, then this user is ok.
-         */
-        if ($email === $emailFromDb && \password_verify($password, $hashFromDb)) {
-
-            /*
-             * If there is no session, then start one.
-             */
-            if (PHP_SESSION_ACTIVE !== session_status()) {
-                session_start();
-            }
-
-            // Regenerate session ID to prevent session fixation after login.
-            session_regenerate_id(true);
-
-            /*
-             * Put the users data into the session superglobal.
-             */
-            $_SESSION['loggedin'] = true;
-            $_SESSION['id'] = $user->id;
-            $_SESSION['username'] = $user->username;
-
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Tries to find the user based on the email
-     * receved from the html form.
-     *
-     * @throws CantFindUserException
-     */
-    private function findUser(string $email): User
-    {
-        // check if there is a user with the validated email and password
-        $user = User::where('email', '=', $email)->first();
-        if ($user instanceof User) {
-            return $user;
-        }
-
-        throw new CantFindUserException('User not found.');
-    }
-
-    /**
-     * Validates login data.
-     */
-    private function validateLoginData(string $email, string $password): void
-    {
-        $loginValidator = new LoginValidator();
-        $loginValidator->validate($email, $password);
-    }
-
-    /**
      * Logs out a logged in user.
      */
     public function logout(): void
     {
-        if (!validateCsrfToken($_POST['csrf_token'] ?? null)) {
-            if (!headers_sent()) {
-                header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-            }
-            echo 'Invalid CSRF token.';
-
-            return;
-        }
+        $csrfToken = $_POST['csrf_token'] ?? null;
+        $this->loginService->checkCsrf($csrfToken);
 
         // Initialize the session
         if (PHP_SESSION_ACTIVE !== session_status()) {
@@ -196,16 +118,5 @@ class LoginController extends Controller
 
         // Redirect to login page
         redirect('login');
-    }
-
-    /**
-     * Check if the user is already logged in, if yes then redirect him to home page.
-     * The redirect() is my custom function, defined in bootstrap.php.
-     */
-    private function redirectAlreadyLoggedInUser(): void
-    {
-        if (isset($_SESSION['loggedin']) && true === $_SESSION['loggedin']) {
-            redirect('/');
-        }
     }
 }
