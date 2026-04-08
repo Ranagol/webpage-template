@@ -35,12 +35,13 @@ function redirect(string $path): void
 }
 
 /**
- * Returns a CSRF token and stores it in the current session. This is used on the frontend.
+ * Returns a CSRF token and stores it in the current session. This is used on the frontend, to create
+ * a CSRF token.FRONTEND.
  */
-function csrfToken(): string
+function createCsrfToken(): string
 {
     // Check is session is started, if not, start it.
-    if (PHP_SESSION_ACTIVE !== session_status()) {
+    if (session_status() !== PHP_SESSION_ACTIVE) {
         session_start();
     }
 
@@ -56,38 +57,41 @@ function csrfToken(): string
 }
 
 /**
- * Validates an incoming CSRF token against the one in the current session. This is used on the
- * backend, in controllers.
+ * BACKEND.
  */
-function validateCsrfToken(mixed $token): bool
+function checkCsrfToken(?string $tokenFromFrontend): void
 {
-    if (PHP_SESSION_ACTIVE !== session_status()) {
+    if (!validateCsrfToken($tokenFromFrontend)) {
+        if (!headers_sent()) {
+            http_response_code(403);
+        }
+
+        exit('Invalid CSRF token.');
+    }
+}
+
+/**
+ * Validates an incoming CSRF token against the one in the current session. This is used on the
+ * backend, in controllers. BACKEND.
+ */
+function validateCsrfToken(?string $tokenFromFrontend): bool
+{
+    if (session_status() !== PHP_SESSION_ACTIVE) {
         session_start();
     }
 
-    // If the csrf token from frontend is not a string, or is an empty string, return false.
-    if (!is_string($token) || '' === $token) {
+    // If the csrf token from frontend is an empty string or null, return false.
+    if ($tokenFromFrontend === '' || $tokenFromFrontend === null) {
         return false;
     }
 
     // If there is no csrf token in the session, or it is not a string, return false.
-    if (!isset($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
+    $backendToken = $_SESSION['csrf_token'] ?? null;
+    if (!isset($backendToken) || !is_string($backendToken)) {
         return false;
     }
 
-    // Compare the csrf token from the frontend with the one in the session
+    // Compare the csrf token from the frontend with the one in the session (backend)
     // Returns TRUE when the two strings are equal, FALSE otherwise.
-    return hash_equals($_SESSION['csrf_token'], $token);
-}
-
-function checkCsrfToken(mixed $token): void
-{
-    if (!validateCsrfToken($token)) {
-        if (!headers_sent()) {
-            header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-        }
-        echo 'Invalid CSRF token.';
-
-        return;
-    }
+    return hash_equals($backendToken, $tokenFromFrontend);
 }

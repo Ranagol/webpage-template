@@ -14,6 +14,4 @@ interface UploadServiceInterface
     public function setUploadData(array $uploadData): void;
 
     public function storeFile(): CsvFile;
-
-    public function checkCsrfToken(?string $csrfToken): void;
 }

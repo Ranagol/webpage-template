@@ -12,18 +12,6 @@ use App\Validators\LoginValidator;
 
 class LoginService implements LoginServiceInterface
 {
-    public function checkCsrf(?string $csrfToken): void
-    {
-        if (!validateCsrfToken($csrfToken)) {
-            if (!headers_sent()) {
-                header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-            }
-            echo 'Invalid CSRF token.';
-
-            return;
-        }
-    }
-
     /**
      * Checks if the email and the password from the input fields are = to the
      * username and password from the db.

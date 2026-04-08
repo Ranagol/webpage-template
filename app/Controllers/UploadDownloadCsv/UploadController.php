@@ -48,7 +48,7 @@ class UploadController extends Controller
         $uploadData = $request->getAllRequestData();
 
         $csrfToken = $uploadData['csrf_token'] ?? null;
-        $this->uploadService->checkCsrfToken($csrfToken);
+        checkCsrfToken($csrfToken);
 
         try {
 

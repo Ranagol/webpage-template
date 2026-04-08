@@ -13,7 +13,7 @@
     <form action="/login" method="post">
 
         {{-- A hidden input for csrf. If no csrf token is present, one will be generated --}}
-        <input type="hidden" name="csrf_token" value="{{ csrfToken() }}">
+        <input type="hidden" name="csrf_token" value="{{ createCsrfToken() }}">
 
         <div class="form-group">
             <label>Email</label>

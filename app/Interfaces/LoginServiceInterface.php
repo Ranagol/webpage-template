@@ -8,8 +8,6 @@ use App\Models\User;
 
 interface LoginServiceInterface
 {
-    public function checkCsrf(?string $csrfToken): void;
-
     public function authenticateUser(
         User $user,
         string $email,

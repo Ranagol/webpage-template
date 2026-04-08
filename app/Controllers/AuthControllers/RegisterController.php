@@ -56,7 +56,7 @@ class RegisterController extends Controller
 
         // Check CSRF token validity
         $csrfToken = $requestData['csrf_token'] ?? null;
-        $this->registerService->checkCsrf($csrfToken);
+        checkCsrfToken($csrfToken);
 
         $user = $this->registerService->extractDataFromRequest($requestData);
 
@@ -73,7 +73,6 @@ class RegisterController extends Controller
                 $user->lastname
             );
 
-            // creating user in db
             $user->save();
 
             // automatic login, after a successful registration

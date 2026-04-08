@@ -10,8 +10,6 @@ interface RegisterServiceInterface
 {
     public function redirectAlreadyLoggedInUser(): void;
 
-    public function checkCsrf(?string $csrfToken): void;
-
     /**
      * Extracts user data from the registration request array and returns a User instance.
      *
