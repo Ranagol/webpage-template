@@ -6,9 +6,7 @@ namespace App\Controllers\AuthControllers;
 
 use App\Controllers\Controller;
 use App\Exceptions\ValidationException;
-use App\Models\User;
-use App\Services\RegisterService;
-use App\Validators\RegisterValidator;
+use App\Interfaces\RegisterServiceInterface;
 use Illuminate\Database\QueryException;
 use System\request\RequestInterface;
 
@@ -17,11 +15,12 @@ use System\request\RequestInterface;
  */
 class RegisterController extends Controller
 {
-    private RegisterService $registerService;
+    private RegisterServiceInterface $registerService;
 
-    public function __construct()
+    public function __construct(RegisterServiceInterface $registerService)
     {
-        $this->registerService = new RegisterService();
+        parent::__construct();
+        $this->registerService = $registerService;
     }
 
     /**
@@ -54,49 +53,34 @@ class RegisterController extends Controller
     public function register(RequestInterface $request): void
     {
         $requestData = $request->getAllRequestData();
+
         // Check CSRF token validity
-        if (!validateCsrfToken($requestData['csrf_token'] ?? null)) {
-            if (!headers_sent()) {
-                header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-            }
-            echo 'Invalid CSRF token.';
+        $csrfToken = $requestData['csrf_token'] ?? null;
+        $this->registerService->checkCsrf($csrfToken);
 
-            return;
-        }
-
-        // Extracting the registering data from the request
-        $request = $request->getAllRequestData();
-        $username = trim((string) ($request['username'] ?? ''));
-        $firstname = trim((string) ($request['firstname'] ?? ''));
-        $lastname = trim((string) ($request['lastname'] ?? ''));
-        $email = strtolower(trim((string) ($request['email'] ?? '')));
-        $password = $request['password'] ?? '';
-
-        $hash = \password_hash($password, PASSWORD_DEFAULT);
+        $user = $this->registerService->extractDataFromRequest($requestData);
 
         try {
-            // data validation
-            $this->validateUserData(
-                $email,
-                $password,
-                $username,
-                $firstname,
-                $lastname
+
+            // This below is for testing purposes, to avoid the registration form validation every time, when I want to test the login functionality. So, instead of extracting the user data from the request, I return a test user with valid data. This way I can easily test the login functionality, without going through the registration form every time.
+            // $user = $this->registerService->returnTestUser();
+
+            $this->registerService->validateUserData(
+                $user->email,
+                $user->password,
+                $user->username,
+                $user->firstname,
+                $user->lastname
             );
 
             // creating user in db
-            $user = new User();
-            $user->email = $email;
-            $user->password = $hash;
-            $user->username = $username;
-            $user->firstname = $firstname;
-            $user->lastname = $lastname;
             $user->save();
 
             // automatic login, after a successful registration
-            $this->loginUser($email, $hash);
+            $this->registerService->loginUser($user->email);
 
-            $this->view('home');
+            // Redirect to home page after successful registration and login
+            redirect('/');
 
         } catch (ValidationException $errors) {
 
@@ -113,10 +97,10 @@ class RegisterController extends Controller
                 'register',
                 [
                     'errors' => $errors,
-                    'username' => $username,
-                    'firstname' => $firstname,
-                    'lastname' => $lastname,
-                    'email' => $email,
+                    'username' => $user->username,
+                    'firstname' => $user->firstname,
+                    'lastname' => $user->lastname,
+                    'email' => $user->email,
                 ]
             );
 
@@ -129,66 +113,12 @@ class RegisterController extends Controller
                     'errors' => [
                         'emailError' => 'This email is already registered.',
                     ],
-                    'username' => $username,
-                    'firstname' => $firstname,
-                    'lastname' => $lastname,
-                    'email' => $email,
+                    'username' => $user->username,
+                    'firstname' => $user->firstname,
+                    'lastname' => $user->lastname,
+                    'email' => $user->email,
                 ]
             );
         }
-    }
-
-    /**
-     * When a user is successfully authenticated, this function
-     * automatically logs in the user, after the registration. Aka:
-     * a newly registered user gets automatically logged in.
-     */
-    private function loginUser(string $email, string $hash): void
-    {
-        /**
-         * The user is just freshly registered. We want to find this user in the db.
-         */
-        $user = User::where('email', '=', $email)->first();
-
-        if (null !== $user) {
-            if (PHP_SESSION_ACTIVE !== session_status()) {
-                session_start();
-            }
-
-            // Regenerate session ID to prevent session fixation after auto-login.
-            session_regenerate_id(true);
-
-            $id = $user->id;
-            $username = $user->username;
-
-            /*
-             * We store the users login status in the $_SESSION superglobal.
-             */
-            $_SESSION['loggedin'] = true;
-            $_SESSION['id'] = $id;
-            $_SESSION['username'] = $username;
-        }
-    }
-
-    /**
-     * Validates user data.
-     *
-     * @return void
-     */
-    private function validateUserData(
-        string $email,
-        string $password,
-        string $username,
-        string $firstname,
-        string $lastname,
-    ) {
-        $registerValidator = new RegisterValidator();
-        $registerValidator->validate(
-            $email,
-            $password,
-            $username,
-            $firstname,
-            $lastname,
-        );
     }
 }

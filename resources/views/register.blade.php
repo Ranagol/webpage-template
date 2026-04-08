@@ -12,7 +12,11 @@
     <h2>Sign Up</h2>
     <p>Please fill this form to create an account.</p>
     <form action="/register" method="post">
-        <input type="hidden" name="csrf_token" value="{{ csrfToken() }}">
+
+        {{-- CSRF TOKEN  --}}
+         <input type="hidden" name="csrf_token" value="{{ csrfToken() }}">
+
+
         <div class="form-group">
 
             <!-- FIRST NAME -->
@@ -125,9 +129,12 @@
                 {{ isset($errors['passwordError']) ? $errors['passwordError'] : '' }}
             </p>
         </div>
+
+        {{-- BUTTON --}}
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Submit">
         </div>
+
         <br>
         <p>Already have an account? 
             <a href="/login">Login here</a>

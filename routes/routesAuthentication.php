@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Controllers\AuthControllers\LoginController;
 use App\Controllers\AuthControllers\RegisterController;
 use App\Services\LoginService;
+use App\Services\RegisterService;
 use System\request\WebPageRequest;
 
 if (!isset($router) || !($router instanceof Bramus\Router\Router)) {
@@ -13,13 +14,13 @@ if (!isset($router) || !($router instanceof Bramus\Router\Router)) {
 
 // register page loading
 $router->get('/register', function () {
-    $registerController = new RegisterController();
+    $registerController = new RegisterController(new RegisterService());
     $registerController->loadPage();
 });
 
 // registering the user
 $router->post('/register', function () {
-    $registerController = new RegisterController();
+    $registerController = new RegisterController(new RegisterService());
     $registerController->register(new WebPageRequest());
 });
 
