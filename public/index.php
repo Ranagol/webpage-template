@@ -12,10 +12,6 @@ if (PHP_SESSION_ACTIVE !== session_status() && (!defined('PHPUNIT_COMPOSER_INSTA
     session_start();
 }
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-
 use App\Application;
 
 require_once __DIR__ . '/../app/Application.php';
