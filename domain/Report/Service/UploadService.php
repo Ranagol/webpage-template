@@ -101,6 +101,13 @@ class UploadService implements UploadServiceInterface
 
         if (isset($uploadData['file']) && is_array($uploadData['file']) && 0 == $uploadData['file']['error']) {
             $originalName = (string) ($uploadData['file']['name'] ?? 'upload.csv');
+
+            // Prevent double-extension attacks: reject files with multiple dots before extension
+            $dotCount = substr_count($originalName, '.');
+            if ($dotCount > 1) {
+                throw new BaseException('Invalid file name: multiple extensions are not allowed.');
+            }
+
             $this->setFileName($this->createSafeFileName($originalName));
             $this->setFileType((string) ($uploadData['file']['type'] ?? ''));
             $this->setFileSize((float) ($uploadData['file']['size'] ?? 0));
