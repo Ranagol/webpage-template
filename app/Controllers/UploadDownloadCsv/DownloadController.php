@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace App\Controllers\UploadDownloadCsv;
 
+use App\Controllers\Controller;
 use System\request\RequestInterface;
 use System\response\downloadResponse\DownloadResponse;
 
-class DownloadController
+class DownloadController extends Controller
 {
     /**
      * In the routesDownload.php we injected a FileDownloadRequest object into this controller.
