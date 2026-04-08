@@ -7,6 +7,7 @@ namespace Tests\Feature;
 use App\Application;
 use App\Controllers\AuthControllers\RegisterController;
 use App\Services\RegisterService;
+use App\Validators\RegisterValidator;
 use PHPUnit\Framework\TestCase;
 
 final class RegisterControllerTest extends TestCase
@@ -16,7 +17,7 @@ final class RegisterControllerTest extends TestCase
         // Bootstrap the app (no session, no output)
         Application::bootstrap();
 
-        $registerController = new RegisterController(new RegisterService());
+        $registerController = new RegisterController(new RegisterService(new RegisterValidator()));
 
         // Capture output
         ob_start();

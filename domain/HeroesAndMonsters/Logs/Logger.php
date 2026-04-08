@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Domain\HeroesAndMonsters\Logs;
 
-namespace Domain\HeroesAndMonsters\Logs;
-
 class Logger
 {
     /**
@@ -31,7 +29,7 @@ class Logger
      */
     public static function getInstance(): Logger
     {
-        if (null == self::$instance) {
+        if (self::$instance === null) {
             self::$instance = new Logger();
         }
 
