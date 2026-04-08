@@ -7,10 +7,16 @@ namespace App\Services;
 use App\Interfaces\RegisterServiceInterface;
 use App\Interfaces\RegisterValidatorInterface;
 use App\Models\User;
-use App\Validators\RegisterValidator;
 
 class RegisterService implements RegisterServiceInterface
 {
+    private RegisterValidatorInterface $registerValidator;
+
+    public function __construct(RegisterValidatorInterface $registerValidator)
+    {
+        $this->registerValidator = $registerValidator;
+    }
+
     /**
      * Check if the user is already logged in, if yes then redirect him to home page.
      * The redirect() is my custom function, defined in bootstrap.php.
@@ -55,9 +61,8 @@ class RegisterService implements RegisterServiceInterface
         string $username,
         string $firstname,
         string $lastname,
-        RegisterValidatorInterface $registerValidator = new RegisterValidator(),
     ): void {
-        $registerValidator->validate(
+        $this->registerValidator->validate(
             $email,
             $password,
             $username,
@@ -81,7 +86,7 @@ class RegisterService implements RegisterServiceInterface
      */
     public function loginUser(User $user): void
     {
-        if (PHP_SESSION_ACTIVE !== session_status()) {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
         }
 

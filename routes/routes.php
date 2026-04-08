@@ -14,6 +14,7 @@ use App\Controllers\UploadDownloadCsv\DownloadController;
 use App\Controllers\UploadDownloadCsv\UploadController;
 use App\Services\LoginService;
 use App\Services\RegisterService;
+use App\Validators\RegisterValidator;
 use Domain\HeroesAndMonsters\Services\HeroService;
 use Domain\Report\Service\UploadService;
 use System\request\FileDownloadRequest;
@@ -65,13 +66,13 @@ $router->before('POST', '/(upload|download-report)', function () {
 
 // register page loading
 $router->get('/register', function () {
-    $registerController = new RegisterController(new RegisterService());
+    $registerController = new RegisterController(new RegisterService(new RegisterValidator()));
     $registerController->loadPage();
 });
 
 // registering the user
 $router->post('/register', function () {
-    $registerController = new RegisterController(new RegisterService());
+    $registerController = new RegisterController(new RegisterService(new RegisterValidator()));
     $registerController->register(new WebPageRequest());
 });
 
