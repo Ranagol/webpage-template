@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Validators;
 
+use App\Interfaces\RegisterValidatorInterface;
+
 /**
  * Validates email, password, firstname...
  *
@@ -13,7 +15,7 @@ namespace App\Validators;
  * So, these two features* are in the parent AuthValidator, and not in the RegisterValidator or
  * LoginValidator.
  */
-class RegisterValidator extends AuthValidator
+class RegisterValidator extends AuthValidator implements RegisterValidatorInterface
 {
     /**
      * Validates register data.

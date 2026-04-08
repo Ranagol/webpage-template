@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Interfaces\RegisterServiceInterface;
+use App\Interfaces\RegisterValidatorInterface;
 use App\Models\User;
 use App\Validators\RegisterValidator;
 
@@ -67,8 +68,8 @@ class RegisterService implements RegisterServiceInterface
         string $username,
         string $firstname,
         string $lastname,
+        RegisterValidatorInterface $registerValidator = new RegisterValidator(),
     ): void {
-        $registerValidator = new RegisterValidator();
         $registerValidator->validate(
             $email,
             $password,
