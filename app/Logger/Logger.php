@@ -64,7 +64,7 @@ class Logger
         $date = PHP_EOL . date('Y-m-d H:i:s');
         $string = $date . ' - ' . $string . PHP_EOL;
         $filePointer = fopen($this->getPath(), 'a+');
-        if (false !== $filePointer) {
+        if ($filePointer !== false) {
             fwrite($filePointer, $string); // writing into a file
             fclose($filePointer); // closing a file
         }
@@ -91,7 +91,7 @@ class Logger
         $firstLine = $date . ' - ' . $errorMessage . $file . $line;
 
         $filePointer = fopen($this->getPath(), 'a+');
-        if (false !== $filePointer) {
+        if ($filePointer !== false) {
             fwrite($filePointer, $firstLine); // writing into a file
 
             foreach ($trace as $item) {

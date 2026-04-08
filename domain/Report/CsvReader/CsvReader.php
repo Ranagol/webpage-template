@@ -97,7 +97,7 @@ class CsvReader
         clearstatcache(); // deleting cached stuff
         if (file_exists($this->getFileNameWithPath())) {
             $fp = fopen($this->getFileNameWithPath(), 'r'); // opening a file
-            if (false !== $fp) {
+            if ($fp !== false) {
                 $this->filePointer = $fp;
             } else {
                 throw new \Exception('Could not open uploaded CSV file.');

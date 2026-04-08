@@ -37,7 +37,7 @@ abstract class AuthValidator
     {
         if (count($this->errors) > 0) {
             $msg = json_encode($this->errors);
-            if (false === $msg) {
+            if ($msg === false) {
                 $msg = 'Validation error.';
             }
             throw new ValidationException((string) $msg, 422);
@@ -65,7 +65,7 @@ abstract class AuthValidator
             $emailError = 'Please enter a valid email address.';
         }
 
-        if (null !== $emailError) {
+        if ($emailError !== null) {
             $this->errors['emailError'] = $emailError;
         }
     }
@@ -87,7 +87,7 @@ abstract class AuthValidator
             $passwordError = 'Password must be longer than 2 characters.';
         }
 
-        if (null !== $passwordError) {
+        if ($passwordError !== null) {
             $this->errors['passwordError'] = $passwordError;
         }
     }

@@ -93,7 +93,7 @@ class RegisterService implements RegisterServiceInterface
          */
         $user = User::where('email', '=', $email)->first();
 
-        if (null !== $user) {
+        if ($user !== null) {
             if (PHP_SESSION_ACTIVE !== session_status()) {
                 session_start();
             }

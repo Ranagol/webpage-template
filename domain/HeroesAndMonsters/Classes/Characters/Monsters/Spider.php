@@ -34,7 +34,7 @@ class Spider extends Monster
     {
         $attackType = $this->randomGenerator();
 
-        if (1 === $attackType) {
+        if ($attackType === 1) {
             return $this->attack1;
         }
 

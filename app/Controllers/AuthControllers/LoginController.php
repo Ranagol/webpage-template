@@ -69,7 +69,7 @@ class LoginController extends Controller
             // Authenticate user
             $isAuthenticated = $this->loginService->authenticateUser($user, $email, $password);
 
-            if (false === $isAuthenticated) {
+            if ($isAuthenticated === false) {
                 $this->view('login', ['isAuthenticated' => false, 'email' => $email]);
 
                 return;

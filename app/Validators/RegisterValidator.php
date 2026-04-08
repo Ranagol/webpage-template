@@ -56,7 +56,7 @@ class RegisterValidator extends AuthValidator implements RegisterValidatorInterf
             $usernameError = 'Username must be longer than 2 characters.';
         }
 
-        if (null !== $usernameError) {
+        if ($usernameError !== null) {
             $this->errors['usernameError'] = $usernameError;
         }
     }
@@ -77,7 +77,7 @@ class RegisterValidator extends AuthValidator implements RegisterValidatorInterf
             $firstnameError = 'Firstname must be longer than 2 characters.';
         }
 
-        if (null !== $firstnameError) {
+        if ($firstnameError !== null) {
             $this->errors['firstnameError'] = $firstnameError;
         }
     }
@@ -98,7 +98,7 @@ class RegisterValidator extends AuthValidator implements RegisterValidatorInterf
             $lastNameError = 'Lastname must be longer than 2 characters.';
         }
 
-        if (null !== $lastNameError) {
+        if ($lastNameError !== null) {
             $this->errors['lastNameError'] = $lastNameError;
         }
     }
@@ -118,7 +118,7 @@ class RegisterValidator extends AuthValidator implements RegisterValidatorInterf
             $passwordError = 'Password must be at least 8 characters long.';
         }
 
-        if (null !== $passwordError) {
+        if ($passwordError !== null) {
             $this->errors['passwordError'] = $passwordError;
         }
     }

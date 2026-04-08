@@ -130,12 +130,12 @@ class UploadService implements UploadServiceInterface
         $originalName = (string) ($uploadedFile['name'] ?? '');
         $extension = strtolower((string) pathinfo($originalName, PATHINFO_EXTENSION));
 
-        if ('csv' !== $extension) {
+        if ($extension !== 'csv') {
             throw new BaseException('Error: Please upload a CSV file.');
         }
 
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        if (false === $finfo) {
+        if ($finfo === false) {
             throw new BaseException('Error: Unable to validate file type.');
         }
 
@@ -182,7 +182,7 @@ class UploadService implements UploadServiceInterface
         }
 
         $baseUploadPath = realpath(__DIR__ . '/../../../storage/upload');
-        if (false === $baseUploadPath) {
+        if ($baseUploadPath === false) {
             throw new BaseException('Upload directory is not available.');
         }
 
@@ -201,7 +201,7 @@ class UploadService implements UploadServiceInterface
 
         // place the uploaded file into the new dir
         $stored = move_uploaded_file($tmpName, $destinationPath);
-        if (false === $stored) {
+        if ($stored === false) {
             throw new BaseException('Failed to store uploaded file.');
         }
     }
@@ -254,7 +254,7 @@ class UploadService implements UploadServiceInterface
     private function createSafeFileName(string $originalName): string
     {
         $extension = strtolower((string) pathinfo($originalName, PATHINFO_EXTENSION));
-        if ('' === $extension) {
+        if ($extension === '') {
             $extension = 'csv';
         }
 
