@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\Report\ReportFileGenerator;
 
+use App\Exceptions\BaseException;
 use App\Models\User;
 
 class ReportFileGenerator
@@ -14,7 +15,7 @@ class ReportFileGenerator
     {
         $user = User::getCurrentUser();
         if (!$user instanceof User) {
-            throw new \Exception('User is not logged in.');
+            throw new BaseException('User is not logged in.');
         }
         $email = $user->email;
 

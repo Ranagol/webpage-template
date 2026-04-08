@@ -34,6 +34,4 @@ interface RegisterServiceInterface
     ): void;
 
     public function loginUser(string $email): void;
-
-    public function returnTestUser(): User;
 }

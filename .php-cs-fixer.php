@@ -12,6 +12,7 @@ return (new PhpCsFixer\Config())
         '@Symfony' => true,
 
         // Laravel-like tweaks
+        'yoda_style' => false,
         'array_syntax' => ['syntax' => 'short'],
         'ordered_imports' => ['sort_algorithm' => 'alpha'],
         'no_unused_imports' => true,

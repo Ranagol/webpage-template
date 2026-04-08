@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\Report\Service;
 
 use App\Exceptions\BaseException;

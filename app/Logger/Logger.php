@@ -14,10 +14,8 @@ class Logger
 {
     /**
      * The singleton object will be stored here, in the Logger class.
-     *
-     * @var Logger
      */
-    private static $instance;
+    private static ?Logger $instance = null;
 
     /**
      * The path to the file, where all logs are written.
@@ -49,7 +47,7 @@ class Logger
      */
     public static function getInstance(): self
     {
-        if (null == self::$instance) {
+        if (null === self::$instance) {
             self::$instance = new Logger();
         }
 

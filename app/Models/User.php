@@ -36,18 +36,18 @@ class User extends Model
 
     /**
      * Returns the current logged in user.
-     * The session supergolbal contains the logged in user's id, so if a
+     * The session superglobal contains the logged in user's id, so if a
      * user is logged in, we can get his id from the session superglobal.
      */
-    public static function getCurrentUser(): User|bool
+    public static function getCurrentUser(): ?User
     {
         if (isset($_SESSION) && isset($_SESSION['id'])) {
             $userId = $_SESSION['id'];
-            $user = User::findOrFail($userId);
+            $user = User::find($userId);
 
             return $user;
         }
 
-        return false;
+        return null;
     }
 }

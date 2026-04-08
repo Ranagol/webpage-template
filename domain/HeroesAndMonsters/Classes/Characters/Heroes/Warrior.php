@@ -55,7 +55,7 @@ class Warrior extends Hero
     public function showAllWeapons(): void
     {
         $allWeapons = $this->weaponBag->getWeapons();
-        if (0 == count($allWeapons)) {
+        if (0 === count($allWeapons)) {
             Logger::getInstance()->log($this->heroClassName . ' has no weapons in the bag.');
 
             return;
