@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\Exceptions\CantFindUserException;
 use App\Interfaces\LoginServiceInterface;
+use App\Interfaces\LoginValidatorInterface;
 use App\Models\User;
 use App\Validators\LoginValidator;
 
@@ -86,9 +87,11 @@ class LoginService implements LoginServiceInterface
     /**
      * Validates login data.
      */
-    public function validateLoginData(string $email, string $password): void
-    {
-        $loginValidator = new LoginValidator();
+    public function validateLoginData(
+        string $email,
+        string $password,
+        LoginValidatorInterface $loginValidator = new LoginValidator(),
+    ): void {
         $loginValidator->validate($email, $password);
     }
 
