@@ -2,14 +2,23 @@
 
 declare(strict_types=1);
 
-use App\Controllers\PageNotFoundController;
+use App\Controllers\AuthControllers\LoginController;
 
-/*
- * This is where all the stuff regarding routing starts. The entry point for the routes.
- * The request from a user's browser will reach the $_SERVER superglobal. Now the Bramus router
- * package will have to extract the request method (GET, POST...), the requested url, and a bunch
- * of other data from the $_SERVER.
- */
+use App\Controllers\AuthControllers\RegisterController;
+use App\Controllers\HeroController;
+use App\Controllers\HomeController;
+use App\Controllers\MvcController;
+use App\Controllers\PageNotFoundController;
+use App\Controllers\TrainController;
+use App\Controllers\UploadDownloadCsv\DownloadController;
+use App\Controllers\UploadDownloadCsv\UploadController;
+use App\Services\LoginService;
+use App\Services\RegisterService;
+use Domain\HeroesAndMonsters\Services\HeroService;
+use Domain\Report\Service\UploadService;
+use System\request\FileDownloadRequest;
+use System\request\FileUploadRequest;
+use System\request\WebPageRequest;
 
 // Create Router instance
 $router = new Bramus\Router\Router();
@@ -52,18 +61,103 @@ $router->before('POST', '/(upload|download-report)', function () {
     }
 });
 
-require_once __DIR__ . '/routesWebPage.php'; // pages-views
+// ******************AUTHENTICATION******************************** */
 
-require_once __DIR__ . '/routesAuthentication.php'; // everything regarding login and register
+// register page loading
+$router->get('/register', function () {
+    $registerController = new RegisterController(new RegisterService());
+    $registerController->loadPage();
+});
 
-/**
- * Web page requests for user CRUD. However, for the current purpose of this project, these routes
- * are actually a security risk. Because of this, the user routes are not active. This logic is not
- * deleted, because we might need it in the future.
+// registering the user
+$router->post('/register', function () {
+    $registerController = new RegisterController(new RegisterService());
+    $registerController->register(new WebPageRequest());
+});
+
+// login page loading
+$router->get('/login', function () {
+    $loginController = new LoginController(new LoginService());
+    $loginController->loadPage();
+});
+
+// logging in a user
+$router->post('/login', function () {
+    $loginController = new LoginController(new LoginService());
+    $loginController->login(new WebPageRequest());
+});
+
+// logout
+$router->post('/logout', function () {
+    $loginController = new LoginController(new LoginService());
+    $loginController->logout();
+});
+
+// ******************APP PAGES******************************** */
+
+// home page
+$router->get('/', function () {
+    $homeController = new HomeController();
+    $homeController->loadPage();
+});
+
+// raw php mvc page
+$router->get('/raw-php-mvc', function () {
+    $rawPhpMvcController = new MvcController();
+    $rawPhpMvcController->loadPage();
+});
+
+// train task page
+$router->get('/train-task', function () {
+    $trainTaskController = new TrainController();
+    $trainTaskController->loadPage();
+});
+
+// heroes and monsters page
+$router->get('/heroes-and-monsters', function () {
+    $heroesAndMonstersController = new HeroController(new HeroService());
+    $heroesAndMonstersController->loadPage();
+});
+
+// starts the heroes and monsters battle, and shows the events on the heroes and monsters page
+$router->get('/demonstrate', function () {
+    $heroesAndMonstersController = new HeroController(new HeroService());
+    $heroesAndMonstersController->demonstrate();
+});
+
+// ******************REPORT / UPLOAD / DOWNLOAD******************************** */
+
+/*
+ * Simply displays the upload page
  */
-// require_once __DIR__ . '/routesUser.php';
+$router->get('/upload', function () {
+    $uploadController = new UploadController(new UploadService());
+    $uploadController->loadPage();
+});
 
-require_once __DIR__ . '/routesUploadDownloadCsv.php'; // for uploading (images and csv files) and downloading (csv files)
+/*
+ * Saves the uploaded .csv file into the app
+ */
+$router->post('/upload', function () {
+
+    /**
+     * We use the FileUploadRequest class to actually get the uploaded file from PHP. And it does so,
+     * as soon as it is created as an object. So this object (has the uploaded file) is then sent
+     * as an argument to the store() method.
+     */
+    $uploadController = new UploadController(new UploadService());
+    $uploadController->store(new FileUploadRequest());
+});
+
+/*
+ * Downloads the csv report that was created from the uploaded .csv file
+ */
+$router->post('/download-report', function () {
+    $downloadController = new DownloadController();
+    $downloadController->download(new FileDownloadRequest());
+});
+
+// ******************404 HANDLER******************************** */
 
 // Custom 404 Handler
 $router->set404(function () {
@@ -71,6 +165,8 @@ $router->set404(function () {
     $pageNotFoundController = new PageNotFoundController();
     $pageNotFoundController->loadPage();
 });
+
+// ******************BRAMUS ROUTER FINAL SETUP STEP******************************** */
 
 /*
  * The $router->run(); is the final step in the routing process, this starts everything
