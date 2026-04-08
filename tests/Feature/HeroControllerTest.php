@@ -6,6 +6,7 @@ namespace Tests\Feature;
 
 use App\Application;
 use App\Controllers\HeroController;
+use Domain\HeroesAndMonsters\Services\HeroService;
 use PHPUnit\Framework\TestCase;
 
 final class HeroControllerTest extends TestCase
@@ -15,7 +16,7 @@ final class HeroControllerTest extends TestCase
         // Bootstrap the app (no session, no output)
         Application::bootstrap();
 
-        $heroController = new HeroController();
+        $heroController = new HeroController(new HeroService());
 
         // Capture output
         ob_start();
@@ -31,9 +32,9 @@ final class HeroControllerTest extends TestCase
         // Bootstrap the app (no session, no output)
         Application::bootstrap();
 
-        $heroController = new HeroController();
+        $heroController = new HeroController(new HeroService());
 
-        $events = $heroController->startHeroesAndMonsters();
+        $events = $heroController->heroService->startHeroesAndMonsters();
         $this->assertNotEmpty($events);
         // Assert that the events contain expected log entries
         $this->assertContains('Game started!', $events);
@@ -46,7 +47,7 @@ final class HeroControllerTest extends TestCase
         // Bootstrap the app (no session, no output)
         Application::bootstrap();
 
-        $heroController = new HeroController();
+        $heroController = new HeroController(new HeroService());
 
         // Capture output
         ob_start();

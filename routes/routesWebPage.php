@@ -6,6 +6,7 @@ use App\Controllers\HeroController;
 use App\Controllers\HomeController;
 use App\Controllers\MvcController;
 use App\Controllers\TrainController;
+use Domain\HeroesAndMonsters\Services\HeroService;
 
 if (!isset($router) || !($router instanceof Bramus\Router\Router)) {
     throw new RuntimeException('$router is not initialized.');
@@ -31,12 +32,12 @@ $router->get('/train-task', function () {
 
 // heroes and monsters page
 $router->get('/heroes-and-monsters', function () {
-    $heroesAndMonstersController = new HeroController();
+    $heroesAndMonstersController = new HeroController(new HeroService());
     $heroesAndMonstersController->loadPage();
 });
 
 // starts the heroes and monsters battle, and shows the events on the heroes and monsters page
 $router->get('/demonstrate', function () {
-    $heroesAndMonstersController = new HeroController();
+    $heroesAndMonstersController = new HeroController(new HeroService());
     $heroesAndMonstersController->demonstrate();
 });
