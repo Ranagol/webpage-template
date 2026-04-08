@@ -5,12 +5,22 @@ declare(strict_types=1);
 namespace App\Controllers\UploadDownloadCsv;
 
 use App\Controllers\Controller;
-use App\Exceptions\BaseException;
-use Domain\Report\Service\UploadService;
+use Domain\Report\Interfaces\UploadServiceInterface;
 use System\request\RequestInterface;
 
 class UploadController extends Controller
 {
+    /**
+     * The UploadService is injected into the controller, so we can use it to handle the upload process.
+     */
+    private UploadServiceInterface $uploadService;
+
+    public function __construct(UploadServiceInterface $uploadService)
+    {
+        parent::__construct();
+        $this->uploadService = $uploadService;
+    }
+
     /**
      * Returns the file upload view.
      */
@@ -36,16 +46,14 @@ class UploadController extends Controller
          */
         $uploadData = $request->getAllRequestData();
 
-        $this->checkCsrfToken($uploadData);
+        $csrfToken = $uploadData['csrf_token'] ?? null;
+        $this->uploadService->checkCsrfToken($csrfToken);
 
         try {
 
-            /**
-             * The UploadService has all the logic to handle the upload process.
-             */
-            $upload = new UploadService($uploadData);
+            $this->uploadService->setUploadData($uploadData);
 
-            $file = $upload->storeFile();
+            $file = $this->uploadService->storeFile();
 
             // This is the report that we want to display for the user, after the upload is successfull.
             $report = $file->getReport();
@@ -76,24 +84,5 @@ class UploadController extends Controller
                 'report' => $report,
             ]
         );
-    }
-
-    /**
-     * This function checks the CSRF token, if it is not valid, then an exception will be thrown.
-     *
-     * @param array<string, mixed> $uploadData
-     *
-     * @throws BaseException
-     */
-    private function checkCsrfToken(array $uploadData): void
-    {
-        if (!validateCsrfToken($uploadData['csrf_token'] ?? null)) {
-            if (!headers_sent()) {
-                header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-            }
-            echo 'Invalid CSRF token.';
-
-            exit;
-        }
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Controllers\UploadDownloadCsv\DownloadController;
 use App\Controllers\UploadDownloadCsv\UploadController;
+use Domain\Report\Service\UploadService;
 use System\request\FileDownloadRequest;
 use System\request\FileUploadRequest;
 
@@ -15,12 +16,12 @@ if (!isset($router) || !($router instanceof Bramus\Router\Router)) {
  * Simply displays the upload page
  */
 $router->get('/upload', function () {
-    $uploadController = new UploadController();
+    $uploadController = new UploadController(new UploadService());
     $uploadController->loadPage();
 });
 
 /*
- * Saves the uploaded image or .csv file into the app
+ * Saves the uploaded .csv file into the app
  */
 $router->post('/upload', function () {
 
@@ -29,7 +30,7 @@ $router->post('/upload', function () {
      * as soon as it is created as an object. So this object (has the uploaded file) is then sent
      * as an argument to the store() method.
      */
-    $uploadController = new UploadController();
+    $uploadController = new UploadController(new UploadService());
     $uploadController->store(new FileUploadRequest());
 });
 

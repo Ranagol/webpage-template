@@ -5,9 +5,10 @@ namespace Domain\Report\Service;
 use App\Exceptions\BaseException;
 use App\Models\User;
 use Domain\Report\CsvReader\CsvReader;
+use Domain\Report\Interfaces\UploadServiceInterface;
 use Domain\Report\ReportDomain\CsvFile;
 
-class UploadService
+class UploadService implements UploadServiceInterface
 {
     /**
      *  this is = to $_FILES now, we can treat $uploadData as the $_FILES.
@@ -48,8 +49,25 @@ class UploadService
      */
     private float $maxFileSize = 5 * 1024 * 1024;
 
+    /**
+     * This function checks the CSRF token, if it is not valid, then an exception will be thrown.
+     *
+     * @throws BaseException
+     */
+    public function checkCsrfToken(?string $csrfToken): void
+    {
+        if (!validateCsrfToken($csrfToken)) {
+            if (!headers_sent()) {
+                header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+            }
+            echo 'Invalid CSRF token.';
+
+            exit;
+        }
+    }
+
     /** @param array<string, mixed> $uploadData */
-    public function __construct(array $uploadData)
+    public function setUploadData(array $uploadData): void
     {
         $this->uploadData = $uploadData;
     }
