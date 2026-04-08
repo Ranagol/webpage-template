@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Domain\HeroesAndMonsters\Classes\Characters\Heroes;
 
-namespace Domain\HeroesAndMonsters\Classes\Characters\Heroes;
-
 use Domain\HeroesAndMonsters\Classes\GameObjects\Magic;
 use Domain\HeroesAndMonsters\Classes\GameObjects\Weapon;
 use Domain\HeroesAndMonsters\Exceptions\WizardCanNotUseWeaponException;
@@ -63,10 +61,6 @@ class Wizard extends Hero
      */
     public function pickUpWeapon(Weapon $weapon): void
     {
-        try {
-            throw new WizardCanNotUseWeaponException();
-        } catch (WizardCanNotUseWeaponException $e) {
-            Logger::getInstance()->log('Wizard tried to pick up a weapon, which is forbidden.');
-        }
+        throw new WizardCanNotUseWeaponException();
     }
 }

@@ -19,10 +19,8 @@ class Logger
 
     /**
      * The path to the file, where all logs are written.
-     *
-     * @var string
      */
-    private $path = __DIR__ . '/../../storage/logs/myLogs.txt';
+    private string $path = __DIR__ . '/../../storage/logs/myLogs.txt';
 
     /**
      * This is deliberatly a private construct.
@@ -47,7 +45,7 @@ class Logger
      */
     public static function getInstance(): self
     {
-        if (null === self::$instance) {
+        if (self::$instance === null) {
             self::$instance = new Logger();
         }
 

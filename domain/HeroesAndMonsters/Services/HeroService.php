@@ -12,6 +12,7 @@ use Domain\HeroesAndMonsters\Classes\FightManager;
 use Domain\HeroesAndMonsters\Classes\GameObjects\Lance;
 use Domain\HeroesAndMonsters\Classes\GameObjects\Magic;
 use Domain\HeroesAndMonsters\Classes\GameObjects\Sword;
+use Domain\HeroesAndMonsters\Exceptions\WizardCanNotUseWeaponException;
 use Domain\HeroesAndMonsters\Interfaces\HeroServiceInterface;
 use Domain\HeroesAndMonsters\Logs\Logger;
 
@@ -67,7 +68,12 @@ class HeroService implements HeroServiceInterface
          */
         // Logger::getInstance()->log('Wizard actions');
         $wizard->learnMagic($magic);
-        $wizard->pickUpWeapon($sword);
+
+        try {
+            $wizard->pickUpWeapon($sword);
+        } catch (WizardCanNotUseWeaponException $e) {
+            Logger::getInstance()->log('Wizard tried to pick up a weapon, which is forbidden.');
+        }
 
         /**
          * Fight 1.
