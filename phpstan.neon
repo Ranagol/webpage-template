@@ -10,6 +10,7 @@ parameters:
         - routes
         - system
         - tests
+        - domain
 
     # Avoid analyzing generated/cache artifacts that cause noise and memory bloat
     excludePaths:
