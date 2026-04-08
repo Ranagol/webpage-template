@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers\UploadDownloadCsv;
 
 use App\Controllers\Controller;
+use App\Exceptions\BaseException;
 use Domain\Report\Interfaces\UploadServiceInterface;
 use System\request\RequestInterface;
 
@@ -51,20 +52,22 @@ class UploadController extends Controller
 
         try {
 
+            // Give the service all upload data, so it can handle the upload process.
             $this->uploadService->setUploadData($uploadData);
 
+            // Handle upload
             $file = $this->uploadService->storeFile();
 
-            // This is the report that we want to display for the user, after the upload is successfull.
+            // This is the report that we want to display for the user, after the upload is successful.
             $report = $file->getReport();
 
             /**
              * Feedback message for the user, display in the upload view.
              */
-            $message = 'Your upload was successfull.';
+            $message = 'Your upload was successful.';
             $alertType = 'alert-success';
 
-        } catch (\Exception $error) {
+        } catch (BaseException $error) {
             $additionalInfo = $error->getMessage();
             $message = 'Upload failed. Please verify the file and try again. ' . $additionalInfo;
             $alertType = 'alert-warning';

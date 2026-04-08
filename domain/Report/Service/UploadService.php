@@ -99,7 +99,7 @@ class UploadService implements UploadServiceInterface
     {
         $uploadData = $this->getUploadData();
 
-        if (isset($uploadData['file']) && is_array($uploadData['file']) && 0 == $uploadData['file']['error']) {
+        if (isset($uploadData['file']) && is_array($uploadData['file']) && 0 === $uploadData['file']['error']) {
             $originalName = (string) ($uploadData['file']['name'] ?? 'upload.csv');
 
             // Prevent double-extension attacks: reject files with multiple dots before extension
