@@ -36,15 +36,12 @@ class RegisterService implements RegisterServiceInterface
     public function extractDataFromRequest(array $requestData): User
     {
         // Extracting the registering data from the request
-        $password = $requestData['password'] ?? '';
-        $hash = \password_hash($password, PASSWORD_DEFAULT);
-
         $user = new User();
         $user->username = trim((string) ($requestData['username'] ?? ''));
         $user->firstname = trim((string) ($requestData['firstname'] ?? ''));
         $user->lastname = trim((string) ($requestData['lastname'] ?? ''));
         $user->email = strtolower(trim((string) ($requestData['email'] ?? '')));
-        $user->password = $hash;
+        $user->password = $requestData['password'] ?? '';
 
         return $user;
     }
@@ -70,35 +67,33 @@ class RegisterService implements RegisterServiceInterface
     }
 
     /**
+     * Hashes the user's password.
+     */
+    public function hashPassword(string $password): string
+    {
+        return password_hash($password, PASSWORD_DEFAULT);
+    }
+
+    /**
      * When a user is successfully authenticated, this function
      * automatically logs in the user, after the registration. Aka:
      * a newly registered user gets automatically logged in.
      */
-    public function loginUser(string $email): void
+    public function loginUser(User $user): void
     {
-        /**
-         * The user is just freshly registered. We want to find this user in the db.
-         */
-        $user = User::where('email', '=', $email)->first();
-
-        if ($user !== null) {
-            if (PHP_SESSION_ACTIVE !== session_status()) {
-                session_start();
-            }
-
-            // Regenerate session ID to prevent session fixation after auto-login.
-            session_regenerate_id(true);
-
-            $id = $user->id;
-            $username = $user->username;
-
-            /*
-             * We store the users login status in the $_SESSION superglobal.
-             */
-            $_SESSION['loggedin'] = true;
-            $_SESSION['id'] = $id;
-            $_SESSION['username'] = $username;
+        if (PHP_SESSION_ACTIVE !== session_status()) {
+            session_start();
         }
+
+        // Regenerate session ID to prevent session fixation after auto-login.
+        session_regenerate_id(true);
+
+        /*
+            * We store the users login status in the $_SESSION superglobal.
+            */
+        $_SESSION['loggedin'] = true;
+        $_SESSION['id'] = $user->id;
+        $_SESSION['username'] = $user->username;
     }
 
     public function returnTestUser(): User

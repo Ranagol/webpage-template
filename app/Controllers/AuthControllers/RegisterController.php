@@ -73,10 +73,13 @@ class RegisterController extends Controller
                 $user->lastname
             );
 
+            $hashedPassword = $this->registerService->hashPassword($user->password);
+            $user->password = $hashedPassword;
+
             $user->save();
 
             // automatic login, after a successful registration
-            $this->registerService->loginUser($user->email);
+            $this->registerService->loginUser($user);
 
             // Redirect to home page after successful registration and login
             redirect('/');

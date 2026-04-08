@@ -31,5 +31,7 @@ interface RegisterServiceInterface
         string $lastname,
     ): void;
 
-    public function loginUser(string $email): void;
+    public function hashPassword(string $password): string;
+
+    public function loginUser(User $user): void;
 }
