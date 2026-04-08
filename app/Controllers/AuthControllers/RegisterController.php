@@ -7,6 +7,7 @@ namespace App\Controllers\AuthControllers;
 use App\Controllers\Controller;
 use App\Exceptions\ValidationException;
 use App\Models\User;
+use App\Services\RegisterService;
 use App\Validators\RegisterValidator;
 use Illuminate\Database\QueryException;
 use System\request\RequestInterface;
@@ -16,11 +17,22 @@ use System\request\RequestInterface;
  */
 class RegisterController extends Controller
 {
+    private RegisterService $registerService;
+
+    public function __construct()
+    {
+        $this->registerService = new RegisterService();
+    }
+
     /**
      * Loads the register page.
      */
     public function loadPage(): void
     {
+        // Check if the user is already logged in, if yes then redirect him to home page.
+        $this->registerService->redirectAlreadyLoggedInUser();
+
+        // Load the register page.
         $this->view('register');
     }
 

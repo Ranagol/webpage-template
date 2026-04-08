@@ -7,17 +7,17 @@ namespace App\Controllers\AuthControllers;
 use App\Controllers\Controller;
 use App\Exceptions\CantFindUserException;
 use App\Exceptions\ValidationException;
-use App\Services\LoginService;
+use App\Interfaces\LoginServiceInterface;
 use System\request\RequestInterface;
 
 class LoginController extends Controller
 {
-    private LoginService $loginService;
+    private LoginServiceInterface $loginService;
 
-    public function __construct()
+    public function __construct(LoginServiceInterface $loginService)
     {
         parent::__construct();
-        $this->loginService = new LoginService();
+        $this->loginService = $loginService;
     }
 
     /**

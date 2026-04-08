@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Exceptions\CantFindUserException;
+use App\Interfaces\LoginServiceInterface;
 use App\Models\User;
 use App\Validators\LoginValidator;
 
-class LoginService
+class LoginService implements LoginServiceInterface
 {
     public function checkCsrf(?string $csrfToken): void
     {
