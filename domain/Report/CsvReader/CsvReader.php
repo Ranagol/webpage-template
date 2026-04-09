@@ -29,11 +29,35 @@ class CsvReader
 
     private CsvFile $csvFile;
 
-    public function __construct(string $email, string $fileName)
+    public function process(string $email, string $fileName): void
     {
         $this->createFilePath($email, $fileName);
         $this->createFilePointer();
         $this->readCsvFile();
+    }
+
+    /**
+     * Get the value of csvFile.
+     */
+    public function getCsvFile(): CsvFile
+    {
+        return $this->csvFile;
+    }
+
+    /**
+     * Get the value of fileNameWithPath.
+     */
+    private function getFileNameWithPath(): string
+    {
+        return $this->fileNameWithPath;
+    }
+
+    /**
+     * Get the value of filePointer.
+     */
+    private function getFilePointer(): mixed
+    {
+        return $this->filePointer;
     }
 
     /**
@@ -45,7 +69,6 @@ class CsvReader
         $rowCount = 0;
 
         try {
-            // $file = fopen($this->getFileNameWithPath(), 'r');
 
             // this is how we can read csv file line by line. The result will be an array o arrays.
             while (($lineFromCsv = fgetcsv($this->getFilePointer())) !== false) {
@@ -113,29 +136,5 @@ class CsvReader
         $path = __DIR__ . '/../../../storage/upload/' . $email . '/' . $safeFileName;
 
         $this->fileNameWithPath = $path;
-    }
-
-    /**
-     * Get the value of fileNameWithPath.
-     */
-    public function getFileNameWithPath(): string
-    {
-        return $this->fileNameWithPath;
-    }
-
-    /**
-     * Get the value of filePointer.
-     */
-    public function getFilePointer(): mixed
-    {
-        return $this->filePointer;
-    }
-
-    /**
-     * Get the value of csvFile.
-     */
-    public function getCsvFile(): CsvFile
-    {
-        return $this->csvFile;
     }
 }

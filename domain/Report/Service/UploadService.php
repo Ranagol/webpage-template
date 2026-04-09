@@ -196,7 +196,8 @@ class UploadService implements UploadServiceInterface
     {
         // finds and reads the uploaded .csv file
         if ('application/vnd.ms-excel' === $this->getFileType() || 'text/csv' === $this->getFileType()) {
-            $csvReader = new CsvReader($this->getUserEmail(), $this->getFileName());
+            $csvReader = new CsvReader();
+            $csvReader->process($this->getUserEmail(), $this->getFileName());
             $csvFile = $csvReader->getCsvFile();
 
             return $csvFile;
