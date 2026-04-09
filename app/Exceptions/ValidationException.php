@@ -10,4 +10,25 @@ namespace App\Exceptions;
  */
 class ValidationException extends BaseException
 {
+    /**
+     * @var array<string, string>
+     */
+    private array $errors;
+
+    /**
+     * @param array<string, string> $errors
+     */
+    public function __construct(array $errors, int $code = 422)
+    {
+        parent::__construct('Validation error.', $code);
+        $this->errors = $errors;
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function getErrors(): array
+    {
+        return $this->errors;
+    }
 }

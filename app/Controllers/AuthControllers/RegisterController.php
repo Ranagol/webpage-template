@@ -86,21 +86,19 @@ class RegisterController extends Controller
             // Redirect to home page after successful registration and login
             redirect('/');
 
-        } catch (ValidationException $errors) {
+        } catch (ValidationException $validationException) {
 
-            /**
+            /*
              * in case of validation errors here we return
              * 1 - the validation errors
              * 2 - all previous input field values to be displayed
              * again for the user, so he could correct them without typing everything from the
              * beginning.
              */
-            $errors = json_decode($errors->getMessage(), true);
-
             $this->view(
                 'register',
                 [
-                    'errors' => $errors,
+                    'errors' => $validationException->getErrors(),
                     'username' => $user->username,
                     'firstname' => $user->firstname,
                     'lastname' => $user->lastname,

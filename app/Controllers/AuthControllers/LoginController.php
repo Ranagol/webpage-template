@@ -78,18 +78,17 @@ class LoginController extends Controller
             // If authenticated, redirect to home page
             redirect('/');
 
-        } catch (ValidationException $errors) {
-            $errors = json_decode($errors->getMessage(), true);
+        } catch (ValidationException $validationException) {
             $this->view(
                 'login',
                 [
-                    'errors' => $errors,
+                    'errors' => $validationException->getErrors(),
                     'email' => $email,
                 ]
             );
 
             return;
-        } catch (CantFindUserException $error) {
+        } catch (CantFindUserException $cantFindUserException) {
             $isAuthenticated = false;
             $this->view('login', ['isAuthenticated' => $isAuthenticated]);
 

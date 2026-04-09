@@ -36,11 +36,7 @@ abstract class AuthValidator
     protected function checkForValidationErrors(): bool
     {
         if (count($this->errors) > 0) {
-            $msg = json_encode($this->errors);
-            if ($msg === false) {
-                $msg = 'Validation error.';
-            }
-            throw new ValidationException((string) $msg, 422);
+            throw new ValidationException($this->errors, 422);
         }
 
         return true;
