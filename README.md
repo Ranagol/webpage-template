@@ -98,4 +98,5 @@ public/
 ## 📌 Notes
 
 This project is intended as a learning and portfolio project, showcasing backend development skills and architectural understanding.
-
+Controllers are instantiated per route using factories for simplicity. This project intentionally 
+avoids a DI container to keep the architecture transparent and framework-independent.

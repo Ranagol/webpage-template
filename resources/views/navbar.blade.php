@@ -1,28 +1,28 @@
-{{-- <!-- We must start session on every page, where we want to use the $_SESSION superglobal, othewise it won't work. --> --}}
-@if(session_status() === PHP_SESSION_NONE)
-    session_start(); 
-@endif
-
 @php
+    /**
+     *  We must start session on every page, where we want to use the $_SESSION superglobal, 
+     * othewise it won't work
+     */
+    if (session_status() === PHP_SESSION_NONE){
+        session_start();
+    }
+
 	$currentPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 	$isLoggedIn = isset($_SESSION['username']);
+
 	$normalizePath = static function (string $path): string {
 		return rtrim($path, '/') ?: '/';
 	};
+
 	$isActive = static function (string $routePath) use ($currentPath, $normalizePath): bool {
 		return $normalizePath($currentPath) === $normalizePath($routePath);
 	};
 
-    // echo '<pre>';
-    //     print_r($_SESSION);
-    // echo '</pre>';
 @endphp
 
 <div class="container nav-wrap">
 	<nav class="navbar navbar-expand-lg navbar-light app-navbar">
 		<a class="navbar-brand" href="/">Andor's challenges</a>
-
-        
 
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
