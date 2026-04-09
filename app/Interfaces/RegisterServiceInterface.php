@@ -8,6 +8,8 @@ use App\Models\User;
 
 interface RegisterServiceInterface
 {
+    public function checkForDuplicateEmail(string $email): void;
+
     public function redirectAlreadyLoggedInUser(): void;
 
     /**

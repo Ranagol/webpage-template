@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Controllers\AuthControllers;
 
 use App\Controllers\Controller;
+use App\Exceptions\DuplicateEmailException;
 use App\Exceptions\ValidationException;
 use App\Interfaces\RegisterServiceInterface;
-use Illuminate\Database\QueryException;
 use System\request\RequestInterface;
 
 /**
@@ -62,6 +62,8 @@ class RegisterController extends Controller
 
         try {
 
+            $this->registerService->checkForDuplicateEmail($user->email);
+
             // This below is for testing purposes, to avoid the registration form validation every time, when I want to test the login functionality. So, instead of extracting the user data from the request, I return a test user with valid data. This way I can easily test the login functionality, without going through the registration form every time.
             // $user = $this->registerService->returnTestUser();
 
@@ -106,7 +108,7 @@ class RegisterController extends Controller
                 ]
             );
 
-        } catch (QueryException $exception) {
+        } catch (DuplicateEmailException $exception) {
 
             // Gracefully handle duplicate email attempts without exposing DB internals.
             $this->view(

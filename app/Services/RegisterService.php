@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Exceptions\DuplicateEmailException;
 use App\Interfaces\RegisterServiceInterface;
 use App\Interfaces\RegisterValidatorInterface;
 use App\Models\User;
@@ -15,6 +16,14 @@ class RegisterService implements RegisterServiceInterface
     public function __construct(RegisterValidatorInterface $registerValidator)
     {
         $this->registerValidator = $registerValidator;
+    }
+
+    public function checkForDuplicateEmail(string $email): void
+    {
+        $existingUser = User::where('email', $email)->first();
+        if ($existingUser) {
+            throw new DuplicateEmailException('Email already exists.');
+        }
     }
 
     /**
