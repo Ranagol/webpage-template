@@ -49,7 +49,7 @@ class WeaponBag extends GameObject
      */
     public function removeActiveWeapon(): Weapon
     {
-        if (0 == count($this->weapons)) {
+        if (count($this->weapons) === 0) {
             throw new NoWeaponException();
         }
 
@@ -68,7 +68,7 @@ class WeaponBag extends GameObject
      */
     public function getActiveWeapon(): ?Weapon
     {
-        if (0 == count($this->weapons)) {
+        if (count($this->weapons) === 0) {
             return null;
         }
 
@@ -83,11 +83,11 @@ class WeaponBag extends GameObject
      */
     public function switchWeapon(): void
     {
-        if (0 == count($this->weapons)) {
+        if (count($this->weapons) === 0) {
             throw new NoWeaponException();
         }
 
-        if (1 == count($this->weapons)) {
+        if (count($this->weapons) === 1) {
             throw new CantSwitchOneWeaponException();
         }
 
