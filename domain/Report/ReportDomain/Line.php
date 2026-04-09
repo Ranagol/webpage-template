@@ -17,7 +17,6 @@ class Line
         $this->category = $category;
         $this->price = $price;
         $this->amount = $amount;
-        $x = 8;
     }
 
     public function getLineSum(): float
@@ -25,7 +24,6 @@ class Line
         $price = $this->getPrice()->getPrice();
         $amount = $this->getAmount()->getAmount();
         $result = $price * $amount;
-        $c = 8;
 
         return $result;
     }

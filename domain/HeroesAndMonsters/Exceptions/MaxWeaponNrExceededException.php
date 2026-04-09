@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Domain\HeroesAndMonsters\Exceptions;
 
-namespace Domain\HeroesAndMonsters\Exceptions;
-
 class MaxWeaponNrExceededException extends BaseException
 {
     public function __construct(
