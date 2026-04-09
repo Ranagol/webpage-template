@@ -14,6 +14,7 @@ use App\Controllers\UploadDownloadCsv\DownloadController;
 use App\Controllers\UploadDownloadCsv\UploadController;
 use App\Services\LoginService;
 use App\Services\RegisterService;
+use App\Validators\LoginValidator;
 use App\Validators\RegisterValidator;
 use Domain\HeroesAndMonsters\Services\HeroService;
 use Domain\Report\Service\UploadService;
@@ -78,19 +79,19 @@ $router->post('/register', function () {
 
 // login page loading
 $router->get('/login', function () {
-    $loginController = new LoginController(new LoginService());
+    $loginController = new LoginController(new LoginService(new LoginValidator()));
     $loginController->loadPage();
 });
 
 // logging in a user
 $router->post('/login', function () {
-    $loginController = new LoginController(new LoginService());
+    $loginController = new LoginController(new LoginService(new LoginValidator()));
     $loginController->login(new WebPageRequest());
 });
 
 // logout
 $router->post('/logout', function () {
-    $loginController = new LoginController(new LoginService());
+    $loginController = new LoginController(new LoginService(new LoginValidator()));
     $loginController->logout();
 });
 

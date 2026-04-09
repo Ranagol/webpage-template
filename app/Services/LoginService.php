@@ -8,10 +8,14 @@ use App\Exceptions\CantFindUserException;
 use App\Interfaces\LoginServiceInterface;
 use App\Interfaces\LoginValidatorInterface;
 use App\Models\User;
-use App\Validators\LoginValidator;
 
 class LoginService implements LoginServiceInterface
 {
+    public function __construct(
+        private LoginValidatorInterface $loginValidator,
+    ) {
+    }
+
     /**
      * Checks if the email and the password from the input fields are = to the
      * username and password from the db.
@@ -78,9 +82,8 @@ class LoginService implements LoginServiceInterface
     public function validateLoginData(
         string $email,
         string $password,
-        LoginValidatorInterface $loginValidator = new LoginValidator(),
     ): void {
-        $loginValidator->validate($email, $password);
+        $this->loginValidator->validate($email, $password);
     }
 
     /**
