@@ -29,14 +29,15 @@ class Application
 
         require_once __DIR__ . '/../vendor/autoload.php';
 
+        // dotenv setup
+        require __DIR__ . '/../bootstrap/bootDotenv.php';
+
         // Here we do Eloquent setup
         require __DIR__ . '/../bootstrap/bootEloquent.php';
 
         // router setup
         require __DIR__ . '/../routes/routes.php';
 
-        // dotenv setup
-        require __DIR__ . '/../bootstrap/bootDotenv.php';
     }
 
     /**
