@@ -7,6 +7,7 @@ namespace Tests\Feature;
 use App\Application;
 use App\Controllers\AuthControllers\LoginController;
 use App\Services\LoginService;
+use App\Validators\LoginValidator;
 use PHPUnit\Framework\TestCase;
 
 final class LoginControllerTest extends TestCase
@@ -16,7 +17,7 @@ final class LoginControllerTest extends TestCase
         // Bootstrap the app (no session, no output)
         Application::bootstrap();
 
-        $loginController = new LoginController(new LoginService());
+        $loginController = new LoginController(new LoginService(new LoginValidator()));
 
         // Capture output
         ob_start();

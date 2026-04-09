@@ -24,7 +24,7 @@ abstract class AuthValidator
      *
      * @var string[]
      */
-    protected $errors = [];
+    protected array $errors = [];
 
     /**
      * After the end of the validation process, this function checks if there are

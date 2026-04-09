@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Domain\HeroesAndMonsters\Classes\GameObjects;
 
-namespace Domain\HeroesAndMonsters\Classes\GameObjects;
-
 use Domain\HeroesAndMonsters\Logs\EventLogger;
 
 /**

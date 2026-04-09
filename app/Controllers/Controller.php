@@ -15,24 +15,18 @@ class Controller
      * The Blade instance. The full Blade setup is happening here in the Controller class. Any class
      * that inherits this class will have access to the Blade instance. So all controllers that need
      * to display blade views will inherit this class.
-     *
-     * @var Blade
      */
-    protected $blade;
+    protected Blade $blade;
 
     /**
      * The views directory.
-     *
-     * @var string
      */
-    protected $views;
+    protected string $views;
 
     /**
      * The cache directory.
-     *
-     * @var string
      */
-    protected $cache;
+    protected string $cache;
 
     /**
      * The constructor.
