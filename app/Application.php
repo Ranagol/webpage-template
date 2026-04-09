@@ -27,11 +27,16 @@ class Application
             ini_set('display_startup_errors', '1');
         }
 
-        // Autoload
         require_once __DIR__ . '/../vendor/autoload.php';
 
-        // Bootstrap helpers, config, routes, etc.Routing is triggered here.
-        require_once __DIR__ . '/../bootstrap/bootstrap.php';
+        // Here we do Eloquent setup
+        require __DIR__ . '/../bootstrap/bootEloquent.php';
+
+        // router setup
+        require __DIR__ . '/../routes/routes.php';
+
+        // dotenv setup
+        require __DIR__ . '/../bootstrap/bootDotenv.php';
     }
 
     /**
