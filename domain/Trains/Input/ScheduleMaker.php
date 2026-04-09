@@ -112,7 +112,7 @@ class ScheduleMaker
     {
         $line = array_shift($lines);
 
-        $numberOfTrains = explode(' ', $line);
+        $numberOfTrains = explode(' ', $line ?? '');
         $numberOfTrainsAb = (int) $numberOfTrains[0];
         $numberOfTrainsBa = (int) $numberOfTrains[1];
 
@@ -135,7 +135,7 @@ class ScheduleMaker
 
         for ($i = 0; $i < $numberOfTrains; ++$i) {
             $line = array_shift($lines);
-            $times = explode(' ', $line);
+            $times = explode(' ', $line ?? '');
 
             // Extract departure time need to create a train object
             $departureTime = $times[0];

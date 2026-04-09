@@ -1,5 +1,5 @@
 parameters:
-    level: 6
+    level: 8
 
     # Analyze the actual source directories by default
     paths:
@@ -7,9 +7,9 @@ parameters:
         - bootstrap
         - database
         - resources
+        - domain
         - routes
         - system
-        - tests
         - domain
 
     # Avoid analyzing generated/cache artifacts that cause noise and memory bloat
@@ -33,7 +33,7 @@ parameters:
 
     ignoreErrors:
 
-        # Show errors only in code, not things in docblocks
+        # Show real errors in the code, not timewaster dockblock warnings
         - '#PHPDoc#'
         - '#@param#'
         - '#@return#'
