@@ -27,13 +27,6 @@ class Application
             ini_set('display_startup_errors', '1');
         }
 
-        // Show all errors EXCEPT deprecated warnings
-        error_reporting(E_ALL & ~E_DEPRECATED);
-        // Shows runtime errors directly in the browser output
-        ini_set('display_errors', '1');
-        // Shows errors that happen during PHP startup
-        ini_set('display_startup_errors', '1');
-
         // Autoload
         require_once __DIR__ . '/../vendor/autoload.php';
 
