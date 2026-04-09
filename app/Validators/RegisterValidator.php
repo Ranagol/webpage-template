@@ -27,16 +27,13 @@ class RegisterValidator extends AuthValidator implements RegisterValidatorInterf
         string $firstname,
         string $lastname,
     ): void {
+        $this->errors = [];
         $this->validateUsername($username);
         $this->validateFirstname($firstname);
         $this->validateLastname($lastname);
         $this->validateEmail($email);
         $this->validatePassword($password);
         $this->validatePasswordStrength($password);
-
-        /*
-         * Here we check if there are validation errors. If so, an exception is thrown.
-         */
         $this->checkForValidationErrors();
     }
 

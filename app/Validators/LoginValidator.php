@@ -17,12 +17,9 @@ class LoginValidator extends AuthValidator implements LoginValidatorInterface
      */
     public function validate(string $email, string $password): void
     {
+        $this->errors = [];
         $this->validateEmail($email);
         $this->validatePassword($password);
-
-        /*
-         * Here we check if there are validation errors. If so, an exception is thrown.
-         */
         $this->checkForValidationErrors();
     }
 }
