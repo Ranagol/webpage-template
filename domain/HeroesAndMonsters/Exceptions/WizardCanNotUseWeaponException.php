@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Domain\HeroesAndMonsters\Exceptions;
 
-namespace Domain\HeroesAndMonsters\Exceptions;
-
-class WizardCanNotUseWeaponException extends \Exception
+class WizardCanNotUseWeaponException extends BaseException
 {
     public function __construct(
         string $message = 'Wizards can not use weapons!',
