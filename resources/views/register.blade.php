@@ -14,7 +14,7 @@
     <form action="/register" method="post">
 
         {{-- CSRF TOKEN  --}}
-         <input type="hidden" name="csrf_token" value="{{ createCsrfToken() }}">
+         <input type="hidden" name="csrf_token" value="{{ \App\Application::createCsrfToken() }}">
 
 
         <div class="form-group">

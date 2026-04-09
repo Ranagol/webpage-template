@@ -96,7 +96,7 @@ there is a validation logic, that can - if needed - create error messages. -->
         enctype="multipart/form-data" 
         class="form-group upload-form mb-0"
     >
-        <input type="hidden" name="csrf_token" value="{{ createCsrfToken() }}">
+        <input type="hidden" name="csrf_token" value="{{ \App\Application::createCsrfToken() }}">
         <div class="upload-section-head">
             <div>
                 <h2 class='mt-0'>Upload file</h2>
@@ -175,7 +175,7 @@ This is the report that can be downloaded. -->
         method="POST"
         class="upload-report-actions"
     >
-        <input type="hidden" name="csrf_token" value="{{ createCsrfToken() }}">
+        <input type="hidden" name="csrf_token" value="{{ \App\Application::createCsrfToken() }}">
         <button 
             class='btn btn-success'
         >Download report</button>

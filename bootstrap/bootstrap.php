@@ -12,28 +12,6 @@ require __DIR__ . '/../routes/routes.php';
 require __DIR__ . '/../bootstrap/bootDotenv.php';
 
 /**
- * Returns a CSRF token and stores it in the current session. This is used on the frontend, to create
- * a CSRF token.FRONTEND.
- */
-function createCsrfToken(): string
-{
-    // Check is session is started, if not, start it.
-    if (session_status() !== PHP_SESSION_ACTIVE) {
-        session_start();
-    }
-
-    // Check is there is a csrf token in the session, and if it is a string.
-    if (!isset($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
-
-        // If not, create a new one and store it in the session.
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-    }
-
-    // Return the csrf token from the session to the frontend
-    return $_SESSION['csrf_token'];
-}
-
-/**
  * BACKEND.
  */
 function checkCsrfToken(?string $tokenFromFrontend): void
