@@ -245,17 +245,11 @@ class UploadService implements UploadServiceInterface
         return sprintf('%s_%s.%s', date('YmdHis'), bin2hex(random_bytes(8)), $extension);
     }
 
-    /**
-     * Get the value of fileName.
-     */
     public function getFileName(): string
     {
         return $this->fileName;
     }
 
-    /**
-     * Set the value of fileName.
-     */
     public function setFileName(string $fileName): self
     {
         $this->fileName = $fileName;
@@ -263,17 +257,11 @@ class UploadService implements UploadServiceInterface
         return $this;
     }
 
-    /**
-     * Get the value of fileType.
-     */
     public function getFileType(): string
     {
         return $this->fileType;
     }
 
-    /**
-     * Set the value of fileType.
-     */
     public function setFileType(string $fileType): self
     {
         $this->fileType = $fileType;
@@ -281,17 +269,11 @@ class UploadService implements UploadServiceInterface
         return $this;
     }
 
-    /**
-     * Get the value of fileSize.
-     */
     public function getFileSize(): float
     {
         return $this->fileSize;
     }
 
-    /**
-     * Set the value of fileSize.
-     */
     public function setFileSize(float $fileSize): self
     {
         $this->fileSize = $fileSize;

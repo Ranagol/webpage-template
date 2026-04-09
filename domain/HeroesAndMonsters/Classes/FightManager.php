@@ -37,9 +37,9 @@ class FightManager
             $attacker = $this->whoWillAttack();
 
             if ($attacker instanceof Hero) {
-                $this->heroAttacks();
+                $this->attack($this->hero, $this->monster);
             } else {
-                $this->monsterAttacks();
+                $this->attack($this->monster, $this->hero);
             }
         }
         $this->announceWinner();
@@ -61,45 +61,28 @@ class FightManager
 
     }
 
-    private function heroAttacks(): void
+    private function attack(Hero|Monster $attacker, Hero|Monster $defender): void
     {
-        $heroAttack = $this->hero->getAttackType();
-        $attackType = $heroAttack['attackType'];
-        $damage = $heroAttack['damage'];
-        $this->monster->decreaseHealth($damage);
-        EventLogger::getInstance()->log(
-            $this->hero->getClassName()
-            . ' used '
-            . $attackType
-            . ' and caused '
-            . $damage
-            . ' damage to '
-            . $this->monster->getClassName()
-            . '.'
-            . $this->displayHealthPoints()
-        );
-    }
+        $attack = $attacker->getAttackType();
+        $attackType = $attack['attackType'];
+        $damage = $attack['damage'];
+        $defender->decreaseHealth($damage);
 
-    private function monsterAttacks(): void
-    {
-        $monsterAttack = $this->monster->getAttackType();
-        $attackType = $monsterAttack['attackType'];
-        $damage = $monsterAttack['damage'];
-        $this->hero->decreaseHealth($damage);
         EventLogger::getInstance()->log(
-            $this->monster->getClassName()
+            $attacker->getClassName()
             . ' used '
             . $attackType
             . ' and caused '
             . $damage
             . ' damage to '
-            . $this->hero->getClassName()
+            . $defender->getClassName()
             . '.'
             . $this->displayHealthPoints()
         );
     }
 
     /**
+     * Displays like:
      * Warrior HP: 100 - Dragon HP: 120.
      */
     private function displayHealthPoints(): string
