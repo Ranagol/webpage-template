@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers\UploadDownloadCsv;
 
+use App\Application;
 use App\Controllers\Controller;
 use App\Exceptions\BaseException;
 use Domain\Report\Interfaces\UploadServiceInterface;
@@ -48,7 +49,7 @@ class UploadController extends Controller
         $uploadData = $request->getAllRequestData();
 
         $csrfToken = $uploadData['csrf_token'] ?? null;
-        checkCsrfToken($csrfToken);
+        Application::checkCsrfToken($csrfToken);
 
         try {
 

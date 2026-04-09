@@ -52,7 +52,7 @@ class LoginController extends Controller
 
         // Check CSRF token validity
         $csrfToken = $requestData['csrf_token'] ?? null;
-        checkCsrfToken($csrfToken);
+        Application::checkCsrfToken($csrfToken);
 
         // check if the user is already logged in. If so, the user will be redirected to home page.
         $this->loginService->redirectAlreadyLoggedInUser();
@@ -103,7 +103,7 @@ class LoginController extends Controller
     public function logout(): void
     {
         $csrfToken = $_POST['csrf_token'] ?? null;
-        checkCsrfToken($csrfToken);
+        Application::checkCsrfToken($csrfToken);
 
         // Initialize the session
         if (PHP_SESSION_ACTIVE !== session_status()) {

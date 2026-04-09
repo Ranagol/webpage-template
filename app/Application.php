@@ -74,7 +74,7 @@ class Application
     }
 
     /**
-     * BACKEND.
+     * Checks csrf token on BACKEND.
      */
     public static function checkCsrfToken(?string $tokenFromFrontend): void
     {
@@ -91,7 +91,7 @@ class Application
      * Validates an incoming CSRF token against the one in the current session. This is used on the
      * backend, in controllers. BACKEND.
      */
-    public static function validateCsrfToken(?string $tokenFromFrontend): bool
+    private static function validateCsrfToken(?string $tokenFromFrontend): bool
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();

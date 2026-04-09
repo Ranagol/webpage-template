@@ -30,14 +30,8 @@ class DownloadController extends Controller
 
         $requestData = $request->getAllRequestData();
 
-        if (!validateCsrfToken($requestData['csrf_token'] ?? null)) {
-            if (!headers_sent()) {
-                header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-            }
-            echo 'Invalid CSRF token.';
-
-            return;
-        }
+        $csrfToken = $requestData['csrf_token'] ?? null;
+        Application::checkCsrfToken($csrfToken);
 
         $dataToDownload = $requestData['downloadRequest'] ?? null;
         if (!is_array($dataToDownload)) {
