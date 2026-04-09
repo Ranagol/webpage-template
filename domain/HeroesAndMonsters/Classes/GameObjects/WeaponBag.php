@@ -25,7 +25,7 @@ class WeaponBag extends GameObject
 
     public function __construct()
     {
-        // this is deliberatly empty, we don't want to log every WeaponBag creation
+        parent::__construct(true); // Suppress logging for WeaponBag
     }
 
     /**

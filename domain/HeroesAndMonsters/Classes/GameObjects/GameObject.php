@@ -14,12 +14,14 @@ class GameObject
 {
     /**
      * This is the ultimate parent class. Every time when a child object is created, this creation
-     * needs to be logged, with the child class name.
+     * needs to be logged, with the child class name. Optionally, logging can be suppressed.
      */
-    public function __construct()
+    public function __construct(bool $suppressLog = false)
     {
-        $className = $this->getClassName();
-        EventLogger::getInstance()->log('A new ' . $className . ' has been created.');
+        if (!$suppressLog) {
+            $className = $this->getClassName();
+            EventLogger::getInstance()->log('A new ' . $className . ' has been created.');
+        }
     }
 
     /**
