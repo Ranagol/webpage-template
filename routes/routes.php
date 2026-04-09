@@ -2,9 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Controllers\AuthControllers\LoginController;
-
-use App\Controllers\AuthControllers\RegisterController;
 use App\Controllers\HeroController;
 use App\Controllers\HomeController;
 use App\Controllers\MvcController;
@@ -12,10 +9,7 @@ use App\Controllers\PageNotFoundController;
 use App\Controllers\TrainController;
 use App\Controllers\UploadDownloadCsv\DownloadController;
 use App\Controllers\UploadDownloadCsv\UploadController;
-use App\Services\LoginService;
-use App\Services\RegisterService;
-use App\Validators\LoginValidator;
-use App\Validators\RegisterValidator;
+use App\Factories\ControllerFactory;
 use Domain\HeroesAndMonsters\Services\HeroService;
 use Domain\Report\Service\UploadService;
 use System\request\FileDownloadRequest;
@@ -67,31 +61,31 @@ $router->before('POST', '/(upload|download-report)', function () {
 
 // register page loading
 $router->get('/register', function () {
-    $registerController = new RegisterController(new RegisterService(new RegisterValidator()));
+    $registerController = ControllerFactory::registerController();
     $registerController->loadPage();
 });
 
 // registering the user
 $router->post('/register', function () {
-    $registerController = new RegisterController(new RegisterService(new RegisterValidator()));
+    $registerController = ControllerFactory::registerController();
     $registerController->register(new WebPageRequest());
 });
 
 // login page loading
 $router->get('/login', function () {
-    $loginController = new LoginController(new LoginService(new LoginValidator()));
+    $loginController = ControllerFactory::loginController();
     $loginController->loadPage();
 });
 
 // logging in a user
 $router->post('/login', function () {
-    $loginController = new LoginController(new LoginService(new LoginValidator()));
+    $loginController = ControllerFactory::loginController();
     $loginController->login(new WebPageRequest());
 });
 
 // logout
 $router->post('/logout', function () {
-    $loginController = new LoginController(new LoginService(new LoginValidator()));
+    $loginController = ControllerFactory::loginController();
     $loginController->logout();
 });
 
