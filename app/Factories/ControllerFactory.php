@@ -7,11 +7,13 @@ namespace App\Factories;
 use App\Controllers\AuthControllers\LoginController;
 use App\Controllers\AuthControllers\RegisterController;
 use App\Controllers\HeroController;
+use App\Controllers\UploadDownloadCsv\UploadController;
 use App\Services\LoginService;
 use App\Services\RegisterService;
 use App\Validators\LoginValidator;
 use App\Validators\RegisterValidator;
 use Domain\HeroesAndMonsters\Services\HeroService;
+use Domain\Report\Service\UploadService;
 
 class ControllerFactory
 {
@@ -61,5 +63,15 @@ class ControllerFactory
     private static function heroService(): HeroService
     {
         return new HeroService();
+    }
+
+    public static function uploadController(): UploadController
+    {
+        return new UploadController(self::uploadService());
+    }
+
+    private static function uploadService(): UploadService
+    {
+        return new UploadService();
     }
 }

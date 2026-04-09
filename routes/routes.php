@@ -8,9 +8,7 @@ use App\Controllers\MvcController;
 use App\Controllers\PageNotFoundController;
 use App\Controllers\TrainController;
 use App\Controllers\UploadDownloadCsv\DownloadController;
-use App\Controllers\UploadDownloadCsv\UploadController;
 use App\Factories\ControllerFactory;
-use Domain\Report\Service\UploadService;
 use System\request\FileDownloadRequest;
 use System\request\FileUploadRequest;
 use System\request\WebPageRequest;
@@ -126,7 +124,7 @@ $router->get('/demonstrate', function () {
  * Simply displays the upload page
  */
 $router->get('/upload', function () {
-    $uploadController = new UploadController(new UploadService());
+    $uploadController = ControllerFactory::uploadController();
     $uploadController->loadPage();
 });
 
@@ -140,7 +138,7 @@ $router->post('/upload', function () {
      * as soon as it is created as an object. So this object (has the uploaded file) is then sent
      * as an argument to the store() method.
      */
-    $uploadController = new UploadController(new UploadService());
+    $uploadController = ControllerFactory::uploadController();
     $uploadController->store(new FileUploadRequest());
 });
 
@@ -154,7 +152,6 @@ $router->post('/download-report', function () {
 
 // ******************404 HANDLER******************************** */
 
-// Custom 404 Handler
 $router->set404(function () {
     header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
     $pageNotFoundController = new PageNotFoundController();
