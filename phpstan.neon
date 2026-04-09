@@ -33,5 +33,12 @@ parameters:
 
     ignoreErrors:
 
+        # Show errors only in code, not things in docblocks
+        - '#PHPDoc#'
+        - '#@param#'
+        - '#@return#'
+        - '#@var#'
+        - '#@throws#'
         # Stop complaining about missing iterable generics
-        - '#missingType\.iterableValue#'
+        - '#missingType#'
+
