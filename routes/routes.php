@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use App\Application;
-use App\Controllers\HeroController;
 use App\Controllers\HomeController;
 use App\Controllers\MvcController;
 use App\Controllers\PageNotFoundController;
@@ -11,7 +10,6 @@ use App\Controllers\TrainController;
 use App\Controllers\UploadDownloadCsv\DownloadController;
 use App\Controllers\UploadDownloadCsv\UploadController;
 use App\Factories\ControllerFactory;
-use Domain\HeroesAndMonsters\Services\HeroService;
 use Domain\Report\Service\UploadService;
 use System\request\FileDownloadRequest;
 use System\request\FileUploadRequest;
@@ -112,13 +110,13 @@ $router->get('/train-task', function () {
 
 // heroes and monsters page
 $router->get('/heroes-and-monsters', function () {
-    $heroesAndMonstersController = new HeroController(new HeroService());
+    $heroesAndMonstersController = ControllerFactory::heroController();
     $heroesAndMonstersController->loadPage();
 });
 
 // starts the heroes and monsters battle, and shows the events on the heroes and monsters page
 $router->get('/demonstrate', function () {
-    $heroesAndMonstersController = new HeroController(new HeroService());
+    $heroesAndMonstersController = ControllerFactory::heroController();
     $heroesAndMonstersController->demonstrate();
 });
 

@@ -19,18 +19,15 @@ class Controller
     protected Blade $blade;
 
     /**
-     * The views directory.
+     * The views directory. Stores Blade views.
      */
     protected string $views;
 
     /**
-     * The cache directory.
+     * The cache directory for Blade.
      */
     protected string $cache;
 
-    /**
-     * The constructor.
-     */
     public function __construct()
     {
         /**
