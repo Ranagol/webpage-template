@@ -46,6 +46,9 @@ class EventLogger
      */
     public function getEvents(): array
     {
-        return self::$events;
+        $events = self::$events;
+        self::$events = [];
+
+        return $events;
     }
 }
