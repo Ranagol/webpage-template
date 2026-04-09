@@ -14,6 +14,7 @@ if (PHP_SESSION_ACTIVE !== session_status() && (!defined('PHPUNIT_COMPOSER_INSTA
 
 use App\Application;
 
+// No composer autoload, so we need to require the Application class manually, and then we can bootstrap the app.
 require_once __DIR__ . '/../app/Application.php';
 
 Application::bootstrap();

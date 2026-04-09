@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Application;
 use App\Exceptions\DuplicateEmailException;
 use App\Interfaces\RegisterServiceInterface;
 use App\Interfaces\RegisterValidatorInterface;
@@ -28,12 +29,12 @@ class RegisterService implements RegisterServiceInterface
 
     /**
      * Check if the user is already logged in, if yes then redirect him to home page.
-     * The redirect() is my custom function, defined in bootstrap.php.
+     * The Application::redirect() is my custom function, defined in bootstrap.php.
      */
     public function redirectAlreadyLoggedInUser(): void
     {
         if (!empty($_SESSION['loggedin'])) {
-            redirect('/');
+            Application::redirect('/');
         }
     }
 

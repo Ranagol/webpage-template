@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers\AuthControllers;
 
+use App\Application;
 use App\Controllers\Controller;
 use App\Exceptions\DuplicateEmailException;
 use App\Exceptions\ValidationException;
@@ -84,7 +85,7 @@ class RegisterController extends Controller
             $this->registerService->loginUser($user);
 
             // Redirect to home page after successful registration and login
-            redirect('/');
+            Application::redirect('/');
 
         } catch (ValidationException $validationException) {
 

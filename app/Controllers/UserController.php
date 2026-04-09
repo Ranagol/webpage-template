@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Application;
 use App\Models\User;
 use System\request\RequestInterface;
 
@@ -53,7 +54,7 @@ class UserController extends Controller
         $requestDataArray = $request->getAllRequestData();
         User::create($requestDataArray);
 
-        redirect('users');
+        Application::redirect('users');
     }
 
     /**
@@ -65,7 +66,7 @@ class UserController extends Controller
         $data = $request->getAllRequestData();
         $user->update($data);
 
-        redirect('users');
+        Application::redirect('users');
     }
 
     /**
@@ -75,6 +76,6 @@ class UserController extends Controller
     {
         User::destroy($id);
 
-        redirect('users'); // this is a route, not a file
+        Application::redirect('users'); // this is a route, not a file
     }
 }

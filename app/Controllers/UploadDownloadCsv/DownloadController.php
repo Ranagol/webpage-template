@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers\UploadDownloadCsv;
 
+use App\Application;
 use App\Controllers\Controller;
 use System\request\RequestInterface;
 use System\response\downloadResponse\DownloadResponse;
@@ -21,7 +22,7 @@ class DownloadController extends Controller
     {
         if (!isset($_SESSION['username'])) {
             if (!headers_sent()) {
-                redirect('login');
+                Application::redirect('login');
             }
 
             return;

@@ -2,12 +2,6 @@
 
 declare(strict_types=1);
 
-/**
- * A little explanation here: this bootstrap.php file is directly connected with a 'require' to the
- * main index.php. This means, that these functions from bootstrap.php will be available everywhere
- * in the app.
- */
-
 // Here we do Eloquent setup: we use Eloquent the same way is it is used in Laravel
 require __DIR__ . '/../bootstrap/bootEloquent.php';
 
@@ -16,23 +10,6 @@ require __DIR__ . '/../routes/routes.php';
 
 // Here we do dotenv setup
 require __DIR__ . '/../bootstrap/bootDotenv.php';
-
-/**
- * Here we define our redirect() which will be used by controllers, similar to Laravel.
- *
- * @param string $path this is path/page, where we want to redirect our user
- */
-function redirect(string $path): void
-{
-    $path = ltrim($path, '/'); // Remove leading slash if present
-    /*
-     * This is how redirect is done in vanilla php.
-     */
-    header("Location: /{$path}");
-
-    // After sending the header, we need to exit, otherwise the code will continue to execute.
-    exit;
-}
 
 /**
  * Returns a CSRF token and stores it in the current session. This is used on the frontend, to create

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Application;
 use App\Controllers\HeroController;
 use App\Controllers\HomeController;
 use App\Controllers\MvcController;
@@ -42,7 +43,7 @@ $router->before('GET', '/.*', function () {
         $current = $_SERVER['REQUEST_URI'] ?? '';
         if (!in_array($current, $allowed, true)) {
             // redirect to login page
-            redirect('login');
+            Application::redirect('login');
         }
         // If already on an allowed page, do nothing (let the route execute)
     }
@@ -53,7 +54,7 @@ $router->before('GET', '/.*', function () {
  */
 $router->before('POST', '/(upload|download-report)', function () {
     if (!isset($_SESSION['username'])) {
-        redirect('login');
+        Application::redirect('login');
     }
 });
 

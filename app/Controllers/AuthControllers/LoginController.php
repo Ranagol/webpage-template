@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers\AuthControllers;
 
+use App\Application;
 use App\Controllers\Controller;
 use App\Exceptions\CantFindUserException;
 use App\Exceptions\ValidationException;
@@ -76,7 +77,7 @@ class LoginController extends Controller
             }
 
             // If authenticated, redirect to home page
-            redirect('/');
+            Application::redirect('/');
 
         } catch (ValidationException $validationException) {
             $this->view(
@@ -116,6 +117,6 @@ class LoginController extends Controller
         session_destroy();
 
         // Redirect to login page
-        redirect('login');
+        Application::redirect('login');
     }
 }

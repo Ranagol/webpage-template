@@ -33,4 +33,83 @@ class Application
         // Bootstrap helpers, config, routes, etc.Routing is triggered here.
         require_once __DIR__ . '/../bootstrap/bootstrap.php';
     }
+
+    /**
+     * Here we define our redirect() which will be used by controllers, similar to Laravel.
+     *
+     * @param string $path this is path/page, where we want to redirect our user
+     */
+    public static function redirect(string $path): void
+    {
+        $path = ltrim($path, '/'); // Remove leading slash if present
+        /*
+        * This is how redirect is done in vanilla php.
+        */
+        header("Location: /{$path}");
+
+        // After sending the header, we need to exit, otherwise the code will continue to execute.
+        exit;
+    }
+
+    /**
+     * Returns a CSRF token and stores it in the current session. This is used on the frontend, to create
+     * a CSRF token.FRONTEND.
+     */
+    public static function createCsrfToken(): string
+    {
+        // Check is session is started, if not, start it.
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+
+        // Check is there is a csrf token in the session, and if it is a string.
+        if (!isset($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
+
+            // If not, create a new one and store it in the session.
+            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        }
+
+        // Return the csrf token from the session to the frontend
+        return $_SESSION['csrf_token'];
+    }
+
+    /**
+     * BACKEND.
+     */
+    public static function checkCsrfToken(?string $tokenFromFrontend): void
+    {
+        if (!self::validateCsrfToken($tokenFromFrontend)) {
+            if (!headers_sent()) {
+                http_response_code(403);
+            }
+
+            exit('Invalid CSRF token.');
+        }
+    }
+
+    /**
+     * Validates an incoming CSRF token against the one in the current session. This is used on the
+     * backend, in controllers. BACKEND.
+     */
+    public static function validateCsrfToken(?string $tokenFromFrontend): bool
+    {
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+
+        // If the csrf token from frontend is an empty string or null, return false.
+        if ($tokenFromFrontend === '' || $tokenFromFrontend === null) {
+            return false;
+        }
+
+        // If there is no csrf token in the session, or it is not a string, return false.
+        $backendToken = $_SESSION['csrf_token'] ?? null;
+        if (!isset($backendToken) || !is_string($backendToken)) {
+            return false;
+        }
+
+        // Compare the csrf token from the frontend with the one in the session (backend)
+        // Returns TRUE when the two strings are equal, FALSE otherwise.
+        return hash_equals($backendToken, $tokenFromFrontend);
+    }
 }
