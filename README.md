@@ -70,8 +70,8 @@ cd webpage-template && cp .env.example .env
 ### Create/run/enter Docker container
 
 ```bash
-docker-compose up -d --build
-docker-compose exec -it php bash
+docker compose up -d --build
+docker compose exec -it php bash
 ```
 
 ## Then, inside the Docker container:
