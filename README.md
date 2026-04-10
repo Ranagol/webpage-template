@@ -83,6 +83,11 @@ git config --global --add safe.directory /srv/www
 composer install
 composer migrate
 composer seed
+chmod -R 777 cache
+mkdir -p storage/logs
+chmod -R 777 storage/logs
+mkdir -p storage/upload
+chmod -R 777 storage/upload
 ```
 - Now the app is running, and it can be accesed here: http://127.0.0.1:8001/
 - Visit this link. In order to acces the app, you must register yourself. After registration you will have access to the app's functions.
