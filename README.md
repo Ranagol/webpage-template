@@ -64,15 +64,13 @@ The goal was to deeply understand how modern PHP frameworks work internally by r
 ### Setup
 ```bash
 gh repo clone Ranagol/webpage-template
-cd webpage-template
-cp .env.example .env
+cd webpage-template && cp .env.example .env
 ```
 
 ### Create/run/enter Docker container
 
 ```bash
-docker-compose build
-docker-compose up -d
+docker-compose up -d --build
 docker-compose exec -it php bash
 ```
 
@@ -83,11 +81,10 @@ git config --global --add safe.directory /srv/www
 composer install
 composer migrate
 composer seed
-chmod -R 777 cache
-mkdir -p storage/logs
-chmod -R 777 storage/logs
-mkdir -p storage/upload
-chmod -R 777 storage/upload
+chmod -R 755 cache
+mkdir -p storage/logs && chmod -R 755 storage/logs
+mkdir -p storage/upload && chmod -R 755 storage/upload
+chown -R www-data:www-data cache storage/logs storage/upload
 ```
 - Now the app is running, and it can be accesed here: http://127.0.0.1:8001/
 - Visit this link. In order to acces the app, you must register yourself. After registration you will have access to the app's functions.
