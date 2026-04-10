@@ -10,15 +10,20 @@ declare(strict_types=1);
  * autoloader and the bootstrap.php. Triggering the bootstrap will automatically trigger the Eloquent
  * and the dotenv.
  */
-require __DIR__ . '/../../vendor/autoload.php';
-require __DIR__ . '/../../bootstrap/bootstrap.php';
+use App\Application;
+
+// No composer autoload, so we need to require the Application class manually, and then we can bootstrap the app.
+require_once __DIR__ . '/../../app/Application.php';
+
+// Starts autoload, Eloquent, dotenv, and routes setup.
+Application::bootstrap();
 
 use App\Models\User;
 
 /*
  * USER SEEDER
  *
- * Seed the users table. For simplicity, we use the email for all the user fields. The data is pulled
+ * Seeds the users table. For simplicity, we use the email for all the user fields. The data is pulled
  * from the .env file.
  */
 User::create([
@@ -37,4 +42,4 @@ User::create([
     'password' => password_hash($_ENV['USER_EMAIL_2'], PASSWORD_DEFAULT),
 ]);
 
-echo 'Users table seeded!' . PHP_EOL;
+echo "\033[42;30mUsers seeding was successful.\033[0m" . PHP_EOL;

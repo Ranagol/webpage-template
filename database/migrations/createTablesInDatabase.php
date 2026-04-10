@@ -10,8 +10,13 @@ declare(strict_types=1);
  * autoloader and the bootstrap.php. Triggering the bootstrap will automatically trigger the Eloquent
  * and the dotenv.
  */
-require __DIR__ . '/../../vendor/autoload.php';
-require __DIR__ . '/../../bootstrap/bootstrap.php';
+use App\Application;
+
+// No composer autoload, so we need to require the Application class manually, and then we can bootstrap the app.
+require_once __DIR__ . '/../../app/Application.php';
+
+// Starts autoload, Eloquent, dotenv, and routes setup.
+Application::bootstrap();
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
@@ -29,4 +34,5 @@ Capsule::schema()->create('users', function ($table) {
     $table->timestamps();
 });
 
-echo 'Users migration was successfull' . PHP_EOL;
+// Print with green background and black text
+echo "\033[42;30mUsers migration was successful.\033[0m" . PHP_EOL;

@@ -34,7 +34,6 @@ The goal was to deeply understand how modern PHP frameworks work internally by r
 
 ## 🧩 Interesting Implementation Details
 
-- Custom middleware system using `$_SESSION`
 - Blade templating engine integrated, it can be uses similarly as in Laravel
 - CSV processing engine that aggregates cost data by category
 - Centralized exception handling with logging via a base exception class
@@ -63,40 +62,36 @@ The goal was to deeply understand how modern PHP frameworks work internally by r
 - Docker installed
 
 ### Setup
+```bash
+gh repo clone Ranagol/webpage-template
+cd webpage-template
+cp .env.example .env
+```
+
+### Create/run/enter Docker container
 
 ```bash
 docker-compose build
-docker-compose up
+docker-compose up -d
 docker-compose exec -it php bash
 ```
 
-Inside the container:
+## Then, inside the Docker container:
 
 ```bash
+git config --global --add safe.directory /srv/www
 composer install
 composer migrate
 composer seed
 ```
+- Now the app is running, and it can be accesed here: http://127.0.0.1:8001/
+- Visit this link. In order to acces the app, you must register yourself. After registration you will have access to the app's functions.
 
-
----
-
-## 📂 Project Structure (Simplified)
-
-```
-app/
-  controllers/
-  models/
-  views/
-routes/
-storage/
-public/
-```
 
 ---
 
 ## 📌 Notes
 
-This project is intended as a learning and portfolio project, showcasing backend development skills and architectural understanding.
-Controllers are instantiated per route using factories for simplicity. This project intentionally 
+- This project is intended as a learning and portfolio project, showcasing backend development skills and architectural understanding.
+- Controllers are instantiated per route using factories for simplicity. This project intentionally 
 avoids a DI container to keep the architecture transparent and framework-independent.
