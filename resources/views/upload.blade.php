@@ -20,7 +20,7 @@
 <section class="upload-task-brief feature-card mt-4" aria-labelledby="claromentis-task-title">
     <h2 id="claromentis-task-title">Challenge description</h2>
 
-    <div class="upload-task-copy">
+    <div>
         <p style="text-align:justify; color: var(--text-soft);">
             The task is to run some calculations and display results based on data from an uploaded CSV file.
             CSV stands for comma separated values - a format supported by Excel or any other spreadsheets software.
@@ -32,7 +32,7 @@
         </p>
 
         <h3>File format</h3>
-        <p class="upload-task-list" style="color: var(--text-soft);">
+        <p style="color: var(--text-soft);">
             The expected source file does not have any headers, and contains the following three columns:
         </p>
         <ul class="upload-task-list">
