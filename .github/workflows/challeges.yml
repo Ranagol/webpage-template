@@ -161,7 +161,8 @@ jobs:
                       docker compose exec -T php git config --global --add safe.directory /srv/www || true
                       echo "Install dependencies"
                       docker compose exec -T php sh -lc 'XDEBUG_MODE=off composer install --no-interaction --prefer-dist --optimize-autoloader'
-                      echo "Fix permissions"
-                      find cache -type d -exec chmod 775 {} + || true
-                      find cache -type f -exec chmod 664 {} + || true
+                      echo "Fix permissions and ownership"
+                      docker compose exec -T php chown -R www-data:www-data cache storage
+                      docker compose exec -T php chmod -R 755 cache
+                      docker compose exec -T php chmod -R 755 storage
        
