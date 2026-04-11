@@ -70,8 +70,7 @@ cd webpage-template && cp .env.example .env
 ### Create/run/enter Docker container
 
 ```bash
-docker compose up -d --build
-docker compose exec -it php bash
+docker compose up -d --build && docker compose exec -it php bash
 ```
 
 ## Then, inside the Docker container:
@@ -81,9 +80,6 @@ git config --global --add safe.directory /srv/www
 composer install
 composer migrate
 composer seed
-chmod -R 755 cache
-mkdir -p storage/logs && chmod -R 755 storage/logs
-mkdir -p storage/upload && chmod -R 755 storage/upload
 chown -R www-data:www-data cache storage/logs storage/upload
 ```
 - Now the app is running, and it can be accesed here: http://127.0.0.1:8001/
