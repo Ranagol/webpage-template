@@ -7,6 +7,9 @@
 !/storage/upload/
 /storage/upload/**
 !/storage/upload/.gitkeep
+!/storage/logs/
+/storage/logs/**
+!/storage/logs/.gitkeep
 /storage/logs/myLogs.txt
 /cache/*
 !/cache/.gitkeep
