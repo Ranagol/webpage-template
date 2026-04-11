@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Exceptions;
 
 use App\Logger\Logger;
-use Exception;
 
 /**
  * This class is the parent of all exceptions in this app.

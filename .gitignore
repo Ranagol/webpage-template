@@ -3,16 +3,27 @@
 .vscode
 .idea
 .phpunit.cache
+
+# Ignore everything in the /storage directory
 /storage/*
+# do NOT ignore the /storage/upload/ directory itself
 !/storage/upload/
+# ignore everything inside /storage/upload/ (all files and subdirectories recursively)
 /storage/upload/**
+# Exception: do NOT ignore the .gitkeep file
 !/storage/upload/.gitkeep
+
 !/storage/logs/
 /storage/logs/**
 !/storage/logs/.gitkeep
 /storage/logs/myLogs.txt
+
+# Ignore all in the cache folder...
 /cache/*
+# ...except the .gitkeep file, which is used to keep the folder in git
 !/cache/.gitkeep
+
 .php-cs-fixer.cache
+
 /public/cache/*
 !/public/cache/.gitkeep
